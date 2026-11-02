@@ -946,6 +946,15 @@
     root.add(tufts);
 
     /* -------- 广场铺装 / 道路 -------- */
+    // Fusion export: twin shells, entrance platform, pools and slopes only.
+    // The existing standalone path below remains unchanged.
+    if (opts.precinctOnly === true) {
+      root.name = "operahouse-precinct";
+      return { root: root, materials: materials, hotspots: [],
+        glassUniforms: glassUniforms, waterUniforms: waterUniforms, baseUniforms: baseUniforms,
+        bounds: new THREE.Box3(new THREE.Vector3(-140, 0, -150), new THREE.Vector3(140, 55, 140)) };
+    }
+
     var plazaGeo = new THREE.PlaneGeometry(620, 460, 1, 1);
     plazaGeo.rotateX(-Math.PI / 2);
     (function () {
