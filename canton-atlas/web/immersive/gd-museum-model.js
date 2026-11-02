@@ -730,6 +730,16 @@
     glowMesh.renderOrder = 2;
     root.add(glowMesh);
 
+    // Fusion experiment: export the building only, without duplicate ground/city.
+    // Existing standalone scenes retain the original build path.
+    if (opts.assetOnly === true) {
+      root.name = "gd-museum-building";
+      return {
+        root: root, materials: materials, hotspots: [],
+        bounds: new THREE.Box3(new THREE.Vector3(-HALF, 0, -HALF), new THREE.Vector3(HALF, Y1, HALF))
+      };
+    }
+
     var groundB = new Bucket();
     groundB.face([[-350, 0, -350], [350, 0, -350], [350, 0, 350], [-350, 0, 350]], [0, 1, 0], [[0, 0], [116, 0], [116, 116], [0, 116]]);
     var ground = groundB.mesh(pavingMat, true);
