@@ -96,7 +96,7 @@
     clearTimeout(unloadTimer);
     desiredDetail=value;
     if(!value){detailVisible=false;if(detail)detail.visible=false;coarse.visible=true;ui.details.hidden=true;unloadTimer=setTimeout(disposeDetail,15000);return;}
-    ensureDetail().then(function(){if(!desiredDetail)return;detail.visible=true;coarse.visible=false;detailVisible=true;ui.details.hidden=false;}).catch(function(){});
+    ensureDetail().then(function(){if(!desiredDetail)return;detail.visible=true;coarse.visible=false;detailVisible=true;ui.details.hidden=false;if(window.FusionPoi)window.FusionPoi.activate();}).catch(function(){});
   }
   var views={
     overview:{target:new THREE.Vector3(-210,0,-50),radius:1850,theta:-.65,phi:.86},
@@ -112,7 +112,7 @@
   function release(event){if(event.type==='pointerup'&&dragStart&&!dragStart.moved&&pointer.size===1){raycaster.setFromCamera(new THREE.Vector2(event.clientX/innerWidth*2-1,1-event.clientY/innerHeight*2),camera);if(raycaster.intersectObject(detailVisible&&detail?detail:coarse,true).length)go('museum');}pointer.delete(event.pointerId);pinch=null;dragStart=null;}
   ui.map.addEventListener('pointerup',release);ui.map.addEventListener('pointercancel',release);
   ui.map.addEventListener('wheel',function(event){event.preventDefault();end();radius=THREE.MathUtils.clamp(radius*Math.exp(event.deltaY*.001),90,4300);},{passive:false});
-  document.addEventListener('keydown',function(event){if(event.target.tagName==='BUTTON'||event.target.tagName==='A')return;var used=true;switch(event.key){case'ArrowLeft':theta-=.08;break;case'ArrowRight':theta+=.08;break;case'ArrowUp':phi=Math.max(.2,phi-.06);break;case'ArrowDown':phi=Math.min(1.48,phi+.06);break;case'+':case'=':radius=Math.max(90,radius*.9);break;case'-':radius=Math.min(4300,radius*1.1);break;default:used=false;}if(used){end();event.preventDefault();}});
+  document.addEventListener('keydown',function(event){if(event.target.tagName==='BUTTON'||event.target.tagName==='A'||event.target.closest('aside'))return;var used=true;switch(event.key){case'ArrowLeft':theta-=.08;break;case'ArrowRight':theta+=.08;break;case'ArrowUp':phi=Math.max(.2,phi-.06);break;case'ArrowDown':phi=Math.min(1.48,phi+.06);break;case'+':case'=':radius=Math.max(90,radius*.9);break;case'-':radius=Math.min(4300,radius*1.1);break;default:used=false;}if(used){end();event.preventDefault();}});
   function resize(){camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight,false);}addEventListener('resize',resize);resize();pose();
   function animate(now){requestAnimationFrame(animate);frames++;if(now-fpsAt>1000){fps=Math.round(frames*1000/(now-fpsAt));frames=0;fpsAt=now;}
     if(tween){var p=tween.duration===0?1:Math.min(1,(now-tween.at)/tween.duration);p=p*p*(3-2*p);target.copy(tween.from.target).lerp(tween.to.target,p);radius=Math.exp(THREE.MathUtils.lerp(Math.log(tween.from.radius),Math.log(tween.to.radius),p));theta=THREE.MathUtils.lerp(tween.from.theta,tween.to.theta,p);phi=THREE.MathUtils.lerp(tween.from.phi,tween.to.phi,p);if(p>=1)tween=null;}
