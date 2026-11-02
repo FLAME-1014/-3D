@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>白云山 · 摩星岭 | CANTON ATLAS 近景</title>
+<meta name="description" content="白云山摩星岭登顶段 1:1 近景 3D：吉星石、锦绣南天牌坊、2024 栈道与扶梯、382 米山顶平台、星形指北碑与锁爱台，南望珠江与广州城市天际线；云海晨曦/晴日/夜览三档。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%234f6b4f'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23f2ede2' font-family='serif'%3E%E4%BA%91%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="baiyun.css">
+</head>
+<body class="intro-active">
+<div id="app">
+  <canvas id="scene" aria-label="白云山摩星岭 1:1 实时 3D 近景：门岗、吉星石、锦绣南天牌坊、栈道与扶梯、382 米山顶平台与城市远景"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">云</span>
+      <span class="brand-text">
+        <strong>白云山 · 摩星岭</strong>
+        <small>BAIYUN MOUNTAIN · MOXINGLING · 1:1 近景</small>
+      </span>
+    </div>
+    <p class="scene-label">羊城第一秀 · 382 米的城市高点</p>
+    <div class="top-actions">
+      <button id="timeBtn" type="button" aria-pressed="false">云海晨曦</button>
+      <button id="replayBtn" type="button">重播运镜</button>
+      <button id="shotBtn" type="button">4K 截图</button>
+      <button id="aboutBtn" type="button">考据</button>
+      <button id="cityBtn" type="button" hidden>城市全景 ↗</button>
+    </div>
+  </header>
+
+  <div class="stamp-strip" aria-hidden="true">
+    <span>主峰 382 m</span>
+    <span>吉星石 6 × 4 m</span>
+    <span>栈道 150 m + 扶梯 60 m</span>
+    <span>抬升 26 m · 1900 km 北京</span>
+  </div>
+
+  <div class="hotspots" id="hotspots" aria-label="摩星岭细部热点"></div>
+
+  <aside class="info-card" id="infoCard" role="dialog" aria-modal="false" aria-labelledby="infoTitle" aria-hidden="true">
+    <button class="info-close" id="infoClose" type="button" aria-label="关闭细部介绍">×</button>
+    <p class="kicker" id="infoKicker">摩星岭 · 01</p>
+    <h2 id="infoTitle">吉星石</h2>
+    <p class="info-lede" id="infoLede"></p>
+    <div class="info-facts" id="infoFacts"></div>
+    <p class="info-detail" id="infoDetail"></p>
+    <div class="info-actions">
+      <button class="primary small" id="focusCraftBtn" type="button">带我去看</button>
+      <button class="ghost small" id="nextCraftBtn" type="button">下一读 →</button>
+    </div>
+  </aside>
+
+  <nav class="view-rail" id="viewRail" aria-label="视角">
+    <button type="button" data-view="gate" class="active">门岗</button>
+    <button type="button" data-view="paifang">牌坊</button>
+    <button type="button" data-view="escalator">扶梯</button>
+    <button type="button" data-view="platform">平台</button>
+    <button type="button" data-view="pavilion">亭</button>
+    <button type="button" data-view="city">城市</button>
+    <button type="button" data-view="cloudsea">云海</button>
+  </nav>
+
+  <footer class="hud-bottom">
+    <div class="progress-block">
+      <p class="chapter" id="chapter">01 / 门岗 · 吉星石</p>
+      <div class="progress" role="progressbar" aria-label="运镜进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+    </div>
+    <p class="hint" id="hint">拖动环绕 · 滚轮缩放 · 双击复位</p>
+    <p class="scale-note">1 场景单位 = 1 米 · 登顶段示意复原 · 城市远景为压缩示意</p>
+  </footer>
+
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">CANTON ATLAS · 近景档案 03</p>
+      <h1><span class="intro-name">白云山 · 摩星岭</span><em>382 米的城市高点</em></h1>
+      <p class="intro-lede">
+        白云山 21.8 平方公里、三十多座山峰，主峰摩星岭 382 米。
+        从门岗与吉星石起，经锦绣南天牌坊或 150 米栈道 + 60 米扶梯，
+        登顶约 188 ㎡ 的观景平台；向南是珠江与广州城市天际线。
+      </p>
+      <div class="intro-actions">
+        <button class="primary" id="startBtn" type="button">进入近景</button>
+        <button class="ghost" id="skipIntroBtn" type="button">自由探索</button>
+      </div>
+      <p class="intro-note">实时 3D · 云海/晴日/夜览 · 支持 4K 截图 · 移动端自动降级</p>
+    </div>
+    <div class="intro-meta" aria-hidden="true">
+      <span>382 m</span>
+      <span>6 × 4 m 吉星石</span>
+      <span>150 + 60 m</span>
+      <span>1900 km · 北京</span>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <span class="loading-mark">云</span>
+    <p>正在起山、铺石阶…</p>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>这个浏览器没有启用 WebGL</h2>
+    <p>近景 3D 需要 WebGL。请换用桌面版 Chrome / Edge，或在设置里开启硬件加速后重试。</p>
+  </div>
+
+  <section class="about-panel" id="aboutPanel" hidden aria-labelledby="aboutTitle">
+    <div class="about-sheet">
+      <button class="about-close" id="aboutClose" type="button" aria-label="关闭考据">×</button>
+      <p class="kicker">SOURCES &amp; SCALE</p>
+      <h2 id="aboutTitle">这版依据什么复原</h2>
+      <div class="about-grid">
+        <div>
+          <h3>尺度</h3>
+          <p>白云山约 21.8 平方公里、三十多座山峰，主峰摩星岭 382 米；吉星石门岗约 100 米，塑石高 6 米、宽 4 米。山顶平台按约 188 ㎡（公开游记口径）做 15 × 13 米示意复原，不作为测绘依据。</p>
+        </div>
+        <div>
+          <h3>路径</h3>
+          <p>登顶段按“门岗 → 吉星石 → 石级/锦绣南天牌坊，或 150 米栈道 + 两段 60 米扶梯（垂直抬升 26 米）→ 山顶平台”组织。牌坊位置在不同游记中有差异，本场景把它放在石级中上段；山顶亭统一称“山顶观景亭”，不强行对应“摘斗亭”。</p>
+        </div>
+        <div>
+          <h3>取舍</h3>
+          <p>白云索道终点在山顶广场，离摩星岭还有约 2 公里，不画到山顶。城市与珠江为示意压缩：广州塔、东西塔、中信等按公开高度的量级摆放，水平距离缩短并加雾，不是导航或测绘用图。石级、栈道、扶梯与植被为程序化复原。</p>
+        </div>
+        <div>
+          <h3>资料</h3>
+          <p><a href="https://m.sohu.com/a/1075990926_121106875/" target="_blank" rel="noreferrer">搜狐《登顶摩星岭》</a>；<a href="https://wapbaike.baidu.com/view/2153.htm" target="_blank" rel="noreferrer">百度百科·广州市白云山景区</a>；<a href="https://m.meipian.cn/5f52m1a4" target="_blank" rel="noreferrer">栈道/扶梯游记</a>；<a href="https://www.8264.com/youji/5766068.html" target="_blank" rel="noreferrer">白云山索道游记</a>。开放时间、扶梯运行与门票以景区公告为准。</p>
+        </div>
+      </div>
+      <p class="about-foot">CANTON ATLAS · 近景档案 03 · 2026</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="baiyun-textures.js"></script>
+<script src="baiyun-model.js"></script>
+<script src="baiyun-main.js"></script>
+</body>
+</html>

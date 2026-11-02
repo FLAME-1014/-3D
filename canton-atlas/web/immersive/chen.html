@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>陈家祠 · 屋脊上的戏台 | CANTON ATLAS 近景</title>
+<meta name="description" content="陈家祠 1:1 近景 3D：三进三路九堂两厢杪、聚贤堂 27 米陶塑瓦脊、砖雕木雕石雕、晨午夜三时与 4K 导出。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%238a2f22'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23f5ead6' font-family='serif'%3E%E9%99%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="chen.css">
+</head>
+<body class="intro-active">
+<div id="app">
+  <canvas id="scene" aria-label="陈家祠 1:1 实时 3D 近景：正门、前院、聚贤堂、月台与陶塑瓦脊"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">陈</span>
+      <span class="brand-text">
+        <strong>陈氏书院</strong>
+        <small>CHEN CLAN ANCESTRAL HALL · 1:1 近景</small>
+      </span>
+    </div>
+    <p class="scene-label">岭南七绝 · 屋脊上的戏台</p>
+    <div class="top-actions">
+      <button id="timeBtn" type="button" aria-pressed="false">晨光</button>
+      <button id="replayBtn" type="button">重播运镜</button>
+      <button id="shotBtn" type="button">4K 截图</button>
+      <button id="aboutBtn" type="button">考据</button>
+      <button id="cityBtn" type="button" hidden>城市全景 ↗</button>
+    </div>
+  </header>
+
+  <div class="stamp-strip" aria-hidden="true">
+    <span>80 × 80 m 主体</span>
+    <span>三进三路九堂两厢杪</span>
+    <span>19 座建筑 · 6 院</span>
+    <span>11 条石湾陶塑瓦脊</span>
+  </div>
+
+  <div class="hotspots" id="hotspots" aria-label="建筑工艺热点"></div>
+
+  <aside class="info-card" id="infoCard" role="dialog" aria-modal="false" aria-labelledby="infoTitle" aria-hidden="true">
+    <button class="info-close" id="infoClose" type="button" aria-label="关闭工艺介绍">×</button>
+    <p class="kicker" id="infoKicker">岭南七绝 · 01</p>
+    <h2 id="infoTitle">砖雕</h2>
+    <p class="info-lede" id="infoLede"></p>
+    <div class="info-facts" id="infoFacts"></div>
+    <p class="info-detail" id="infoDetail"></p>
+    <div class="info-actions">
+      <button class="primary small" id="focusCraftBtn" type="button">带我去看</button>
+      <button class="ghost small" id="nextCraftBtn" type="button">下一绝 →</button>
+    </div>
+  </aside>
+
+  <nav class="view-rail" id="viewRail" aria-label="视角">
+    <button type="button" data-view="gate" class="active">正门</button>
+    <button type="button" data-view="ridge">屋脊</button>
+    <button type="button" data-view="terrace">月台</button>
+    <button type="button" data-view="hall">聚贤堂</button>
+    <button type="button" data-view="rear">后座</button>
+    <button type="button" data-view="alley">青云巷</button>
+    <button type="button" data-view="aerial">鸟瞰</button>
+  </nav>
+
+  <footer class="hud-bottom">
+    <div class="progress-block">
+      <p class="chapter" id="chapter">01 / 序章 · 城市里的书院</p>
+      <div class="progress" role="progressbar" aria-label="运镜进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+    </div>
+    <p class="hint" id="hint">拖动环绕 · 滚轮缩放 · 双击复位</p>
+    <p class="scale-note">1 场景单位 = 1 米 · 依据公开测绘与文献复原</p>
+  </footer>
+
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">CANTON ATLAS · 近景档案 01</p>
+      <h1>陈家祠<br><em>屋脊上的戏台</em></h1>
+      <p class="intro-lede">
+        1894 年落成的合族祠，80 米见方，三进三路九堂两厢杪。
+        这一次不再用几个盒子概括它：27 米长的陶塑瓦脊、224 个人物、
+        6 幅砖雕、12 扇木雕屏门、嵌铁铸的石栏板，都按公开尺度放回原位。
+      </p>
+      <div class="intro-actions">
+        <button class="primary" id="startBtn" type="button">进入近景</button>
+        <button class="ghost" id="skipIntroBtn" type="button">自由探索</button>
+      </div>
+      <p class="intro-note">实时 3D · 拖动可停 · 支持 4K 截图 · 移动端自动降级</p>
+    </div>
+    <div class="intro-meta" aria-hidden="true">
+      <span>80 × 80 m</span>
+      <span>聚贤堂脊 27 m</span>
+      <span>门神 4 m</span>
+      <span>石鼓 2.55 m</span>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <span class="loading-mark">陈</span>
+    <p>正在铺青砖、烧瓦脊…</p>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>这个浏览器没有启用 WebGL</h2>
+    <p>近景 3D 需要 WebGL。请换用桌面版 Chrome / Edge，或在设置里开启硬件加速后重试。</p>
+  </div>
+
+  <section class="about-panel" id="aboutPanel" hidden aria-labelledby="aboutTitle">
+    <div class="about-sheet">
+      <button class="about-close" id="aboutClose" type="button" aria-label="关闭考据">×</button>
+      <p class="kicker">SOURCES &amp; SCALE</p>
+      <h2 id="aboutTitle">这版依据什么复原</h2>
+      <div class="about-grid">
+        <div>
+          <h3>尺度</h3>
+          <p>主体面宽、纵深均约 80 m；头门面阔五间 27 m、进深三间 12.75 m；聚贤堂面阔五间 27.84 m、进深 16.7 m；后进正厅 27 × 16.4 m。</p>
+        </div>
+        <div>
+          <h3>七绝</h3>
+          <p>砖雕 6 幅（最大约 4.8 m）、木雕屏门与龛罩、石雕月台与石鼓、11 条石湾陶塑瓦脊、灰塑 1800 余米、铁铸通花栏板、4 m 彩绘门神。</p>
+        </div>
+        <div>
+          <h3>取舍</h3>
+          <p>材质为程序化重绘，纹样按实景题材与构图重建，不对应某一帧照片；屋脊人物为写意群像，重点还原“整条脊是一台戏”的密度与色彩。</p>
+        </div>
+        <div>
+          <h3>资料</h3>
+          <p>广东民间工艺博物馆 / 陈家祠公开介绍、广州市文旅公开资料、公开测绘与游记中的尺度记录。场景为演示级复原，不作为修缮或测绘依据。</p>
+        </div>
+      </div>
+      <p class="about-foot">CANTON ATLAS · 近景档案 01 · 2026</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="chen-textures.js"></script>
+<script src="chen-model.js"></script>
+<script src="chen-main.js"></script>
+</body>
+</html>

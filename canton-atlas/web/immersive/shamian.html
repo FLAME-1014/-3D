@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>沙面 · 大街一段 | CANTON ATLAS 近景</title>
+<meta name="description" content="沙面大街一段 1:1 近景 3D：露德圣母堂、16–20 号券廊住宅、48 号旗昌洋行、街心花园与古榕；晨光/晴日/暮色三档，6 个视点。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%236f7f5d'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23f2ecdd' font-family='serif'%3E%E6%B2%99%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="shamian.css">
+</head>
+<body class="intro-active">
+<div id="app">
+  <canvas id="scene" aria-label="沙面大街一段 1:1 实时 3D 近景：露德圣母堂、券廊住宅、48 号旗昌洋行、街心花园与古榕"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">沙</span>
+      <span class="brand-text">
+        <strong>沙面 · 大街一段</strong>
+        <small>SHAMIAN · SHAMIAN DAJIE · 1:1 近景</small>
+      </span>
+    </div>
+    <p class="scene-label">0.3 km² 江心岛 · 券廊与榕荫</p>
+    <div class="top-actions">
+      <button id="timeBtn" type="button" aria-pressed="false">晨光</button>
+      <button id="replayBtn" type="button">重播运镜</button>
+      <button id="shotBtn" type="button">4K 截图</button>
+      <button id="aboutBtn" type="button">考据</button>
+      <button id="cityBtn" type="button" hidden>城市全景 ↗</button>
+    </div>
+  </header>
+
+  <div class="stamp-strip" aria-hidden="true">
+    <span>大街 12.9 m</span>
+    <span>露德 1890</span>
+    <span>旗昌 48 号</span>
+    <span>百年古榕</span>
+  </div>
+
+  <div class="hotspots" id="hotspots" aria-label="沙面大街细部热点"></div>
+
+  <aside class="info-card" id="infoCard" role="dialog" aria-modal="false" aria-labelledby="infoTitle" aria-hidden="true">
+    <button class="info-close" id="infoClose" type="button" aria-label="关闭细部介绍">×</button>
+    <p class="kicker" id="infoKicker">沙面 · 01</p>
+    <h2 id="infoTitle">露德圣母堂</h2>
+    <p class="info-lede" id="infoLede"></p>
+    <div class="info-facts" id="infoFacts"></div>
+    <p class="info-detail" id="infoDetail"></p>
+    <div class="info-actions">
+      <button class="primary small" id="focusCraftBtn" type="button">带我去看</button>
+      <button class="ghost small" id="nextCraftBtn" type="button">下一读 →</button>
+    </div>
+  </aside>
+
+  <nav class="view-rail" id="viewRail" aria-label="视角">
+    <button type="button" data-view="lourdes" class="active">露德</button>
+    <button type="button" data-view="garden">花园</button>
+    <button type="button" data-view="arcade">券廊</button>
+    <button type="button" data-view="green">古榕</button>
+    <button type="button" data-view="qichang">旗昌</button>
+    <button type="button" data-view="avenue">大街</button>
+  </nav>
+
+  <footer class="hud-bottom">
+    <div class="progress-block">
+      <p class="chapter" id="chapter">01 / 露德圣母堂</p>
+      <div class="progress" role="progressbar" aria-label="运镜进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+    </div>
+    <p class="hint" id="hint">拖动环绕 · 滚轮缩放 · 双击复位</p>
+    <p class="scale-note">1 场景单位 = 1 米 · 街区与花园示意复原 · 未测绘</p>
+  </footer>
+
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">CANTON ATLAS · 近景档案 04</p>
+      <h1><span class="intro-name">沙面 · 大街一段</span><em>券廊、榕荫与尖塔</em></h1>
+      <p class="intro-lede">
+        从露德圣母堂（大街 14 号）出发，沿 16–20 号两层券廊住宅向西，
+        穿过街心花园与古榕，收在 48 号旗昌洋行的连续拱廊转角。
+        约 170 米的示范段，把沙面最日常的街道断面留在眼前。
+      </p>
+      <div class="intro-actions">
+        <button class="primary" id="startBtn" type="button">进入近景</button>
+        <button class="ghost" id="skipIntroBtn" type="button">自由探索</button>
+      </div>
+      <p class="intro-note">实时 3D · 晨光/晴日/暮色 · 6 视点 · 4K · 移动端自动降级</p>
+    </div>
+    <div class="intro-meta" aria-hidden="true">
+      <span>约 170 m 示范段</span>
+      <span>1890 · 露德</span>
+      <span>48 号 · 旗昌</span>
+      <span>12.9 m 大街</span>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <span class="loading-mark">沙</span>
+    <p>正在铺石、起券廊…</p>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>这个浏览器没有启用 WebGL</h2>
+    <p>近景 3D 需要 WebGL。请换用桌面版 Chrome / Edge，或在设置里开启硬件加速后重试。</p>
+  </div>
+
+  <section class="about-panel" id="aboutPanel" hidden aria-labelledby="aboutTitle">
+    <div class="about-sheet">
+      <button class="about-close" id="aboutClose" type="button" aria-label="关闭考据">×</button>
+      <p class="kicker">SOURCES &amp; SCALE</p>
+      <h2 id="aboutTitle">这版依据什么复原</h2>
+      <div class="about-grid">
+        <div>
+          <h3>尺度</h3>
+          <p>沙面约 0.3 km²，东西约 862 m、南北约 287 m；沙面大街全长 846 m、宽 12.9 m，街心是连续的街心花园。本场景取约 170 m 的示范段，按 1 场景单位 = 1 米组织，不是测绘成果。</p>
+        </div>
+        <div>
+          <h3>范围</h3>
+          <p>一期 C：露德圣母堂（大街 14 号，外观 + 花园/圣母山）→ 16–20 号两层券廊住宅 → 48 号旗昌洋行 → 大街街心花园/古榕。不含沙面公园、白鹅潭江岸与白天鹅宾馆 1:1；南侧江面与城市、北侧沙基涌只作远景剪影。</p>
+        </div>
+        <div>
+          <h3>取舍</h3>
+          <p>露德圣母堂尖塔高度公开资料未给出，本场景按照片比例约 23–24.5 m 示意；圣母山与花园具体尺寸未测绘，按约 20 × 21 m 组织。旗昌洋行屋顶与内部未建模；南侧三组立面不指认具体门牌，只作街景围合。暮色路灯与窗光为“照明示意”。</p>
+        </div>
+        <div>
+          <h3>资料</h3>
+          <p><a href="https://www.gz.gov.cn/zwfw/zxfw/gysy/content/post_10975023.html" target="_blank" rel="noreferrer">广州市政府·沙面保护活化公示</a>；<a href="https://bkso.baidu.com/item/%E6%B2%99%E9%9D%A2%E5%A4%A7%E8%A1%97/0" target="_blank" rel="noreferrer">百度百科·沙面大街</a>；<a href="https://baike.baidu.com/item/%E5%B9%BF%E5%B7%9E%E6%B2%99%E9%9D%A2%E5%BB%BA%E7%AD%91%E7%BE%A4/0" target="_blank" rel="noreferrer">广州沙面建筑群</a>；<a href="https://baike.quark.cn/baike?id=7f65b412840442bf9f9d3dc60f38ad34" target="_blank" rel="noreferrer">露德天主教圣母堂</a>。完整核对见项目研究文档。</p>
+        </div>
+      </div>
+      <p class="about-foot">CANTON ATLAS · 近景档案 04 · 2026 · 一期 C · 二期可向南扩江岸</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="shamian-textures.js"></script>
+<script src="shamian-model.js"></script>
+<script src="shamian-main.js"></script>
+</body>
+</html>

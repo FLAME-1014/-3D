@@ -1,0 +1,7 @@
+.local/
+node_modules/
+.preview/
+*.log
+canton-atlas/dist/
+.env
+.env.*

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>永庆坊 · 恩宁路 | CANTON ATLAS 近景</title>
+<meta name="description" content="永庆坊 · 恩宁路核心段 1:1 近景 3D：恩宁路 97/99 门楼、永庆大街、李小龙祖居、銮舆堂、粤剧艺术博物馆南岸广福台/晚沙湖、月亮桥/荔枝湾涌、八和会馆与恩宁路骑楼；晴日/黄昏/夜览三档。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%237a3f2e'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23f4e7cf' font-family='serif'%3E%E6%B0%B8%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="yongqingfang.css">
+</head>
+<body class="intro-active">
+<div id="app">
+  <canvas id="scene" aria-label="永庆坊恩宁路 1:1 实时 3D 近景：门楼、永庆大街、李小龙祖居、粤剧艺术博物馆广福台、月亮桥、八和会馆与恩宁路骑楼"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">永</span>
+      <span class="brand-text">
+        <strong>永庆坊 · 恩宁路</strong>
+        <small>YONGQING FANG · ENNING ROAD · 1:1 近景</small>
+      </span>
+    </div>
+    <p class="scene-label">西关骑楼 · 麻石巷 · 粤剧与水岸</p>
+    <div class="top-actions">
+      <button id="timeBtn" type="button" aria-pressed="false">晴日</button>
+      <button id="replayBtn" type="button">重播运镜</button>
+      <button id="shotBtn" type="button">4K 截图</button>
+      <button id="aboutBtn" type="button">考据</button>
+      <button id="cityBtn" type="button" hidden>城市全景 ↗</button>
+    </div>
+  </header>
+
+  <div class="stamp-strip" aria-hidden="true">
+    <span>恩宁路 1115 m</span>
+    <span>骑楼廊道 3 m</span>
+    <span>永庆坊一期 8000 ㎡</span>
+    <span>粤博 1.72 万 ㎡</span>
+  </div>
+
+  <div class="hotspots" id="hotspots" aria-label="永庆坊细部热点"></div>
+
+  <aside class="info-card" id="infoCard" role="dialog" aria-modal="false" aria-labelledby="infoTitle" aria-hidden="true">
+    <button class="info-close" id="infoClose" type="button" aria-label="关闭细部介绍">×</button>
+    <p class="kicker" id="infoKicker">永庆坊 · 01</p>
+    <h2 id="infoTitle">门楼</h2>
+    <p class="info-lede" id="infoLede"></p>
+    <div class="info-facts" id="infoFacts"></div>
+    <p class="info-detail" id="infoDetail"></p>
+    <div class="info-actions">
+      <button class="primary small" id="focusCraftBtn" type="button">带我去看</button>
+      <button class="ghost small" id="nextCraftBtn" type="button">下一读 →</button>
+    </div>
+  </aside>
+
+  <nav class="view-rail" id="viewRail" aria-label="视角">
+    <button type="button" data-view="gate" class="active">门楼</button>
+    <button type="button" data-view="lane">主巷</button>
+    <button type="button" data-view="opera">广福台</button>
+    <button type="button" data-view="water">月亮桥</button>
+    <button type="button" data-view="bahe">八和</button>
+    <button type="button" data-view="arcade">骑楼</button>
+    <button type="button" data-view="plaza">古树</button>
+  </nav>
+
+  <footer class="hud-bottom">
+    <div class="progress-block">
+      <p class="chapter" id="chapter">01 / 门楼 · 永庆坊入口</p>
+      <div class="progress" role="progressbar" aria-label="运镜进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+    </div>
+    <p class="hint" id="hint">拖动环绕 · 滚轮缩放 · 双击复位</p>
+    <p class="scale-note">1 场景单位 = 1 米 · 核心段示意复原 · 水岸/远景为压缩示意</p>
+  </footer>
+
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">CANTON ATLAS · 近景档案 06</p>
+      <h1><span class="intro-name">永庆坊 · 恩宁路</span><em>骑楼、麻石巷与粤剧水岸</em></h1>
+      <p class="intro-lede">
+        从恩宁路 97/99 门楼进永庆大街，经永庆一巷李小龙祖居、永庆二巷銮舆堂，
+        转入粤剧艺术博物馆南岸的广福台与晚沙湖；再沿月亮桥/荔枝湾涌到八和会馆，
+        回到恩宁路骑楼。核心约 300 × 200 米，1 场景单位 = 1 米。
+      </p>
+      <div class="intro-actions">
+        <button class="primary" id="startBtn" type="button">进入近景</button>
+        <button class="ghost" id="skipIntroBtn" type="button">自由探索</button>
+      </div>
+      <p class="intro-note">实时 3D · 晴日/黄昏/夜览 · 支持 4K 截图 · 移动端自动降级</p>
+    </div>
+    <div class="intro-meta" aria-hidden="true">
+      <span>恩宁路 1115 m</span>
+      <span>骑楼廊道 3 m</span>
+      <span>粤博 1.72 万 ㎡</span>
+      <span>永庆坊一期 8000 ㎡</span>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <span class="loading-mark">永</span>
+    <p>正在铺麻石、点亮骑楼…</p>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>这个浏览器没有启用 WebGL</h2>
+    <p>近景 3D 需要 WebGL。请换用桌面版 Chrome / Edge，或在设置里开启硬件加速后重试。</p>
+  </div>
+
+  <section class="about-panel" id="aboutPanel" hidden aria-labelledby="aboutTitle">
+    <div class="about-sheet">
+      <button class="about-close" id="aboutClose" type="button" aria-label="关闭考据">×</button>
+      <p class="kicker">SOURCES &amp; SCALE</p>
+      <h2 id="aboutTitle">这版依据什么复原</h2>
+      <div class="about-grid">
+        <div>
+          <h3>尺度</h3>
+          <p>恩宁路 1931 年建成，全长 1115 m、宽约 18 m（资料口径）；骑楼廊道约 3 m 宽、净高 4–6 m。粤博总用地 1.72 万 ㎡、建筑 2.17 万 ㎡；李小龙祖居面宽 8.5 m × 进深 19 m（占地 161.5 ㎡，另有 207/400 ㎡ 口径）；八和会馆在恩宁路 177 号。</p>
+        </div>
+        <div>
+          <h3>范围</h3>
+          <p>核心环线：恩宁路 97/99 门楼 → 永庆大街 → 永庆一巷李小龙祖居 → 永庆二巷銮舆堂 → 粤博南岸/广福台/晚沙湖 → 月亮桥/荔枝湾涌（80–120 m 水岸 + 永庆码头）→ 八和会馆 → 恩宁路骑楼 99–177。粤博只做南岸外观 + 园林，不做展厅/剧场内部；八和只做外观 + 门厅一瞥；金声只做东端牌楼剪影。</p>
+        </div>
+        <div>
+          <h3>取舍</h3>
+          <p>水岸只做核心段，不画整条 2.7 km 荔枝湾涌；远景与屋顶为低层街区剪影，不做广州塔/东西塔，避免把西关误读成 CBD。夜景灯光为“照明示意”，不是实测照度。未测绘的巷宽、树冠、桥梁跨度为示意；所有纹理程序化生成，不使用外部图片。</p>
+        </div>
+        <div>
+          <h3>资料</h3>
+          <p><a href="http://www.lw.gov.cn/yshj/sdpt/wslhlq/ptfc/content/post_9053243.html" target="_blank" rel="noreferrer">荔湾区政府·永庆坊</a>；<a href="https://www.gz.gov.cn/zlgz/whgz/content/mpost_9363604.html" target="_blank" rel="noreferrer">广州市政府·恩宁路</a>；<a href="https://www.gz.gov.cn/xw/zwlb/gqdt/lwq/content/mpost_10962941.html" target="_blank" rel="noreferrer">西关骑楼营造</a>；<a href="http://www.lw.gov.cn/ywdt/bmdt/content/post_10754491.html" target="_blank" rel="noreferrer">荔湾区政府·八和会馆</a>；<a href="https://sthjj.gz.gov.cn/mlzg/sfyb/mlhh/lw/content/post_10272460.html" target="_blank" rel="noreferrer">广州市生态环境局·荔枝湾涌</a>；<a href="https://news.gmw.cn/2026-10/29/content_39071838.htm" target="_blank" rel="noreferrer">光明日报·永庆坊</a>。开放时间、演出与内部开放以现场公告为准。</p>
+        </div>
+      </div>
+      <p class="about-foot">CANTON ATLAS · 近景档案 06 · 2026</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="yongqingfang-textures.js"></script>
+<script src="yongqingfang-model.js"></script>
+<script src="yongqingfang-main.js"></script>
+</body>
+</html>

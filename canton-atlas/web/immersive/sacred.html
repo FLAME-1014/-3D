@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>石室圣心大教堂 · 一德路的双塔 | CANTON ATLAS 近景</title>
+<meta name="description" content="石室圣心大教堂 1:1 近景 3D：南北 78.69 米、双塔 58.5 米、全花岗岩哥特、20 根束柱、玫瑰窗与彩色玻璃，晨午夜三时与 4K 导出。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%235b6472'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23f2ede2' font-family='serif'%3E%E7%9F%B3%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="sacred.css">
+</head>
+<body class="intro-active">
+<div id="app">
+  <canvas id="scene" aria-label="石室圣心大教堂 1:1 实时 3D 近景：正立面、双尖塔、玫瑰窗、中殿束柱与彩色玻璃"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">石</span>
+      <span class="brand-text">
+        <strong>石室圣心大教堂</strong>
+        <small>SHISHI SACRED HEART CATHEDRAL · 1:1 近景</small>
+      </span>
+    </div>
+    <p class="scene-label">全石哥特 · 一德路的双塔</p>
+    <div class="top-actions">
+      <button id="timeBtn" type="button" aria-pressed="false">晨光</button>
+      <button id="replayBtn" type="button">重播运镜</button>
+      <button id="shotBtn" type="button">4K 截图</button>
+      <button id="aboutBtn" type="button">考据</button>
+      <button id="cityBtn" type="button" hidden>城市全景 ↗</button>
+    </div>
+  </header>
+
+  <div class="stamp-strip" aria-hidden="true">
+    <span>35 × 78.69 m 主体</span>
+    <span>双塔 58.5 m</span>
+    <span>全花岗岩砌筑</span>
+    <span>拉丁十字 · 20 根束柱</span>
+  </div>
+
+  <div class="hotspots" id="hotspots" aria-label="建筑细部热点"></div>
+
+  <aside class="info-card" id="infoCard" role="dialog" aria-modal="false" aria-labelledby="infoTitle" aria-hidden="true">
+    <button class="info-close" id="infoClose" type="button" aria-label="关闭细部介绍">×</button>
+    <p class="kicker" id="infoKicker">石室七读 · 01</p>
+    <h2 id="infoTitle">双尖塔</h2>
+    <p class="info-lede" id="infoLede"></p>
+    <div class="info-facts" id="infoFacts"></div>
+    <p class="info-detail" id="infoDetail"></p>
+    <div class="info-actions">
+      <button class="primary small" id="focusCraftBtn" type="button">带我去看</button>
+      <button class="ghost small" id="nextCraftBtn" type="button">下一读 →</button>
+    </div>
+  </aside>
+
+  <nav class="view-rail" id="viewRail" aria-label="视角">
+    <button type="button" data-view="street" class="active">街口</button>
+    <button type="button" data-view="facade">正立面</button>
+    <button type="button" data-view="rose">玫瑰窗</button>
+    <button type="button" data-view="side">侧廊</button>
+    <button type="button" data-view="nave">中殿</button>
+    <button type="button" data-view="apse">后殿</button>
+    <button type="button" data-view="aerial">鸟瞰</button>
+  </nav>
+
+  <footer class="hud-bottom">
+    <div class="progress-block">
+      <p class="chapter" id="chapter">01 / 序章 · 一德路的双塔</p>
+      <div class="progress" role="progressbar" aria-label="运镜进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+    </div>
+    <p class="hint" id="hint">拖动环绕 · 滚轮缩放 · 双击复位</p>
+    <p class="scale-note">1 场景单位 = 1 米 · 依据公开测绘与实景资料复原</p>
+  </footer>
+
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">CANTON ATLAS · 近景档案 02</p>
+      <h1>石室圣心大教堂<br><em>一德路的双塔</em></h1>
+      <p class="intro-lede">
+        1863 年奠基、1888 年建成的全花岗岩哥特教堂。南北 78.69 米、双塔 58.5 米，
+        三座透视门、约 7 米玫瑰窗、20 根束柱与彩色玻璃，
+        按公开测绘、测绘图和实景照片放回一德路。
+      </p>
+      <div class="intro-actions">
+        <button class="primary" id="startBtn" type="button">进入近景</button>
+        <button class="ghost" id="skipIntroBtn" type="button">自由探索</button>
+      </div>
+      <p class="intro-note">实时 3D · 拖动可停 · 支持 4K 截图 · 移动端自动降级</p>
+    </div>
+    <div class="intro-meta" aria-hidden="true">
+      <span>35 × 78.69 m</span>
+      <span>塔尖 58.5 m</span>
+      <span>玫瑰窗 约 7 m</span>
+      <span>束柱 20 根</span>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <span class="loading-mark">石</span>
+    <p>正在砌花岗岩、拼彩窗…</p>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>这个浏览器没有启用 WebGL</h2>
+    <p>近景 3D 需要 WebGL。请换用桌面版 Chrome / Edge，或在设置里开启硬件加速后重试。</p>
+  </div>
+
+  <section class="about-panel" id="aboutPanel" hidden aria-labelledby="aboutTitle">
+    <div class="about-sheet">
+      <button class="about-close" id="aboutClose" type="button" aria-label="关闭考据">×</button>
+      <p class="kicker">SOURCES &amp; SCALE</p>
+      <h2 id="aboutTitle">这版依据什么复原</h2>
+      <div class="about-grid">
+        <div>
+          <h3>尺度</h3>
+          <p>广州市人民政府《石室天主堂》页面：建筑面积 2,754 ㎡，东西宽 35 m，南北长 78.69 m，地面到塔尖 58.5 m。另有测绘资料记长度为 77.17 m、塔尖 52.86 m（不含避雷针）；本场景取官方口径，塔尖含顶端十字与避雷针。</p>
+        </div>
+        <div>
+          <h3>石构</h3>
+          <p>全花岗岩砌筑，拉丁十字平面；正立面三座尖券透视门，中央玫瑰窗，双塔为空心八角锥体；中殿两排束柱、尖形肋骨十字拱顶，东西侧墙外有飞扶壁。石材、砌缝与彩窗为程序化重绘，不对应单张照片。</p>
+        </div>
+        <div>
+          <h3>取舍</h3>
+          <p>中殿保留 20 根束柱、拱顶、祭台、长椅与三面彩窗，侧龛、全部雕像和彩窗圣经故事人物做简化；玫瑰窗与彩窗纹样按哥特构图重建，不逐格复制。<br>“糯米灰浆、石狮出水口、香港九龙石料、广式木雕”等见地方资料，卡片中标注为地方说法。场景为演示级复原，不作为修缮或测绘依据。</p>
+        </div>
+        <div>
+          <h3>资料</h3>
+          <p><a href="https://www.gz.gov.cn/zlgz/gzly/wzgz/zjcs/tzj/content/post_7760627.html" target="_blank" rel="noreferrer">广州市人民政府《石室天主堂》</a>；《岭南历史建筑测绘图选集（一）》中的一层平面、屋面图与比例尺；公开实景照片（正立面、中殿、飞扶壁）。开放时间与弥撒安排以教堂公告为准。</p>
+        </div>
+      </div>
+      <p class="about-foot">CANTON ATLAS · 近景档案 02 · 2026</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="sacred-textures.js"></script>
+<script src="sacred-model.js"></script>
+<script src="sacred-main.js"></script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广州城市图鉴 · CANTON ATLAS</title>
+<meta name="description" content="一张被珠江切开的城市地图。32 个广州地点，按地标、街巷、味道、自然与体验，找到每处最独有的那一点。">
+<meta property="og:title" content="广州城市图鉴 · CANTON ATLAS">
+<meta property="og:description" content="32 个广州地点，每个只讲它最独有的那一点。地图、路线与行程单。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23b5432f'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23fdf8ee' font-family='serif'%3E%E7%A9%97%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="回到页首">
+    <span class="seal" aria-hidden="true">穗</span>
+    <span class="brand-text">
+      <strong>CANTON ATLAS</strong>
+      <small>广州城市图鉴</small>
+    </span>
+  </a>
+  <nav class="top-actions" aria-label="行程操作">
+    <button class="ghost-btn" id="openPlannerBtn" type="button">生成路线</button>
+    <button class="solid-btn" id="openTrayBtn" type="button">
+      行程单 <span class="count" id="trayCount">0</span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="intro">
+    <div class="intro-copy">
+      <p class="eyebrow">GUANGZHOU · FIELD GUIDE · 2026</p>
+      <h1>广州，<br><em>三十二个切面</em></h1>
+      <p class="lede">
+        广州不是一张清单。它有一张被珠江切开的剖面：北岸是老城与骑楼，南岸是塔与码头，
+        东边是新中轴，北边是山。这里挑了三十二个地点，每个只讲它最独有的那一点。
+      </p>
+    </div>
+    <div class="intro-side">
+      <div class="intro-meta" aria-label="图鉴统计">
+        <div><strong id="statPlaces">32</strong><span>地点</span></div>
+        <div><strong id="statClusters">5</strong><span>片区</span></div>
+        <div><strong id="statCats">5</strong><span>种体验</span></div>
+      </div>
+      <div class="mark-summary" aria-label="我的打卡统计">
+        <span><i class="mark-dot visited">✓</i> 去过 <b id="visitedCount">0</b></span>
+        <span><i class="mark-dot wishlist">★</i> 想去 <b id="wishlistCount">0</b></span>
+      </div>
+      <p class="intro-note">
+        点击地图编号或左侧条目，查看它为什么值得去。也可以按兴趣生成一条路线，
+        把地点收进行程单。去过和想去的标记只保存在当前浏览器。
+      </p>
+    </div>
+  </section>
+
+  <section class="explorer" aria-label="地点探索">
+    <aside class="panel list-panel">
+      <div class="panel-head">
+        <div class="tabs" id="catTabs" role="group" aria-label="按类别筛选"></div>
+        <div class="mark-filter" id="markFilter" role="group" aria-label="按打卡状态筛选"></div>
+        <div class="search-row">
+          <label class="sr-only" for="searchInput">搜索地点</label>
+          <input id="searchInput" type="search" placeholder="搜索地点、片区或关键词…" autocomplete="off">
+          <label class="sr-only" for="clusterSelect">按片区筛选</label>
+          <select id="clusterSelect">
+            <option value="all">全部片区</option>
+          </select>
+        </div>
+        <div class="result-line">
+          <span id="resultCount" role="status" aria-live="polite">32 个地点</span>
+          <button id="clearFilters" type="button">清除筛选</button>
+        </div>
+      </div>
+      <ul class="place-list" id="placeList"></ul>
+    </aside>
+
+    <div class="map-card">
+      <div class="map-head">
+        <div>
+          <p class="kicker">CITY MAP</p>
+          <h2>一张被珠江切开的城市</h2>
+        </div>
+        <div class="map-head-actions">
+          <button class="map-3d-btn" id="openImmersiveBtn" type="button">3D 漫游 <span aria-hidden="true">↗</span></button>
+          <div class="map-tools" role="group" aria-label="地图缩放">
+            <button id="zoomIn" type="button" aria-label="放大">+</button>
+            <button id="zoomOut" type="button" aria-label="缩小">−</button>
+            <button id="zoomReset" type="button">复位</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-frame" id="mapFrame">
+        <svg id="atlas" viewBox="0 0 1000 760" role="img" aria-label="广州风格化示意地图，标注三十二个地点">
+          <defs>
+            <pattern id="dotGrid" width="34" height="34" patternUnits="userSpaceOnUse">
+              <circle cx="1.6" cy="1.6" r="1.1" fill="rgba(34,33,29,0.11)"></circle>
+            </pattern>
+            <linearGradient id="riverGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#a9cbc6"></stop>
+              <stop offset="55%" stop-color="#93bdb8"></stop>
+              <stop offset="100%" stop-color="#a5c8c3"></stop>
+            </linearGradient>
+            <filter id="markerShadow" x="-60%" y="-60%" width="220%" height="220%">
+              <feDropShadow dx="0" dy="2" stdDeviation="2.4" flood-color="#22211d" flood-opacity="0.22"></feDropShadow>
+            </filter>
+          </defs>
+
+          <rect width="1000" height="760" fill="#f7f2e7"></rect>
+          <rect width="1000" height="760" fill="url(#dotGrid)"></rect>
+
+          <g id="mapLayer">
+            <g id="mapArt">
+              <!-- 片区 -->
+              <path class="district" style="--dc:#a9573c" d="M170,300 C230,280 300,290 350,320 C370,350 365,390 345,420 C330,450 300,470 260,480 C220,490 190,470 180,440 C170,410 160,380 165,350 Z"></path>
+              <path class="district" style="--dc:#4f6b52" d="M380,255 C440,240 520,245 570,275 C610,300 620,350 610,395 C600,430 560,450 520,452 C470,455 430,440 405,410 C380,380 370,340 372,305 Z"></path>
+              <path class="district" style="--dc:#3f5f7a" d="M620,300 C680,285 740,300 770,340 C790,370 780,405 750,420 C710,438 670,425 645,400 C625,380 615,335 620,300 Z"></path>
+              <path class="district" style="--dc:#8a6a2f" d="M380,500 C450,488 520,500 590,512 C660,524 730,518 800,525 C860,532 900,548 895,570 C890,595 820,605 750,597 C680,590 600,578 520,568 C450,560 390,548 375,525 C365,512 368,506 380,500 Z"></path>
+              <path class="district" style="--dc:#5c7245" d="M300,120 C370,100 460,110 510,145 C545,170 540,210 510,235 C470,265 410,270 360,255 C315,242 290,215 290,180 C290,155 295,135 300,120 Z"></path>
+
+              <!-- 珠江 -->
+              <path class="river-bank" d="M0,455 C80,448 150,445 230,452 C300,458 340,466 400,452 C450,440 480,432 530,440 C590,450 620,470 660,476 C700,482 740,470 790,458 C860,442 930,448 1000,430"></path>
+              <path class="river-core" d="M0,455 C80,448 150,445 230,452 C300,458 340,466 400,452 C450,440 480,432 530,440 C590,450 620,470 660,476 C700,482 740,470 790,458 C860,442 930,448 1000,430"></path>
+              <path class="river-line" d="M0,455 C80,448 150,445 230,452 C300,458 340,466 400,452 C450,440 480,432 530,440 C590,450 620,470 660,476 C700,482 740,470 790,458 C860,442 930,448 1000,430"></path>
+
+              <!-- 江心岛 -->
+              <ellipse cx="342" cy="438" rx="21" ry="11" fill="#f2ecdf" stroke="rgba(34,33,29,.22)" stroke-width="1"></ellipse>
+              <ellipse cx="640" cy="456" rx="35" ry="12" fill="#f2ecdf" stroke="rgba(34,33,29,.22)" stroke-width="1"></ellipse>
+
+              <!-- 道路 -->
+              <g class="roads">
+                <path d="M300,340 C380,350 460,352 540,386 C580,402 620,390 650,372"></path>
+                <path d="M220,430 C320,428 400,420 470,415 C540,410 600,418 650,430"></path>
+                <path d="M600,250 C610,320 625,380 640,456 C655,510 660,560 665,620"></path>
+                <path d="M360,300 C450,310 540,318 640,320"></path>
+                <path d="M200,500 C260,490 320,500 380,510"></path>
+                <path d="M420,540 C560,540 700,530 860,540"></path>
+                <path d="M430,280 C470,320 500,380 520,430"></path>
+              </g>
+
+              <!-- 白云山等高线 -->
+              <g class="contours">
+                <path d="M325,185 C335,145 395,122 450,138 C500,152 515,192 488,220"></path>
+                <path d="M310,200 C318,150 390,110 455,128 C520,146 535,198 500,236"></path>
+                <path d="M345,168 C360,148 400,138 430,148 C458,158 462,182 444,196"></path>
+                <path d="M366,158 C378,148 406,146 420,156 C434,166 430,180 416,186"></path>
+              </g>
+
+              <!-- 片区标注 -->
+              <g class="district-labels" aria-hidden="true">
+                <text x="212" y="330">荔湾</text>
+                <text x="402" y="300">越秀</text>
+                <text x="700" y="332">天河</text>
+                <text x="548" y="585">海珠</text>
+                <text x="330" y="205">白云山</text>
+              </g>
+
+              <!-- 江名 -->
+              <text class="river-label" x="600" y="492" transform="rotate(3 600 492)">珠 江</text>
+
+              <!-- 指北针 -->
+              <g class="compass" transform="translate(912,96)" aria-hidden="true">
+                <circle r="24" fill="none" stroke="rgba(34,33,29,.25)" stroke-width="1"></circle>
+                <path d="M0,-15 L6,7 L0,3 L-6,7 Z" fill="#b5432f"></path>
+                <text x="0" y="40">N</text>
+              </g>
+            </g>
+
+            <g id="markers" aria-label="地点标记"></g>
+          </g>
+        </svg>
+
+        <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="map-foot">
+        <div class="legend" id="mapLegend"></div>
+        <p class="map-note">示意地图 · 非导航</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="notes" aria-label="使用说明">
+    <article class="note-card">
+      <span class="note-no">01</span>
+      <h3>先看「独有之处」</h3>
+      <p>每个地点只保留一句最独特的特征：陈家祠的屋脊、广州塔的扭转曲面、石室的全石哥特。先被特点吸引，再决定去不去。</p>
+    </article>
+    <article class="note-card">
+      <span class="note-no">02</span>
+      <h3>按片区排，而不是按榜单</h3>
+      <p>路线会优先把同片区的地点串起来，减少过江和折返。时间为估算，包含步行或地铁的缓冲。</p>
+    </article>
+    <article class="note-card">
+      <span class="note-no">03</span>
+      <h3>关于这份图鉴</h3>
+      <p>资料按公开常识整理；开放时间、门票与演出以官方公告为准。地图为风格化示意，不用于导航。</p>
+    </article>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div>
+    <strong>CANTON ATLAS</strong>
+    <span>广州城市图鉴 · 2026.10</span>
+  </div>
+  <p>Qoder Sites 演示 · 内容仅作城市观察，不构成出行建议</p>
+</footer>
+
+<div class="backdrop" id="backdrop" hidden></div>
+
+<aside class="sheet" id="detailSheet" role="dialog" aria-modal="true" aria-labelledby="detailTitle" aria-hidden="true">
+  <button class="sheet-close" id="closeDetail" type="button" aria-label="关闭详情">×</button>
+  <div class="sheet-scroll" id="detailContent"></div>
+</aside>
+
+<aside class="sheet itinerary" id="trayDrawer" role="dialog" aria-modal="true" aria-labelledby="trayTitle" aria-hidden="true">
+  <header class="itin-head">
+    <div>
+      <p class="kicker">MY ROUTE</p>
+      <h2 id="trayTitle">行程单</h2>
+    </div>
+    <button class="sheet-close inline" id="closeTray" type="button" aria-label="关闭行程单">×</button>
+  </header>
+  <div class="sheet-scroll itin-scroll">
+    <section class="planner" aria-label="路线生成器">
+      <p class="planner-label">一键路线</p>
+      <div class="preset-row" id="presetRow"></div>
+
+      <div class="planner-grid">
+        <label>时长
+          <select id="routeMode">
+            <option value="day">一日</option>
+            <option value="half">半日</option>
+          </select>
+        </label>
+        <label>开始
+          <select id="routeStart">
+            <option value="09:00">09:00</option>
+            <option value="13:30">13:30</option>
+            <option value="17:30">17:30</option>
+          </select>
+        </label>
+        <label>节奏
+          <select id="routePace">
+            <option value="normal">标准</option>
+            <option value="relaxed">轻松</option>
+            <option value="tight">紧凑</option>
+          </select>
+        </label>
+      </div>
+
+      <p class="planner-label">兴趣（可多选）</p>
+      <div class="interest-row" id="interestRow"></div>
+
+      <p class="planner-label">打卡偏好</p>
+      <div class="route-prefs" id="routePrefs">
+        <button class="pref-chip" type="button" data-pref="onlyWishlist" aria-pressed="false">只排想去</button>
+        <button class="pref-chip" type="button" data-pref="skipVisited" aria-pressed="false">跳过去过</button>
+      </div>
+      <button class="primary-btn wide" id="generateBtn" type="button">生成路线</button>
+      <p class="planner-hint">打卡偏好只影响生成路线；生成会替换当前行程，也可以在详情里逐个加入。</p>
+    </section>
+
+    <section class="timeline-section" aria-label="当前行程">
+      <div class="timeline-head">
+        <h3>当前行程</h3>
+        <span id="itinMeta">还没有安排</span>
+      </div>
+      <div id="timeline" class="timeline"></div>
+      <div class="itin-actions">
+        <button id="copyBtn" type="button" disabled>复制行程</button>
+        <button id="reorderBtn" type="button" disabled>按片区整理</button>
+        <button id="clearBtn" type="button" disabled>清空</button>
+      </div>
+    </section>
+  </div>
+</aside>
+
+<div class="immersive-overlay" id="immersiveOverlay" hidden>
+  <div class="immersive-bar">
+    <button id="immersiveClose" type="button">← 返回图鉴</button>
+    <span>3D 漫游 · 实时场景</span>
+  </div>
+  <div class="immersive-loading" id="immersiveLoading">正在进入 3D 广州…</div>
+  <iframe id="immersiveFrame" class="immersive-frame" title="广州 3D 漫游" allow="autoplay; fullscreen"></iframe>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

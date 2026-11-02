@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>广州大剧院 | CANTON ATLAS 近景</title>
+<meta name="description" content="广州大剧院纯外观 1:1 近景 3D：花城广场西南角，一黑一白、一大一小两块砾石；大砾石 43.1 m、1,804 座歌剧厅外壳（1,687 + 117 乐池），小砾石约 400 座实验剧场（官方 350）；约 120 m 最大外壳长度、5,000+ 玻璃 / 75,000 石材；南入口 5 m 平台、草坡、缓坡、水池；7 视点、三档时段、4K。内部/舞台/后台不做；周边城市压缩示意。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%232a2d2e'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%23f2efe8' font-family='serif'%3E%E7%A0%BE%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="operahouse.css">
+</head>
+<body class="intro-active">
+<div id="app">
+  <canvas id="scene" aria-label="广州大剧院纯外观 1:1 实时 3D 近景：一黑一白、一大一小两块非几何折面砾石，大砾石 43.1 米、约 120 米最大外壳长度，南/东南三角玻璃口部与斜网格，5 米入口平台、草坡、缓坡、水池，花城广场与文化轴城市关系；内部/舞台/后台不做，周边城市压缩示意"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">砾</span>
+      <span class="brand-text">
+        <strong>广州大剧院</strong>
+        <small>GUANGZHOU OPERA HOUSE · 1:1 近景</small>
+      </span>
+    </div>
+    <p class="scene-label">圆润双砾 · 珠江新城的文化起点</p>
+    <div class="top-actions">
+      <button id="timeBtn" type="button" aria-pressed="false">晴日</button>
+      <button id="replayBtn" type="button">重播运镜</button>
+      <button id="shotBtn" type="button">4K 截图</button>
+      <button id="aboutBtn" type="button">考据</button>
+      <button id="cityBtn" type="button">城市全景 ↗</button>
+    </div>
+  </header>
+
+  <div class="stamp-strip" aria-hidden="true">
+    <span>43.1 m 大砾石</span>
+    <span>1,804 + 400 座</span>
+    <span>5,000+ / 75,000</span>
+    <span>3 m 双砾间距</span>
+  </div>
+
+  <div class="hotspots" id="hotspots" aria-label="广州大剧院细部热点"></div>
+
+  <aside class="info-card" id="infoCard" role="dialog" aria-modal="false" aria-labelledby="infoTitle" aria-hidden="true">
+    <button class="info-close" id="infoClose" type="button" aria-label="关闭细部介绍">×</button>
+    <p class="kicker" id="infoKicker">广州大剧院 · 01</p>
+    <h2 id="infoTitle">一大一小，一黑一白</h2>
+    <p class="info-lede" id="infoLede"></p>
+    <div class="info-facts" id="infoFacts"></div>
+    <p class="info-detail" id="infoDetail"></p>
+    <div class="info-actions">
+      <button class="primary small" id="focusCraftBtn" type="button">带我去看</button>
+      <button class="ghost small" id="nextCraftBtn" type="button" title="遍历全部 7 个热点">下一读 →</button>
+    </div>
+  </aside>
+
+  <nav class="view-rail" id="viewRail" aria-label="视点">
+    <button type="button" data-view="plaza" class="active">广场</button>
+    <button type="button" data-view="mouth">入口</button>
+    <button type="button" data-view="pool">倒影</button>
+    <button type="button" data-view="west">石背</button>
+    <button type="button" data-view="small">小砾石</button>
+    <button type="button" data-view="axis">航拍</button>
+    <button type="button" data-view="night">夜景</button>
+  </nav>
+
+  <footer class="hud-bottom">
+    <div class="progress-block">
+      <p class="chapter" id="chapter">01 / 南广场 · 双砾与水池</p>
+      <div class="progress" role="progressbar" aria-label="运镜进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+    </div>
+    <p class="hint" id="hint">拖动环绕 · 滚轮缩放 · 双击复位</p>
+    <p class="scale-note">1 场景单位 = 1 米 · 双砾/5 m 平台/前广场 1:1 估算 · 周边城市压缩示意 · 内部/舞台/后台不做</p>
+  </footer>
+
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">CANTON ATLAS · 近景档案 10</p>
+      <h1><span class="intro-name">广州大剧院</span><em>一黑一白，两块砾石</em></h1>
+      <p class="intro-lede">
+        扎哈·哈迪德设计，2010-05-09 以《图兰朵》启幕；占地 4.2 万㎡、建筑面积 7.3 万㎡、总高 43.1 m。
+        大砾石是 1,804 座歌剧厅（1,687 固定 + 117 乐池；官方 2026 写 1,687）的外壳，小砾石约 400 座实验剧场（官方 350）；
+        约 5,000+ 块三角玻璃与 75,000 块石材，包在三向斜交折板式单层网壳上。
+        从南广场与倒影池看双砾，走近南侧大三角玻璃口部，绕到珠江西路看封闭石背，
+        再上航拍读文化轴；纯外观，内部 / 舞台 / 后台不做，周边城市压缩示意。
+      </p>
+      <div class="intro-actions">
+        <button class="primary" id="startBtn" type="button">进入近景</button>
+        <button class="ghost" id="skipIntroBtn" type="button">自由探索</button>
+      </div>
+      <p class="intro-note">实时 3D · 晴日/黄昏/夜景 · 7 视点 · 支持 4K 截图 · 移动端自动降级</p>
+    </div>
+    <div class="intro-meta" aria-hidden="true">
+      <span>43.1 m</span>
+      <span>1,804 + 400</span>
+      <span>64 面 / 104 棱线</span>
+      <span>5,000 / 75,000</span>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <span class="loading-mark">砾</span>
+    <p>正在立双砾、铺水池…</p>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>这个浏览器没有启用 WebGL</h2>
+    <p>近景 3D 需要 WebGL。请换用桌面版 Chrome / Edge，或在设置里开启硬件加速后重试。</p>
+  </div>
+
+  <section class="about-panel" id="aboutPanel" hidden aria-labelledby="aboutTitle">
+    <div class="about-sheet">
+      <button class="about-close" id="aboutClose" type="button" aria-label="关闭考据">×</button>
+      <p class="kicker">SOURCES &amp; SCALE</p>
+      <h2 id="aboutTitle">这版依据什么立双砾</h2>
+      <div class="about-grid">
+        <div>
+          <h3>尺度</h3>
+          <p>大砾石总高 43.1 m（另有 43 m 圆整口径），整体外壳最大长度约 120 m（<strong>不是净跨</strong>）、宽约 85 m；小砾石约 65 × 45 × 28 m（高为按照片/卫星估算，标「约」）。两体最近处约 3 m（课程分析口径，未测绘）。占地 42,000 ㎡；建筑面积 73,000 ㎡（另有 70,000 ㎡ 旧口径）。外壳为三向斜交折板式单层网壳：大砾石 64 个空间折面 / 104 条棱线 / 41 个空间角点（另有 47 转角口径），小砾石 37 / 54 / 18；总用钢约 12,000 t。外立面约 5,000+ 块玻璃（精确口径 5,200 片）与 75,000 块石材（精确 75,422 块）；本场景用程序化三角板缝/玻璃网格表达，不逐块建模。入口平台 +5 m；水池/草坡/缓坡尺寸未公开，按卫星与照片估算并标「示意」。</p>
+        </div>
+        <div>
+          <h3>序列</h3>
+          <p>7 个视点：南广场 · 双砾全景（plaza）、大砾石 · 玻璃口部（mouth）、倒影池 · 南侧（pool）、珠江西路 · 石背（west）、小砾石 · 草坡与坡道（small）、文化轴 · 双砾与省博/广州塔（axis，航拍示意，<strong>非步行可达</strong>）、夜景 · 水映双砾（night，强制夜景）。7 个热点分别讲双砾比例、折面网壳、玻璃口部、1,804 座歌剧厅、小砾石实验剧场、水映双砾照明与文化轴。歌剧厅 1,804 座 = 1,687 固定 + 117 乐池；官方 2026 写 1,687 座歌剧厅（不含乐池）。小砾石实验剧场常见约 400 座，官方 2026 写 350 座，两说并列。</p>
+        </div>
+        <div>
+          <h3>取舍</h3>
+          <p>纯外观：不做观众厅、舞台、后台、排练厅、餐厅、车库；玻璃口部后只做浅层 lobby 剪影（暗色地面/顶面 + 钢构件 + 暖光），不做剖面。双砾主要体量、约 3 m 间距、5 m 平台、南/东南前广场、水池/草坡/缓坡按公开资料与卫星照片 1:1 估算；300 m 外城市按约 0.6–0.7× 压缩距离 + 雾，保持广州塔—海心沙—花城广场—双砾/省博/图书馆—双塔的轴线关系，页面标注「压缩示意，非测绘」。夜景按「水映双砾」主题做暖白基座投光、玻璃口部内透、平台/草坡水纹光带与池面倒影；色温约 2700–4000 K 为参考图观察与示意，不是官方值，不做 RGB 灯光秀。所有纹理程序化生成，不使用版权贴图。</p>
+        </div>
+        <div>
+          <h3>资料</h3>
+          <p><a href="https://www.gzdjy.org/intro.html" target="_blank" rel="noreferrer">广州大剧院官网 · 剧院概况</a>；<a href="https://www.zha.com/architecture/guangzhou-opera-house/?disclaimer=true" target="_blank" rel="noreferrer">Zaha Hadid Architects</a>；<a href="https://baike.baidu.com/item/%E5%B9%BF%E5%B7%9E%E5%A4%A7%E5%89%A7%E9%99%A2/1421140" target="_blank" rel="noreferrer">百度百科 · 广州大剧院</a>；<a href="https://m.renrendoc.com/paper/487335054.html" target="_blank" rel="noreferrer">广州歌剧院分析（5 m 平台 / 3 m 间距 / 折面）</a>；<a href="https://m.renrendoc.com/paper/233552831.html" target="_blank" rel="noreferrer">广州大剧院室内设计（照明 / 缓坡）</a>；<a href="https://m.renrendoc.com/paper/239291079.html" target="_blank" rel="noreferrer">「水映双砾」照明与点支玻璃</a>；<a href="https://m.sohu.com/a/999160085_121119253/" target="_blank" rel="noreferrer">2026 外立面风化讨论</a>。完整来源、冲突与参考图观察见本会话 facts 文档；史料口径以官方/公开资料为准，非测绘。</p>
+        </div>
+      </div>
+
+      <figure class="about-diagram">
+        <svg viewBox="0 0 760 330" role="img" aria-label="广州大剧院双砾立面示意：大砾石 43.1 米、小砾石约 28 米、最近约 3 米、5 米入口平台、玻璃口部">
+          <defs>
+            <linearGradient id="stoneDark" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#7a8284"/>
+              <stop offset="1" stop-color="#3b3e3f"/>
+            </linearGradient>
+            <linearGradient id="stoneLight" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#efeadf"/>
+              <stop offset="1" stop-color="#c9c4b7"/>
+            </linearGradient>
+            <linearGradient id="glassFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#7f9aa6"/>
+              <stop offset="1" stop-color="#3e5964"/>
+            </linearGradient>
+          </defs>
+          <g stroke="#6b7f88" stroke-width="0.8" stroke-dasharray="4 4">
+            <line x1="60" y1="272" x2="700" y2="272"/>
+            <line x1="60" y1="232" x2="700" y2="232"/>
+            <line x1="60" y1="60" x2="700" y2="60"/>
+          </g>
+          <g fill="#e7eef0" font-family="'Songti SC','SimSun',serif" font-size="11">
+            <text x="64" y="288">地面 / 南广场 0 m</text>
+            <text x="64" y="226">5 m 入口平台（估算）</text>
+            <text x="64" y="52">43.1 m（大砾石最高点）</text>
+          </g>
+          <path d="M 92 272 C 118 258 112 236 128 224 C 146 208 148 170 168 152 C 196 124 226 106 260 96 C 300 84 336 92 372 108 C 398 120 418 146 428 176 C 438 208 456 232 468 252 C 474 262 478 268 482 272 Z" fill="url(#stoneDark)" stroke="#aab3b5" stroke-width="1.2"/>
+          <path d="M 238 214 L 306 148 L 372 176 L 408 232 L 330 250 Z" fill="url(#glassFill)" stroke="#cfe0e5" stroke-width="1.1"/>
+          <g stroke="#dcecef" stroke-width="0.7" opacity="0.85">
+            <line x1="238" y1="214" x2="306" y2="148"/><line x1="306" y1="148" x2="372" y2="176"/>
+            <line x1="372" y1="176" x2="408" y2="232"/><line x1="408" y1="232" x2="330" y2="250"/>
+            <line x1="330" y1="250" x2="238" y2="214"/>
+            <line x1="270" y1="182" x2="340" y2="200"/><line x1="306" y1="148" x2="330" y2="250"/>
+            <line x1="372" y1="176" x2="270" y2="182"/><line x1="270" y1="182" x2="408" y2="232"/>
+            <line x1="340" y1="200" x2="372" y2="176"/><line x1="340" y1="200" x2="408" y2="232"/>
+          </g>
+          <path d="M 492 272 C 500 252 500 228 514 208 C 528 186 552 174 578 172 C 606 170 628 184 640 206 C 650 224 654 250 660 272 Z" fill="url(#stoneLight)" stroke="#e9e2d5" stroke-width="1.2"/>
+          <path d="M 528 236 L 574 214 L 622 238 L 600 252 L 546 254 Z" fill="url(#glassFill)" stroke="#f4efe4" stroke-width="1"/>
+          <g stroke="#c9d6db" stroke-width="0.8">
+            <line x1="483" y1="272" x2="483" y2="236"/>
+            <line x1="664" y1="272" x2="664" y2="236"/>
+            <line x1="486" y1="238" x2="490" y2="238"/>
+            <line x1="658" y1="238" x2="662" y2="238"/>
+          </g>
+          <path d="M 60 272 L 96 272 L 96 232 L 70 232 L 60 248 Z" fill="#5f6667" opacity="0.75"/>
+          <path d="M 482 232 L 700 232 L 700 272 L 482 272" fill="none" stroke="#b8c2c3" stroke-width="1" stroke-dasharray="3 3"/>
+          <g fill="#d8b46a" font-family="'Songti SC','SimSun',serif" font-size="11">
+            <text x="470" y="118" text-anchor="middle">小砾石约 28 m</text>
+            <line x1="470" y1="124" x2="470" y2="172" stroke="#d8b46a" stroke-width="0.8"/>
+            <text x="545" y="292" text-anchor="middle">最近约 3 m</text>
+            <line x1="482" y1="282" x2="492" y2="282" stroke="#d8b46a" stroke-width="0.8"/>
+            <text x="322" y="286" text-anchor="middle">5 m 平台 / 南入口</text>
+            <text x="600" y="286" text-anchor="middle">小砾石玻璃带</text>
+            <text x="320" y="132" text-anchor="middle">三角玻璃口部 / 斜网格</text>
+          </g>
+          <g fill="#e7eef0" font-family="'Songti SC','SimSun',serif" font-size="10" opacity="0.8">
+            <text x="320" y="320" text-anchor="middle">大砾石 64 面 / 104 棱线 · 小砾石 37 / 54 · 约 12,000 t 钢 · 外壳最大长度约 120 m（不是净跨）</text>
+          </g>
+        </svg>
+        <figcaption>双砾立面示意：大砾石 43.1 m、小砾石约 28 m（估算）、最近约 3 m；南/东南三角玻璃口部与斜网格；入口平台 +5 m。图示为示意比例，未按施工图复核。</figcaption>
+      </figure>
+
+      <p class="about-foot">CANTON ATLAS · 近景档案 10 · 2026 · 纯外观；双砾/5 m 平台/前广场 1:1 估算；周边城市压缩示意；内部/舞台/后台不做；夜景「水映双砾」示意，不是实时灯光秀；非测绘</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="operahouse-textures.js"></script>
+<script src="operahouse-model.js"></script>
+<script src="operahouse-main.js"></script>
+</body>
+</html>

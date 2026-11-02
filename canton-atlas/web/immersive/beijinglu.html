@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>北京路 · 千年古道 | CANTON ATLAS 近景</title>
+<meta name="description" content="北京路 1:1 近景 3D：千年古道玻璃罩、骑楼界面、拱北楼/铜壶滴漏、惠福东路美食街、大佛寺普觉楼金顶、城隍庙；晴日/黄昏/夜览三档。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23a5803f'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23f6ecd8' font-family='serif'%3E%E4%BA%AC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="beijinglu.css">
+</head>
+<body class="intro-active">
+<div id="app">
+  <canvas id="scene" aria-label="北京路千年古道 1:1 实时 3D 近景：十字星街、古道玻璃罩、骑楼、拱北楼、惠福东路、大佛寺金顶与城隍庙"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">京</span>
+      <span class="brand-text">
+        <strong>北京路 · 千年古道</strong>
+        <small>BEIJING ROAD · 1:1 近景</small>
+      </span>
+    </div>
+    <p class="scene-label">千年商都 · 古道 / 骑楼 / 金顶</p>
+    <div class="top-actions">
+      <button id="timeBtn" type="button" aria-pressed="false">晴日</button>
+      <button id="replayBtn" type="button">重播运镜</button>
+      <button id="shotBtn" type="button">4K 截图</button>
+      <button id="aboutBtn" type="button">考据</button>
+      <button id="cityBtn" type="button" hidden>城市全景 ↗</button>
+    </div>
+  </header>
+
+  <div class="stamp-strip" aria-hidden="true">
+    <span>古道 44 × 3.8 m</span>
+    <span>街宽 16 m</span>
+    <span>骑楼 376 栋</span>
+    <span>大佛寺 7F 金顶</span>
+    <span>中山四路 压缩示意</span>
+  </div>
+
+  <div class="hotspots" id="hotspots" aria-label="北京路细部热点"></div>
+
+  <aside class="info-card" id="infoCard" role="dialog" aria-modal="false" aria-labelledby="infoTitle" aria-hidden="true">
+    <button class="info-close" id="infoClose" type="button" aria-label="关闭细部介绍">×</button>
+    <p class="kicker" id="infoKicker">北京路 · 01</p>
+    <h2 id="infoTitle">千年古道</h2>
+    <p class="info-lede" id="infoLede"></p>
+    <div class="info-facts" id="infoFacts"></div>
+    <p class="info-detail" id="infoDetail"></p>
+    <div class="info-actions">
+      <button class="primary small" id="focusCraftBtn" type="button">带我去看</button>
+      <button class="ghost small" id="nextCraftBtn" type="button">下一读 →</button>
+    </div>
+  </aside>
+
+  <nav class="view-rail" id="viewRail" aria-label="视角">
+    <button type="button" data-view="crossing" class="active">十字街</button>
+    <button type="button" data-view="ancient">古道</button>
+    <button type="button" data-view="arcade">骑楼</button>
+    <button type="button" data-view="gongbei">拱北楼</button>
+    <button type="button" data-view="huifu">惠福东</button>
+    <button type="button" data-view="dafo">大佛寺</button>
+    <button type="button" data-view="chenghuang">城隍庙</button>
+  </nav>
+
+  <footer class="hud-bottom">
+    <div class="progress-block">
+      <p class="chapter" id="chapter">01 / 中山五路 · 十字星街</p>
+      <div class="progress" role="progressbar" aria-label="运镜进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+    </div>
+    <p class="hint" id="hint">拖动环绕 · 滚轮缩放 · 双击复位</p>
+    <p class="scale-note">1 场景单位 = 1 米 · 核心段 1:1 · 中山四路/财厅前连接段压缩示意 · 非测绘</p>
+  </footer>
+
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">CANTON ATLAS · 近景档案 09</p>
+      <h1><span class="intro-name">北京路 · 千年古道</span><em>脚下是十一层路面</em></h1>
+      <p class="intro-lede">
+        从中山五路十字星街进入，沿 16 米宽的骑楼街向南：脚下玻璃罩着唐至民国的十一层路面，
+        头顶是红灯笼与古榕；经拱北楼、铜壶滴漏转入惠福东路，
+        再到大佛寺的普觉楼金顶与忠佑广场的城隍庙。核心段 1 场景单位 = 1 米。
+      </p>
+      <div class="intro-actions">
+        <button class="primary" id="startBtn" type="button">进入近景</button>
+        <button class="ghost" id="skipIntroBtn" type="button">自由探索</button>
+      </div>
+      <p class="intro-note">实时 3D · 晴日/黄昏/夜览 · 支持 4K 截图 · 移动端自动降级 · 连接段压缩示意</p>
+    </div>
+    <div class="intro-meta" aria-hidden="true">
+      <span>古道 44 × 3.8 m</span>
+      <span>11 层 / 5 朝</span>
+      <span>16 m 街宽</span>
+      <span>7F 金顶</span>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <span class="loading-mark">京</span>
+    <p>正在铺石板、点亮骑楼和灯笼…</p>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>这个浏览器没有启用 WebGL</h2>
+    <p>近景 3D 需要 WebGL。请换用桌面版 Chrome / Edge，或在设置里开启硬件加速后重试。</p>
+  </div>
+
+  <section class="about-panel" id="aboutPanel" hidden aria-labelledby="aboutTitle">
+    <div class="about-sheet">
+      <button class="about-close" id="aboutClose" type="button" aria-label="关闭考据">×</button>
+      <p class="kicker">SOURCES &amp; SCALE</p>
+      <h2 id="aboutTitle">这版依据什么复原</h2>
+      <div class="about-grid">
+        <div>
+          <h3>尺度</h3>
+          <p>北京路核心段约 440 m、街宽 16 m（x = -8..+8）；千年古道玻璃罩 44 × 3.8 m、11 层 / 5 期；拱北楼基址 32 × 4.7 m、5 层，铜壶滴漏通高 2.64 m；大雄宝殿 36.32 × 25.36 × 18 m（约 1277 m²）；普觉楼 7F + 2B，按层高与五重檐推算约 35–40 m（示意）；城隍庙占地约 500 m²、大殿净高约 12 m；惠福东路宽 10 m。骑楼柱距约 4 m、廊深 3–4 m、廊下净高 5–5.5 m。</p>
+        </div>
+        <div>
+          <h3>范围</h3>
+          <p>核心段 1:1：中山五路—惠福东路 440 m、惠福东路东端约 120 m、大佛寺轴线约 120 m、城隍庙节点。中山四路实际约 500 m 压缩为约 180 m 连接段，财厅前约 300 m 压缩为 60–90 m 背景；北京路南段只做渐隐背景。不做南越王博物院内部、大佛寺殿内、城隍庙 24 司与壁画；书院群只做屋顶/巷口；不做整条中山路。</p>
+        </div>
+        <div>
+          <h3>取舍</h3>
+          <p>古道两段都做 1:1（44 m 北段 + 32 m 拱北楼南段）；大佛寺只精做山门、大雄宝殿、普觉楼，天王殿/钟鼓楼/侧殿做体量与剪影，院落压缩；城隍庙保持“小庙 + 广场 + 城市包围”，不放大成寺院。夜景为照明示意，红灯笼为夜间/节庆示意，不写“常年挂满”；招牌为示意，不使用品牌 logo；灯光、招牌、LED 屏画面均非实测。</p>
+        </div>
+        <div>
+          <h3>资料</h3>
+          <p>
+            <a href="https://www.beijinglu.yuexiu.gov.cn/bjl/pc_bjl/lydl_bjl/jd_bjl/qnsy_bjl/20181116/detail-208456.shtml" target="_blank" rel="noreferrer">北京路官网 · 千年古道遗址</a>；
+            <a href="https://www.beijinglu.yuexiu.gov.cn/bjl/sj_bjl/xwzx_bjl_sj/gzdt_bjl_sj/20260511/detail-239090.shtml" target="_blank" rel="noreferrer">北京路官网 · 拱北楼与双门底</a>；
+            <a href="https://www.gz.gov.cn/xw/jrgz/content/post_6554954.html" target="_blank" rel="noreferrer">广州市政府 · 北京路改造（376 栋骑楼）</a>；
+            <a href="https://www.dafosi.com/sys-nd/6236.html" target="_blank" rel="noreferrer">大佛寺官网 · 普觉楼 7F+2B</a>；
+            <a href="https://baike.baidu.com/item/%E6%83%A0%E7%A6%8F%E4%B8%9C%E8%B7%AF/10720874" target="_blank" rel="noreferrer">惠福东路 511 m / 10 m</a>；
+            <a href="https://baike.baidu.com/item/%E5%9F%8E%E9%9A%8D%E5%BA%99/1848530" target="_blank" rel="noreferrer">广州城隍庙 500 m² / 12 m</a>。
+            完整来源 S1–S60、R1–R12 见研究文件 `docs/superpowers/research/2026-10-31-beijinglu-facts.md`。开放时间、亮灯时间以现场公告为准。
+          </p>
+        </div>
+      </div>
+      <p class="about-foot">1 场景单位 = 1 米 · 核心段 1:1 · 中山四路/财厅前连接段压缩示意 · 非测绘 · 夜景/红灯笼为照明与节庆示意</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="beijinglu-textures.js"></script>
+<script src="beijinglu-model.js"></script>
+<script src="beijinglu-main.js"></script>
+</body>
+</html>

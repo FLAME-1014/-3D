@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>中山纪念堂 | CANTON ATLAS 近景</title>
+<meta name="description" content="中山纪念堂 1:1 近景 3D：东风中路门楼、前草坪与云鹤华表、孙中山铜像、八角蓝顶与四面重檐歇山抱厦、朱红柱廊与台基，北侧“山在堂后”轴线提示；晨光/晴日/暮色三档。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%232f5f8a'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%23f4efe3' font-family='serif'%3E%E5%A0%82%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="memorial.css">
+</head>
+<body class="intro-active">
+<div id="app">
+  <canvas id="scene" aria-label="中山纪念堂 1:1 实时 3D 近景：门楼、前草坪与云鹤华表、孙中山铜像、八角蓝顶主体与柱廊、北侧山体提示"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">堂</span>
+      <span class="brand-text">
+        <strong>中山纪念堂</strong>
+        <small>SUN YAT-SEN MEMORIAL HALL · 1:1 近景</small>
+      </span>
+    </div>
+    <p class="scene-label">八角蓝顶 · 近代中轴上的公共会堂</p>
+    <div class="top-actions">
+      <button id="timeBtn" type="button" aria-pressed="false">晨光</button>
+      <button id="replayBtn" type="button">重播运镜</button>
+      <button id="shotBtn" type="button">4K 截图</button>
+      <button id="aboutBtn" type="button">考据</button>
+      <button id="yuexiuBtn" type="button">越秀顶层 ↗</button>
+    </div>
+  </header>
+
+  <div class="stamp-strip" aria-hidden="true">
+    <span>堂高 48.63 m</span>
+    <span>72.65 × 63.32 m</span>
+    <span>4729 座 · 无柱</span>
+    <span>1931 · 吕彦直</span>
+  </div>
+
+  <div class="hotspots" id="hotspots" aria-label="中山纪念堂细部热点"></div>
+
+  <aside class="info-card" id="infoCard" role="dialog" aria-modal="false" aria-labelledby="infoTitle" aria-hidden="true">
+    <button class="info-close" id="infoClose" type="button" aria-label="关闭细部介绍">×</button>
+    <p class="kicker" id="infoKicker">纪念堂 · 01</p>
+    <h2 id="infoTitle">门楼</h2>
+    <p class="info-lede" id="infoLede"></p>
+    <div class="info-facts" id="infoFacts"></div>
+    <p class="info-detail" id="infoDetail"></p>
+    <div class="info-actions">
+      <button class="primary small" id="focusCraftBtn" type="button">带我去看</button>
+      <button class="ghost small" id="nextCraftBtn" type="button">下一读 →</button>
+    </div>
+  </aside>
+
+  <nav class="view-rail" id="viewRail" aria-label="视角">
+    <button type="button" data-view="gate">门楼</button>
+    <button type="button" data-view="lawn" class="active">草坪</button>
+    <button type="button" data-view="statue">铜像</button>
+    <button type="button" data-view="facade">柱廊</button>
+    <button type="button" data-view="roof">屋面</button>
+    <button type="button" data-view="north">北侧</button>
+    <button type="button" data-view="corner">侧后</button>
+  </nav>
+
+  <footer class="hud-bottom">
+    <div class="progress-block">
+      <p class="chapter" id="chapter">02 / 前草坪 · 云鹤华表</p>
+      <div class="progress" role="progressbar" aria-label="运镜进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+    </div>
+    <p class="hint" id="hint">拖动环绕 · 滚轮缩放 · 双击复位</p>
+    <p class="scale-note">1 场景单位 = 1 米 · 门楼—草坪—铜像—主体示意复原 · 北侧山体/中轴为示意</p>
+  </footer>
+
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">CANTON ATLAS · 近景档案 05</p>
+      <h1><span class="intro-name">中山纪念堂</span><em>八角蓝顶下的城市中轴</em></h1>
+      <p class="intro-lede">
+        从东风中路的门楼进入，经前草坪与云鹤华表、孙中山铜像，
+        到八角蓝顶的主体与朱红柱廊；背后是越秀山。
+        这是广州近代传统中轴线上的一座公共会堂，不是一座封闭的宫殿。
+      </p>
+      <div class="intro-actions">
+        <button class="primary" id="startBtn" type="button">进入近景</button>
+        <button class="ghost" id="skipIntroBtn" type="button">自由探索</button>
+      </div>
+      <p class="intro-note">实时 3D · 晨光/晴日/暮色 · 支持 4K 截图 · 移动端自动降级</p>
+    </div>
+    <div class="intro-meta" aria-hidden="true">
+      <span>48.63 m</span>
+      <span>72.65 × 63.32 m</span>
+      <span>4729 座</span>
+      <span>1931 · 吕彦直</span>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <span class="loading-mark">堂</span>
+    <p>正在立八角顶、铺草坪…</p>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>这个浏览器没有启用 WebGL</h2>
+    <p>近景 3D 需要 WebGL。请换用桌面版 Chrome / Edge，或在设置里开启硬件加速后重试。</p>
+  </div>
+
+  <section class="about-panel" id="aboutPanel" hidden aria-labelledby="aboutTitle">
+    <div class="about-sheet">
+      <button class="about-close" id="aboutClose" type="button" aria-label="关闭考据">×</button>
+      <p class="kicker">SOURCES &amp; SCALE</p>
+      <h2 id="aboutTitle">这版依据什么复原</h2>
+      <div class="about-grid">
+        <div>
+          <h3>尺度</h3>
+          <p>总占地约 6.1 万㎡；主体建筑占地约 1.2 万㎡（含四周平台）；堂高 48.63 m；南北 72.65 m、东西 63.32 m；大厅净跨约 71 m，单榀钢桁架约 30 m。上下两层 4729 座（《中国大百科全书》；旧资料作 5000 座）。场景按 1 米 = 1 单位做示意复原，不是测绘级。</p>
+        </div>
+        <div>
+          <h3>序列</h3>
+          <p>按“门楼 → 前草坪/云鹤华表 → 孙中山铜像 → 南抱厦柱廊 → 八角蓝顶 → 北侧山在堂后”组织。7 个视点分别对应门楼、草坪、铜像、柱廊、屋面、北侧、侧后。北侧山体与百步梯只做低权重提示；完整城市中轴请看越秀近景的顶层南望。</p>
+        </div>
+        <div>
+          <h3>取舍</h3>
+          <p>只做外观与结构图文热点，不做会堂内部、舞台、座席与穹顶。门楼按中央歇山、两侧庑殿的单檐保守做法；旧资料“重檐叠阁”待现场复核。华表高度按游记 12–13 m 示意。木棉王/白兰/红棉为程序化体量，树池/支撑/花季为示意。</p>
+        </div>
+        <div>
+          <h3>资料</h3>
+          <p><a href="http://lyylj.gz.gov.cn/stly/gyjq/zsjnt/jqjj/" target="_blank" rel="noreferrer">广州市林业和园林局·景区简介</a>；<a href="https://www.yuexiu.gov.cn/zjyx/yxjd/gzjdgms/content/post_8659223.html" target="_blank" rel="noreferrer">越秀区政府</a>；<a href="https://www.prdculture.org.cn/prdculture/wzwhyc/201506/e88718bf0c28488993beb7a882423f09.shtml" target="_blank" rel="noreferrer">粤港澳文旅·门楼/附楼</a>；<a href="https://www.zgbk.com/ecph/words?ID=184671&SiteID=1&SubID=61316&Type=bkzyb" target="_blank" rel="noreferrer">《中国大百科全书》·中山纪念堂</a>；<a href="https://www.gz.gov.cn/zt/zzyyzq/bmdt/content/mpost_10996057.html" target="_blank" rel="noreferrer">广州市政府/广州日报·吕彦直</a>；<a href="https://baike.baidu.com/item/%E6%9C%A8%E6%A3%89%E7%8E%8B/67324934" target="_blank" rel="noreferrer">百度百科·木棉王</a>。开放时间/票价/演出以官方公告为准。</p>
+        </div>
+      </div>
+
+      <figure class="about-diagram">
+        <svg viewBox="0 0 760 250" role="img" aria-label="中山纪念堂结构示意：八角鼓座、8 根隐藏柱、约 30 米钢桁架与 71 米净跨">
+          <rect x="0" y="0" width="760" height="250" fill="none"/>
+          <polygon points="380,26 480,66 520,166 480,226 380,236 280,226 240,166 280,66" fill="none" stroke="#7d9cb5" stroke-width="2"/>
+          <circle cx="380" cy="132" r="72" fill="none" stroke="#c9a86a" stroke-width="1.4" stroke-dasharray="5 5"/>
+          <g fill="#c9a86a">
+            <circle cx="380" cy="58" r="4"/><circle cx="452" cy="86" r="4"/><circle cx="480" cy="132" r="4"/><circle cx="452" cy="178" r="4"/>
+            <circle cx="380" cy="204" r="4"/><circle cx="308" cy="178" r="4"/><circle cx="280" cy="132" r="4"/><circle cx="308" cy="86" r="4"/>
+          </g>
+          <g stroke="#c9a86a" stroke-width="1.2">
+            <line x1="380" y1="58" x2="380" y2="204"/><line x1="280" y1="132" x2="480" y2="132"/>
+            <line x1="308" y1="86" x2="452" y2="178"/><line x1="452" y1="86" x2="308" y2="178"/>
+          </g>
+          <g fill="#f4efe3" font-family="'Songti SC','SimSun',serif" font-size="13">
+            <text x="380" y="18" text-anchor="middle">八角攒尖顶 · 四抱厦</text>
+            <text x="380" y="134" text-anchor="middle" font-size="12" fill="#e7c47c">净跨约 71 m</text>
+            <text x="500" y="62">8 根隐藏柱</text>
+            <text x="500" y="82">（柱在墙内）</text>
+            <text x="500" y="196">约 30 m 钢桁架</text>
+            <text x="500" y="216">观众厅内无柱</text>
+          </g>
+        </svg>
+        <figcaption>结构剖面示意：外观为传统屋顶，内部为钢桁架 + 钢筋混凝土；8 根柱隐藏在四周墙内，单榀桁架约 30 m，八角大厅净跨约 71 m。只做图文解释，不做内部/舞台模型。</figcaption>
+      </figure>
+
+      <p class="about-foot">CANTON ATLAS · 近景档案 05 · 2026</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="memorial-textures.js"></script>
+<script src="memorial-model.js"></script>
+<script src="memorial-main.js"></script>
+</body>
+</html>

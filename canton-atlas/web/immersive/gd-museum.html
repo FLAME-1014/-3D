@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>广东省博物馆 | CANTON ATLAS 近景</title>
+<meta name="description" content="广东省博物馆（月光宝盒）纯外观 1:1 近景 3D：约 113.5 m 见方的方形回字盒体、67.5 m 核心筒、四边各 23 m 悬挑、约 44.5 m 高；深灰铝板 + 鲜红内壁 + 玻璃 + 花岗石，约 100–120 个矩形洞口；西门台阶、草坡与波浪石径；中央约 40 m 天窗。7 视点、三档时段、4K。展厅内部不做；周边城市压缩示意。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%232a2d2e'/%3E%3Ctext x='32' y='46' font-size='36' text-anchor='middle' fill='%23f2efe8' font-family='serif'%3E%E7%9B%92%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="gd-museum.css">
+</head>
+<body class="intro-active">
+<div id="app">
+  <canvas id="scene" aria-label="广东省博物馆纯外观 1:1 实时 3D 近景：约 113.5 米见方的方形回字盒体，67.5 米核心筒、四边各 23 米悬挑、约 44.5 米高；深灰铝板与鲜红内壁、玻璃窗与竖向格栅、锯齿顶边；西门台阶、草坡与波浪石径；中央约 40 米天窗；北侧图书馆、西侧大剧院、南侧珠江与广州塔的城市关系；展厅内部不做，周边城市压缩示意"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">盒</span>
+      <span class="brand-text">
+        <strong>广东省博物馆</strong>
+        <small>GUANGDONG MUSEUM · 1:1 近景</small>
+      </span>
+    </div>
+    <p class="scene-label">月光宝盒 · 珠江新城的方形宝盒</p>
+    <div class="top-actions">
+      <button id="timeBtn" type="button" aria-pressed="false">晴日</button>
+      <button id="replayBtn" type="button">重播运镜</button>
+      <button id="shotBtn" type="button">4K 截图</button>
+      <button id="aboutBtn" type="button">考据</button>
+      <button id="cityBtn" type="button">城市全景 ↗</button>
+    </div>
+  </header>
+
+  <div class="stamp-strip" aria-hidden="true">
+    <span>44.5 m</span>
+    <span>113.5 × 113.5 m</span>
+    <span>67.5 + 23 m 悬挑</span>
+    <span>2010 · 许李严</span>
+  </div>
+
+  <div class="hotspots" id="hotspots" aria-label="广东省博物馆细部热点"></div>
+
+  <aside class="info-card" id="infoCard" role="dialog" aria-modal="false" aria-labelledby="infoTitle" aria-hidden="true">
+    <button class="info-close" id="infoClose" type="button" aria-label="关闭细部介绍">×</button>
+    <p class="kicker" id="infoKicker">广东省博物馆 · 01</p>
+    <h2 id="infoTitle">113.5 m 见方的宝盒</h2>
+    <p class="info-lede" id="infoLede"></p>
+    <div class="info-facts" id="infoFacts"></div>
+    <p class="info-detail" id="infoDetail"></p>
+    <div class="info-actions">
+      <button class="primary small" id="focusCraftBtn" type="button">带我去看</button>
+      <button class="ghost small" id="nextCraftBtn" type="button" title="遍历全部 7 个热点">下一读 →</button>
+    </div>
+  </aside>
+
+  <nav class="view-rail" id="viewRail" aria-label="视点">
+    <button type="button" data-view="west" class="active">西门</button>
+    <button type="button" data-view="southwest">西南角</button>
+    <button type="button" data-view="entry">入口</button>
+    <button type="button" data-view="skin">表皮</button>
+    <button type="button" data-view="axis">中轴</button>
+    <button type="button" data-view="roof">屋顶</button>
+    <button type="button" data-view="night">夜景</button>
+  </nav>
+
+  <footer class="hud-bottom">
+    <div class="progress-block">
+      <p class="chapter" id="chapter">01 / 西门 · 正面</p>
+      <div class="progress" role="progressbar" aria-label="运镜进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+    </div>
+    <p class="hint" id="hint">拖动环绕 · 滚轮缩放 · 双击复位</p>
+    <p class="scale-note">1 场景单位 = 1 米 · 盒体/核心/悬挑/西广场 1:1 估算 · 立面洞口/分格与周边城市压缩示意 · 展厅内部不做</p>
+  </footer>
+
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">CANTON ATLAS · 近景档案 11</p>
+      <h1><span class="intro-name">广东省博物馆</span><em>月光宝盒，一块方形的宝盒</em></h1>
+      <p class="intro-lede">
+        许李严建筑师事务所（Rocco Design）设计，2010-05-18 开馆；用地 41,027 ㎡、总建面约 66,980 ㎡、高约 44.5 m。
+        67.5 m 核心筒、四边各 23 m 悬挑，构成约 113.5 m 见方的“回”字盒体；深灰铝板 + 鲜红内壁 + 玻璃 + 花岗石，中央约 40 m 天窗。
+        西门台阶、草坡与波浪石径是“月光宝盒下的丝绸”，不是立面材料。
+        从西门正面走到西南悬挑，近看铝板与红色凹龛，再上屋顶读“回”字与天窗，最后以夜景红光收束；纯外观，展厅内部不做，周边城市压缩示意。
+      </p>
+      <div class="intro-actions">
+        <button class="primary" id="startBtn" type="button">进入近景</button>
+        <button class="ghost" id="skipIntroBtn" type="button">自由探索</button>
+      </div>
+      <p class="intro-note">实时 3D · 晴日/黄昏/夜景 · 7 视点 · 支持 4K 截图 · 移动端自动降级</p>
+    </div>
+    <div class="intro-meta" aria-hidden="true">
+      <span>44.5 m</span>
+      <span>113.5 × 113.5</span>
+      <span>67.5 + 23 m</span>
+      <span>2010</span>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <span class="loading-mark">盒</span>
+    <p>正在立宝盒、切洞口…</p>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>这个浏览器没有启用 WebGL</h2>
+    <p>近景 3D 需要 WebGL。请换用桌面版 Chrome / Edge，或在设置里开启硬件加速后重试。</p>
+  </div>
+
+  <section class="about-panel" id="aboutPanel" hidden aria-labelledby="aboutTitle">
+    <div class="about-sheet">
+      <button class="about-close" id="aboutClose" type="button" aria-label="关闭考据">×</button>
+      <p class="kicker">SOURCES &amp; SCALE</p>
+      <h2 id="aboutTitle">这版依据什么立宝盒</h2>
+      <div class="about-grid">
+        <div>
+          <h3>尺度</h3>
+          <p>总用地 41,027 ㎡；总建筑面积约 66,980 ㎡（约 6.7 万㎡）；地上 5 层、地下 1 层；高约 44.5 m（常见媒体口径也写 44.8 m）。中部 67.5 m × 67.5 m 核心筒，8 榀 67.5 m 跨空间桁架两端各悬挑 23 m，推算平面约 113.5 m 见方（<strong>按结构轴线推算，非测绘</strong>）。中央天窗约 40 m 见方、顶约 38 m，为按照片/资料估算。立面约 1.5 m 模数、76 列 × 24 排、约 100–120 个矩形洞口，均为照片估算/设计假定，不是官方开孔率。表皮为铝板 + 玻璃 + 花岗石（<strong>不是铜板</strong>），红黑取自传统漆器；空间与立面肌理借鉴象牙球与象牙雕/砖雕/木雕的透雕层次。</p>
+        </div>
+        <div>
+          <h3>序列</h3>
+          <p>7 个视点：西门 · 正面（west）、西南角 · 悬挑与切口（southwest）、入口 · 台阶与悬浮底层（entry）、表皮 · 铝板与红色凹龛（skin，<strong>无人机示意，非步行可达</strong>）、花城中轴 · 城市关系（axis，无人机示意）、屋顶 · 中央天窗与回字（roof，无人机示意）、夜景 · 月光宝盒（night，强制夜景）。7 个热点分别讲方形宝盒、像素化切口与红内壁、四边 23 m 悬挑、铝板/玻璃/花岗石、中央天窗与回字屋面、西门与“月光宝盒下的丝绸”、夜景红光。参观主入口在二层，散客走西门，自驾从东门停车。</p>
+        </div>
+        <div>
+          <h3>取舍</h3>
+          <p>纯外观：不做展厅、展柜、文物、中庭内部、回廊、电梯、办公、安检与地下车库；中央天窗以下不建内部。盒体 113.5 × 113.5 × 44.5 m、核心 67.5 m、四边悬挑 23 m、中央天窗 40 m、底层玻璃大堂与西门台阶主要尺度按资料/照片 1:1 估算；立面洞口位置/数量/深度、1.5 m 分格、草坡/台阶/树阵、城市距离与体量均标示意。周边城市按约 0.7–0.75× 压缩距离 + 雾，保持图书馆北、大剧院西、珠江与广州塔南偏西的方位关系，<strong>非测绘</strong>。夜景用 emissive + 少量点光做“黑盒 + 红色裂缝 + 暖色底座”示意，不写照明设计单位/色温/灯具，不做整面泛光或灯光秀。所有纹理程序化生成，不使用版权贴图。</p>
+        </div>
+        <div>
+          <h3>资料</h3>
+          <p><a href="https://www.gdmuseum.org.cn/" target="_blank" rel="noreferrer">广东省博物馆官网</a>；<a href="https://www.gdadri.com/projects/project_x67.html" target="_blank" rel="noreferrer">广东省建筑设计研究院 · 省博新馆（核心筒/悬挑）</a>；<a href="https://www.archdaily.com/zh/600844/guangdong-museum-slash-rocco-design-architects" target="_blank" rel="noreferrer">ArchDaily · Guangdong Museum / Rocco Design</a>；<a href="https://m.doc.docsou.com/bcd9c460c182712e81ae5980c.html" target="_blank" rel="noreferrer">江刚《掀开历史的珠帘》（建筑学报 2010.8）</a>；<a href="https://www.ciid.com.cn/news/news_info?article_id=2057" target="_blank" rel="noreferrer">CIID · 117 m 无柱展厅与波浪走道</a>；<a href="http://paper.people.com.cn/rmrbhwb/html/2016-01/30/content_1651589.htm" target="_blank" rel="noreferrer">人民日报海外版《“月光宝盒”诉说岭南风情》</a>；<a href="https://news.qq.com/rain/a/20250901A03SWC00/" target="_blank" rel="noreferrer">腾讯新闻 · 预约参观攻略（西门/东门）</a>；<a href="http://m.gz.bendibao.com/tour/292807.html" target="_blank" rel="noreferrer">广州本地宝 · 交通与开放</a>。完整来源、冲突与参考图观察见本会话 facts 文档；史料口径以官方/公开资料为准，非测绘。</p>
+        </div>
+      </div>
+
+      <figure class="about-diagram">
+        <svg viewBox="0 0 760 330" role="img" aria-label="广东省博物馆剖面示意：约 113.5 米见方的回字盒体、67.5 米核心筒、四边各 23 米悬挑、约 44.5 米高、中央约 40 米天窗、西门台阶与三层玻璃大堂">
+          <defs>
+            <linearGradient id="boxFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#6f7677"/>
+              <stop offset="1" stop-color="#343a3b"/>
+            </linearGradient>
+            <linearGradient id="lobbyFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffd9a8"/>
+              <stop offset="1" stop-color="#c9965c"/>
+            </linearGradient>
+          </defs>
+          <g stroke="#6b7f88" stroke-width="0.8" stroke-dasharray="4 4">
+            <line x1="40" y1="280" x2="720" y2="280"/>
+            <line x1="40" y1="250" x2="720" y2="250"/>
+            <line x1="40" y1="133" x2="720" y2="133"/>
+          </g>
+          <g fill="#e7eef0" font-family="'Songti SC','SimSun',serif" font-size="11">
+            <text x="44" y="296">广场 / 0 m</text>
+            <text x="44" y="244">+9 m 盒体底（估算）</text>
+            <text x="44" y="126">+44.5 m 屋面</text>
+          </g>
+          <path d="M 105 250 L 105 138 L 282 138 L 282 155 L 474 155 L 474 138 L 650 138 L 650 250 Z" fill="url(#boxFill)" stroke="#aab3b5" stroke-width="1.1"/>
+          <rect x="282" y="138" width="192" height="17" fill="#22302e" stroke="#8fb0a8" stroke-width="0.9"/>
+          <g stroke="#9fc0b8" stroke-width="0.5" opacity="0.8">
+            <line x1="306" y1="138" x2="306" y2="155"/><line x1="330" y1="138" x2="330" y2="155"/>
+            <line x1="354" y1="138" x2="354" y2="155"/><line x1="378" y1="138" x2="378" y2="155"/>
+            <line x1="402" y1="138" x2="402" y2="155"/><line x1="426" y1="138" x2="426" y2="155"/>
+            <line x1="450" y1="138" x2="450" y2="155"/>
+          </g>
+          <rect x="215" y="250" width="325" height="20" fill="url(#lobbyFill)" opacity="0.85" stroke="#e9c18e" stroke-width="0.9"/>
+          <g stroke="#7a5c3c" stroke-width="0.5" opacity="0.7">
+            <line x1="232" y1="250" x2="232" y2="270"/><line x1="252" y1="250" x2="252" y2="270"/>
+            <line x1="272" y1="250" x2="272" y2="270"/><line x1="292" y1="250" x2="292" y2="270"/>
+            <line x1="312" y1="250" x2="312" y2="270"/><line x1="332" y1="250" x2="332" y2="270"/>
+            <line x1="352" y1="250" x2="352" y2="270"/><line x1="372" y1="250" x2="372" y2="270"/>
+            <line x1="392" y1="250" x2="392" y2="270"/><line x1="412" y1="250" x2="412" y2="270"/>
+            <line x1="432" y1="250" x2="432" y2="270"/><line x1="452" y1="250" x2="452" y2="270"/>
+            <line x1="472" y1="250" x2="472" y2="270"/><line x1="492" y1="250" x2="492" y2="270"/>
+            <line x1="512" y1="250" x2="512" y2="270"/><line x1="532" y1="250" x2="532" y2="270"/>
+          </g>
+          <g fill="#b3353a">
+            <rect x="128" y="164" width="16" height="12"/><rect x="170" y="192" width="22" height="9"/>
+            <rect x="120" y="216" width="12" height="16"/><rect x="210" y="170" width="18" height="10"/>
+            <rect x="560" y="162" width="20" height="12"/><rect x="604" y="196" width="14" height="22"/>
+            <rect x="542" y="222" width="16" height="9"/>
+          </g>
+          <g stroke="#c9d6db" stroke-width="0.8">
+            <line x1="105" y1="250" x2="650" y2="250"/>
+            <line x1="105" y1="138" x2="650" y2="138"/>
+          </g>
+          <path d="M 40 280 L 78 280 L 105 250 L 105 280 Z" fill="#9aa0a0" opacity="0.6"/>
+          <path d="M 40 280 L 60 280 L 105 258 L 105 280 Z" fill="#5b7247" opacity="0.75"/>
+          <g fill="#d8b46a" font-family="'Songti SC','SimSun',serif" font-size="11">
+            <text x="378" y="84" text-anchor="middle">约 113.5 m 见方（67.5 + 2 × 23）</text>
+            <line x1="105" y1="95" x2="650" y2="95" stroke="#d8b46a" stroke-width="0.8"/>
+            <line x1="105" y1="90" x2="105" y2="100" stroke="#d8b46a" stroke-width="0.8"/>
+            <line x1="650" y1="90" x2="650" y2="100" stroke="#d8b46a" stroke-width="0.8"/>
+            <text x="672" y="196" text-anchor="middle" transform="rotate(90 672 196)">44.5 m</text>
+            <line x1="660" y1="138" x2="660" y2="250" stroke="#d8b46a" stroke-width="0.8"/>
+            <text x="240" y="300" text-anchor="middle">67.5 m 核心筒</text>
+            <line x1="215" y1="288" x2="540" y2="288" stroke="#d8b46a" stroke-width="0.8"/>
+            <line x1="215" y1="284" x2="215" y2="292" stroke="#d8b46a" stroke-width="0.8"/>
+            <line x1="540" y1="284" x2="540" y2="292" stroke="#d8b46a" stroke-width="0.8"/>
+            <text x="140" y="232" text-anchor="middle">23 m 悬挑</text>
+            <line x1="107" y1="236" x2="213" y2="236" stroke="#d8b46a" stroke-width="0.8"/>
+            <text x="378" y="176" text-anchor="middle">约 40 m 天窗 / 顶约 38 m</text>
+            <text x="430" y="262" text-anchor="middle">二层玻璃大堂（+3 → +9 m）</text>
+            <text x="84" y="274" text-anchor="end">西门台阶</text>
+          </g>
+          <g fill="#e7eef0" font-family="'Songti SC','SimSun',serif" font-size="10" opacity="0.8">
+            <text x="378" y="320" text-anchor="middle">剖面示意：方形回字盒体 / 四边 23 m 悬挑 / 中央天窗；不做展厅与中庭内部</text>
+          </g>
+        </svg>
+        <figcaption>剖面示意：约 113.5 m 见方、44.5 m 高；67.5 m 核心筒 + 四边 23 m 悬挑；中央天窗约 40 m、顶约 38 m；西门台阶抬升约 3 m。图示为示意比例，未按施工图复核。</figcaption>
+      </figure>
+
+      <p class="about-foot">CANTON ATLAS · 近景档案 11 · 2026 · 纯外观；盒体/核心/悬挑/入口广场 1:1 估算；周边城市压缩示意；展厅/中庭内部不做；夜景红光为示意，不是实时灯光秀；非测绘</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="gd-museum-textures.js"></script>
+<script src="gd-museum-model.js"></script>
+<script src="gd-museum-main.js"></script>
+</body>
+</html>

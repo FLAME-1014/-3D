@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>广州，从江面升起 · CANTON ATLAS 3D POC</title>
+<meta name="description" content="广州城市图鉴 3D PoC：18 秒实时运镜，从珠江水面到广州塔与天河天际线。Three.js 风格化实时场景，不是预渲染视频。">
+<meta property="og:title" content="广州，从江面升起 · CANTON ATLAS 3D POC">
+<meta property="og:description" content="18 秒实时运镜：珠江、广州塔、天河天际线。可自由探索的风格化 3D 广州。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23b5432f'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23fdf8ee' font-family='serif'%3E%E7%A9%97%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="intro-active">
+<div id="app">
+  <canvas id="scene" aria-label="风格化的广州珠江、广州塔与天河天际线实时 3D 场景"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="hud-top">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">穗</span>
+      <span class="brand-text">
+        <strong>CANTON ATLAS</strong>
+        <small>3D POC · 广州</small>
+      </span>
+    </div>
+    <p class="scene-label">广州塔 · 珠江 · 天河天际线</p>
+    <div class="top-actions">
+      <button id="dayBtn" type="button" aria-pressed="false">黄昏</button>
+      <button id="soundBtn" type="button" aria-pressed="false">声音 关</button>
+      <button id="skipBtn" type="button">跳过</button>
+      <button id="replayBtn" type="button">重播</button>
+    </div>
+  </header>
+
+  <div class="hotspots" id="hotspots" aria-label="场景热点"></div>
+
+  <button class="landmark-toggle" id="landmarkToggle" type="button" aria-expanded="false">
+    <span class="lm-toggle-count">10</span>
+    <span>地标</span>
+  </button>
+
+  <aside class="landmark-panel" id="landmarkPanel" aria-hidden="true" aria-labelledby="lmTitle">
+    <header class="lm-head">
+      <div>
+        <p class="kicker">CITY LANDMARKS</p>
+        <h2 id="lmTitle">城市地标</h2>
+      </div>
+      <button class="lm-close" id="lmClose" type="button" aria-label="关闭地标列表">×</button>
+    </header>
+    <div class="lm-list" id="lmList"></div>
+  </aside>
+
+  <aside class="spot-card" id="spotCard" role="dialog" aria-modal="false" aria-labelledby="spotName" aria-hidden="true">
+    <button class="spot-close" id="spotClose" type="button" aria-label="关闭景点卡片">×</button>
+    <p class="kicker" id="spotKicker">地标 · 海珠</p>
+    <h2 id="spotName">广州塔</h2>
+    <p class="spot-sig" id="spotSig"></p>
+    <div class="spot-facts" id="spotFacts"></div>
+    <div class="nearby" id="spotNearby"></div>
+    <div class="spot-actions">
+      <button class="primary small" id="flyBtn" type="button">飞近观看</button>
+      <button class="ghost small" id="detailBtn" type="button" hidden>近景细看</button>
+      <button class="ghost small" id="backBtn" type="button">回到全景</button>
+    </div>
+  </aside>
+
+  <footer class="hud-bottom">
+    <div class="progress-block">
+      <p class="chapter" id="chapter">01 / 序章 · 江面</p>
+      <div class="progress" role="progressbar" aria-label="漫游进度" aria-valuemin="0" aria-valuemax="18" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+    </div>
+    <p class="hint" id="hint">拖动旋转 · 滚轮缩放</p>
+    <p class="poc-note">3D POC · 非最终画质</p>
+  </footer>
+
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <p class="eyebrow">CANTON ATLAS · 3D POC 01</p>
+      <h1>广州，<br><em>从江面升起</em></h1>
+      <p class="intro-lede">
+        18 秒实时运镜：从珠江水面升起，掠过天河天际线，最后停在广州塔前。
+        这不是预渲染视频，可以随时停下来自己走。
+      </p>
+      <div class="intro-actions">
+        <button class="primary" id="startBtn" type="button">开始漫游</button>
+        <button class="ghost" id="skipIntroBtn" type="button">直接自由探索</button>
+      </div>
+      <p class="intro-note">建议开声音 · 桌面端体验最佳 · 移动端自动降低画质</p>
+    </div>
+    <div class="intro-meta" aria-hidden="true">
+      <span>广州塔 600 m</span>
+      <span>珠江</span>
+      <span>天河天际线</span>
+      <span>白云山</span>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">
+    <span class="loading-mark">穗</span>
+    <p>正在搭建广州…</p>
+  </div>
+
+  <div class="fallback" id="fallback" hidden>
+    <h2>这个浏览器没有启用 WebGL</h2>
+    <p>3D PoC 需要 WebGL。请换用桌面版 Chrome / Edge，或在设置里开启硬件加速后重试。</p>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="three.min.js"></script>
+<script src="poi-config.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
