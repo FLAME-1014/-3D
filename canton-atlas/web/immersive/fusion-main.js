@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   var ui = {};
-  ['map','overview','visit','visit-opera','roof','entry','marker','marker-opera','details','return','status','metrics','failure'].forEach(function(id){ui[id]=document.getElementById(id);});
+  ['map','overview','marker','marker-opera','details','return','status','metrics','failure'].forEach(function(id){ui[id]=document.getElementById(id);});
   var renderer;
   try { renderer = new THREE.WebGLRenderer({canvas:ui.map,antialias:true,powerPreference:'high-performance'}); }
   catch(error){ui.failure.hidden=false;ui.failure.textContent='无法创建 WebGL 场景，请使用支持硬件加速的浏览器。';return;}
@@ -68,7 +68,7 @@
   box(coarse,2,17,25,-57.9,25,15,new THREE.MeshStandardMaterial({color:0xc54135}));
   var operaGroup=new THREE.Group();operaGroup.position.copy(op);scene.add(operaGroup);
   city.remove(pebble,small);var operaCoarse=new THREE.Group();operaGroup.add(operaCoarse);pebble.position.sub(op);small.position.sub(op);operaCoarse.add(pebble,small);
-  var selected='museum',panelPlace=null;
+  var selected='museum',panelPlace=null,selectionActive=false,currentView='main';
   var places={
     museum:{name:'广东省博物馆',en:'GUANGDONG MUSEUM',group:museum,anchor:museumAnchor,coarse:coarse,marker:ui.marker,prefix:'gd-museum',textureGlobal:'GdMuseumTextures',modelGlobal:'GdMuseumModel',size:'约 113.5 × 113.5 m',height:'约 44.5 m',content:'建筑、台阶、缓坡、草地、树阵'},
     opera:{name:'广州大剧院',en:'GUANGZHOU OPERA HOUSE',group:operaGroup,anchor:op,coarse:operaCoarse,marker:ui['marker-opera'],prefix:'operahouse',textureGlobal:'OperaHouseTextures',modelGlobal:'OperaHouseModel',size:'双砾主体；范围为既有模型估算',height:'大砾约 43.1 m / 小砾约 28 m',content:'双砾、玻璃口部、平台、水池、草坡'}
@@ -102,28 +102,33 @@
     if(!value){place.visible=false;if(place.detail)place.detail.visible=false;place.coarse.visible=true;place.timer=setTimeout(function(){disposeDetail(place);},15000);return;}
     ensureDetail(place).then(function(){if(!place.desired)return;place.detail.visible=true;place.coarse.visible=false;place.visible=true;}).catch(function(){});
   }
-  var views={
-    overview:{target:new THREE.Vector3(-210,0,-50),radius:1850,theta:-.65,phi:.86},
-    museum:{target:museumAnchor.clone().add(new THREE.Vector3(0,22,0)),radius:245,theta:-1.05,phi:1.22},
-    opera:{target:op.clone().add(new THREE.Vector3(0,20,-45)),radius:255,theta:.45,phi:1.22}
-  };
-  function updatePanel(){var p=places[selected];ui.details.hidden=!p.visible;if(!p.visible){panelPlace=null;return;}if(panelPlace===selected)return;panelPlace=selected;document.getElementById('place-name').textContent=p.name;document.getElementById('place-en').textContent=p.en;document.getElementById('place-size').textContent=p.size;document.getElementById('place-height').textContent=p.height;document.getElementById('place-content').textContent=p.content;if(window.FusionPoi)window.FusionPoi.activate(selected);}
+  var overviewView={target:new THREE.Vector3(-210,0,-50),radius:1850,theta:-.65,phi:.86};
+  var explorer=document.getElementById('explorer'),exploreToggle=document.getElementById('explore-toggle'),searchInput=document.getElementById('place-search'),viewBar=document.getElementById('place-views');
+  function explorerOpen(value){explorer.hidden=!value;exploreToggle.setAttribute('aria-expanded',String(value));if(value){ui.details.hidden=true;searchInput.focus();}else exploreToggle.focus();}
+  function renderResults(){var matches=window.FusionCatalog.search(searchInput.value),list=document.getElementById('place-results');list.replaceChildren();document.getElementById('search-summary').textContent=matches.length?'找到 '+matches.length+' 个已接入地点':'没有匹配地点，请试试“省博”或“大剧院”。';matches.forEach(function(p){var li=document.createElement('li'),button=document.createElement('button'),title=document.createElement('strong'),meta=document.createElement('small');title.textContent=p.name;meta.textContent=p.area+' · '+p.category+' · '+p.level;button.append(title,meta);button.onclick=function(){explorerOpen(false);go(p.id);};li.append(button);list.append(li);});}
+  function renderViews(){var bar=document.getElementById('selection-bar');bar.hidden=!selectionActive;if(!selectionActive)return;var p=window.FusionCatalog.get(selected);document.getElementById('current-place').textContent='当前地点：'+p.name;viewBar.replaceChildren();p.views.forEach(function(v){var button=document.createElement('button');button.textContent=v.label;button.setAttribute('aria-pressed',String(v.id===currentView));button.onclick=function(){go(v.id);};viewBar.append(button);});}
+  exploreToggle.onclick=function(){explorerOpen(explorer.hidden);};document.getElementById('explore-close').onclick=function(){explorerOpen(false);};searchInput.oninput=renderResults;searchInput.onkeydown=function(event){if(event.key==='Enter'){var match=window.FusionCatalog.search(searchInput.value);if(match.length===1){explorerOpen(false);go(match[0].id);}}};document.addEventListener('keydown',function(event){if(event.key==='Escape'&&!explorer.hidden)explorerOpen(false);});renderResults();
+  function updatePanel(){var p=places[selected];ui.details.hidden=!p.visible||!explorer.hidden;if(!p.visible){panelPlace=null;return;}if(panelPlace===selected)return;panelPlace=selected;document.getElementById('place-name').textContent=p.name;document.getElementById('place-en').textContent=p.en;document.getElementById('place-size').textContent=p.size;document.getElementById('place-height').textContent=p.height;document.getElementById('place-content').textContent=p.content;if(window.FusionPoi)window.FusionPoi.activate(selected);}
   function go(name){
     var v;
-    if(name==='overview')v=views.overview;
-    else if(name==='roof'||name==='entry'){var base=places[selected].anchor;v={target:base.clone().add(new THREE.Vector3(name==='entry'&&selected==='museum'?-40:0,name==='entry'?10:22,selected==='opera'?-45:0)),radius:name==='entry'?170:290,theta:name==='entry'?(selected==='opera'?.55:-1.57):-.8,phi:name==='entry'?1.4:.55};}
-    else{selected=name;v=views[name];}
-    if(!v)return;
-    tween={at:performance.now(),duration:reduced?0:2400,from:{target:target.clone(),radius:radius,theta:theta,phi:phi},to:v};if(name!=='overview')ensureDetail(places[selected]).catch(function(){});
+    if(name==='overview'){v=overviewView;selectionActive=false;currentView='main';}
+    else {
+      explorer.hidden=true;exploreToggle.setAttribute('aria-expanded','false');
+      if(window.FusionCatalog.get(name)){selected=name;currentView='main';}
+      else currentView=name;
+      var config=window.FusionCatalog.get(selected),view=config.views.find(function(item){return item.id===currentView;});if(!view)return;
+      selectionActive=true;v={target:places[selected].anchor.clone().add(new THREE.Vector3().fromArray(view.offset)),radius:view.radius,theta:view.theta,phi:view.phi};
+    }
+    renderViews();tween={at:performance.now(),duration:reduced?0:2400,from:{target:target.clone(),radius:radius,theta:theta,phi:phi},to:v};if(name!=='overview')ensureDetail(places[selected]).catch(function(){});
   }
-  ui.overview.onclick=ui.return.onclick=function(){go('overview');};ui.visit.onclick=ui.marker.onclick=function(){go('museum');};ui['visit-opera'].onclick=ui['marker-opera'].onclick=function(){go('opera');};ui.roof.onclick=function(){go('roof');};ui.entry.onclick=function(){go('entry');};
+  ui.overview.onclick=ui.return.onclick=function(){go('overview');};ui.marker.onclick=function(){go('museum');};ui['marker-opera'].onclick=function(){go('opera');};
   function end(){tween=null;}
   ui.map.addEventListener('pointerdown',function(event){end();ui.map.setPointerCapture(event.pointerId);pointer.set(event.pointerId,{x:event.clientX,y:event.clientY});dragStart={x:event.clientX,y:event.clientY,moved:false};if(pointer.size===2){var pts=Array.from(pointer.values());pinch={distance:Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y),radius:radius};}});
   ui.map.addEventListener('pointermove',function(event){if(!pointer.has(event.pointerId))return;var old=pointer.get(event.pointerId);pointer.set(event.pointerId,{x:event.clientX,y:event.clientY});if(pointer.size===2&&pinch){var pts=Array.from(pointer.values());radius=THREE.MathUtils.clamp(pinch.radius*pinch.distance/Math.max(1,Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y)),90,4300);}else{theta-=(event.clientX-old.x)*.005;phi=THREE.MathUtils.clamp(phi+(event.clientY-old.y)*.004,.2,1.48);}if(dragStart&&Math.hypot(event.clientX-dragStart.x,event.clientY-dragStart.y)>6)dragStart.moved=true;});
   function release(event){if(event.type==='pointerup'&&dragStart&&!dragStart.moved&&pointer.size===1){raycaster.setFromCamera(new THREE.Vector2(event.clientX/innerWidth*2-1,1-event.clientY/innerHeight*2),camera);var hits=[];Object.keys(places).forEach(function(id){var p=places[id];var hit=raycaster.intersectObject(p.visible&&p.detail?p.detail:p.coarse,true)[0];if(hit)hits.push({id:id,distance:hit.distance});});hits.sort(function(a,b){return a.distance-b.distance;});if(hits.length)go(hits[0].id);}pointer.delete(event.pointerId);pinch=null;dragStart=null;}
   ui.map.addEventListener('pointerup',release);ui.map.addEventListener('pointercancel',release);
   ui.map.addEventListener('wheel',function(event){event.preventDefault();end();radius=THREE.MathUtils.clamp(radius*Math.exp(event.deltaY*.001),90,4300);},{passive:false});
-  document.addEventListener('keydown',function(event){if(event.target.tagName==='BUTTON'||event.target.tagName==='A'||event.target.closest('aside'))return;var used=true;switch(event.key){case'ArrowLeft':theta-=.08;break;case'ArrowRight':theta+=.08;break;case'ArrowUp':phi=Math.max(.2,phi-.06);break;case'ArrowDown':phi=Math.min(1.48,phi+.06);break;case'+':case'=':radius=Math.max(90,radius*.9);break;case'-':radius=Math.min(4300,radius*1.1);break;default:used=false;}if(used){end();event.preventDefault();}});
+  document.addEventListener('keydown',function(event){if(event.target.tagName==='BUTTON'||event.target.tagName==='A'||event.target.closest('aside')||event.target.closest('#explorer')||event.target.tagName==='INPUT')return;var used=true;switch(event.key){case'ArrowLeft':theta-=.08;break;case'ArrowRight':theta+=.08;break;case'ArrowUp':phi=Math.max(.2,phi-.06);break;case'ArrowDown':phi=Math.min(1.48,phi+.06);break;case'+':case'=':radius=Math.max(90,radius*.9);break;case'-':radius=Math.min(4300,radius*1.1);break;default:used=false;}if(used){end();event.preventDefault();}});
   function resize(){camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight,false);}addEventListener('resize',resize);resize();pose();
   function animate(now){requestAnimationFrame(animate);frames++;if(now-fpsAt>1000){fps=Math.round(frames*1000/(now-fpsAt));frames=0;fpsAt=now;}
     if(tween){var p=tween.duration===0?1:Math.min(1,(now-tween.at)/tween.duration);p=p*p*(3-2*p);target.copy(tween.from.target).lerp(tween.to.target,p);radius=Math.exp(THREE.MathUtils.lerp(Math.log(tween.from.radius),Math.log(tween.to.radius),p));theta=THREE.MathUtils.lerp(tween.from.theta,tween.to.theta,p);phi=THREE.MathUtils.lerp(tween.from.phi,tween.to.phi,p);if(p>=1)tween=null;}
