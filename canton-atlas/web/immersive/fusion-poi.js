@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   var data=window.FusionPoiData,container=document.getElementById('poi-list'),status=document.getElementById('poi-status'),retry=document.getElementById('poi-retry');
-  var sdk=null,origins={},placeId='museum',placeNames={museum:'广东省博物馆',opera:'广州大剧院'},active='food',sequence=0,cache={},started=false;
+  var sdk=null,origins={},placeId='museum',placeNames=Object.fromEntries(window.FusionCatalog.places.map(function(p){return [p.id,p.poi.name];})),active='food',sequence=0,cache={},started=false;
   var categories={food:'050000',shopping:'060000'};
   function sdkLoad(){
     if(sdk)return sdk;
@@ -26,8 +26,8 @@
   function render(pois){container.replaceChildren();if(!pois.length){status.textContent='高德没有返回该分类的周边地点。';return;}status.textContent='高德 · '+placeNames[placeId]+'周边 800 米 · '+pois.length+' 条结果';pois.forEach(function(p){var item=document.createElement('li'),title=document.createElement('strong'),address=document.createElement('p'),meta=document.createElement('small');title.textContent=p.name;address.textContent=p.address||'暂无详细地址';meta.textContent=(p.type.split(';').pop()||'地点')+(p.distance===null?'':' · 接口距离约 '+p.distance+' 米');item.append(title,address,meta);var href=data.link(p);if(href){var a=document.createElement('a');a.href=href;a.target='_blank';a.rel='noopener noreferrer';a.textContent='在高德中查看 / 导航 ↗';item.append(a);}container.append(item);});}
   async function query(force){
     var token=++sequence,category=active,id=placeId,cacheKey=id+':'+category;retry.hidden=true;container.replaceChildren();status.textContent='正在查询'+placeNames[id]+'周边地点…';
-    if(!force&&cache[cacheKey]&&Date.now()-cache[category].at<300000){render(cache[category].pois);return;}
-    try{var AMap=await sdkLoad(),center=await anchor(AMap,id);var result=await search(AMap,{city:'广州',type:categories[category],pageSize:6,extensions:'base'},'searchNearBy',['',center,800]);var pois=result.map(data.normalize);cache[category]={at:Date.now(),pois:pois};if(token===sequence)render(pois);}
+    if(!force&&cache[cacheKey]&&Date.now()-cache[cacheKey].at<300000){render(cache[cacheKey].pois);return;}
+    try{var AMap=await sdkLoad(),center=await anchor(AMap,id);var result=await search(AMap,{city:'广州',type:categories[category],pageSize:6,extensions:'base'},'searchNearBy',['',center,window.FusionCatalog.get(id).poi.radius]);var pois=result.map(data.normalize);cache[cacheKey]={at:Date.now(),pois:pois};if(token===sequence)render(pois);}
     catch(error){if(token!==sequence)return;var messages={not_configured:'高德未配置。请通过 npm run dev 打开本地页面。',sdk_load_failed:'浏览器未能加载高德 SDK。',sdk_timeout:'高德 SDK 加载超时。',sdk_missing:'高德 SDK 未就绪。',plugin_missing:'地点搜索插件未就绪。',query_timeout:'地点查询超时。',domain_rejected:'当前访问域名未获高德 Key 允许。',key_rejected:'高德 Key 类型或权限不匹配。',anchor_missing:'未能确定当前地标的查询中心。',query_failed:'高德查询失败，请稍后重试。'};status.textContent=messages[error.message]||'地点查询异常，请重试。';retry.hidden=false;}
   }
   document.querySelectorAll('[data-poi-category]').forEach(function(button){button.onclick=function(){active=button.dataset.poiCategory;document.querySelectorAll('[data-poi-category]').forEach(function(b){b.setAttribute('aria-pressed',String(b===button));});query(false);};});retry.onclick=function(){query(true);};
