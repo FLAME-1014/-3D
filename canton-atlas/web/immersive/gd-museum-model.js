@@ -744,12 +744,12 @@
     groundB.face([[-350, 0, -350], [350, 0, -350], [350, 0, 350], [-350, 0, 350]], [0, 1, 0], [[0, 0], [116, 0], [116, 116], [0, 116]]);
     var ground = groundB.mesh(pavingMat, true);
     ground.receiveShadow = true;
-    root.add(ground);
+    if (opts.precinctOnly !== true) root.add(ground);
 
     var farGroundB = new Bucket();
     farGroundB.face([[-2200, -0.2, -2200], [2200, -0.2, -2200], [2200, -0.2, 2200], [-2200, -0.2, 2200]], [0, 1, 0], [[0, 0], [1, 0], [1, 1], [0, 1]]);
     var farGround = farGroundB.mesh(new THREE.MeshStandardMaterial({ color: lin(0x6f756d), roughness: 0.98, metalness: 0 }), false);
-    root.add(farGround);
+    if (opts.precinctOnly !== true) root.add(farGround);
 
     var lawnB = new Bucket();
     function lawn(x0, z0, x1, z1) {
@@ -834,6 +834,15 @@
     root.add(lampMesh, headMesh);
 
     buildTrees(root, T, low);
+
+    // Regional export keeps entrance/landscape but never adds a second city or ground.
+    if (opts.precinctOnly === true) {
+      ground.geometry.dispose(); ground.material.dispose();
+      farGround.geometry.dispose(); farGround.material.dispose();
+      root.name = "gd-museum-precinct";
+      return { root: root, materials: materials, hotspots: [],
+        bounds: new THREE.Box3(new THREE.Vector3(-180, 0, -180), new THREE.Vector3(180, Y1, 180)) };
+    }
 
     var city = buildCity(root, T, low);
 

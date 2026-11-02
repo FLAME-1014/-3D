@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>广州同图探索 · 省博融合样板</title><link rel="stylesheet" href="fusion.css"></head>
 <body><canvas id="map" aria-label="广州示意城市总览与广东省博物馆同场景融合样板"></canvas>
-<header><a href="../index.html">CANTON ATLAS / 实验</a><span>01 · 同图探索</span><h1>从城市，靠近一座建筑。</h1><p>一张画布 · 一个相机 · 按距离加载细节</p></header>
-<div class="actions"><button id="overview">城市总览</button><button id="visit">靠近省博</button><button id="roof">俯看屋面</button></div>
+<header><a href="../index.html">CANTON ATLAS / 实验</a><span>02 · 珠江新城区域样板</span><h1>沿着中轴，靠近省博。</h1><p>WGS84 区域锚点 · 米制尺度 · 同图细节加载</p></header>
+<div class="actions"><button id="overview">区域总览</button><button id="visit">靠近省博</button><button id="roof">俯看屋面</button><button id="entry">西门入口</button></div>
 <button id="marker" class="marker">广东省博物馆 <span>点击靠近 ↗</span></button>
-<aside id="details" hidden><span class="eyebrow">GUANGDONG MUSEUM</span><h2>广东省博物馆</h2><p>这不是另一个页面。你仍在同一座示意城市里，建筑细模在靠近时替换总览体量。</p><dl><div><dt>模型平面</dt><dd>约 113.5 × 113.5 m</dd></div><div><dt>模型高度</dt><dd>约 44.5 m</dd></div><div><dt>本轮内容</dt><dd>外壳、切口、屋面、底层</dd></div></dl><p class="note">尺寸为既有模型资料口径；本样板位置、道路与周边体量为示意，尚未按真实经纬度配准。</p><button id="return">拉远，回到城市</button></aside>
-<footer><div id="status" role="status" aria-live="polite">准备城市总览…</div><p>拖动环绕 · 滚轮 / 双指缩放 · 方向键环绕 · + / − 缩放</p><small>技术样板：非完整广州地图 · 不用于导航 · 尚未接入 POI</small><div id="metrics"></div></footer>
+<aside id="details" hidden><span class="eyebrow">GUANGDONG MUSEUM</span><h2>广东省博物馆</h2><p>这不是另一个页面。你仍在同一张区域地图里。建筑与入口景观按距离加载，不再复制另一套城市背景。</p><dl><div><dt>模型平面</dt><dd>约 113.5 × 113.5 m</dd></div><div><dt>模型高度</dt><dd>约 44.5 m</dd></div><div><dt>本轮内容</dt><dd>建筑、台阶、缓坡、草地、树阵</dd></div></dl><p class="note">尺寸为既有模型资料口径；地标锚点来自历史 OSM/WGS84 考据，统一米制转换但未重新测绘；建筑朝向、道路、河岸与景观边界仍为示意。</p><button id="return">拉远，回到城市</button></aside>
+<footer><div id="status" role="status" aria-live="polite">准备城市总览…</div><p>拖动环绕 · 滚轮 / 双指缩放 · 方向键环绕 · + / − 缩放</p><small>区域样板：锚点定位 / 边界示意 · 非测绘地图 · 不用于导航</small><div id="metrics"></div></footer>
 <div id="failure" role="alert" hidden></div>
-<script src="three.min.js"></script><script src="fusion-main.js"></script></body></html>
+<script src="three.min.js"></script><script src="fusion-geo.js"></script><script src="fusion-main.js"></script></body></html>
