@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "0.1",
+  "id": "guangxiao",
+  "name": "光孝寺 · 岭南第一古刹",
+  "status": "draft",
+  "updated": "2026-11-03",
+  "geo": {
+    "wgs84": [113.252574, 23.132079],
+    "gcj02": [113.2579, 23.1294],
+    "anchor": "光孝路 109 号光孝寺（GCJ-02 来自高德地图；WGS84 由算法转换；待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 30000,
+    "buildingAreaM2": null,
+    "footprintM": [170, 160],
+    "heightM": null,
+    "floors": null,
+    "confidence": "B",
+    "note": "寺院占地约 3 万㎡（1990 年代口径，另有 2001 年门前广场扩建）；模型是 120×90m 中轴段 diorama，不是整座寺院 1:1。"
+  },
+  "features": [
+    {
+      "id": "hall",
+      "name": "大雄宝殿",
+      "priority": 1,
+      "note": "东晋始建，保留唐宋建筑风格；重檐歇山，岭南丛林大殿"
+    },
+    {
+      "id": "pagoda",
+      "name": "瘗发塔",
+      "priority": 1,
+      "note": "唐仪凤元年（676）为六祖惠能剃度埋发而建；八角七层仿楼阁式砖塔"
+    },
+    {
+      "id": "bodhi",
+      "name": "菩提树",
+      "priority": 1,
+      "note": "南朝梁天监元年（502）智药三藏从印度带来；中国有记载的第一棵菩提树；现存树高约 16m、冠幅约 18m"
+    },
+    {
+      "id": "irontower",
+      "name": "东西铁塔",
+      "priority": 2,
+      "note": "南汉铸造，七层；中国现存较早的大型铁塔"
+    },
+    {
+      "id": "gate",
+      "name": "山门 / 天王殿",
+      "priority": 2,
+      "note": "光孝路入口序列；岭南丛林的中轴门面"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#a8442f", "#2f6b4f", "#b08d57", "#e8dcc5", "#8a8f88", "#5a7f3a"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "gate", "hall", "pagoda", "detail"],
+  "presetOverrides": {
+    "overview": { "yaw": 0.5, "pitch": 0.18, "distance": 100, "target": [0, 8, 10] },
+    "gate": { "yaw": 0.1, "pitch": 0.08, "distance": 26, "target": [0, 5, 40] },
+    "hall": { "yaw": 0.9, "pitch": 0.12, "distance": 44, "target": [0, 8, 18] },
+    "pagoda": { "yaw": 0.4, "pitch": 0.15, "distance": 26, "target": [26, 5, 16] },
+    "detail": { "yaw": -1.2, "pitch": 0.15, "distance": 20, "target": [-22, 10, -2] }
+  },
+  "hotspots": [
+    {
+      "id": "gate",
+      "label": "山门",
+      "anchor": "gate",
+      "type": "info",
+      "preset": "gate",
+      "note": "光孝路入口；岭南丛林的中轴门面。"
+    },
+    {
+      "id": "hall",
+      "label": "大雄宝殿",
+      "anchor": "hall",
+      "type": "info",
+      "preset": "hall",
+      "note": "东晋始建，保留唐宋建筑风格；重檐歇山，是光孝寺的中轴主殿。"
+    },
+    {
+      "id": "pagoda",
+      "label": "瘗发塔",
+      "anchor": "pagoda",
+      "type": "info",
+      "preset": "pagoda",
+      "note": "唐仪凤元年（676）为六祖惠能剃度埋发而建；八角七层仿楼阁式砖塔。"
+    },
+    {
+      "id": "bodhi",
+      "label": "菩提树",
+      "anchor": "bodhi",
+      "type": "info",
+      "preset": "detail",
+      "note": "南朝梁天监元年（502）智药三藏从印度带来；中国有记载的第一棵菩提树。"
+    },
+    {
+      "id": "irontower",
+      "label": "东西铁塔",
+      "anchor": "irontower",
+      "type": "info",
+      "preset": "pagoda",
+      "note": "南汉铸造，七层；中国现存较早的大型铁塔。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [120, 90],
+    "zoom": { "min": 4, "max": 260 },
+    "note": "中轴段 diorama：山门—天王殿—大雄宝殿—瘗发塔—六祖殿 + 菩提树/东西铁塔 + 廊庑；不是整座寺院 1:1。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市人民政府 · 光孝寺",
+      "url": "https://www.gz.gov.cn/zlgz/gzly/wzgz/zjcs/fj/content/post_7760653.html",
+      "author": "广州市人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "光孝路 109 号；达摩曾驻锡，六祖惠能在寺中落发、受戒；大雄宝殿、洗钵泉、瘗发塔、石经幢、南汉铁塔等。"
+    },
+    {
+      "type": "official",
+      "title": "广州市越秀区人民政府 · 光孝寺",
+      "url": "https://www.yuexiu.gov.cn/zjyx/yxjd/zjwh/content/post_8665058.html",
+      "author": "广州市越秀区人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "地址光孝路 109 号；开放时间 8:00–16:30；免费。"
+    },
+    {
+      "type": "secondary",
+      "title": "广州日报 · 千年光孝里的“智慧树”",
+      "url": "https://huacheng.gz-cmc.com/pages/2022/10/11/b039b72b2fdf485e87def84bc205fda3.html",
+      "author": "广州日报",
+      "license": "媒体资料",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "菩提树树高 16m、树围 5m、冠幅 18m；位于六祖瘗发塔旁。"
+    },
+    {
+      "type": "secondary",
+      "title": "高德地图 · 光孝寺坐标",
+      "url": "https://www.amap.com/place/B00141S9PR",
+      "author": "高德地图",
+      "license": "地图服务",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "GCJ-02 [113.2579, 23.1294]；WGS84 由算法转换；未与 OSM/测绘核对。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 寺院轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Overpass；殿堂、塔位、院落轮廓仍未测绘核对。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-03）：官方寺院/文物 A 已核；模型是 120×90m 中轴段示意；严格轮廓/尺度为 A 级项，B 级记 null。实测 203 calls / 4,866 tris / 1.35ms per frame（总览最重）。图鉴 iframe、打卡、返回、五机位、五热点、移动端已验证。B 级 lite 识别通过（用户反馈，人数未注明）。"
+  },
+  "notes": "B 级通过：光孝寺的核心不是“又一间寺庙”，而是“岭南第一古刹”的中轴序列：山门—大雄宝殿—瘗发塔—菩提树/东西铁塔。模型只做中轴段；不含寺院全部院落、僧舍和内部展陈。塔在模型中移到东侧院落以保证可见，属于示意，不是现场测绘；识别只做 1–2 人 lite，不做 5 人，除非抽中/大改。"
+}

@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "0.1",
+  "id": "yuexiu-park",
+  "name": "越秀公园 · 五羊石像",
+  "status": "draft",
+  "updated": "2026-11-03",
+  "geo": {
+    "wgs84": [113.25817, 23.143173],
+    "gcj02": [113.2635, 23.1405],
+    "anchor": "越秀公园山脊段（五羊—明城墙—镇海楼）示意中心；GCJ-02 为项目估算，WGS84 由算法转换；待 OSM/现场核对",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 690000,
+    "buildingAreaM2": null,
+    "footprintM": [1110, 1000],
+    "heightM": 70,
+    "floors": null,
+    "confidence": "B",
+    "note": "公园约 69 万㎡、越秀山南北约 1.11km、主峰约 70m 为资料口径；模型是 110×80m 山脊段 diorama，压缩了五羊—镇海楼约 300m 的真实间距。"
+  },
+  "features": [
+    {
+      "id": "wuyang",
+      "name": "五羊石像",
+      "priority": 1,
+      "note": "1959–1960 年建成，连基座高 11m、宽约 10.8m；130 余块花岗岩，主羊昂首衔穗，四羊环绕"
+    },
+    {
+      "id": "wall",
+      "name": "明城墙 · 榕根段",
+      "priority": 1,
+      "note": "1380 年建，镇海楼段约 170–200m；青砖墙、红砂岩基、榕根抱墙"
+    },
+    {
+      "id": "zhenhai",
+      "name": "镇海楼",
+      "priority": 1,
+      "note": "1380 年始建，五层重檐、高约 28m，首层 31×15.77m；红墙绿瓦，现为广州博物馆"
+    },
+    {
+      "id": "paifang",
+      "name": "五羊仙庭入口",
+      "priority": 2,
+      "note": "1990 年扩建的入口序列；模型只做简化牌坊与低平台，不编造浮雕内容"
+    },
+    {
+      "id": "park",
+      "name": "越秀山林荫",
+      "priority": 2,
+      "note": "约 90% 绿化覆盖；模型用低多边形榕树/香樟和石径表现山脊公园氛围"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#6f8f4f", "#b8ac95", "#a8442f", "#2f6b4f", "#cfc6b4", "#e8dcc5"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "wuyang", "wall", "zhenhai", "detail"],
+  "presetOverrides": {
+    "overview": { "yaw": 0.2, "pitch": 0.3, "distance": 150, "target": [0, 8, 0] },
+    "wuyang": { "yaw": 0.4, "pitch": 0.18, "distance": 36, "target": [-32, 9.5, 11] },
+    "wall": { "yaw": 0.05, "pitch": 0.08, "distance": 62, "target": [-8, 11, -16] },
+    "zhenhai": { "yaw": 0.18, "pitch": 0.06, "distance": 80, "target": [24, 27, -17] },
+    "detail": { "yaw": 0.4, "pitch": 0.18, "distance": 30, "target": [-32, 9.5, 11] }
+  },
+  "hotspots": [
+    {
+      "id": "wuyang",
+      "label": "五羊石像",
+      "anchor": "wuyang",
+      "type": "info",
+      "preset": "wuyang",
+      "note": "1960 年落成；连基座高 11m，主羊口衔谷穗，四羊环绕，是广州“羊城”的视觉来源。"
+    },
+    {
+      "id": "wall",
+      "label": "明城墙 · 榕根",
+      "anchor": "wall",
+      "type": "info",
+      "preset": "wall",
+      "note": "1380 年建；镇海楼段约 170–200m，青砖墙、红砂岩基，榕根从墙顶垂到墙脚。"
+    },
+    {
+      "id": "zhenhai",
+      "label": "镇海楼",
+      "anchor": "zhenhai",
+      "type": "info",
+      "preset": "zhenhai",
+      "note": "五层重檐、高约 28m；红墙绿瓦，1929 年起为广州博物馆。"
+    },
+    {
+      "id": "park",
+      "label": "越秀山",
+      "anchor": "park",
+      "type": "info",
+      "preset": "overview",
+      "note": "主峰约 70m；五羊、明城墙、镇海楼叠在同一段山脊上，是越秀公园不可替代的序列。"
+    },
+    {
+      "id": "detail",
+      "label": "五羊细部",
+      "anchor": "detail",
+      "type": "info",
+      "preset": "detail",
+      "note": "粗凿花岗岩、主羊卷角与衔穗；130 余块花岗岩组砌。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [110, 80],
+    "zoom": { "min": 4, "max": 260 },
+    "note": "山脊段 diorama：五羊石像 + 明城墙（榕根段）+ 镇海楼 + 简化五羊仙庭牌坊；不含三湖、体育场内部、博物馆展陈；真实约 300m 间距压缩到 110m。"
+  },
+  "sources": [
+    {
+      "type": "project",
+      "title": "项目考据 · 2026-10-30-yuexiu-park-facts.md",
+      "url": "qoder-docs/superpowers/research/2026-10-30-yuexiu-park-facts.md",
+      "author": "Canton Atlas 历史考据",
+      "license": "项目内资料",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": true,
+      "note": "五羊 11m/10.8m、镇海楼 28m/31×15.77m、明城墙 6–10m、公园 69 万㎡；正文标注了冲突口径。"
+    },
+    {
+      "type": "secondary",
+      "title": "百度百科 · 五羊石像",
+      "url": "https://baike.baidu.com/item/五羊石像",
+      "author": "百度百科",
+      "license": "百科资料",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "连基座高 11m、宽 10.8m、130 余块花岗岩；作为体量参考，不作为测绘值。"
+    },
+    {
+      "type": "secondary",
+      "title": "百度百科 · 镇海楼",
+      "url": "https://baike.baidu.com/item/镇海楼/24271",
+      "author": "百度百科",
+      "license": "百科资料",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "1380 年始建、五层、高 28m、首层 31×15.77m；与项目考据互证。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 建筑轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Overpass；建筑轮廓、城墙走向与高度仍未测绘核对。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-03）：项目考据 A/B 已核；模型是 110×80m 山脊段示意，压缩约 300m 真实间距；严格轮廓/尺度为 A 级项，B 级记 null。实测 297 calls / 21,031 tris / 1.54ms per frame（总览最重）。图鉴 iframe、打卡、返回、五机位、五热点、移动端 390×844 已验证。B 级 lite 识别通过（用户反馈，人数未注明）。"
+  },
+  "notes": "B 级通过：越秀公园的不可替代性在“同一段山脊上叠着羊城城标 + 广州唯一成段明城墙 + 镇海楼”。模型只做五羊—城墙—镇海楼登高线；不含三湖、体育场内部、博物馆展陈。与 zhenhai 条目共用同一场景，后续由图鉴入口决定视图；识别只做 1–2 人 lite，不做 5 人，除非抽中/大改。"
+}

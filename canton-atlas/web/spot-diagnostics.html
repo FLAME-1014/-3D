@@ -1,0 +1,23 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>模型册 WebGL 资源回归</title><style>body{background:#eee;color:#222;font:14px system-ui;margin:24px}canvas{width:360px;height:260px}button{padding:12px}pre{white-space:pre-wrap}</style><h1>模型册 WebGL 资源回归</h1><p>本机诊断工具：真实 WebGL 渲染后逐轮释放，非真机或总内存检测。不会写入打卡数据。</p><button id="run">运行 24 轮资源回归</button><canvas id="scene"></canvas><pre id="result" role="status">尚未运行</pre><script src="immersive/three.min.js"></script><script src="js/spot-contract.js"></script><script src="js/spot-resources.js"></script><script type="module">
+const run=document.getElementById('run'),out=document.getElementById('result');
+const frame=()=>new Promise(requestAnimationFrame);
+run.onclick=async()=>{
+ run.disabled=true;out.textContent='正在初始化…';let renderer,scene;
+ try{
+ renderer=new THREE.WebGLRenderer({canvas:document.getElementById('scene'),antialias:false});renderer.setSize(360,260,false);
+ scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(45,360/260,.1,1000);camera.position.set(130,110,140);camera.lookAt(0,5,0);scene.add(new THREE.HemisphereLight(0xffffff,0x777777,1.5));
+ renderer.render(scene,camera);const baseline={...renderer.info.memory};const samples=[];
+ const ids=['chenjiaci','yongqingfang','shamian','beijinglu'];
+ const modules=await Promise.all(ids.map(id=>import('../content/spots/'+id+'/model.js')));
+ for(let i=0;i<24;i++){
+  const id=ids[i%4],card=await fetch('../content/spots/'+id+'/spot.json').then(r=>r.json()),model=modules[i%4].create();
+  const errors=SpotContract.validateModel(model,card);if(errors.length)throw Error(errors.join(';'));
+  scene.add(model.group);for(let j=0;j<3;j++){await frame();renderer.render(scene,camera);}
+  const loaded={...renderer.info.memory};scene.remove(model.group);model.dispose();renderer.renderLists.dispose();await frame();renderer.render(scene,camera);
+  const released={...renderer.info.memory};samples.push({round:i+1,id,loaded,released,pass:released.geometries===baseline.geometries&&released.textures===baseline.textures});
+  out.textContent=JSON.stringify({status:'running',baseline,samples},null,2);
+ }
+ out.textContent=JSON.stringify({status:samples.every(s=>s.pass)?'PASS':'FAIL',rounds:24,baseline,samples,limits:'WebGL geometry/texture counters only; not GPU bytes, JS heap, long-run or physical phone certification'},null,2);
+ }catch(error){out.textContent='FAIL: '+error.message;}finally{if(renderer){SpotResources.disposeTree(scene);renderer.dispose();}run.disabled=false;}
+};
+</script></html>

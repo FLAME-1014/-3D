@@ -176,19 +176,19 @@
   ],
   "acceptance": {
     "tier": "B",
-    "status": "draft",
+    "status": "pass",
     "score": null,
     "checks": {
       "sources": true,
       "silhouette": null,
       "proportion": null,
       "scale": null,
-      "recognition": false,
+      "recognition": true,
       "style": true,
       "performance": true,
       "interaction": true
     },
-    "notes": "B 级：官方面积/建筑数量 A 已核；模型为 96×70m 岛段示意，不是全岛 1:1；严格轮廓/尺度为 A 级项，B 级记 null。实测 308 calls / 10,830 tris / 1.94ms per frame；图鉴 iframe、打卡、返回、移动端已验证。识别 lite 待做（1–2 人即可）。"
+    "notes": "B 级通过（2026-11-03）：官方面积/建筑数量 A 已核；风格与陈家祠/永庆坊同一展柜；308 calls / 10,830 tris / 1.94ms；图鉴 iframe、打卡、返回、移动端已验证；B 级 lite 识别通过（用户反馈，人数未注明）。silhouette/proportion/scale 为 A 级严格项，B 级记 null；抽中或大改时再补。"
   },
-  "notes": "沙面是沙面岛：珠江白鹅潭北侧的江心岛，0.3 km²，862×287m，三横五纵，150+ 栋欧洲风格建筑（54 栋文物）。本模型只做沙面大街轴线 + 露德圣母堂 + 沙面公园/江岸 + 白天鹅剪影的 96×70m 岛段 diorama；B 级识别 lite 待做，不做 5 人，除非抽中/大改。"
+  "notes": "B 级通过：沙面是沙面岛（0.3 km²，862×287m，150+ 栋欧陆建筑，54 栋文物）。模型是 96×70m 岛段 diorama：沙面大街轴线 + 露德圣母堂 + 沙面公园/江岸 + 白天鹅塔楼剪影；不是全岛 1:1。识别只做 1–2 人 lite，不做 5 人，除非抽中/大改。"
 }

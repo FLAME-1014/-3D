@@ -411,7 +411,7 @@
 
   function inTray(id) { return state.tray.indexOf(id) !== -1; }
 
-  var MODEL_VIEWS = { chenjiaci: true, yongqingfang: true, shamian: true };
+  var MODEL_VIEWS = { chenjiaci: true, yongqingfang: true, shamian: true, beijinglu: true, "yuexiu-park": true, lizhiwan: true, shangxiajiu: true, "opera-museum": true, guangxiao: true, "six-banyan": true, "memorial-hall": true };
 
   function immersiveLabel(id) {
     if (MODEL_VIEWS[id]) return "进入模型";
@@ -542,8 +542,22 @@
       ? "spot.html?id=yongqingfang&embed=1&from=atlas"
       : placeId === "shamian"
       ? "spot.html?id=shamian&embed=1&from=atlas"
+      : placeId === "beijinglu"
+      ? "spot.html?id=beijinglu&embed=1&from=atlas"
+      : placeId === "yuexiu-park"
+      ? "spot.html?id=yuexiu-park&embed=1&from=atlas"
+      : placeId === "lizhiwan"
+      ? "spot.html?id=lizhiwan&embed=1&from=atlas"
+      : placeId === "shangxiajiu"
+      ? "spot.html?id=shangxiajiu&embed=1&from=atlas"
+      : placeId === "opera-museum"
+      ? "spot.html?id=opera-museum&embed=1&from=atlas"
+      : placeId === "guangxiao"
+      ? "spot.html?id=guangxiao&embed=1&from=atlas"
+      : placeId === "six-banyan"
+      ? "spot.html?id=six-banyan&embed=1&from=atlas"
       : placeId === "memorial-hall"
-      ? "immersive/memorial.html?embed=1&from=atlas"
+      ? "spot.html?id=memorial-hall&embed=1&from=atlas"
       : placeId === "sacred-heart"
       ? "immersive/sacred.html?embed=1&from=atlas"
       : placeId === "baiyun"

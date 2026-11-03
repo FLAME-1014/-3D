@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "0.1",
+  "id": "yuntai",
+  "name": "云台花园 · 花城明珠",
+  "status": "draft",
+  "updated": "2026-11-03",
+  "geo": {
+    "wgs84": [113.2977, 23.1617],
+    "gcj02": [113.303, 23.159],
+    "anchor": "白云山南麓三台岭云台花园（GCJ-02 为项目估算；WGS84 由算法转换；待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 120000,
+    "buildingAreaM2": null,
+    "footprintM": [400, 300],
+    "heightM": null,
+    "floors": null,
+    "confidence": "A",
+    "note": "占地 12 万㎡、1995-09-28 开放、绿化覆盖约 85% 为官方口径；模型是 120×80m 花园段 diorama。"
+  },
+  "features": [
+    {
+      "id": "colonnade",
+      "name": "罗马柱廊",
+      "priority": 1,
+      "note": "云台花园的标志性欧式柱廊；白色柱列 + 中央山花，正对喷泉与花坛"
+    },
+    {
+      "id": "fountain",
+      "name": "喷泉 / 阶梯瀑布",
+      "priority": 1,
+      "note": "中轴喷泉与阶梯水景，连接花坛和柱廊；以布查德花园为蓝本"
+    },
+    {
+      "id": "greenhouse",
+      "name": "玻璃温室",
+      "priority": 1,
+      "note": "玻璃温室与谊园所在的两座山头之一；四季花展"
+    },
+    {
+      "id": "rose",
+      "name": "玫瑰园 / 花海",
+      "priority": 2,
+      "note": "几何花坛与玫瑰花海；四季换花"
+    },
+    {
+      "id": "gate",
+      "name": "南门 · 云台花园",
+      "priority": 2,
+      "note": "白云山南门入口序列；花园与白云山同框"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#e8dcc5", "#f0e9dc", "#3f7a8a", "#c23a2a", "#e0b84a", "#5a7f3a"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "gate", "courtyard", "park", "detail"],
+  "presetOverrides": {
+    "overview": { "yaw": 0.55, "pitch": 0.35, "distance": 130, "target": [0, 5, 0] },
+    "gate": { "yaw": 0.1, "pitch": 0.08, "distance": 30, "target": [0, 4, 30] },
+    "courtyard": { "yaw": 0.2, "pitch": 0.12, "distance": 38, "target": [0, 6, -2] },
+    "park": { "yaw": -0.5, "pitch": 0.2, "distance": 45, "target": [-20, 4, -8] },
+    "detail": { "yaw": 0.3, "pitch": 0.05, "distance": 14, "target": [18, 3, 6] }
+  },
+  "hotspots": [
+    {
+      "id": "colonnade",
+      "label": "罗马柱廊",
+      "anchor": "colonnade",
+      "type": "info",
+      "preset": "courtyard",
+      "note": "白色柱列 + 中央山花；云台花园最像“欧式花园”的一景。"
+    },
+    {
+      "id": "fountain",
+      "label": "喷泉 / 阶梯瀑布",
+      "anchor": "fountain",
+      "type": "info",
+      "preset": "courtyard",
+      "note": "中轴水景，连接花坛、柱廊和白云山背景。"
+    },
+    {
+      "id": "greenhouse",
+      "label": "玻璃温室",
+      "anchor": "greenhouse",
+      "type": "info",
+      "preset": "park",
+      "note": "玻璃温室与谊园所在的两座山头之一；四季花展。"
+    },
+    {
+      "id": "rose",
+      "label": "玫瑰园",
+      "anchor": "rose",
+      "type": "info",
+      "preset": "detail",
+      "note": "几何花坛与玫瑰花海；四季换花，花期以园区公告为准。"
+    },
+    {
+      "id": "gate",
+      "label": "南门",
+      "anchor": "gate",
+      "type": "info",
+      "preset": "gate",
+      "note": "白云山南门入口序列；花园与白云山同框。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [120, 80],
+    "zoom": { "min": 4, "max": 260 },
+    "note": "花园段 diorama：南门—喷泉/阶梯瀑布—罗马柱廊 + 玻璃温室 + 玫瑰园 + 白云山背景；不是 12 万㎡ 全园 1:1。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市林业和园林局 · 云台花园",
+      "url": "https://lyylj.gz.gov.cn/stly/gyjq/bysfjmsq/jdjs/content/post_9925049.html",
+      "author": "广州市林业和园林局",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "白云山三台岭；占地 12 万㎡；以加拿大布查德花园为蓝本；全国最大的园林式花园。"
+    },
+    {
+      "type": "official",
+      "title": "广州市委党史文献研究室 · 全国最大的园林式花园——云台花园",
+      "url": "https://www.gzsqw.org.cn/c/sdfzpc/gzzz/8961.jhtml",
+      "author": "广州市委党史文献研究室",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "12 万㎡、绿化 85%；四季珍贵花木造景；“花城明珠”。"
+    },
+    {
+      "type": "secondary",
+      "title": "维基百科 · 云台花园",
+      "url": "https://zh.wikipedia.org/zh-hans/雲台花園",
+      "author": "维基百科",
+      "license": "CC BY-SA",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "1995-09-28 建成开放；12 万㎡；以布查德花园为蓝本。"
+    },
+    {
+      "type": "secondary",
+      "title": "广州日报 · 云台花园中西园林对话",
+      "url": "https://huacheng.gz-cmc.com/pages/2025/07/11/SF141032108ddbe65e84d141acabcad3.html",
+      "author": "广州日报",
+      "license": "媒体资料",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "改造两座山头（玻璃温室和谊园）、回填洼地；阶梯瀑布—喷水平台—滟湖。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 园区轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Overpass；柱廊、温室、湖岸仍未测绘核对。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "draft",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": false,
+      "style": true,
+      "performance": false,
+      "interaction": false
+    },
+    "notes": "B 级：官方占地/花园定位 A 已核；模型是 120×80m 花园段示意；严格轮廓/尺度为 A 级项，B 级记 null；识别 lite 待做。"
+  },
+  "notes": "云台花园的核心不是“花坛”，而是“罗马柱廊 + 中轴喷泉/阶梯水景 + 玻璃温室 + 花海 + 白云山背景”的欧式花园同框。模型只做花园段；不含整个白云山南门片区和全部专类园。"
+}

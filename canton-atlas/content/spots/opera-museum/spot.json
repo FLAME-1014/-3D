@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "0.1",
+  "id": "opera-museum",
+  "name": "粤剧艺术博物馆 · 广福台",
+  "status": "draft",
+  "updated": "2026-11-03",
+  "geo": {
+    "wgs84": [113.23291, 23.118107],
+    "gcj02": [113.238235, 23.115423],
+    "anchor": "恩宁路 127 号粤剧艺术博物馆（GCJ-02 来自高德地图；WGS84 由算法转换；待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 17200,
+    "buildingAreaM2": 21700,
+    "footprintM": [131, 131],
+    "heightM": null,
+    "floors": null,
+    "confidence": "A",
+    "note": "总用地 1.72 万㎡、建筑面积 2.17 万㎡为官方口径；模型是 120×80m 园林段 diorama，不是整个馆区的 1:1。"
+  },
+  "features": [
+    {
+      "id": "stage",
+      "name": "广福台",
+      "priority": 1,
+      "note": "临水戏台；纯木雕、紫铜瓦屋顶、木面贴金，由非遗传承人何世良修建"
+    },
+    {
+      "id": "courtyard",
+      "name": "水院 / 晚沙湖",
+      "priority": 1,
+      "note": "岭南园林“连房广厦”布局，十字轴骨架环绕中心水院；廊桥、戏台、展厅连成一体"
+    },
+    {
+      "id": "gate",
+      "name": "园林门楼",
+      "priority": 2,
+      "note": "恩宁路入口序列；灰塑/砖雕/木雕的岭南门面"
+    },
+    {
+      "id": "museum",
+      "name": "主馆",
+      "priority": 2,
+      "note": "南岸主馆 + 展厅；粤剧唱腔、行当、戏服、剧本与唱片"
+    },
+    {
+      "id": "mansard",
+      "name": "满洲窗 / 镬耳墙",
+      "priority": 2,
+      "note": "广式满洲窗的彩色玻璃 + 镬耳山墙；岭南园林的建筑符号"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#3f6f78", "#5a7f6a", "#b08d57", "#a8442f", "#e8dcc5", "#c9b28a"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "gate", "stage", "courtyard", "detail"],
+  "presetOverrides": {
+    "overview": { "yaw": 0.6, "pitch": 0.4, "distance": 130, "target": [0, 4, 0] },
+    "gate": { "yaw": 0.1, "pitch": 0.1, "distance": 36, "target": [0, 5, 30] },
+    "stage": { "yaw": 0.05, "pitch": 0.12, "distance": 36, "target": [0, 5.5, -17] },
+    "courtyard": { "yaw": -0.55, "pitch": 0.15, "distance": 24, "target": [0, 3, -8] },
+    "detail": { "yaw": 0.2, "pitch": 0.1, "distance": 18, "target": [0, 6.5, -17] }
+  },
+  "hotspots": [
+    {
+      "id": "stage",
+      "label": "广福台",
+      "anchor": "stage",
+      "type": "info",
+      "preset": "stage",
+      "note": "临水戏台；纯木雕、紫铜瓦屋顶、木面贴金，由非遗传承人何世良修建。"
+    },
+    {
+      "id": "courtyard",
+      "label": "水院",
+      "anchor": "courtyard",
+      "type": "info",
+      "preset": "courtyard",
+      "note": "岭南园林“连房广厦”布局，十字轴骨架环绕中心水院；廊桥、戏台、展厅连成一体。"
+    },
+    {
+      "id": "gate",
+      "label": "园林门楼",
+      "anchor": "gate",
+      "type": "info",
+      "preset": "gate",
+      "note": "恩宁路入口序列；灰塑、砖雕、木雕的岭南门面。"
+    },
+    {
+      "id": "museum",
+      "label": "主馆",
+      "anchor": "museum",
+      "type": "info",
+      "preset": "overview",
+      "note": "南岸主馆与展厅；粤剧唱腔、行当、戏服、剧本与唱片。"
+    },
+    {
+      "id": "mansard",
+      "label": "广福台细部",
+      "anchor": "detail",
+      "type": "info",
+      "preset": "detail",
+      "note": "广福台的紫铜瓦屋顶、金漆木雕屏与匾额；满洲窗/镬耳墙在廊与侧厅上。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [120, 80],
+    "zoom": { "min": 4, "max": 260 },
+    "note": "园林段 diorama：水院 + 广福台 + 主馆 + 侧厅 + 廊桥/满洲窗/镬耳墙 + 门楼；不是整个馆区 1:1。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市荔湾区人民政府 · 粤剧艺术博物馆",
+      "url": "http://www.lw.gov.cn/zwgkk/gzjg/qjdbsc/dbj/hldb/content/post_9730490.html",
+      "author": "广州市荔湾区人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "恩宁路 127 号；2016-06-08 开放；总用地 1.72 万㎡、建筑面积 2.17 万㎡；沿荔枝湾涌分南北两岸。"
+    },
+    {
+      "type": "official",
+      "title": "广州市人民政府 · 粤剧艺术博物馆",
+      "url": "https://www.gz.gov.cn/zlgz/gzly/wzgz/wbcg/content/post_9589231.html",
+      "author": "广州市人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "位于恩宁路旁、荔枝湾涌畔；岭南园林式博物馆。"
+    },
+    {
+      "type": "secondary",
+      "title": "中国故事 · 参观广州粤剧艺术博物馆岭南建筑亮点",
+      "url": "https://www.ourchinastory.com/cn/7594/",
+      "author": "中国故事",
+      "license": "媒体资料",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "广福戏台为临水戏台，纯木雕、紫铜瓦屋顶、木面贴金，由何世良修建。"
+    },
+    {
+      "type": "secondary",
+      "title": "高德地图 · 粤剧艺术博物馆坐标",
+      "url": "https://www.amap.com/place/B0FFF2FCXB",
+      "author": "高德地图",
+      "license": "地图服务",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "GCJ-02 [113.238235, 23.115423]；WGS84 由算法转换；未与 OSM/测绘核对。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 馆区轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Overpass；水院、廊桥、建筑轮廓仍未测绘核对。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-03）：官方用地/建筑面积 A 已核；模型是 120×80m 园林段示意；严格轮廓/尺度为 A 级项，B 级记 null。实测 170 calls / 3,528 tris / 0.9ms per frame（总览最重）。图鉴 iframe、打卡、返回、五机位、五热点、移动端 390×844 已验证。B 级 lite 识别通过（用户反馈，人数未注明）。"
+  },
+  "notes": "B 级通过：粤剧艺术博物馆的核心不是“一个展厅”，而是“水院 + 广福台 + 镬耳墙/满洲窗”的岭南园林同框。模型只做南岸主馆与水院段；不含北岸文物修复区、展厅内部和整块馆区；识别只做 1–2 人 lite，不做 5 人，除非抽中/大改。"
+}

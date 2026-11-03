@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "0.1",
+  "id": "shangxiajiu",
+  "name": "上下九 · 骑楼街",
+  "status": "draft",
+  "updated": "2026-11-03",
+  "geo": {
+    "wgs84": [113.242617, 23.117356],
+    "gcj02": [113.24794, 23.11467],
+    "anchor": "上下九步行街中段（GCJ-02 来自高德地图；WGS84 由算法转换；待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": null,
+    "buildingAreaM2": null,
+    "footprintM": [1237, 15],
+    "heightM": null,
+    "floors": null,
+    "confidence": "B",
+    "note": "上下九步行街全长约 1237m、街宽约 15m、店铺 373 间为资料口径；模型是 120×70m 街段 diorama，不是整条 1237m 的 1:1。"
+  },
+  "features": [
+    {
+      "id": "qilou",
+      "name": "连续骑楼",
+      "priority": 1,
+      "note": "上九路—下九路—第十甫路连绵千米；2–4 层，南欧建筑与西关传统结合，连廊遮阳挡雨"
+    },
+    {
+      "id": "taotao",
+      "name": "陶陶居",
+      "priority": 1,
+      "note": "1880 年创建，第十甫路 20 号；米白骑楼、薄荷绿横梁、金色灰塑，屋顶有琉璃瓦六角亭"
+    },
+    {
+      "id": "lianxiang",
+      "name": "莲香楼",
+      "priority": 1,
+      "note": "1889 年创建，“莲蓉第一家”；老字号茶楼与骑楼立面"
+    },
+    {
+      "id": "paifang",
+      "name": "上下九步行街牌坊",
+      "priority": 2,
+      "note": "步行街入口序列；模型只做简化三间牌坊，不编造未核实楹联"
+    },
+    {
+      "id": "neon",
+      "name": "老字号霓虹",
+      "priority": 2,
+      "note": "陶陶居、莲香楼、广州酒家、皇上皇等招牌；傍晚亮灯后的西关商业界面"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#e8dcc5", "#9fc9b8", "#b08d57", "#a8442f", "#6f7a76", "#e05a4a"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "street", "qilou", "taotao", "lianxiang", "detail"],
+  "presetOverrides": {
+    "overview": { "yaw": 1.3, "pitch": 0.45, "distance": 95, "target": [0, 5, 0] },
+    "street": { "yaw": 1.57, "pitch": 0.08, "distance": 58, "target": [0, 3, 0] },
+    "qilou": { "yaw": 1.25, "pitch": 0.02, "distance": 22, "target": [-18, 3.2, -8] },
+    "taotao": { "yaw": 1.25, "pitch": 0.12, "distance": 42, "target": [-24, 14, -11] },
+    "lianxiang": { "yaw": 1.25, "pitch": 0.1, "distance": 34, "target": [8, 10, -11] },
+    "detail": { "yaw": 0.6, "pitch": 0.05, "distance": 22, "target": [-24, 20, -11] }
+  },
+  "hotspots": [
+    {
+      "id": "qilou",
+      "label": "连续骑楼",
+      "anchor": "qilou",
+      "type": "info",
+      "preset": "qilou",
+      "note": "上下九的骑楼连绵千米，2–4 层，连廊把整条街的日晒和雨挡在外面。"
+    },
+    {
+      "id": "taotao",
+      "label": "陶陶居",
+      "anchor": "taotao",
+      "type": "info",
+      "preset": "taotao",
+      "note": "1880 年创建；米白骑楼、薄荷绿横梁、金色灰塑，屋顶有一座琉璃瓦六角亭。"
+    },
+    {
+      "id": "lianxiang",
+      "label": "莲香楼",
+      "anchor": "lianxiang",
+      "type": "info",
+      "preset": "lianxiang",
+      "note": "1889 年创建，“莲蓉第一家”；老字号茶楼与骑楼立面。"
+    },
+    {
+      "id": "paifang",
+      "label": "步行街牌坊",
+      "anchor": "paifang",
+      "type": "info",
+      "preset": "street",
+      "note": "上下九步行街入口；1995 年 9 月 30 日正式开街，是中国第一条商业步行街。"
+    },
+    {
+      "id": "neon",
+      "label": "老字号霓虹",
+      "anchor": "neon",
+      "type": "info",
+      "preset": "qilou",
+      "note": "陶陶居、莲香楼、广州酒家、皇上皇等老字号招牌，是傍晚亮灯后的西关商业界面。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [120, 70],
+    "zoom": { "min": 4, "max": 260 },
+    "note": "街段 diorama：120m 上下九骑楼街 + 连续券廊 + 陶陶居/莲香楼/广州酒家 + 牌坊 + 老字号霓虹；不是整条 1237m 的 1:1。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市商务局 · 闭馆两年半 陶陶居总店明天试业",
+      "url": "http://sw.gz.gov.cn/ztzl/gnmy/zxlzh/content/post_7064812.html",
+      "author": "广州市商务局",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "陶陶居第十甫路总店；上下九商圈汇集广州酒家、皇上皇、莲香楼等中华老字号。"
+    },
+    {
+      "type": "official",
+      "title": "人民网 · 广州上下九步行街将投入 1.5 亿元进行品质提升",
+      "url": "http://gd.people.com.cn/n2/2021/1030/c123932-34982058.html",
+      "author": "人民网",
+      "license": "官方媒体",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "全国首条商业步行街；长 1237m；传统西关骑楼；店铺 373 间、商户 5000 多个。"
+    },
+    {
+      "type": "secondary",
+      "title": "维基百科 · 上下九步行街",
+      "url": "https://zh.wikipedia.org/zh-hans/上下九步行街",
+      "author": "维基百科",
+      "license": "CC BY-SA",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "全长约 1218m；1995-09-30 开街；骑楼多为清代建成，南欧+西关风格。"
+    },
+    {
+      "type": "secondary",
+      "title": "高德地图 · 上下九商业步行街坐标",
+      "url": "https://www.amap.com/place/B0FFGFTXT9",
+      "author": "高德地图",
+      "license": "地图服务",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "GCJ-02 [113.24794, 23.11467]；WGS84 由算法转换；未与 OSM/测绘核对。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 骑楼街廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Overpass；骑楼柱距、街宽、建筑轮廓仍未测绘核对。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-03）：官方老字号/步行街 A 已核；模型是 120×70m 街段示意，压缩 1237m；严格轮廓/尺度为 A 级项，B 级记 null。实测 311 calls / 6,212 tris / 2.66ms per frame（总览最重）。图鉴 iframe、打卡、返回、六机位、五热点、移动端 390×844 已验证。B 级 lite 识别通过（用户反馈，人数未注明）。"
+  },
+  "notes": "B 级通过：上下九的核心不是“又一条骑楼街”，而是“连续骑楼 + 陶陶居/莲香楼/广州酒家老字号 + 霓虹招牌 + 步行街牌坊”的组合。模型只做 120m 核心街段；不含华林寺、玉器街内部和整条 1237m；识别只做 1–2 人 lite，不做 5 人，除非抽中/大改。"
+}

@@ -649,6 +649,12 @@ body.silhouette-mode .failure {
   .toolbar [data-preset="church"],
   .toolbar [data-preset="hotel"],
   .toolbar [data-preset="park"],
+  .toolbar [data-preset="ancient-road"],
+  .toolbar [data-preset="temple"],
+  .toolbar [data-preset="wall"],
+  .toolbar [data-preset="house"],
+  .toolbar [data-preset="opera"],
+  .toolbar [data-preset="lianxiang"],
   #autoRotate {
     display: none;
   }
@@ -675,3 +681,5 @@ body.silhouette-mode .failure {
     transition: none;
   }
 }
+/* Keep failed/hidden controls out of layout and accessibility trees. */
+[hidden]{display:none!important}

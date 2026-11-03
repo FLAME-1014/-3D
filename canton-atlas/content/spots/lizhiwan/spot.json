@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "0.1",
+  "id": "lizhiwan",
+  "name": "荔枝湾 · 西关水岸",
+  "status": "draft",
+  "updated": "2026-11-03",
+  "geo": {
+    "wgs84": [113.231334, 23.118712],
+    "gcj02": [113.236659, 23.116029],
+    "anchor": "荔枝湾涌龙津桥—文塔段（GCJ-02 来自高德地图；WGS84 由算法转换；待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": null,
+    "buildingAreaM2": null,
+    "footprintM": [700, 18],
+    "heightM": null,
+    "floors": null,
+    "confidence": "B",
+    "note": "荔枝湾涌复涌段约 700m、河宽约 18m 为资料口径；文塔高 13.6m、龙津桥长 57m。模型是 120×80m 水岸段 diorama，不是整条 700m 的 1:1。"
+  },
+  "features": [
+    {
+      "id": "canal",
+      "name": "荔枝湾涌",
+      "priority": 1,
+      "note": "“一湾溪水绿，两岸荔枝红”；2010 年揭盖复涌，2023 年滨水微改造；榕荫、石栏、亲水步道"
+    },
+    {
+      "id": "bridge",
+      "name": "龙津桥",
+      "priority": 1,
+      "note": "三拱石桥，长 57m；中间过水，两边行人；与文塔相呼应"
+    },
+    {
+      "id": "tower",
+      "name": "文塔",
+      "priority": 1,
+      "note": "六角形两层楼阁式，塔高 13.6m；龙津桥边的“妙笔生花”节点"
+    },
+    {
+      "id": "house",
+      "name": "西关大屋",
+      "priority": 2,
+      "note": "青砖石脚、趟栊门、满洲窗；龙津桥附近集中展示西关民居"
+    },
+    {
+      "id": "opera",
+      "name": "荔枝湾大戏台",
+      "priority": 2,
+      "note": "原荔湾湖公园南门，后辟为大戏台；粤剧私伙局与节庆演出"
+    },
+    {
+      "id": "lychee",
+      "name": "两岸荔枝",
+      "priority": 2,
+      "note": "复植荔枝树，夏季红果；是“荔枝湾”名字的视觉来源"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#6f9fa6", "#a8442f", "#cfc4ad", "#2f6b4f", "#8a3b2c", "#e8dcc5"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "canal", "bridge", "tower", "house", "opera", "detail"],
+  "presetOverrides": {
+    "overview": { "yaw": -2.2, "pitch": 0.45, "distance": 135, "target": [0, 2, 0] },
+    "canal": { "yaw": -1.57, "pitch": 0.06, "distance": 46, "target": [0, 3, 0] },
+    "bridge": { "yaw": -1.35, "pitch": 0.08, "distance": 26, "target": [8, 4.2, 1.2] },
+    "tower": { "yaw": 0.4, "pitch": 0.12, "distance": 42, "target": [24, 8, -15] },
+    "house": { "yaw": 2.95, "pitch": 0.08, "distance": 26, "target": [-22, 4, 18] },
+    "opera": { "yaw": 0, "pitch": 0.06, "distance": 26, "target": [-30, 4, -15] },
+    "detail": { "yaw": 2.95, "pitch": 0.05, "distance": 14, "target": [-22, 4.5, 18] }
+  },
+  "hotspots": [
+    {
+      "id": "canal",
+      "label": "荔枝湾涌",
+      "anchor": "canal",
+      "type": "info",
+      "preset": "canal",
+      "note": "“一湾溪水绿，两岸荔枝红”；2010 年揭盖复涌，2023 年完成滨水微改造。"
+    },
+    {
+      "id": "bridge",
+      "label": "龙津桥",
+      "anchor": "bridge",
+      "type": "info",
+      "preset": "bridge",
+      "note": "三拱石桥，长 57m；中间过水，两边行人；与文塔同框是荔枝湾的标志画面。"
+    },
+    {
+      "id": "tower",
+      "label": "文塔",
+      "anchor": "tower",
+      "type": "info",
+      "preset": "tower",
+      "note": "六角形两层楼阁式，高 13.6m；龙津桥边“笔墨纸砚”节点的中心。"
+    },
+    {
+      "id": "house",
+      "label": "西关大屋",
+      "anchor": "house",
+      "type": "info",
+      "preset": "house",
+      "note": "青砖石脚、趟栊门、满洲窗；荔枝湾两岸最典型的西关民居界面。"
+    },
+    {
+      "id": "opera",
+      "label": "荔枝湾大戏台",
+      "anchor": "opera",
+      "type": "info",
+      "preset": "opera",
+      "note": "原荔湾湖公园南门，后辟为大戏台；粤剧私伙局和节庆演出的水岸舞台。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [120, 80],
+    "zoom": { "min": 4, "max": 260 },
+    "note": "水岸段 diorama：荔枝湾涌 + 龙津桥 + 文塔 + 西关大屋 + 大戏台 + 两岸荔枝/画舫；不是整条 700m 的 1:1。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市人民政府 · 荔枝湾涌滨水环境微改造即将完工",
+      "url": "https://www.gz.gov.cn/zwfw/zxfw/gysy/content/post_9386350.html",
+      "author": "广州市人民政府 / 广州日报",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "2010 揭盖复涌、2023 微改造、十二桥名单、龙津桥—文塔—西关大屋节点、满洲窗/青砖矮墙。"
+    },
+    {
+      "type": "official",
+      "title": "广州市荔湾区人民政府 · 荔枝湾景区",
+      "url": "http://www.lw.gov.cn/zjlw/lwdt/yzlw/content/post_9058758.html",
+      "author": "广州市荔湾区人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "龙津桥为三拱桥、长 57m；荔枝湾涌五座桥的早期口径。"
+    },
+    {
+      "type": "secondary",
+      "title": "羊城晚报 · 神探荔枝湾",
+      "url": "https://ycpai.ycwb.com/ycppad/content/2019-03/03/content_344361.html",
+      "author": "羊城晚报",
+      "license": "媒体资料",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "文塔六角形两层、高 13.6m；荔枝湾大戏台原为荔湾湖公园南门。"
+    },
+    {
+      "type": "project",
+      "title": "高德地图 · 荔枝湾坐标",
+      "url": "https://www.amap.com/place/B00141PT14",
+      "author": "高德地图",
+      "license": "地图服务",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "GCJ-02 [113.236659, 23.116029]；WGS84 由算法转换；未与 OSM/测绘核对。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 河涌与建筑轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Overpass；河岸线、桥位、建筑轮廓仍未测绘核对。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-03）：官方复涌/微改造 A 已核；模型是 120×80m 水岸段示意，压缩约 700m 河涌；严格轮廓/尺度为 A 级项，B 级记 null。实测 331 calls / 13,184 tris / 1.76ms per frame（总览最重）。图鉴 iframe、打卡、返回、七机位、五热点、移动端 390×844 已验证。B 级 lite 识别通过（用户反馈，人数未注明）。"
+  },
+  "notes": "B 级通过：荔枝湾的核心不是“又一条水街”，而是“一湾溪水 + 两岸荔枝 + 龙津桥三拱 + 文塔 + 西关大屋/大戏台”的同框。模型只做龙津桥—文塔段水岸；不含荔湾湖全园、泮塘五约和十二桥全线；识别只做 1–2 人 lite，不做 5 人，除非抽中/大改。"
+}

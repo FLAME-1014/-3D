@@ -5,6 +5,7 @@
   if (!THREE) {
     document.getElementById("loading").hidden = true;
     var failure = document.getElementById("failure");
+    document.title='模型加载失败 · 广州城市模型册';q('sceneName').textContent='模型未加载';q('spotPanel').hidden=true;document.querySelector('.toolbar').hidden=true;q('backAtlas').onclick=backAtlas;
     failure.hidden = false;
     failure.textContent = "Three.js 未加载，无法进入模型页。";
     return;
@@ -53,7 +54,11 @@
   var hotspotAnchors = new Map();
   var decor = [];
   var toastTimer = 0;
-  var disposed = false;
+  var disposed = false,animationId=0;
+  var loadAbort=new AbortController();
+  var releaseResources=window.SpotResources.createCleanup(function(){return {model:model,scene:scene,renderer:renderer};});
+  window.addEventListener('pagehide',cleanup);
+  window.addEventListener('pageshow',function(event){if(event.persisted&&disposed)location.reload();});
 
   var PRESET_LABELS = {
     overview: "总览",
@@ -68,7 +73,22 @@
     avenue: "林荫道",
     church: "教堂",
     hotel: "白天鹅",
-    park: "公园"
+    park: "公园",
+    "ancient-road": "古道",
+    temple: "大佛寺",
+    wuyang: "五羊",
+    wall: "城墙",
+    zhenhai: "镇海楼",
+    canal: "河涌",
+    bridge: "龙津桥",
+    tower: "文塔",
+    house: "西关大屋",
+    opera: "大戏台",
+    qilou: "骑楼",
+    taotao: "陶陶居",
+    lianxiang: "莲香楼",
+    hall: "大殿",
+    pagoda: "塔"
   };
 
   function q(id) {
@@ -100,6 +120,7 @@
     if (loading) loading.hidden = true;
     var failure = q("failure");
     if (!failure) return;
+    document.title='模型加载失败 · 广州城市模型册';q('sceneName').textContent='模型未加载';q('spotPanel').hidden=true;document.querySelector('.toolbar').hidden=true;q('backAtlas').onclick=backAtlas;
     failure.hidden = false;
     failure.textContent = message + " 返回图鉴后可以重试。";
   }
@@ -108,15 +129,22 @@
     canvas = q("scene");
     hotspotLayer = q("hotspots");
     panel = q("spotPanel");
+    q("backAtlas").onclick=backAtlas;
 
     try {
-      spot = await fetch("../content/spots/" + encodeURIComponent(spotId) + "/spot.json", { cache: "no-store" }).then(function (res) {
+      spot = await fetch("../content/spots/" + encodeURIComponent(spotId) + "/spot.json", { cache: "no-store", signal:loadAbort.signal }).then(function (res) {
         if (!res.ok) throw new Error("spot.json HTTP " + res.status);
         return res.json();
       });
+      if(disposed)return;
+      var errors=window.SpotContract.validate(spot,spotId);if(errors.length)throw new Error(errors.join('；'));
       var mod = await import("../content/spots/" + encodeURIComponent(spotId) + "/model.js");
+      if(disposed)return;
+      if(typeof mod.create!=='function')throw new Error('模型缺少 create()');
       model = mod.create();
+      var modelErrors=window.SpotContract.validateModel(model,spot);if(modelErrors.length)throw new Error(modelErrors.join('；'));
     } catch (error) {
+      if(disposed)return;cleanup();
       showFailure("模型加载失败：" + error.message);
       return;
     }
@@ -215,9 +243,9 @@
     var loop = function () {
       if (disposed) return;
       renderer.render(scene, cam);
-      requestAnimationFrame(loop);
+      animationId=requestAnimationFrame(loop);
     };
-    requestAnimationFrame(loop);
+    animationId=requestAnimationFrame(loop);
   }
 
   function colorSpace(renderer) {
@@ -335,6 +363,9 @@
 
     minDistance = maxDim * 0.28;
     maxDistance = maxDim * 4.2;
+    var zoom = (spot.model && spot.model.zoom) || {};
+    if (typeof zoom.min === "number") minDistance = zoom.min;
+    if (typeof zoom.max === "number") maxDistance = zoom.max;
 
     var aspectFactor = Math.max(1, 1.3 / camera.aspect);
     var baseTarget = new THREE.Vector3(center.x, box.min.y + size.y * 0.34, center.z);
@@ -355,7 +386,22 @@
       avenue: { yaw: -Math.PI / 2, pitch: 0.06, distance: maxDim * 0.4 * aspectFactor, target: (anchors.avenue || baseTarget).clone() },
       church: { yaw: 0, pitch: 0.1, distance: maxDim * 0.25 * aspectFactor, target: (anchors.church || baseTarget).clone() },
       hotel: { yaw: Math.PI, pitch: 0.1, distance: maxDim * 0.3 * aspectFactor, target: (anchors.hotel || baseTarget).clone() },
-      park: { yaw: Math.PI / 2, pitch: 0.08, distance: maxDim * 0.2 * aspectFactor, target: (anchors.park || baseTarget).clone() }
+      park: { yaw: Math.PI / 2, pitch: 0.08, distance: maxDim * 0.2 * aspectFactor, target: (anchors.park || baseTarget).clone() },
+      "ancient-road": { yaw: 0, pitch: 0.55, distance: maxDim * 0.3 * aspectFactor, target: (anchors.ancient || baseTarget).clone() },
+      temple: { yaw: 0.4, pitch: 0.3, distance: maxDim * 0.5 * aspectFactor, target: (anchors.temple || baseTarget).clone() },
+      wuyang: { yaw: 0.2, pitch: 0.16, distance: maxDim * 0.28 * aspectFactor, target: (anchors.wuyang || baseTarget).clone() },
+      wall: { yaw: 0.15, pitch: 0.2, distance: maxDim * 0.34 * aspectFactor, target: (anchors.wall || baseTarget).clone() },
+      zhenhai: { yaw: 0.25, pitch: 0.18, distance: maxDim * 0.4 * aspectFactor, target: (anchors.zhenhai || baseTarget).clone() },
+      canal: { yaw: -Math.PI / 2, pitch: 0.06, distance: maxDim * 0.5 * aspectFactor, target: (anchors.canal || baseTarget).clone() },
+      bridge: { yaw: 0.5, pitch: 0.12, distance: maxDim * 0.3 * aspectFactor, target: (anchors.bridge || baseTarget).clone() },
+      tower: { yaw: 0.35, pitch: 0.12, distance: maxDim * 0.28 * aspectFactor, target: (anchors.tower || baseTarget).clone() },
+      house: { yaw: 0.25, pitch: 0.08, distance: maxDim * 0.28 * aspectFactor, target: (anchors.house || baseTarget).clone() },
+      opera: { yaw: 0.2, pitch: 0.1, distance: maxDim * 0.28 * aspectFactor, target: (anchors.opera || baseTarget).clone() },
+      qilou: { yaw: 0.3, pitch: 0.1, distance: maxDim * 0.28 * aspectFactor, target: (anchors.qilou || baseTarget).clone() },
+      taotao: { yaw: 0.2, pitch: 0.1, distance: maxDim * 0.25 * aspectFactor, target: (anchors.taotao || baseTarget).clone() },
+      lianxiang: { yaw: 0.2, pitch: 0.1, distance: maxDim * 0.25 * aspectFactor, target: (anchors.lianxiang || baseTarget).clone() },
+      hall: { yaw: 0.1, pitch: 0.1, distance: maxDim * 0.35 * aspectFactor, target: (anchors.hall || baseTarget).clone() },
+      pagoda: { yaw: 0.25, pitch: 0.1, distance: maxDim * 0.32 * aspectFactor, target: (anchors.pagoda || baseTarget).clone() }
     };
 
     var overrides = spot.presetOverrides || {};
@@ -431,7 +477,10 @@
 
     document.title = p.name + " · 广州城市模型册";
     q("sceneName").textContent = p.name;
-    q("spotKicker").textContent = "MODEL 001 · " + (cluster ? cluster.name : "广州");
+    canvas.setAttribute("aria-label",p.name+"风格化三维模型");
+    var number="MODEL "+(p.no||spot.id);q("modelNumber").textContent="模型册 · "+number;
+    document.querySelector('meta[name="description"]').setAttribute("content",p.name+"风格化模型；非测绘，仅作城市观察与文化展示。");
+    q("spotKicker").textContent = number+" · " + (cluster ? cluster.name : "广州");
     q("spotName").textContent = p.name;
     q("spotEn").textContent = p.en || "";
     q("spotSig").textContent = p.sig || "";
@@ -466,7 +515,7 @@
     });
 
     q("markVisited").addEventListener("click", markVisited);
-    q("backAtlas").addEventListener("click", backAtlas);
+
     q("panelToggle").addEventListener("click", function () {
       panel.hidden = !panel.hidden;
     });
@@ -504,23 +553,25 @@
     } catch (error) { /* 本地存储不可用时忽略 */ }
     updateMarkButton();
     toast("已标记去过，回到图鉴会同步");
-    if (window.parent !== window) {
+    if (new URLSearchParams(location.search).get("embed")==="1" && window.parent !== window) {
       try {
         window.parent.postMessage({ type: "canton-mark-visited", id: spotId }, location.origin);
       } catch (error) { /* ignore */ }
     }
   }
 
-  function backAtlas() {
-    if (window.parent !== window) {
+  function backAtlas(event) {
+    if (new URLSearchParams(location.search).get("embed")==="1" && window.parent !== window) {
       try {
+        if(event)event.preventDefault();
+        cleanup();
         window.parent.postMessage({ type: "canton-close-immersive" }, location.origin);
       } catch (error) {
         window.location.href = "index.html";
       }
       return;
     }
-    window.location.href = "index.html";
+    // Standalone pages use the anchor href, including when initialization fails.
   }
 
   function setPreset(name, instant) {
@@ -613,7 +664,7 @@
     });
 
     window.addEventListener("resize", onResize);
-    window.addEventListener("pagehide", cleanup);
+
   }
 
   function touchDistance(touches) {
@@ -683,7 +734,7 @@
 
   function animate() {
     if (disposed) return;
-    requestAnimationFrame(animate);
+    animationId=requestAnimationFrame(animate);
     if (document.hidden && !forceRender) return;
 
     var dt = Math.min(clock.getDelta(), 0.05);
@@ -702,12 +753,11 @@
   }
 
   function cleanup() {
-    disposed = true;
-    if (model && model.dispose) model.dispose();
-    if (renderer) renderer.dispose();
+    if(disposed)return;disposed=true;loadAbort.abort();cancelAnimationFrame(animationId);window.clearTimeout(toastTimer);releaseResources();
   }
 
   boot().catch(function (error) {
+    if(disposed)return;cleanup();
     showFailure("页面初始化失败：" + error.message);
   });
 })();

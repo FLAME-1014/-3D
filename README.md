@@ -35,7 +35,7 @@ npm run dev
 
 - 规范：`docs/景点建模规范.md`
 - 验收工作记录：`docs/验收工作记录-2026-11-02.md`
-- 试点记录：`docs/陈家祠样板记录.md` / `docs/永庆坊样板记录.md`
+- 试点记录：`docs/陈家祠样板记录.md` / `docs/永庆坊样板记录.md` / `docs/沙面样板记录.md` / `docs/北京路样板记录.md` / `docs/越秀公园样板记录.md` / `docs/荔枝湾样板记录.md` / `docs/上下九样板记录.md` / `docs/粤剧艺术博物馆样板记录.md` / `docs/光孝寺样板记录.md` / `docs/六榕寺样板记录.md` / `docs/中山纪念堂样板记录.md`
 
 已接入：
 
@@ -43,15 +43,31 @@ npm run dev
 |---|---|---|---|
 | 陈家祠 | A | `/spot.html?id=chenjiaci` | `docs/陈家祠样板记录.md` |
 | 永庆坊 · 恩宁路 | B（通过） | `/spot.html?id=yongqingfang` | `docs/永庆坊样板记录.md` |
-| 沙面 · 沙面岛 | B（待 lite） | `/spot.html?id=shamian` | `docs/沙面样板记录.md` |
+| 沙面 · 沙面岛 | B（通过） | `/spot.html?id=shamian` | `docs/沙面样板记录.md` |
+| 北京路 · 千年古道 | B（通过） | `/spot.html?id=beijinglu` | `docs/北京路样板记录.md` |
+| 越秀公园 · 五羊石像 | B（通过） | `/spot.html?id=yuexiu-park` | `docs/越秀公园样板记录.md` |
+| 荔枝湾 · 西关水岸 | B（通过） | `/spot.html?id=lizhiwan` | `docs/荔枝湾样板记录.md` |
+| 上下九 · 骑楼街 | B（通过） | `/spot.html?id=shangxiajiu` | `docs/上下九样板记录.md` |
+| 粤剧艺术博物馆 · 广福台 | B（通过） | `/spot.html?id=opera-museum` | `docs/粤剧艺术博物馆样板记录.md` |
+| 光孝寺 · 岭南第一古刹 | B（通过） | `/spot.html?id=guangxiao` | `docs/光孝寺样板记录.md` |
+| 六榕寺 · 六榕花塔 | B（通过） | `/spot.html?id=six-banyan` | `docs/六榕寺样板记录.md` |
+| 中山纪念堂 · 蓝顶会堂 | B（通过） | `/spot.html?id=memorial-hall` | `docs/中山纪念堂样板记录.md` |
 
-机位参数：`&preset=overview|front|detail|courtyard|alley|street|gate|stage`
+机位参数：`&preset=overview|front|detail|courtyard|alley|street|gate|stage|avenue|church|hotel|park|ancient-road|temple|wuyang|wall|zhenhai|canal|bridge|tower|house|opera|qilou|taotao|lianxiang`
 
 数据卡与模型：
 
 - `canton-atlas/content/spots/chenjiaci/`
 - `canton-atlas/content/spots/yongqingfang/`
 - `canton-atlas/content/spots/shamian/`
+- `canton-atlas/content/spots/beijinglu/`
+- `canton-atlas/content/spots/yuexiu-park/`
+- `canton-atlas/content/spots/lizhiwan/`
+- `canton-atlas/content/spots/shangxiajiu/`
+- `canton-atlas/content/spots/opera-museum/`
+- `canton-atlas/content/spots/guangxiao/`
+- `canton-atlas/content/spots/six-banyan/`
+- `canton-atlas/content/spots/memorial-hall/`
 - 模板：`canton-atlas/content/spots/_template/spot.json`
 - 预览截图：各自 `refs/preview/`
 
@@ -60,7 +76,7 @@ npm run dev
 - 陈家祠正立面剪影：`canton-atlas/content/spots/chenjiaci/refs/overlay/model-front-silhouette.png`
 - 单殿剪影/叠图：`front-hall-silhouette.png` / `overlay-front-hall.png`
 - 轮廓叠图工具：http://127.0.0.1:4188/silhouette.html
-- 识别测试包：`chenjiaci/refs/recognition/`（A 级）、`yongqingfang/refs/recognition/`（B 级 lite）
+- 识别测试包：`chenjiaci/refs/recognition/`（A 级）、`yongqingfang/refs/recognition/`（B 级 lite）、`shamian/refs/recognition/`（B 级 lite）、`beijinglu/refs/recognition/`（B 级 lite）、`yuexiu-park/refs/recognition/`（B 级 lite）、`lizhiwan/refs/recognition/`（B 级 lite）、`shangxiajiu/refs/recognition/`（B 级 lite）、`opera-museum/refs/recognition/`（B 级 lite）、`guangxiao/refs/recognition/`（B 级 lite）、`six-banyan/refs/recognition/`（B 级 lite）、`memorial-hall/refs/recognition/`（B 级 lite）
 
 
 
@@ -72,4 +88,4 @@ npm run dev
 
 ## Git
 
-根目录为 Git 仓库；GitHub 远程地址在首次推送后补充。检查改动用 git status / git diff。基线覆盖源码、开发工具、文档和模型预览截图；`.local` 凭据、`dist`、历史验收附件、`refs/overlay` 参考图保留本地，不进入 Git（见 `.gitignore`）。
+根目录为 Git 仓库，已配置 `origin` 远程；本地提交不会自动推送。检查改动用 `git status` / `git diff`。旧图片及验收附件保留原地但未纳入版本控制；模型预览图按景点内容包管理。

@@ -9,15 +9,15 @@
 <link rel="stylesheet" href="spot.css">
 </head>
 <body>
-<canvas id="scene" aria-label="陈家祠风格化三维模型"></canvas>
+<canvas id="scene" aria-label="景点风格化三维模型"></canvas>
 
 <header class="topbar">
-  <button class="back" id="backAtlas" type="button">← 返回图鉴</button>
+  <a class="back" id="backAtlas" href="index.html">← 返回图鉴</a>
   <div class="brand">
     <span class="seal" aria-hidden="true">穗</span>
     <span class="brand-text">
       <strong>CANTON ATLAS</strong>
-      <small>模型册 · MODEL 001</small>
+      <small id="modelNumber">城市模型册</small>
     </span>
   </div>
   <p class="scene-name" id="sceneName">陈家祠</p>
@@ -88,6 +88,8 @@
   window.__ATLAS_CATS = CATS;
   window.__ATLAS_CLUSTERS = CLUSTERS;
 </script>
+<script src="js/spot-contract.js"></script>
+<script src="js/spot-resources.js"></script>
 <script src="js/diorama.js" defer></script>
 </body>
 </html>

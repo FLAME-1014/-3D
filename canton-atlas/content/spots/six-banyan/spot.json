@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "0.1",
+  "id": "six-banyan",
+  "name": "六榕寺 · 六榕花塔",
+  "status": "draft",
+  "updated": "2026-11-03",
+  "geo": {
+    "wgs84": [113.254789, 23.130881],
+    "gcj02": [113.2601, 23.1281],
+    "anchor": "六榕路 87 号六榕寺（WGS84 来自维基百科坐标；GCJ-02 为算法近似；待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 8500,
+    "buildingAreaM2": null,
+    "footprintM": [92, 92],
+    "heightM": 57,
+    "floors": 9,
+    "confidence": "A",
+    "note": "占地 8500㎡、花塔高 57m、外观 9 层内 17 层为官方口径；模型是 100×90m 寺院段 diorama。"
+  },
+  "features": [
+    {
+      "id": "pagoda",
+      "name": "六榕花塔",
+      "priority": 1,
+      "note": "高 57m，八角形，外观 9 层、内 17 层；始建于南朝梁大同三年（537），北宋绍圣四年（1097）重建"
+    },
+    {
+      "id": "hall",
+      "name": "大雄宝殿",
+      "priority": 1,
+      "note": "寺内主殿；高约 14m，供奉铜佛（资料口径）"
+    },
+    {
+      "id": "gate",
+      "name": "山门 · 六榕",
+      "priority": 1,
+      "note": "山门悬挂苏轼“六榕”二字；北宋元符三年（1100）题字"
+    },
+    {
+      "id": "banyan",
+      "name": "六榕树",
+      "priority": 2,
+      "note": "苏轼见寺内六株榕树而题“六榕”；今存榕荫与补榕亭"
+    },
+    {
+      "id": "stele",
+      "name": "碑廊",
+      "priority": 2,
+      "note": "保存宋代以来碑石二十余方"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#a8442f", "#2f6b4f", "#b08d57", "#e8dcc5", "#8a8f88", "#5a7f3a"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "gate", "pagoda", "hall", "detail"],
+  "presetOverrides": {
+    "overview": { "yaw": 0.55, "pitch": 0.35, "distance": 140, "target": [0, 10, 0] },
+    "gate": { "yaw": 0.1, "pitch": 0.1, "distance": 26, "target": [0, 6, 36] },
+    "pagoda": { "yaw": 0.3, "pitch": 0.1, "distance": 100, "target": [0, 26, 0] },
+    "hall": { "yaw": 0.8, "pitch": 0.12, "distance": 35, "target": [-28, 7, 0] },
+    "detail": { "yaw": 0.4, "pitch": 0.08, "distance": 18, "target": [18, 6, 10] }
+  },
+  "hotspots": [
+    {
+      "id": "pagoda",
+      "label": "六榕花塔",
+      "anchor": "pagoda",
+      "type": "info",
+      "preset": "pagoda",
+      "note": "高 57m，八角形，外观 9 层、内 17 层；北宋绍圣四年（1097）重建。"
+    },
+    {
+      "id": "gate",
+      "label": "山门 · 六榕",
+      "anchor": "gate",
+      "type": "info",
+      "preset": "gate",
+      "note": "山门悬挂苏轼“六榕”二字；北宋元符三年（1100）题字。"
+    },
+    {
+      "id": "hall",
+      "label": "大雄宝殿",
+      "anchor": "hall",
+      "type": "info",
+      "preset": "hall",
+      "note": "寺内主殿；高约 14m，供奉铜佛（资料口径）。"
+    },
+    {
+      "id": "banyan",
+      "label": "六榕树",
+      "anchor": "banyan",
+      "type": "info",
+      "preset": "detail",
+      "note": "苏轼见寺内六株榕树而题“六榕”；今存榕荫与补榕亭。"
+    },
+    {
+      "id": "stele",
+      "label": "碑廊",
+      "anchor": "stele",
+      "type": "info",
+      "preset": "detail",
+      "note": "保存宋代以来碑石二十余方。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [100, 90],
+    "zoom": { "min": 4, "max": 300 },
+    "note": "寺院段 diorama：六榕花塔 + 大雄宝殿 + 山门/天王殿 + 六榕树 + 碑廊；不是整座寺院 1:1。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市人民政府 · 六榕寺",
+      "url": "https://www.gz.gov.cn/zlgz/gzly/wzgz/zjcs/fj/content/post_7760650.html",
+      "author": "广州市人民政府 / 市民宗局",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "占地 8500㎡；花塔高 57m、八角、外观 9 层内 17 层；大雄宝殿/观音殿/六祖堂/碑廊；苏轼“六榕”。"
+    },
+    {
+      "type": "official",
+      "title": "广州市越秀区人民政府 · 六榕寺",
+      "url": "https://www.yuexiu.gov.cn/zjyx/yxjd/zjwh/content/post_8665056.html",
+      "author": "广州市越秀区人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "六榕路 87 号；开放时间 8:00–16:30；苏轼元符三年（1100）题“六榕”。"
+    },
+    {
+      "type": "secondary",
+      "title": "维基百科 · 六榕寺",
+      "url": "https://zh.wikipedia.org/zh-hans/六榕寺",
+      "author": "维基百科",
+      "license": "CC BY-SA",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "坐标 23.130881, 113.254789；南朝梁大同三年（537）建寺；花塔 1097 重建。"
+    },
+    {
+      "type": "secondary",
+      "title": "知乎 · 文旅寻宝：广州六榕寺",
+      "url": "https://zhuanlan.zhihu.com/p/691573680",
+      "author": "知乎",
+      "license": "网络资料",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": false,
+      "note": "大雄宝殿高 14m、占地约 300㎡；清康熙二年铜佛。仅作体量参考。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 寺院轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Overpass；塔位、院落轮廓仍未测绘核对。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-03）：官方占地/花塔 A 已核；模型是 100×90m 寺院段示意；严格轮廓/尺度为 A 级项，B 级记 null。实测 215 calls / 5,250 tris / 0.98ms per frame（总览最重）。图鉴 iframe、打卡、返回、五机位、五热点、移动端已验证。B 级 lite 识别通过（用户反馈，人数未注明）。"
+  },
+  "notes": "B 级通过：六榕寺的核心是“一塔一树一题字”：57m 花塔 + 苏轼“六榕” + 六株榕荫。模型只做花塔周边寺院段；不含全部殿堂内部和完整寺院；识别只做 1–2 人 lite，不做 5 人，除非抽中/大改。"
+}

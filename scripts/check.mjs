@@ -1,15 +1,21 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import {createRequire} from 'node:module';
+const contract=createRequire(import.meta.url)('../canton-atlas/web/js/spot-contract.js');
 import { workspace } from './preview.mjs';
 const root = path.join(workspace, 'canton-atlas/web');
 function files(dir) { return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(path.join(dir, e.name)) : [path.join(dir, e.name)]); }
 let failed = false; let js = 0; let refs = 0;
-for (const file of files(root)) {
+const content=path.join(workspace,'canton-atlas/content');
+for (const file of files(root).concat(files(content))) {
   if (file.endsWith('.js')) {
     js++;
-    const result = spawnSync(process.execPath, ['--check', file], { encoding: 'utf8' });
+    const result = spawnSync(process.execPath, file.startsWith(content)?['--input-type=module','--check']:['--check', file], { encoding: 'utf8', ...(file.startsWith(content)?{input:fs.readFileSync(file,'utf8')}:{}) });
     if (result.status !== 0) { failed = true; console.error('Syntax failed: ' + path.relative(workspace, file)); }
+  }
+  if(path.basename(file)==='spot.json'&&path.basename(path.dirname(file))!=='_template'){
+    try{const card=JSON.parse(fs.readFileSync(file,'utf8'));const errors=contract.validate(card,path.basename(path.dirname(file)));if(!fs.existsSync(path.join(path.dirname(file),'model.js'))&&card.status!=='draft')errors.push('非草稿数据卡缺少 model.js');if(errors.length){failed=true;console.error(path.relative(workspace,file)+': '+errors.join('; '));}}catch(error){failed=true;console.error('Invalid data card: '+path.relative(workspace,file)+' '+error.message);}
   }
   if (file.endsWith('.html')) {
     for (const match of fs.readFileSync(file, 'utf8').matchAll(/(?:src|href)=["']([^"']+)["']/g)) {

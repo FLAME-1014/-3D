@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "0.1",
+  "id": "beijinglu",
+  "name": "北京路 · 千年古道",
+  "status": "draft",
+  "updated": "2026-11-03",
+  "geo": {
+    "wgs84": [113.263667, 23.127675],
+    "gcj02": [113.2690, 23.1250],
+    "anchor": "北京路步行街中段（GCJ-02 来自旧城市 POC；WGS84 由算法转换；待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 360000,
+    "buildingAreaM2": null,
+    "footprintM": [1252, 16],
+    "heightM": null,
+    "floors": null,
+    "confidence": "A",
+    "note": "北京路全长 1252m、宽 16m 为道路本体口径；4A 景区范围约 0.36 km²；模型是 96×70m 街段示意，不是整条 1252m。"
+  },
+  "features": [
+    {
+      "id": "ancient-road",
+      "name": "千年古道遗址",
+      "priority": 1,
+      "note": "北段约 44m×3.8m，11 层路面，距地表 3m 以上；玻璃罩展示"
+    },
+    {
+      "id": "arcade",
+      "name": "北京路骑楼街",
+      "priority": 1,
+      "note": "376 栋骑楼立面、3–4 层、16m 街宽、连续柱廊"
+    },
+    {
+      "id": "temple",
+      "name": "大佛寺 / 普觉楼金顶",
+      "priority": 1,
+      "note": "大殿面宽 36.32m、高约 18m；普觉楼 7 层，黄铜瓦金顶"
+    },
+    {
+      "id": "brands",
+      "name": "老字号与商业界面",
+      "priority": 2,
+      "note": "太平馆、科技书店、古籍书店、广州百货、新大新"
+    },
+    {
+      "id": "trees",
+      "name": "古榕与红灯笼",
+      "priority": 2,
+      "note": "20 多棵古榕压街，节庆红灯笼跨街"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#e8dcc5", "#d8b98a", "#a55a48", "#6f7a76", "#b08d57", "#9a3b2e"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "street", "ancient-road", "temple", "detail"],
+  "presetOverrides": {
+    "overview": { "yaw": 0.6, "pitch": 0.7, "distance": 145, "target": [0, 5, 0] },
+    "street": { "yaw": -1.57, "pitch": 0.12, "distance": 28, "target": [0, 2.5, 0] },
+    "ancient-road": { "yaw": -1.57, "pitch": 0.32, "distance": 24, "target": [0, 1.5, 0] },
+    "temple": { "yaw": 0.55, "pitch": 0.22, "distance": 54, "target": [30, 13, 20] },
+    "detail": { "yaw": 0.39, "pitch": -0.13, "distance": 14, "target": [-21.3, 6.8, -12] }
+  },
+  "hotspots": [
+    {
+      "id": "ancient",
+      "label": "千年古道",
+      "anchor": "ancient",
+      "type": "info",
+      "preset": "ancient-road",
+      "note": "唐至民国 11 层路面，玻璃罩原址展示；北段约 44m×3.8m。"
+    },
+    {
+      "id": "arcade",
+      "label": "骑楼街",
+      "anchor": "street",
+      "type": "info",
+      "preset": "street",
+      "note": "16m 街宽、3–4 层骑楼，连续柱廊；2020 年修复 376 栋立面。"
+    },
+    {
+      "id": "temple",
+      "label": "大佛寺",
+      "anchor": "temple",
+      "type": "info",
+      "preset": "temple",
+      "note": "普觉楼 7 层、黄铜瓦金顶；从北京路看，高出骑楼 3–4 层。"
+    },
+    {
+      "id": "brands",
+      "label": "老字号",
+      "anchor": "detail",
+      "type": "info",
+      "preset": "detail",
+      "note": "太平馆、科技书店、古籍书店、广州百货、新大新等。"
+    },
+    {
+      "id": "trees",
+      "label": "古榕 / 红灯笼",
+      "anchor": "street",
+      "type": "info",
+      "preset": "street",
+      "note": "20 多棵古榕压街；节庆红灯笼跨街，是北京路的日常界面。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [96, 70],
+    "zoom": { "min": 4, "max": 260 },
+    "note": "街段 diorama：80m 北京路步行街 + 千年古道玻璃罩 + 两侧骑楼 + 大佛寺金顶/山门；不是整条 1252m 的 1:1。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州北京路文化旅游区 · 北京路千年古道遗址",
+      "url": "https://www.beijinglu.yuexiu.gov.cn/bjl/pc_bjl/lydl_bjl/jd_bjl/qnsy_bjl/20181116/detail-208456.shtml",
+      "author": "广州北京路文化旅游区管理服务中心",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "遗址 420㎡；北段 44×3.8m、11 层；南段拱北楼 5 层；2003 年玻璃罩开放。"
+    },
+    {
+      "type": "official",
+      "title": "广州市人民政府 · “变长变胖”，北京路更潮了！",
+      "url": "https://www.gz.gov.cn/xw/jrgz/content/post_6554954.html",
+      "author": "广州市人民政府 / 广州日报",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "2020 年修复 376 栋骑楼、保护建筑 67 栋；步行街 3.5km / 0.43km²；4A / 世界优秀旅游目的地。"
+    },
+    {
+      "type": "project",
+      "title": "项目考据 · 2026-10-31-beijinglu-facts.md",
+      "url": "qoder-docs/superpowers/research/2026-10-31-beijinglu-facts.md",
+      "author": "Canton Atlas 历史考据",
+      "license": "项目内资料",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": true,
+      "note": "1252m×16m、核心 440m、骑楼柱距/廊深、大佛寺/普觉楼、惠福东路美食街；正文引用 S1/S2/S4 等。"
+    },
+    {
+      "type": "project",
+      "title": "旧城市 POC 坐标（canton-atlas/web/immersive/main.js）",
+      "url": "canton-atlas/web/immersive/main.js",
+      "author": "Canton Atlas 旧场景",
+      "license": "项目内资料",
+      "accessed": "2026-11-03",
+      "confidence": "C",
+      "verified": true,
+      "note": "GCJ-02 [113.2690, 23.1250]；WGS84 由算法转换为 [113.263667, 23.127675]；未与 OSM/测绘核对。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 建筑轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Nominatim/Overpass（镜像返回空）；待补具体 way ID、轮廓与高度。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-03）：官方遗址/骑楼 A 已核；模型是 96×70m 街段示意，不是整条 1252m；严格轮廓/尺度为 A 级项，B 级记 null。实测 365 calls / 12,430 tris / 2.01ms per frame（总览最重）。图鉴 iframe、打卡、返回、五机位、五热点、移动端 390×844 已验证。B 级 lite 识别通过（用户反馈，人数未注明）。"
+  },
+  "notes": "B 级通过：北京路的记忆点不是又一条骑楼街，而是脚下的 11 层千年古道 + 16m 街宽骑楼 + 大佛寺金顶。模型只做 80m 核心街段，玻璃古道罩在街心，大佛寺在东南侧；识别只做 1–2 人 lite，不做 5 人，除非抽中/大改。"
+}

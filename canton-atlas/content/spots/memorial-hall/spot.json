@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "0.1",
+  "id": "memorial-hall",
+  "name": "中山纪念堂 · 蓝顶会堂",
+  "status": "draft",
+  "updated": "2026-11-03",
+  "geo": {
+    "wgs84": [113.2595, 23.136361],
+    "gcj02": [113.2648, 23.1336],
+    "anchor": "东风中路 299 号中山纪念堂（WGS84 取自维基百科坐标；GCJ-02 为算法近似；待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 61000,
+    "buildingAreaM2": 12000,
+    "footprintM": [72.65, 63.32],
+    "heightM": 48.63,
+    "floors": null,
+    "confidence": "A",
+    "note": "总占地 6.1 万㎡、主体占地 1.2 万㎡（含四周平台）、堂高 48.63m、南北 72.65m、东西 63.32m 为官方口径；模型是 140×110m 场地段 diorama。"
+  },
+  "features": [
+    {
+      "id": "hall",
+      "name": "纪念堂主体",
+      "priority": 1,
+      "note": "八角形宫殿式会堂；中央八角攒尖顶 + 四出重檐歇山抱厦；宝蓝琉璃瓦、红柱、乳黄墙、白花岗岩台基"
+    },
+    {
+      "id": "gate",
+      "name": "正门楼",
+      "priority": 1,
+      "note": "三间三拱门；中央歇山、两侧庑殿；蓝琉璃瓦；悬“中山纪念堂”横匾"
+    },
+    {
+      "id": "statue",
+      "name": "孙中山铜像",
+      "priority": 1,
+      "note": "像高 5.5m、重 3.9t；1956 年创作，1998 年翻铸为全铜；白色花岗岩基座"
+    },
+    {
+      "id": "huabiao",
+      "name": "云鹤华表",
+      "priority": 2,
+      "note": "一对，1931 年建；花岗岩，柱头祥云/仙鹤；位于前大草坪东西两侧"
+    },
+    {
+      "id": "kapok",
+      "name": "木棉王",
+      "priority": 2,
+      "note": "东北角；350 多年树龄，高约 27m、冠幅约 33m；春季红花"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#2f5f9a", "#a8442f", "#e8dcc5", "#b08d57", "#f0e9dc", "#5a7f3a"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "gate", "front", "courtyard", "detail"],
+  "presetOverrides": {
+    "overview": { "yaw": 0.55, "pitch": 0.35, "distance": 170, "target": [0, 12, 0] },
+    "gate": { "yaw": 0.1, "pitch": 0.08, "distance": 50, "target": [0, 6, 62] },
+    "front": { "yaw": 0.35, "pitch": 0.15, "distance": 120, "target": [0, 20, -10] },
+    "courtyard": { "yaw": 0.4, "pitch": 0.12, "distance": 46, "target": [0, 5, 46] },
+    "detail": { "yaw": 0.5, "pitch": 0.08, "distance": 18, "target": [0, 8, 46] }
+  },
+  "hotspots": [
+    {
+      "id": "hall",
+      "label": "纪念堂",
+      "anchor": "hall",
+      "type": "info",
+      "preset": "front",
+      "note": "八角形宫殿式会堂；中央八角攒尖顶 + 四出抱厦；宝蓝琉璃瓦、红柱、乳黄墙。"
+    },
+    {
+      "id": "gate",
+      "label": "正门楼",
+      "anchor": "gate",
+      "type": "info",
+      "preset": "gate",
+      "note": "三间三拱门；中央歇山、两侧庑殿；蓝琉璃瓦；悬“中山纪念堂”横匾。"
+    },
+    {
+      "id": "statue",
+      "label": "孙中山铜像",
+      "anchor": "statue",
+      "type": "info",
+      "preset": "detail",
+      "note": "像高 5.5m、重 3.9t；1956 年创作，1998 年翻铸为全铜；面向门楼/东风中路。"
+    },
+    {
+      "id": "huabiao",
+      "label": "云鹤华表",
+      "anchor": "huabiao",
+      "type": "info",
+      "preset": "courtyard",
+      "note": "一对，1931 年建；花岗岩，柱头祥云/仙鹤；位于前大草坪东西两侧。"
+    },
+    {
+      "id": "kapok",
+      "label": "木棉王",
+      "anchor": "kapok",
+      "type": "info",
+      "preset": "overview",
+      "note": "东北角；350 多年树龄，高约 27m、冠幅约 33m；春季红花。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [140, 110],
+    "zoom": { "min": 4, "max": 320 },
+    "note": "场地段 diorama：正门楼—草坪/华表—铜像—纪念堂 + 木棉王 + 北侧中轴提示；不是整个 6.1 万㎡ 场地 1:1。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市林业和园林局 · 中山纪念堂景区简介",
+      "url": "http://lyylj.gz.gov.cn/stly/gyjq/zsjnt/jqjj/",
+      "author": "广州市林业和园林局",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "总占地 6.1 万㎡、主体占地 1.2 万㎡、堂高 48.63m、南北 72.65m、东西 63.32m；八角攒尖顶+四出抱厦。"
+    },
+    {
+      "type": "official",
+      "title": "广州市越秀区人民政府 · 中山纪念堂",
+      "url": "https://www.yuexiu.gov.cn/zjyx/yxjd/gzjdgms/content/post_8659223.html",
+      "author": "广州市越秀区人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "东风中路 299 号；1928 动工、1931 落成；吕彦直设计；国保/4A。"
+    },
+    {
+      "type": "secondary",
+      "title": "《中国大百科全书》· 中山纪念堂",
+      "url": "https://www.zgbk.com/ecph/words?ID=184671&SiteID=1&SubID=61316&Type=bkzyb",
+      "author": "中国大百科全书",
+      "license": "百科资料",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "大厅净跨 71m、上下两层 4729 座、11 个出入口；旧资料作 5000 座。"
+    },
+    {
+      "type": "project",
+      "title": "项目考据 · 2026-10-31-memorial-hall-facts.md",
+      "url": "qoder-docs/superpowers/research/2026-10-31-memorial-hall-facts.md",
+      "author": "Canton Atlas 历史考据",
+      "license": "项目内资料",
+      "accessed": "2026-11-03",
+      "confidence": "A",
+      "verified": true,
+      "note": "门楼/铜像/华表/木棉王/中轴关系；铜像 5.5m/3.9t、木棉王 27m/33m、华表约 12.8m。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 场地轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-03",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Overpass；门楼、台阶、草坪边界仍未测绘核对。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-03）：官方尺度/形制 A 已核；模型是 140×110m 场地段示意；严格轮廓/尺度为 A 级项，B 级记 null。实测 140 calls / 4,358 tris / 0.9ms per frame（总览最重）。图鉴 iframe、打卡、返回、五机位、五热点、移动端已验证。B 级 lite 识别通过（用户反馈，人数未注明）。"
+  },
+  "notes": "B 级通过：中山纪念堂的核心不是“一座八角宫殿”，而是“门楼—草坪/华表—铜像—蓝顶会堂—北侧中轴”的到达序列。模型只做场地段；不含会堂内部、东西附楼和完整中轴；识别只做 1–2 人 lite，不做 5 人，除非抽中/大改。"
+}
+
