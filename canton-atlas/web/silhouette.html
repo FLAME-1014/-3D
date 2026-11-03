@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>正立面轮廓叠图 · 陈家祠</title>
+<style>
+  :root { --paper:#f4eee1; --ink:#26221c; --muted:#6f6659; --line:rgba(38,34,28,.18); --accent:#b5432f; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif; }
+  header { padding:18px 22px; border-bottom:1px solid var(--line); display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  header h1 { margin:0; font-family:"Songti SC","Noto Serif SC",serif; font-size:22px; }
+  header p { margin:0; color:var(--muted); font-size:12px; }
+  header a { margin-left:auto; color:var(--accent); font-size:12px; text-decoration:none; }
+  main { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:16px; padding:16px 22px 28px; }
+  @media (max-width: 900px) { main { grid-template-columns:1fr; } }
+  .stage { background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; display:grid; place-items:center; min-height:420px; }
+  canvas { display:block; width:100%; height:auto; }
+  aside { background:rgba(250,246,238,.8); border:1px solid var(--line); border-radius:12px; padding:16px; }
+  aside h2 { margin:0 0 10px; font-size:12px; letter-spacing:.08em; color:var(--muted); }
+  label { display:block; font-size:12px; margin:10px 0 4px; }
+  input[type="range"] { width:100%; }
+  input[type="file"] { width:100%; font-size:11px; }
+  button { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:999px; padding:9px 14px; font-size:12px; cursor:pointer; margin:4px 4px 0 0; }
+  button.primary { background:var(--ink); color:#fdf8ee; border-color:var(--ink); }
+  .note { color:var(--muted); font-size:11px; line-height:1.7; margin-top:14px; border-top:1px solid var(--line); padding-top:12px; }
+  .value { color:var(--muted); font-size:11px; }
+  body.canvas-only header,
+  body.canvas-only aside { display:none; }
+  body.canvas-only main { grid-template-columns:1fr; padding:0; }
+  body.canvas-only .stage { border:0; border-radius:0; min-height:100vh; background:#fff; }
+  body.canvas-only canvas { width:1200px; max-width:100vw; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>正立面轮廓叠图 · 陈家祠</h1>
+    <p>内部验收工具：把模型剪影叠到参考照片上，检查轮廓与比例。参考照片请使用你有权使用的图片，不发布。</p>
+  </div>
+  <a href="spot.html?id=chenjiaci">← 回到模型页</a>
+</header>
+<main>
+  <div class="stage"><canvas id="canvas" width="1200" height="800"></canvas></div>
+  <aside>
+    <h2>参考照片</h2>
+    <input id="ref" type="file" accept="image/*">
+    <h2>剪影对齐</h2>
+    <label>缩放 <span class="value" id="scaleValue">100%</span></label>
+    <input id="scale" type="range" min="20" max="220" value="100">
+    <label>水平偏移 <span class="value" id="xValue">0</span></label>
+    <input id="x" type="range" min="-600" max="600" value="0">
+    <label>垂直偏移 <span class="value" id="yValue">0</span></label>
+    <input id="y" type="range" min="-400" max="400" value="0">
+    <label>不透明度 <span class="value" id="opacityValue">45%</span></label>
+    <input id="opacity" type="range" min="5" max="90" value="45">
+    <div>
+      <button class="primary" id="download">导出对比图</button>
+      <button id="reset">重置</button>
+    </div>
+    <p class="note">
+      步骤：1）选择一张正立面参考照片；2）调整缩放/偏移，让模型剪影与照片中的建筑外轮廓对齐；
+      3）观察偏差，把最大轮廓偏差记录到 `spot.json` 的验收备注；4）导出对比图归档。
+    </p>
+    <p class="note" id="status">正在加载模型剪影…</p>
+  </aside>
+</main>
+<script>
+(function () {
+  "use strict";
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  var W = canvas.width;
+  var H = canvas.height;
+  var params = new URLSearchParams(location.search);
+  if (params.get("canvasOnly") === "1") document.body.classList.add("canvas-only");
+  var silPath = params.get("silhouette") === "hall"
+    ? "../content/spots/chenjiaci/refs/overlay/front-hall-silhouette.png"
+    : "../content/spots/chenjiaci/refs/overlay/model-front-silhouette.png";
+  var refPath = params.get("ref") || "";
+  var refImage = null;
+  var silhouette = null;
+  var silhouetteBox = null;
+  var pose = {
+    scale: Number(params.get("scale") || 100),
+    x: Number(params.get("x") || 0),
+    y: Number(params.get("y") || 0),
+    opacity: Number(params.get("opacity") || 45)
+  };
+
+  function setStatus(text) { document.getElementById("status").textContent = text; }
+
+  function loadImage(src) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      img.onload = function () { resolve(img); };
+      img.onerror = reject;
+      img.src = src;
+    });
+  }
+
+  function cropBox(img) {
+    var c = document.createElement("canvas");
+    c.width = img.width;
+    c.height = img.height;
+    var g = c.getContext("2d");
+    g.drawImage(img, 0, 0);
+    var data = g.getImageData(0, 0, c.width, c.height).data;
+    var minX = c.width, minY = c.height, maxX = 0, maxY = 0;
+    for (var y = 0; y < c.height; y++) {
+      for (var x = 0; x < c.width; x++) {
+        var i = (y * c.width + x) * 4;
+        if (data[i] < 245 || data[i + 1] < 245 || data[i + 2] < 245) {
+          if (x < minX) minX = x;
+          if (y < minY) minY = y;
+          if (x > maxX) maxX = x;
+          if (y > maxY) maxY = y;
+        }
+      }
+    }
+    if (maxX <= minX || maxY <= minY) return { x: 0, y: 0, w: c.width, h: c.height };
+    return { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
+  }
+
+  function makeTransparentSilhouette(img) {
+    var c = document.createElement("canvas");
+    c.width = img.width;
+    c.height = img.height;
+    var g = c.getContext("2d");
+    g.drawImage(img, 0, 0);
+    var imageData = g.getImageData(0, 0, c.width, c.height);
+    var d = imageData.data;
+    for (var i = 0; i < d.length; i += 4) {
+      if (d[i] > 244 && d[i + 1] > 244 && d[i + 2] > 244) {
+        d[i + 3] = 0;
+      } else {
+        d[i] = 0;
+        d[i + 1] = 0;
+        d[i + 2] = 0;
+        d[i + 3] = 255;
+      }
+    }
+    g.putImageData(imageData, 0, 0);
+    return c;
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, W, H);
+
+    if (refImage) {
+      var r = Math.min(W / refImage.width, H / refImage.height);
+      var rw = refImage.width * r;
+      var rh = refImage.height * r;
+      ctx.drawImage(refImage, (W - rw) / 2, (H - rh) / 2, rw, rh);
+    } else {
+      ctx.fillStyle = "#e9e1d1";
+      ctx.font = "16px system-ui";
+      ctx.textAlign = "center";
+      ctx.fillText("选择一张正立面参考照片", W / 2, H / 2);
+    }
+
+    if (silhouette && silhouetteBox) {
+      var baseScale = Math.min(W * 0.8 / silhouetteBox.w, H * 0.7 / silhouetteBox.h);
+      var s = baseScale * pose.scale / 100;
+      var dw = silhouetteBox.w * s;
+      var dh = silhouetteBox.h * s;
+      var dx = W / 2 - dw / 2 + pose.x;
+      var dy = H * 0.58 - dh / 2 + pose.y;
+      ctx.globalAlpha = pose.opacity / 100;
+      ctx.drawImage(silhouette, silhouetteBox.x, silhouetteBox.y, silhouetteBox.w, silhouetteBox.h, dx, dy, dw, dh);
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = "rgba(181,67,47,.7)";
+      ctx.lineWidth = 1;
+      ctx.strokeRect(dx, dy, dw, dh);
+    }
+  }
+
+  function bindRange(id, key, format) {
+    var input = document.getElementById(id);
+    var value = document.getElementById(id + "Value");
+    input.addEventListener("input", function () {
+      pose[key] = Number(input.value);
+      value.textContent = format(pose[key]);
+      draw();
+    });
+  }
+
+  bindRange("scale", "scale", function (v) { return v + "%"; });
+  bindRange("x", "x", function (v) { return String(v); });
+  bindRange("y", "y", function (v) { return String(v); });
+  bindRange("opacity", "opacity", function (v) { return v + "%"; });
+
+  function syncInputs() {
+    ["scale", "x", "y", "opacity"].forEach(function (id) {
+      var input = document.getElementById(id);
+      input.value = pose[id];
+      document.getElementById(id + "Value").textContent =
+        id === "opacity" || id === "scale" ? pose[id] + "%" : String(pose[id]);
+    });
+  }
+  syncInputs();
+
+  document.getElementById("reset").addEventListener("click", function () {
+    pose = { scale: 100, x: 0, y: 0, opacity: 45 };
+    ["scale", "x", "y", "opacity"].forEach(function (id) {
+      var input = document.getElementById(id);
+      input.value = id === "opacity" ? 45 : id === "scale" ? 100 : 0;
+      document.getElementById(id + "Value").textContent = id === "opacity" ? "45%" : id === "scale" ? "100%" : "0";
+    });
+    draw();
+  });
+
+  document.getElementById("download").addEventListener("click", function () {
+    var a = document.createElement("a");
+    a.download = "chenjiaci-silhouette-overlay.png";
+    a.href = canvas.toDataURL("image/png");
+    a.click();
+  });
+
+  document.getElementById("ref").addEventListener("change", function (event) {
+    var file = event.target.files && event.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      loadImage(reader.result).then(function (img) {
+        refImage = img;
+        draw();
+        setStatus("参考照片已载入：" + img.width + "×" + img.height);
+      }).catch(function () { setStatus("参考照片读取失败。"); });
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function loadReference() {
+    if (!refPath) return;
+    loadImage(refPath).then(function (img) {
+      refImage = img;
+      draw();
+      setStatus("已载入参考图与剪影；调整滑块对齐。");
+    }).catch(function () {
+      setStatus("参考图加载失败：" + refPath);
+    });
+  }
+
+  loadImage(silPath)
+    .then(function (img) {
+      silhouette = makeTransparentSilhouette(img);
+      silhouetteBox = cropBox(silhouette);
+      draw();
+      loadReference();
+      if (!refPath) setStatus("模型剪影已载入；请选择参考照片并对齐。");
+    })
+    .catch(function () {
+      draw();
+      setStatus("模型剪影加载失败：" + silPath);
+    });
+})();
+</script>
+</body>
+</html>

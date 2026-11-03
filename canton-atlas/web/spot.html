@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>陈家祠 · 广州城市模型册</title>
+<meta name="description" content="Canton Atlas 模型册样板：陈家祠风格化单体模型。非测绘，仅作城市观察与文化展示。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23b5432f'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23fdf8ee' font-family='serif'%3E%E7%A9%97%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="spot.css">
+</head>
+<body>
+<canvas id="scene" aria-label="陈家祠风格化三维模型"></canvas>
+
+<header class="topbar">
+  <button class="back" id="backAtlas" type="button">← 返回图鉴</button>
+  <div class="brand">
+    <span class="seal" aria-hidden="true">穗</span>
+    <span class="brand-text">
+      <strong>CANTON ATLAS</strong>
+      <small>模型册 · MODEL 001</small>
+    </span>
+  </div>
+  <p class="scene-name" id="sceneName">陈家祠</p>
+  <span class="tag">风格化示意 · 非测绘</span>
+</header>
+
+<div class="hotspots" id="hotspots" aria-label="模型热点"></div>
+
+<aside class="spot-panel" id="spotPanel" aria-labelledby="spotName">
+  <button class="panel-close" id="panelClose" type="button" aria-label="收起详情">×</button>
+  <div class="panel-scroll">
+    <p class="kicker" id="spotKicker">MODEL 001 · 西关</p>
+    <h1 id="spotName">陈家祠</h1>
+    <p class="en" id="spotEn">CHEN CLAN ANCESTRAL HALL</p>
+    <blockquote id="spotSig">一座书院，把岭南的「三雕两塑一铸」全刻在身上。</blockquote>
+    <div class="facts" id="spotFacts"></div>
+    <section>
+      <h2>看点</h2>
+      <ol class="highlights" id="spotHighlights"></ol>
+    </section>
+    <section class="info-grid">
+      <div>
+        <span>最佳时段</span>
+        <p id="spotBest">以现场公告为准</p>
+      </div>
+      <div>
+        <span>怎么玩</span>
+        <p id="spotTip"></p>
+      </div>
+    </section>
+    <p class="source-note">风格化单体模型，比例、细节与史实以官方资料为准；不用于导航或测绘。</p>
+  </div>
+</aside>
+
+<div class="toolbar" role="toolbar" aria-label="模型视角与操作">
+  <span class="preset-group" id="presets"></span>
+  <button type="button" id="autoRotate" aria-pressed="false">自动旋转</button>
+  <button type="button" id="markVisited" aria-pressed="false">✓ 标记去过</button>
+  <button type="button" id="panelToggle">详情</button>
+</div>
+
+<aside class="hotspot-card" id="hotspotCard" hidden aria-live="polite">
+  <button class="hotspot-close" id="hotspotClose" type="button" aria-label="关闭热点">×</button>
+  <p class="kicker">HOTSPOT</p>
+  <h2 id="hotspotTitle"></h2>
+  <p id="hotspotText"></p>
+  <button class="ghost" id="hotspotFocus" type="button">拉近看</button>
+</aside>
+
+<footer class="hud">
+  <span>拖动旋转 · 滚轮 / 双指缩放 · 方向键微调 · 双击复位</span>
+  <span id="metrics">准备模型…</span>
+</footer>
+
+<div class="loading" id="loading">
+  <span class="loading-mark" aria-hidden="true">穗</span>
+  <p>正在搭建陈家祠…</p>
+  <small>风格化单体模型 · 非测绘</small>
+</div>
+
+<div class="failure" id="failure" role="alert" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="immersive/three.min.js"></script>
+<script src="data.js"></script>
+<script>
+  window.__ATLAS_PLACES = PLACES;
+  window.__ATLAS_CATS = CATS;
+  window.__ATLAS_CLUSTERS = CLUSTERS;
+</script>
+<script src="js/diorama.js" defer></script>
+</body>
+</html>

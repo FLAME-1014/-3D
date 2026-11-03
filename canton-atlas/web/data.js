@@ -104,7 +104,7 @@ const PLACES = [
     tags: ["骑楼", "商业街", "西关"]
   },
   {
-    id: "shamian", no: "07", name: "沙面", en: "SHAMIAN ISLAND",
+    id: "shamian", no: "07", name: "沙面 · 沙面岛", en: "SHAMIAN ISLAND",
     cat: "street", cluster: "xiguan", x: 342, y: 438, dur: 90, must: true,
     sig: "0.3 平方公里的岛上，排着上百栋欧陆建筑。",
     facts: [["面积", "约 0.3 平方公里"], ["建筑", "150 栋以上"], ["前身", "英法租界"]],

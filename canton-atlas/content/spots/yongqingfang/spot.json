@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "0.1",
+  "id": "yongqingfang",
+  "name": "永庆坊 · 恩宁路",
+  "status": "draft",
+  "updated": "2026-11-02",
+  "geo": {
+    "wgs84": [113.240777, 23.118186],
+    "gcj02": [113.2461, 23.1155],
+    "anchor": "永庆坊主巷中段（GCJ-02 来自旧城市 POC，WGS84 由算法转换；待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 113700,
+    "buildingAreaM2": 7800,
+    "footprintM": [null, null],
+    "heightM": null,
+    "floors": null,
+    "confidence": "A",
+    "note": "11.37 万㎡ 为荔湾区政府/广东省情网口径；7800㎡ 为一期修缮建筑面积。模型并非整个街区，见 model.footprintM。"
+  },
+  "features": [
+    {
+      "id": "arcade",
+      "name": "恩宁路骑楼廊道",
+      "priority": 1,
+      "note": "连续柱廊 + 3–4 层立面，是永庆坊最容易被认出的轮廓"
+    },
+    {
+      "id": "gate",
+      "name": "永庆坊门楼",
+      "priority": 1,
+      "note": "恩宁路 99 号入口，铜色横匾"
+    },
+    {
+      "id": "windows",
+      "name": "满洲窗 / 趟栊门",
+      "priority": 1,
+      "note": "彩色玻璃格窗与横向木趟栊，是西关骑楼的点睛"
+    },
+    {
+      "id": "bruce",
+      "name": "李小龙祖居",
+      "priority": 2,
+      "note": "巷内西关大屋，窄面宽、长进深"
+    },
+    {
+      "id": "stage",
+      "name": "广福台 / 粤剧",
+      "priority": 2,
+      "note": "临水戏台的示意化街面版本"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#6f7a76", "#9a5a48", "#cbc2b2", "#4a2f22", "#2f6b8a", "#b08d57"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "street", "gate", "stage", "detail"],
+  "presetOverrides": {
+    "street": { "yaw": 1.57, "pitch": 0.08, "distance": 32 },
+    "gate": { "yaw": 1.57, "pitch": 0.03, "distance": 28, "target": [-44, 4.8, 0] },
+    "stage": { "yaw": 2.6, "pitch": 0.2, "distance": 26 },
+    "detail": { "yaw": 0.15, "pitch": 0.15, "distance": 12, "target": [-35, 5.5, -8.8] }
+  },
+  "hotspots": [
+    {
+      "id": "gate",
+      "label": "永庆坊门楼",
+      "anchor": "gate",
+      "type": "info",
+      "preset": "gate",
+      "note": "恩宁路 99 号入口；门楼后是 4–5m 宽主巷。"
+    },
+    {
+      "id": "arcade",
+      "label": "骑楼廊道",
+      "anchor": "arcade",
+      "type": "info",
+      "preset": "street",
+      "note": "柱廊宽约 3m，净高约 4–6m；底层商铺、上层住宅。"
+    },
+    {
+      "id": "window",
+      "label": "满洲窗",
+      "anchor": "detail",
+      "type": "info",
+      "preset": "detail",
+      "note": "红、黄、蓝、绿、紫、金小块彩色玻璃拼格，配深色木棂。"
+    },
+    {
+      "id": "bruce",
+      "label": "李小龙祖居",
+      "anchor": "bruce_lee",
+      "type": "info",
+      "preset": "alley",
+      "note": "永庆一巷 13 号；西关大屋，一正一偏、三进深。"
+    },
+    {
+      "id": "stage",
+      "label": "广福台",
+      "anchor": "stage",
+      "type": "info",
+      "preset": "stage",
+      "note": "粤剧艺术博物馆的仿古戏台；本模型做街面示意版本。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [96, 70],
+    "note": "街段 diorama：主街约 84m，含南北骑楼、巷内祖居与街面戏台；不是整个 11.37 万㎡ 街区。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市荔湾区人民政府 · 永庆坊",
+      "url": "http://www.lw.gov.cn/yshj/sdpt/wslhlq/ptfc/content/post_9053243.html",
+      "author": "广州市荔湾区人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-02",
+      "confidence": "A",
+      "verified": true,
+      "note": "11.37 万㎡；一期 2016 年改造；麻石街、骑楼、微改造、非遗业态。"
+    },
+    {
+      "type": "official",
+      "title": "广东省情网 · 永庆坊",
+      "url": "http://dfz.gd.gov.cn/index/yxgd/gdyj/content/post_4866295.html",
+      "author": "广东省人民政府地方志办公室",
+      "license": "官方公开",
+      "accessed": "2026-11-02",
+      "confidence": "A",
+      "verified": true,
+      "note": "11.37 万㎡；83 处历史建筑；26 项非遗；4A；三横五纵街巷肌理。"
+    },
+    {
+      "type": "project",
+      "title": "项目考据 · 2026-10-31-yongqingfang-facts.md",
+      "url": "qoder-docs/superpowers/research/2026-10-31-yongqingfang-facts.md",
+      "author": "Canton Atlas 历史考据",
+      "license": "项目内资料",
+      "accessed": "2026-11-02",
+      "confidence": "B",
+      "verified": true,
+      "note": "含街巷尺度、骑楼立面、李小龙祖居/广福台细节；正文引用 S1/S7 等官方来源。"
+    },
+    {
+      "type": "project",
+      "title": "旧城市 POC 坐标（canton-atlas/web/immersive/main.js）",
+      "url": "canton-atlas/web/immersive/main.js",
+      "author": "Canton Atlas 旧场景",
+      "license": "项目内资料",
+      "accessed": "2026-11-02",
+      "confidence": "C",
+      "verified": true,
+      "note": "GCJ-02 [113.2461, 23.1155]；WGS84 由算法转换为 [113.240777, 23.118186]；未与 OSM/测绘核对。"
+    },
+    {
+      "type": "secondary",
+      "title": "PCOnline · 恩宁路骑楼（18m 宽资料口径）",
+      "url": "https://g.pconline.com.cn/dp/photo/2416198.html",
+      "author": "PCOnline",
+      "license": "媒体资料",
+      "accessed": "2026-11-02",
+      "confidence": "C",
+      "verified": false,
+      "note": "仅用于街道总宽量级；不是测绘值。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 建筑轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-02",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Nominatim/Overpass（镜像返回空）；待补具体 way ID、轮廓与高度。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-02）：官方面积/沿革 A 已核；风格与陈家祠同一展柜；300 calls / 8,856 tris / 1.48ms；图鉴 iframe、打卡、返回已验证；B 级 lite 识别通过（可识别为永庆坊，人数未注明）。silhouette/proportion/scale 为 A 级严格项，B 级批量线不要求，记 null；抽中或大改时再补。"
+  },
+  "notes": "B 级通过：永庆坊用“恩宁路骑楼街 + 主巷 + 李小龙祖居 + 街面广福台”做 96×70m 街段 diorama；与陈家祠同一展柜/面板/色板。识别只做 1–2 人 lite，不做 5 人，除非抽中或大改。预览：refs/preview/；记录：docs/永庆坊样板记录.md。"
+}

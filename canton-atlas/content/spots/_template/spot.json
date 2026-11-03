@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "0.1",
+  "id": "",
+  "name": "",
+  "status": "draft",
+  "updated": "YYYY-MM-DD",
+  "geo": {
+    "wgs84": [null, null],
+    "gcj02": [null, null],
+    "anchor": "底面中心（说明具体位置）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": null,
+    "buildingAreaM2": null,
+    "footprintM": [null, null],
+    "heightM": null,
+    "floors": null,
+    "confidence": "C",
+    "note": "未核对的值保持 null；不要填估算值当事实。"
+  },
+  "features": [
+    {
+      "id": "",
+      "name": "",
+      "priority": 1,
+      "note": ""
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": [],
+    "background": "",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "front", "detail"],
+  "presetOverrides": {},
+  "hotspots": [
+    {
+      "id": "",
+      "label": "",
+      "anchor": "",
+      "type": "info",
+      "note": ""
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "",
+      "url": "",
+      "author": "",
+      "license": "",
+      "accessed": "YYYY-MM-DD",
+      "confidence": "A",
+      "verified": false,
+      "note": ""
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "draft",
+    "score": null,
+    "checks": {
+      "sources": false,
+      "silhouette": false,
+      "proportion": false,
+      "scale": false,
+      "recognition": false,
+      "style": false,
+      "performance": false,
+      "interaction": false
+    },
+    "notes": ""
+  },
+  "notes": ""
+}

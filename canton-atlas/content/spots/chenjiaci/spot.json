@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "0.1",
+  "id": "chenjiaci",
+  "name": "陈家祠（陈氏书院 / 广东民间工艺博物馆）",
+  "status": "draft",
+  "updated": "2026-11-02",
+  "geo": {
+    "wgs84": [113.239876, 23.13208],
+    "gcj02": [113.2452, 23.1294],
+    "anchor": "主体建筑底面中心（GCJ-02 来自项目旧场景，WGS84 由算法转换；均待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 15000,
+    "buildingAreaM2": 6400,
+    "footprintM": [null, null],
+    "heightM": null,
+    "floors": null,
+    "confidence": "B",
+    "note": "面积来自公开介绍，仍待官方来源核对；长宽高与层数未核对，保持 null，禁止在文案中写成精确值。当前模型体块按 84×68m 示意，未与数据卡尺寸绑定。"
+  },
+  "features": [
+    {
+      "id": "roof_figures",
+      "name": "屋脊陶塑（石湾陶塑）",
+      "priority": 1,
+      "note": "最容易被认出的轮廓细节"
+    },
+    {
+      "id": "wood_screens",
+      "name": "木雕屏门",
+      "priority": 1,
+      "note": "正立面视觉中心"
+    },
+    {
+      "id": "courtyard",
+      "name": "三进院落 / 青云巷",
+      "priority": 1,
+      "note": "决定整体布局与空间感"
+    },
+    {
+      "id": "brick_carving",
+      "name": "砖雕 / 石雕",
+      "priority": 2,
+      "note": "近景补充"
+    },
+    {
+      "id": "gray_plastic",
+      "name": "灰塑 / 彩绘",
+      "priority": 3,
+      "note": "时间不够可后补"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#8a3b2e", "#2f4a3f", "#c9b79c", "#6b6b6b", "#1f1f1f"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "front", "detail", "courtyard", "alley"],
+  "hotspots": [
+    {
+      "id": "roof",
+      "label": "屋脊陶塑",
+      "anchor": "roof_figures",
+      "type": "info",
+      "preset": "detail",
+      "note": "近景可看陶塑人物与脊饰"
+    },
+    {
+      "id": "screen",
+      "label": "木雕屏门",
+      "anchor": "wood_screens",
+      "type": "info",
+      "preset": "front",
+      "note": "正立面视觉中心"
+    },
+    {
+      "id": "alley",
+      "label": "青云巷",
+      "anchor": "alley",
+      "type": "info",
+      "preset": "alley",
+      "note": "连接院落与侧巷的窄巷，通风、排水与防火共用。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [84, 68],
+    "note": "当前模型体块按 84×68m 示意；数据卡 footprint 未核对，正式制作前需统一。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市人民政府门户网站 · 魅力广州 · 文化广州 · 古迹",
+      "url": "https://www.gz.gov.cn/zlgz/whgz/gj/index.html",
+      "author": "广州市人民政府（来源：广州市地方志）",
+      "license": "官方公开",
+      "accessed": "2026-11-02",
+      "confidence": "A",
+      "verified": true,
+      "note": "确认陈家祠（陈氏书院）为「岭南艺术之宫」；不含尺寸/坐标，仅支持历史与定位描述。"
+    },
+    {
+      "type": "project",
+      "title": "旧城市 POC 坐标（canton-atlas/web/immersive/main.js）",
+      "url": "canton-atlas/web/immersive/main.js",
+      "author": "Canton Atlas 旧场景",
+      "license": "项目内资料",
+      "accessed": "2026-11-02",
+      "confidence": "C",
+      "verified": true,
+      "note": "GCJ-02 坐标 [113.2452, 23.1294]；来源为旧场景/高德口径，未与 OSM/测绘核对；WGS84 由算法转换。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 建筑轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-02",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Nominatim/Overpass（镜像返回空）；待补具体 way ID、轮廓与高度。禁止把未核对尺寸写成测绘值。"
+    },
+    {
+      "type": "photo",
+      "title": "Wikimedia Commons 陈家祠分类",
+      "url": "https://commons.wikimedia.org/wiki/Category:Chen_Clan_Academy",
+      "author": "多位摄影师",
+      "license": "CC BY-SA（逐图核对）",
+      "accessed": "2026-11-02",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前网络无法访问 Wikimedia；待补一张可用于轮廓叠图的正面照片，并逐图核对作者与许可。"
+    },
+    {
+      "type": "photo",
+      "title": "新浪新闻 · 陈家祠单殿正立面（内部参考）",
+      "url": "https://k.sina.com.cn/article_1780858251_6a25bd8b00101r24h.html",
+      "author": "新浪新闻",
+      "license": "媒体图片，仅内部验收，不发布",
+      "accessed": "2026-11-02",
+      "confidence": "B",
+      "verified": true,
+      "note": "已下载到 refs/overlay/reference-hall-front.jpg；单殿取景，不等于整座正立面；仅用于粗略比例参考。"
+    },
+    {
+      "type": "photo",
+      "title": "用户提供 · 陈家祠堂正立面",
+      "url": "",
+      "author": "用户",
+      "license": "用户提供，仅内部验收",
+      "accessed": "2026-11-02",
+      "confidence": "B",
+      "verified": true,
+      "note": "2400×1350，地面视角；已用于前厅叠图 refs/overlay/overlay-front-hall.png；存在透视，不是标定正射，不能据此定尺寸。"
+    },
+    {
+      "type": "academic",
+      "title": "地方志 / 学术论文中的尺度与沿革",
+      "url": "",
+      "author": "",
+      "license": "",
+      "accessed": "2026-11-02",
+      "confidence": "A",
+      "verified": false,
+      "note": "待补具体文献；用于核对面积、年代、19 座单体等。"
+    }
+  ],
+  "acceptance": {
+    "tier": "A",
+    "status": "draft",
+    "score": null,
+    "checks": {
+      "sources": false,
+      "silhouette": false,
+      "proportion": false,
+      "scale": false,
+      "recognition": false,
+      "style": true,
+      "performance": false,
+      "interaction": true
+    },
+    "notes": "官方描述 A 已核；坐标来自项目旧场景（GCJ-02）并与 WGS84 互转，未与 OSM/测绘核对；尺寸未核。用户提供正立面（refs/overlay/reference-front.jpg）已完成前厅叠图：中央厅堂宽度对齐；模型屋顶/整体目测偏高约 15–20%，但照片为地面视角、有透视，不能作为正式比例结论。整座严格叠图/尺度仍需标定照片或测绘数据。识别：A 级 5 人（首次/大改/发布）；后续纯交互/性能更新不做识别测试，B 级批量每 5 个抽 1 个。350 calls 超出 <100 目标。"
+  },
+  "notes": "首个样板建议：非夜景、装饰密集，用来检验「博物馆展柜」风格能否统一，也检验代码建模能否表达屋脊陶塑、木雕屏门、青云巷。实测 350 calls / 10,054 tris / 1.9ms per frame（桌面软件渲染测试）。用户照片叠图：refs/overlay/overlay-front-hall.png；网图单殿粗叠：refs/overlay/rough-hall-overlay.png；网图仅内部参考，不发布。验收工作记录见 docs/验收工作记录-2026-11-02.md。"
+}

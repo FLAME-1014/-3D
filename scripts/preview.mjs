@@ -4,7 +4,22 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 export const workspace = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const web = path.join(workspace, 'canton-atlas/web');
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'application/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8' };
+const content = path.join(workspace, 'canton-atlas/content');
+const types = {
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.glb': 'model/gltf-binary',
+  '.gltf': 'model/gltf+json',
+  '.bin': 'application/octet-stream',
+  '.ktx2': 'image/ktx2'
+};
 export function createPreview({ configPath = path.join(workspace, '.local/amap.development.json') } = {}) {
   return http.createServer(async (req, res) => {
     res.setHeader('Cache-Control', 'no-store');
@@ -22,12 +37,19 @@ export function createPreview({ configPath = path.join(workspace, '.local/amap.d
         res.writeHead(200, { 'Content-Type': types['.js'] });
         return res.end(req.method === 'HEAD' ? undefined : 'window.CANTON_AMAP = ' + JSON.stringify(config) + ';\n');
       }
-      let target = path.resolve(web, '.' + pathname);
-      if (target !== web && !target.startsWith(web + path.sep)) { res.writeHead(403); return res.end(); }
+      let root = web;
+      let relative = pathname;
+      if (pathname === '/content' || pathname.startsWith('/content/')) {
+        root = content;
+        relative = pathname.slice('/content'.length) || '/';
+      }
+      const within = (candidate) => candidate === root || candidate.startsWith(root + path.sep);
+      let target = path.resolve(root, '.' + relative);
+      if (!within(target)) { res.writeHead(403); return res.end(); }
       const stat = await fs.stat(target);
       if (stat.isDirectory()) target = path.join(target, 'index.html');
       const real = await fs.realpath(target);
-      if (!real.startsWith(web + path.sep)) { res.writeHead(403); return res.end(); }
+      if (!within(real)) { res.writeHead(403); return res.end(); }
       const data = await fs.readFile(real);
       res.writeHead(200, { 'Content-Type': types[path.extname(real)] || 'application/octet-stream' });
       res.end(req.method === 'HEAD' ? undefined : data);

@@ -411,6 +411,14 @@
 
   function inTray(id) { return state.tray.indexOf(id) !== -1; }
 
+  var MODEL_VIEWS = { chenjiaci: true, yongqingfang: true, shamian: true };
+
+  function immersiveLabel(id) {
+    if (MODEL_VIEWS[id]) return "进入模型";
+    if (id === "sacred-heart" || id === "baiyun" || id === "yuexiu-park" || id === "zhenhai" || id === "shamian" || id === "memorial-hall" || id === "yongqingfang" || id === "canton-tower" || id === "beijinglu" || id === "opera-house" || id === "gd-museum") return "3D 近景";
+    return "3D 看这里";
+  }
+
   function renderDetail(p) {
     var cat = catOf(p);
     var cluster = clusterOf(p);
@@ -444,7 +452,7 @@
       "</div></section>" +
       '<div class="detail-actions">' +
         '<button class="primary-btn" type="button" data-add="' + p.id + '">' + (inTray(p.id) ? "移出行程" : "加入行程") + "</button>" +
-        '<button class="ghost-btn small" type="button" data-immersive="' + p.id + '">' + (p.id === "chenjiaci" || p.id === "sacred-heart" || p.id === "baiyun" || p.id === "yuexiu-park" || p.id === "zhenhai" || p.id === "shamian" || p.id === "memorial-hall" || p.id === "yongqingfang" || p.id === "canton-tower" || p.id === "beijinglu" || p.id === "opera-house" || p.id === "gd-museum" ? "3D 近景" : "3D 看这里") + '</button>' +
+        '<button class="ghost-btn small" type="button" data-immersive="' + p.id + '">' + immersiveLabel(p.id) + '</button>' +
         '<button class="ghost-btn small" type="button" data-locate="' + p.id + '">在地图上定位</button>' +
       "</div>";
   }
@@ -529,7 +537,11 @@
     var target = placeId ? IMMERSIVE_MAP[placeId] : null;
     closeAllSheets();
     var url = placeId === "chenjiaci"
-      ? "immersive/chen.html?embed=1&from=atlas"
+      ? "spot.html?id=chenjiaci&embed=1&from=atlas"
+      : placeId === "yongqingfang"
+      ? "spot.html?id=yongqingfang&embed=1&from=atlas"
+      : placeId === "shamian"
+      ? "spot.html?id=shamian&embed=1&from=atlas"
       : placeId === "memorial-hall"
       ? "immersive/memorial.html?embed=1&from=atlas"
       : placeId === "sacred-heart"
@@ -663,6 +675,10 @@
       immersiveFrame.src = url;
       immersiveOverlay.hidden = false;
       document.body.classList.add("lock");
+    } else if (data.type === "canton-close-immersive") {
+      closeImmersive();
+    } else if (data.type === "canton-mark-visited" && data.id && placeById[data.id]) {
+      if (state.marks[data.id] !== "visited") setMark(data.id, "visited");
     }
   });
 

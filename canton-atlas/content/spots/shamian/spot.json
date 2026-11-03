@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "0.1",
+  "id": "shamian",
+  "name": "沙面 · 沙面岛",
+  "status": "draft",
+  "updated": "2026-11-02",
+  "geo": {
+    "wgs84": [113.237177, 23.109489],
+    "gcj02": [113.2425, 23.1068],
+    "anchor": "沙面大街中段（GCJ-02 来自旧城市 POC；WGS84 由算法转换；待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 300000,
+    "buildingAreaM2": null,
+    "footprintM": [862, 287],
+    "heightM": null,
+    "floors": null,
+    "confidence": "A",
+    "note": "0.3 km²、约 862×287m 为官方/资料口径；这是全岛尺度，不是模型尺度。模型是 96×70m 岛段示意。"
+  },
+  "features": [
+    {
+      "id": "avenue",
+      "name": "沙面大街林荫轴线",
+      "priority": 1,
+      "note": "846m × 12.9m，两侧集中最精华的历史建筑，53 株古树成荫"
+    },
+    {
+      "id": "church",
+      "name": "露德圣母堂",
+      "priority": 1,
+      "note": "1890 年建成，仿哥特式单尖塔、尖拱窗、玫瑰窗"
+    },
+    {
+      "id": "hotel",
+      "name": "白天鹅宾馆",
+      "priority": 1,
+      "note": "1983 年开业，28 层、结构 99.9m；白鹅潭边的白色塔楼"
+    },
+    {
+      "id": "park",
+      "name": "沙面公园 / 古榕江岸",
+      "priority": 2,
+      "note": "岛南端，前身皇后花园；巨榕、黑铁栏杆、白鹅潭水面"
+    },
+    {
+      "id": "arcade",
+      "name": "欧陆券廊立面",
+      "priority": 2,
+      "note": "新古典/维多利亚/券廊式混合，奶油、米白、黄色、红砖"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#e8dcc5", "#d8b98a", "#a55a48", "#f0e9dc", "#3f5f3a", "#5a7f86"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "avenue", "church", "hotel", "park", "detail"],
+  "presetOverrides": {
+    "avenue": { "yaw": -1.57, "pitch": 0.25, "distance": 30, "target": [10, 3, 0] },
+    "church": { "yaw": 0.9, "pitch": 0.4, "distance": 42, "target": [2, 12, -15] },
+    "hotel": { "yaw": 0.4, "pitch": 0.18, "distance": 65, "target": [34, 16, 20] },
+    "park": { "yaw": -2.2, "pitch": 0.3, "distance": 32, "target": [-39, 2, 0] },
+    "detail": { "yaw": 0, "pitch": 0.12, "distance": 16, "target": [-30, 5, -9] }
+  },
+  "hotspots": [
+    {
+      "id": "avenue",
+      "label": "沙面大街",
+      "anchor": "avenue",
+      "type": "info",
+      "preset": "avenue",
+      "note": "全岛中轴，846m 长、12.9m 宽；两侧是沙面最集中的历史建筑。"
+    },
+    {
+      "id": "church",
+      "label": "露德圣母堂",
+      "anchor": "church",
+      "type": "info",
+      "preset": "church",
+      "note": "1890 年建成；仿哥特式单尖塔、尖拱窗、圆形玫瑰窗。"
+    },
+    {
+      "id": "hotel",
+      "label": "白天鹅宾馆",
+      "anchor": "hotel",
+      "type": "info",
+      "preset": "hotel",
+      "note": "1983 年开业；28 层、结构高 99.9m；本模型做边缘塔楼示意。"
+    },
+    {
+      "id": "park",
+      "label": "沙面公园 / 古榕",
+      "anchor": "park",
+      "type": "info",
+      "preset": "park",
+      "note": "岛南端，前身皇后花园；百年古榕、黑铁栏杆、白鹅潭水面。"
+    },
+    {
+      "id": "detail",
+      "label": "券廊立面",
+      "anchor": "detail",
+      "type": "info",
+      "preset": "detail",
+      "note": "奶油/米白/黄色/红砖立面，连续券廊、白色线脚、灰瓦顶。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [96, 70],
+    "note": "岛段 diorama：沙面大街轴线 + 露德圣母堂 + 沙面公园/江岸 + 白天鹅塔楼剪影；不是全岛 862×287m 的 1:1 复原。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市人民政府 · 沙面历史文化街区保护活化工程报告公示",
+      "url": "https://www.gz.gov.cn/zwfw/zxfw/gysy/content/post_10975023.html",
+      "author": "广州市人民政府 / 广州日报",
+      "license": "官方公开",
+      "accessed": "2026-11-02",
+      "confidence": "A",
+      "verified": true,
+      "note": "沙面岛 0.3 平方公里；150 多栋欧洲风格建筑，54 栋文物建筑；全国重点文物保护单位。"
+    },
+    {
+      "type": "project",
+      "title": "项目考据 · 2026-10-30-shamian-facts.md",
+      "url": "qoder-docs/superpowers/research/2026-10-30-shamian-facts.md",
+      "author": "Canton Atlas 历史考据",
+      "license": "项目内资料",
+      "accessed": "2026-11-02",
+      "confidence": "B",
+      "verified": true,
+      "note": "862×287m、沙面大街 846m×12.9m、露德圣母堂、白天鹅 99.9m、沙面公园/古榕；正文引用 S1/S2 等官方来源。"
+    },
+    {
+      "type": "project",
+      "title": "旧城市 POC 坐标（canton-atlas/web/immersive/main.js）",
+      "url": "canton-atlas/web/immersive/main.js",
+      "author": "Canton Atlas 旧场景",
+      "license": "项目内资料",
+      "accessed": "2026-11-02",
+      "confidence": "C",
+      "verified": true,
+      "note": "GCJ-02 [113.2425, 23.1068]；WGS84 由算法转换为 [113.237177, 23.109489]；未与 OSM/测绘核对。"
+    },
+    {
+      "type": "secondary",
+      "title": "搜狐 · 沙面（862×287m、0.3km²）",
+      "url": "https://gongyi.sohu.com/a/1084372620_121792335",
+      "author": "搜狐",
+      "license": "媒体资料",
+      "accessed": "2026-11-02",
+      "confidence": "C",
+      "verified": false,
+      "note": "只用于岛体量级；不是测绘值。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 建筑轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-02",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境无法访问 OSM/Nominatim/Overpass（镜像返回空）；待补具体 way ID、轮廓与高度。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "draft",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": false,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级：官方面积/建筑数量 A 已核；模型为 96×70m 岛段示意，不是全岛 1:1；严格轮廓/尺度为 A 级项，B 级记 null。实测 308 calls / 10,830 tris / 1.94ms per frame；图鉴 iframe、打卡、返回、移动端已验证。识别 lite 待做（1–2 人即可）。"
+  },
+  "notes": "沙面是沙面岛：珠江白鹅潭北侧的江心岛，0.3 km²，862×287m，三横五纵，150+ 栋欧洲风格建筑（54 栋文物）。本模型只做沙面大街轴线 + 露德圣母堂 + 沙面公园/江岸 + 白天鹅剪影的 96×70m 岛段 diorama；B 级识别 lite 待做，不做 5 人，除非抽中/大改。"
+}
