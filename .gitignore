@@ -6,13 +6,14 @@ canton-atlas/dist/
 .env
 .env.*
 
-# 历史验收附件：体积大，保留本地，不进入 GitHub
+# 本地含真实 Key 的高德示例；只用于开发，不进入版本库
+/高德3d地图案例.html
+
+# 根目录历史近景附件文件夹；保留同名 Markdown 交接记录
 /*近景*/
 
-# 轮廓叠图参考图：含媒体图片/个人照片，仅本地内部使用，不发布
+# 自有/媒体参考照片及含照片的叠图：仅本地内部验收
+# 模型生成的剪影、预览图、来源说明仍可提交
 canton-atlas/content/spots/*/refs/overlay/reference-*
 canton-atlas/content/spots/*/refs/overlay/rough-*
 canton-atlas/content/spots/*/refs/overlay/overlay-*
-
-# 本地高德示例页含真实 Key，不进入 Git
-/高德3d地图案例.html
