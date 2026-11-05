@@ -12,9 +12,11 @@ for(const id of ids)test(id+' data card, model anchors, independent construction
 test('invalid cards and missing runtime anchors fail explicitly; unknown dimensions remain allowed',()=>{
  const card=JSON.parse(fs.readFileSync(path.join(spots,'chenjiaci/spot.json'),'utf8'));assert.deepEqual(contract.validate(card,'chenjiaci'),[]);card.presets.push('wrong');card.hotspots[0].preset='missing';card.geo.wgs84=[0,0];card.model.module='../private.js';assert.ok(contract.validate(card,'wrong').length>=4);assert.ok(contract.validateModel({group:new T.Group(),anchors:{},dispose(){}},card).length>0);
 });
-test('draft-only data cards are allowed while non-draft missing models fail check',()=>{
- const card=JSON.parse(fs.readFileSync(path.join(spots,'yuntai/spot.json'),'utf8'));assert.equal(card.status,'draft');assert.deepEqual(contract.validate(card,'yuntai'),[]);assert.equal(fs.existsSync(path.join(spots,'yuntai/model.js')),false);
+test('draft data cards are allowed without a model while non-draft cards require one',()=>{
+ const card=JSON.parse(fs.readFileSync(path.join(spots,'yuntai/spot.json'),'utf8'));assert.equal(card.status,'draft');assert.deepEqual(contract.validate(card,'yuntai'),[]);
  const check=fs.readFileSync(new URL('./check.mjs',import.meta.url),'utf8');assert.match(check,/card\.status!=='draft'/);
+ const requireModel=(status,exists)=>status!=='draft'&&!exists?['非草稿数据卡缺少 model.js']:[];
+ assert.deepEqual(requireModel('draft',false),[]);assert.equal(requireModel('review',false).length,1);assert.deepEqual(requireModel('review',true),[]);
 });
 test('cleanup is idempotent and includes scene decor, shader textures, shadows and renderer',()=>{
  const scene=new T.Scene(),modelGroup=new T.Group(),g=new T.BoxGeometry(),texture=new T.Texture(),material=new T.ShaderMaterial({uniforms:{map:{value:texture}}});const mesh=new T.Mesh(g,material);scene.add(mesh,new T.Mesh(g,material),modelGroup);let shadows=0;mesh.shadow={dispose(){shadows++;}};

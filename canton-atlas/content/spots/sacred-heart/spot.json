@@ -1,0 +1,210 @@
+{
+  "schemaVersion": "0.1",
+  "id": "sacred-heart",
+  "name": "石室圣心大教堂",
+  "status": "draft",
+  "updated": "2026-11-05",
+  "geo": {
+    "wgs84": [113.2616, 23.1175],
+    "gcj02": [113.2671, 23.1148],
+    "anchor": "越秀区一德路石室圣心大教堂正立面中心（WGS84/GCJ-02 为项目估算，待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": null,
+    "buildingAreaM2": 2754,
+    "footprintM": [35, 78.69],
+    "heightM": 58.5,
+    "floors": null,
+    "confidence": "A",
+    "note": "广州市人民政府《石室天主堂》口径：建筑面积 2,754 ㎡，东西宽 35 m，南北长 78.69 m，地面到塔尖 58.5 m。另有测绘资料记长度 77.17 m、塔尖 52.86 m（不含避雷针）；本卡取官方口径。footprintM 是建筑外轮廓总宽×总长，不是矩形占地。模型是 100×140 m 一德路前庭段 diorama。"
+  },
+  "features": [
+    {
+      "id": "tower",
+      "name": "双尖塔",
+      "priority": 1,
+      "note": "正立面一对八角形空心石塔，塔尖 58.5 m；西塔装时钟，塔间有四具法国铜钟（钟声细节不建模）。"
+    },
+    {
+      "id": "rose",
+      "name": "玫瑰窗与透视门",
+      "priority": 1,
+      "note": "正立面三座尖券门，中央最大；门框层层退入，中央约 7 m 玫瑰窗，石棂放射、彩色玻璃。"
+    },
+    {
+      "id": "granite",
+      "name": "全花岗岩哥特",
+      "priority": 1,
+      "note": "整座教堂用花岗岩砌成，广州人直接叫它“石室”；拉丁十字平面，尖形肋骨十字拱顶。"
+    },
+    {
+      "id": "buttress",
+      "name": "侧廊与飞扶壁",
+      "priority": 2,
+      "note": "中殿两侧束柱、高侧窗与外侧扶壁/飞拱；从侧面看是石室最像“机器”的一面。"
+    },
+    {
+      "id": "apse",
+      "name": "后殿与彩色玻璃",
+      "priority": 2,
+      "note": "后殿多边形墙与高窗；彩色玻璃以红、蓝、金为主，资料记玻璃从法国运来、图案以圣经故事为主。"
+    },
+    {
+      "id": "street",
+      "name": "一德路街景",
+      "priority": 3,
+      "note": "正立面南侧的前庭、一德路与低层骑楼/商铺；只做体量外壳，不复制商铺内部。"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#d8d1c2", "#b5ad9e", "#5a5e57", "#a6322e", "#2e5a8a", "#c9a24a", "#5d7245"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "facade", "rose", "side", "apse"],
+  "hotspotMode": "preset",
+  "presetOverrides": {
+    "overview": { "yaw": 0.55, "pitch": 0.28, "distance": 120, "target": [0, 26, 4] },
+    "facade": { "yaw": 0, "pitch": 0.05, "distance": 125, "target": [0, 27, 39] },
+    "rose": { "yaw": 0.04, "pitch": 0.05, "distance": 24, "target": [0, 18, 39.5] },
+    "side": { "yaw": 1.15, "pitch": 0.15, "distance": 125, "target": [0, 20, 2] },
+    "apse": { "yaw": 3.6, "pitch": 0.08, "distance": 72, "target": [0, 12, -30] }
+  },
+  "hotspots": [
+    {
+      "id": "tower",
+      "label": "双尖塔",
+      "anchor": "tower",
+      "type": "info",
+      "preset": "facade",
+      "note": "八角空心石塔，塔尖 58.5 m；西塔时钟，塔间四具法国铜钟。"
+    },
+    {
+      "id": "rose",
+      "label": "玫瑰窗",
+      "anchor": "rose",
+      "type": "info",
+      "preset": "rose",
+      "note": "中央约 7 m 玫瑰窗，石棂放射、彩色玻璃；三座尖券门在它下方。"
+    },
+    {
+      "id": "portal",
+      "label": "透视门",
+      "anchor": "portal",
+      "type": "info",
+      "preset": "facade",
+      "note": "三座尖券门，门框层层退入；中央门正对中殿轴线。"
+    },
+    {
+      "id": "buttress",
+      "label": "飞扶壁",
+      "anchor": "buttress",
+      "type": "info",
+      "preset": "side",
+      "note": "东西侧墙外一排扶壁和飞拱，把拱顶推力接住。"
+    },
+    {
+      "id": "apse",
+      "label": "后殿",
+      "anchor": "apse",
+      "type": "info",
+      "preset": "apse",
+      "note": "多边形后殿与高窗；彩色玻璃为红、蓝、金示意。"
+    },
+    {
+      "id": "granite",
+      "label": "花岗岩石室",
+      "anchor": "detail",
+      "type": "info",
+      "preset": "facade",
+      "note": "墙、柱、拱券全部花岗岩砌成；广州人称“石室”。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [100, 140],
+    "zoom": { "min": 8, "max": 200 },
+    "note": "一德路前庭段 diorama：正立面双塔/三座透视门/玫瑰窗 + 中殿/侧廊/飞扶壁 + 耳堂/后殿 + 一德路低层街景；不含教堂内部、钟楼内部与整片街区。石材、彩窗为程序化示意。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市人民政府 · 石室天主堂",
+      "url": "https://www.gz.gov.cn/zlgz/gzly/wzgz/zjcs/tzj/content/post_7760627.html",
+      "author": "广州市人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-05",
+      "confidence": "A",
+      "verified": true,
+      "note": "建筑面积 2,754 ㎡、东西宽 35 m、南北长 78.69 m、地面到塔尖 58.5 m；全花岗岩哥特。"
+    },
+    {
+      "type": "survey",
+      "title": "《岭南历史建筑测绘图选集（一）》石室圣心大教堂",
+      "url": "https://www.gz.gov.cn/",
+      "author": "岭南历史建筑测绘资料",
+      "license": "公开测绘资料",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "书目/测绘资料，无公开单页链接；一层平面、屋面图与比例尺；另一口径长度 77.17 m、塔尖 52.86 m（不含避雷针）。"
+    },
+    {
+      "type": "reference",
+      "title": "百度百科 · 石室圣心大教堂",
+      "url": "https://baike.baidu.com/item/%E7%9F%B3%E5%AE%A4%E5%9C%A3%E5%BF%83%E5%A4%A7%E6%95%99%E5%A0%82",
+      "author": "百度百科",
+      "license": "公开资料",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "1863 奠基、1888 建成；法国传教士明稽章筹建、广东石匠蔡孝总管施工；双塔/玫瑰窗/彩色玻璃等交叉来源。"
+    },
+    {
+      "type": "reference",
+      "title": "维基百科 · 石室圣心大教堂",
+      "url": "https://zh.wikipedia.org/zh-hans/%E7%9F%B3%E5%AE%A4%E5%9C%A3%E5%BF%83%E5%A4%A7%E6%95%99%E5%A0%82",
+      "author": "维基百科",
+      "license": "CC BY-SA",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "全花岗岩哥特、拉丁十字平面、双塔与建造年代；与官方口径交叉。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 石室圣心大教堂",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前未取得可用 Overpass 结果；坐标仅用于定位估算，建筑轮廓与场地边界未测绘。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-05）：官方尺寸 35×78.69 m、塔尖 58.5 m 已核；模型为 100×140 m 一德路前庭段示意，严格轮廓/比例/尺度不适用记 null。总览 346 calls / 24,008 tris；五机位、六热点、iframe 进入、标记去过、返回图鉴、移动端 390×844 已验证。B 级 lite 识别 2 人 2/2 通过（用户确认；原始回答未回传）。"
+  },
+  "notes": "石室的可识别点是“全花岗岩哥特 + 一对 58.5 m 八角尖塔 + 三座透视门 + 约 7 m 玫瑰窗”。模型只做正立面/中殿/耳堂/后殿与一德路前庭，不做教堂内部、钟楼内部与整片街区；石材/彩窗为程序化示意，不作为修缮或测绘依据。"
+}

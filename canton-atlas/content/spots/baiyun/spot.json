@@ -1,0 +1,237 @@
+{
+  "schemaVersion": "0.1",
+  "id": "baiyun",
+  "name": "白云山 · 摩星岭",
+  "status": "draft",
+  "updated": "2026-11-05",
+  "geo": {
+    "wgs84": [113.2965, 23.1806],
+    "gcj02": [113.3019, 23.178],
+    "anchor": "白云山摩星岭山顶平台（坐标为本项目估算，尚未用 OSM / 现场 GPS 核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": null,
+    "buildingAreaM2": null,
+    "footprintM": [null, null],
+    "heightM": null,
+    "floors": null,
+    "confidence": "B",
+    "note": "摩星岭海拔 382 m 为多源一致口径；山顶平台约 188 ㎡ 来自游记，非官方测绘；景区边界与建筑占地未测绘，footprintM 保持 null。模型是 120×90 m 的登顶段 diorama，台地与城市剪影均为压缩示意。"
+  },
+  "features": [
+    {
+      "id": "gate",
+      "name": "摩星岭石门",
+      "priority": 1,
+      "note": "山脚门岗石构三间、方形石柱、平石梁，中上方竖匾刻“摩星岭”，两侧低石墙；门后是长陡石级。"
+    },
+    {
+      "id": "rock",
+      "name": "吉星石",
+      "priority": 2,
+      "note": "门岗约 100 m 处，高约 6 m、宽约 4 m，刻“摩星岭”，取“十全十美”之意。"
+    },
+    {
+      "id": "paifang",
+      "name": "锦绣南天石牌坊",
+      "priority": 1,
+      "note": "登顶石级中段的白色三间石牌坊，金瓦顶、金书“锦绣南天”；朱德 1965 年题写。"
+    },
+    {
+      "id": "escalator",
+      "name": "栈道 / 扶梯",
+      "priority": 1,
+      "note": "2024 年建成：约 150 m 钢栈道 + 两段总长约 60 m 自动扶梯，垂直抬升约 26 m，位于步梯西侧。"
+    },
+    {
+      "id": "star",
+      "name": "星形指北碑",
+      "priority": 1,
+      "note": "山顶标志：墨绿方尖碑上置五角星形花岗岩，星面“1900km 北京”，碑身红字“海拔382米”，基座挂红色许愿带与锁。"
+    },
+    {
+      "id": "pavilion",
+      "name": "山顶观景亭",
+      "priority": 2,
+      "note": "山顶东侧白色圆亭、深灰攒尖顶；名称在游记中有分歧，场景只称“山顶观景亭”。"
+    },
+    {
+      "id": "city",
+      "name": "广州城市远景",
+      "priority": 2,
+      "note": "山顶南望的压缩剪影：广州塔、珠江新城与珠江；只作辨识背景，不表示实测方位和距离。"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#d8cfbd", "#8f9182", "#2f4a2b", "#a9833c", "#a2221a", "#9fb9bd"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "gate", "paifang", "summit", "detail"],
+  "presetOverrides": {
+    "overview": { "yaw": 0.46, "pitch": 0.42, "distance": 138, "target": [0, 8, 1] },
+    "gate": { "yaw": 0.08, "pitch": 0.14, "distance": 15, "target": [0, 6.9, 22.5] },
+    "paifang": { "yaw": 0.05, "pitch": 0.15, "distance": 27, "target": [0, 11.8, 2] },
+    "summit": { "yaw": 3.34, "pitch": 0.18, "distance": 32, "target": [0, 20.2, -21] },
+    "detail": { "yaw": 3.55, "pitch": 0.16, "distance": 18, "target": [0, 20.8, -23.5] }
+  },
+  "hotspots": [
+    {
+      "id": "gate",
+      "label": "摩星岭石门",
+      "anchor": "gate",
+      "type": "info",
+      "preset": "gate",
+      "note": "石构三间，竖匾“摩星岭”；门后就是登顶长石级。"
+    },
+    {
+      "id": "rock",
+      "label": "吉星石",
+      "anchor": "rock",
+      "type": "info",
+      "preset": "gate",
+      "note": "高约 6 m、宽约 4 m 的刻石；“十全十美”的说法来自游记与媒体。"
+    },
+    {
+      "id": "paifang",
+      "label": "锦绣南天石牌坊",
+      "anchor": "paifang",
+      "type": "info",
+      "preset": "paifang",
+      "note": "白石三间、金瓦金匾，位于登顶石级中段。"
+    },
+    {
+      "id": "escalator",
+      "label": "栈道 / 扶梯",
+      "anchor": "escalator",
+      "type": "info",
+      "preset": "overview",
+      "note": "2024 年建成的西侧登山扶梯，钢构 + 玻璃顶棚 + 暖色灯带。"
+    },
+    {
+      "id": "star",
+      "label": "星形指北碑",
+      "anchor": "star",
+      "type": "info",
+      "preset": "summit",
+      "note": "星面朝北标“1900km 北京”，碑身朝南标“海拔382米”。"
+    },
+    {
+      "id": "pavilion",
+      "label": "山顶观景亭",
+      "anchor": "pavilion",
+      "type": "info",
+      "preset": "summit",
+      "note": "白色圆亭 + 深灰攒尖顶，位于山顶东侧。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [120, 90],
+    "zoom": { "min": 4, "max": 300 },
+    "note": "登顶段 diorama：南侧石门—吉星石—陡石级—锦绣南天牌坊—西侧栈道/扶梯—山顶平台/星形指北碑/白亭—南缘城市剪影；不是 21.8 km² 白云山 1:1，也不是 382 m 高差实测。"
+  },
+  "sources": [
+    {
+      "type": "secondary",
+      "title": "搜狐 · 广州白云山摩星岭",
+      "url": "https://m.sohu.com/a/1075990926_121106875/",
+      "author": "搜狐",
+      "license": "媒体资料",
+      "accessed": "2026-10-30",
+      "confidence": "B",
+      "verified": false,
+      "note": "382 m 主峰、吉星石 6×4 m、“锦绣南天”朱德题写、星形指北碑等；用于事实卡。"
+    },
+    {
+      "type": "reference",
+      "title": "百度百科 · 广州市白云山景区",
+      "url": "https://wapbaike.baidu.com/view/2153.htm",
+      "author": "百度百科",
+      "license": "公开资料",
+      "accessed": "2026-10-30",
+      "confidence": "C",
+      "verified": false,
+      "note": "白云山范围、摩星岭与吉星石尺寸的交叉来源。"
+    },
+    {
+      "type": "secondary",
+      "title": "美篇 · 白云山栈道扶梯（2025-07）",
+      "url": "https://m.meipian.cn/5f52m1a4",
+      "author": "美篇作者",
+      "license": "媒体资料",
+      "accessed": "2026-10-30",
+      "confidence": "B",
+      "verified": false,
+      "note": "150 m 栈道 + 两段总长 60 m 扶梯、抬升 26 m、扶梯位于步梯左侧。"
+    },
+    {
+      "type": "secondary",
+      "title": "美篇 · 锦绣南天牌坊与扶梯（2025-04）",
+      "url": "https://m.meipian.cn/5c9zx0f0",
+      "author": "美篇作者",
+      "license": "媒体资料",
+      "accessed": "2026-10-30",
+      "confidence": "B",
+      "verified": false,
+      "note": "牌坊位于登顶石级上；扶梯与山顶实景比对。"
+    },
+    {
+      "type": "reference",
+      "title": "8264 游记 · 白云山索道终点",
+      "url": "https://www.8264.com/youji/5766068.html",
+      "author": "8264 用户",
+      "license": "公开游记",
+      "accessed": "2026-10-30",
+      "confidence": "C",
+      "verified": false,
+      "note": "白云索道终点为山顶广场，距摩星岭约 2 km；“白云晚望”不属于摩星岭。"
+    },
+    {
+      "type": "reference",
+      "title": "360doc · 摩星岭许愿平台",
+      "url": "https://www.360doc.cn/article/37515956_1147690716.html",
+      "author": "360doc 用户",
+      "license": "公开资料",
+      "accessed": "2026-10-30",
+      "confidence": "C",
+      "verified": false,
+      "note": "山顶观景台、锁爱台、祈福牌与许愿区。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 摩星岭",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前未取得可用 Overpass 结果；山顶平台、台阶与栈道仍为示意尺寸。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-05）：多源事实卡已完成；模型为 120×90 m 登顶段示意，严格轮廓/尺度不适用记 null。总览 350 calls / 21,086 tris；五机位、六热点、iframe 进入、标记去过、返回图鉴、移动端 390×844 已验证。B 级 lite 识别 2 人 2/2 通过（用户确认；原始回答未回传）。"
+  },
+  "notes": "摩星岭的可识别点不是单一建筑，而是“山脚石门 + 吉星石 + 陡石级 + 锦绣南天牌坊 + 西侧栈道/扶梯 + 山顶星形指北碑 + 白亭 + 南望城市”的登顶叙事。城市与珠江为压缩剪影；山顶亭名称按“山顶观景亭”处理，不写“摘斗亭”。"
+}

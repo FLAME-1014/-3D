@@ -411,7 +411,7 @@
 
   function inTray(id) { return state.tray.indexOf(id) !== -1; }
 
-  var MODEL_VIEWS = { chenjiaci: true, yongqingfang: true, shamian: true, beijinglu: true, "yuexiu-park": true, lizhiwan: true, shangxiajiu: true, "opera-museum": true, guangxiao: true, "six-banyan": true, "memorial-hall": true };
+  var MODEL_VIEWS = { chenjiaci: true, yongqingfang: true, shamian: true, beijinglu: true, "yuexiu-park": true, lizhiwan: true, shangxiajiu: true, "opera-museum": true, guangxiao: true, "six-banyan": true, "memorial-hall": true, yuntai: true, "nanyue-museum": true, baiyun: true, "canton-tower": true, "sacred-heart": true, "gd-museum": true, "opera-house": true };
 
   function immersiveLabel(id) {
     if (MODEL_VIEWS[id]) return "进入模型";
@@ -558,10 +558,16 @@
       ? "spot.html?id=six-banyan&embed=1&from=atlas"
       : placeId === "memorial-hall"
       ? "spot.html?id=memorial-hall&embed=1&from=atlas"
-      : placeId === "sacred-heart"
-      ? "immersive/sacred.html?embed=1&from=atlas"
+      : placeId === "yuntai"
+      ? "spot.html?id=yuntai&embed=1&from=atlas"
+      : placeId === "nanyue-museum"
+      ? "spot.html?id=nanyue-museum&embed=1&from=atlas"
       : placeId === "baiyun"
-      ? "immersive/baiyun.html?embed=1&from=atlas"
+      ? "spot.html?id=baiyun&embed=1&from=atlas"
+      : placeId === "canton-tower"
+      ? "spot.html?id=canton-tower&embed=1&from=atlas"
+      : placeId === "sacred-heart"
+      ? "spot.html?id=sacred-heart&embed=1&from=atlas"
       : placeId === "yuexiu-park"
       ? "immersive/yuexiu.html?embed=1&from=atlas&view=rams"
       : placeId === "zhenhai"
@@ -570,16 +576,14 @@
       ? "immersive/shamian.html?embed=1&from=atlas"
       : placeId === "yongqingfang"
       ? "immersive/yongqingfang.html?embed=1&from=atlas"
-      : placeId === "canton-tower"
-      ? "immersive/canton-tower.html?embed=1&from=atlas&view=base"
       : placeId === "beijinglu"
       ? "immersive/beijinglu.html?embed=1&from=atlas&view=ancient"
       : placeId === "opera-house"
-      ? "immersive/operahouse.html?embed=1&from=atlas&view=plaza"
+      ? "spot.html?id=opera-house&embed=1&from=atlas"
       : placeId === "gd-museum"
-      ? "immersive/gd-museum.html?embed=1&from=atlas&view=west"
+      ? "spot.html?id=gd-museum&embed=1&from=atlas"
       : "immersive/index.html?embed=1";
-    if (target && placeId !== "chenjiaci" && placeId !== "sacred-heart" && placeId !== "baiyun" && placeId !== "yuexiu-park" && placeId !== "zhenhai" && placeId !== "shamian" && placeId !== "yongqingfang" && placeId !== "canton-tower" && placeId !== "beijinglu" && placeId !== "opera-house" && placeId !== "gd-museum") {
+    if (target && placeId !== "chenjiaci" && placeId !== "nanyue-museum" && placeId !== "sacred-heart" && placeId !== "baiyun" && placeId !== "yuexiu-park" && placeId !== "zhenhai" && placeId !== "shamian" && placeId !== "yongqingfang" && placeId !== "canton-tower" && placeId !== "beijinglu" && placeId !== "opera-house" && placeId !== "gd-museum") {
       url += "&spot=" + encodeURIComponent(target) + "&jump=1";
     }
     immersiveLoading.hidden = false;
@@ -600,7 +604,7 @@
   }
 
   function openSacredDetail() {
-    var url = "immersive/sacred.html?embed=1&from=city";
+    var url = "spot.html?id=sacred-heart&embed=1&from=city";
     immersiveLoading.hidden = false;
     immersiveFrame.onload = function () { immersiveLoading.hidden = true; };
     immersiveFrame.src = url;
@@ -609,7 +613,7 @@
   }
 
   function openBaiyunDetail() {
-    var url = "immersive/baiyun.html?embed=1&from=city";
+    var url = "spot.html?id=baiyun&embed=1&from=city";
     immersiveLoading.hidden = false;
     immersiveFrame.onload = function () { immersiveLoading.hidden = true; };
     immersiveFrame.src = url;
@@ -636,7 +640,7 @@
   }
 
   function openCantonTowerDetail() {
-    var url = "immersive/canton-tower.html?embed=1&from=city&view=base";
+    var url = "spot.html?id=canton-tower&embed=1&from=city";
     immersiveLoading.hidden = false;
     immersiveFrame.onload = function () { immersiveLoading.hidden = true; };
     immersiveFrame.src = url;
@@ -654,7 +658,7 @@
   }
 
   function openOperaDetail() {
-    var url = "immersive/operahouse.html?embed=1&from=city&view=plaza";
+    var url = "spot.html?id=opera-house&embed=1&from=city";
     immersiveLoading.hidden = false;
     immersiveFrame.onload = function () { immersiveLoading.hidden = true; };
     immersiveFrame.src = url;

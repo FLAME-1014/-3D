@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "0.1",
+  "id": "canton-tower",
+  "name": "广州塔 · 小蛮腰",
+  "status": "draft",
+  "updated": "2026-11-05",
+  "geo": {
+    "wgs84": [113.3245, 23.1066],
+    "gcj02": [113.3299, 23.1038],
+    "anchor": "海珠区阅江西路 222 号广州塔塔基中心（WGS84 取城市 POC 口径；GCJ-02 为项目换算估算；不作导航用）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 175458,
+    "buildingAreaM2": 114054,
+    "footprintM": [80, 60],
+    "heightM": 600,
+    "floors": 37,
+    "confidence": "A",
+    "note": "总高 600 m（塔身 454 m + 天线 146 m）；底部椭圆约 80×60 m，顶部椭圆约 54×40.5 m，腰部约 30 m；37 个实际楼层、112 个编号层；建设用地约 17.5 公顷、总建筑面积 114,054 ㎡。footprintM 用底部椭圆长宽，不是矩形边界；模型是 220×380 m 场地段 diorama，北岸 CBD 与海心桥为压缩示意。"
+  },
+  "features": [
+    {
+      "id": "tower",
+      "name": "600 m 扭转塔身",
+      "priority": 1,
+      "note": "总高 600 m，塔身 454 m + 天线 146 m；底部 80×60 m、腰部约 30 m、顶部 54×40.5 m，两个椭圆相错形成小蛮腰。"
+    },
+    {
+      "id": "lattice",
+      "name": "24 柱 × 46 环 × 1104 斜撑",
+      "priority": 1,
+      "note": "远看是双曲面，近看是 24 根笔直斜柱 + 46 组环梁 + 46 个环间 × 24 = 1104 根斜撑；核心筒内净 17×14 m。"
+    },
+    {
+      "id": "deck",
+      "name": "450 m 平台 · 16 舱摩天轮",
+      "priority": 1,
+      "note": "450 m 户外观景平台；450–454 m 横向摩天轮，16 个 6 人球舱，一周约 20 分钟。"
+    },
+    {
+      "id": "mast",
+      "name": "488 m 平台 · 极速云霄",
+      "priority": 1,
+      "note": "488 m 摄影观景平台位于天线桅杆上；455–485 m 极速云霄沿桅杆速降；桅杆 454–600 m。"
+    },
+    {
+      "id": "base",
+      "name": "塔基裙摆 / 玻璃大厅",
+      "priority": 2,
+      "note": "底部白色扇形裙摆、玻璃大厅与二层平台；塔南侧为广州塔广场与映塔水池。"
+    },
+    {
+      "id": "waterfront",
+      "name": "滨水大台阶 / 二层平台",
+      "priority": 2,
+      "note": "2025-09-29 开放的滨水大台阶（缤纷粤秀台）与约 1.2 万㎡ 二层平台；台阶尺寸未公开，模型为示意。"
+    },
+    {
+      "id": "bridge",
+      "name": "海心桥",
+      "priority": 2,
+      "note": "2021-06-25 开通的跨珠江人行桥；全长 488 m、主拱 198 m、桥面宽 15 m；模型按塔西约 90 m 压缩示意。"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#d8d4ca", "#c4ccd0", "#9fc3cc", "#7fa3ad", "#3d5a33", "#d78a3c"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "base", "lattice", "top", "river"],
+  "presetOverrides": {
+    "overview": { "yaw": 0.3, "pitch": 0.04, "distance": 1380, "target": [0, 260, 0] },
+    "base": { "yaw": 0.35, "pitch": 0.12, "distance": 220, "target": [0, 28, 28] },
+    "lattice": { "yaw": 0.8, "pitch": 0.02, "distance": 260, "target": [0, 240, 0] },
+    "top": { "yaw": 0.55, "pitch": 0.08, "distance": 160, "target": [0, 465, 0] },
+    "river": { "yaw": 3.1416, "pitch": -0.212, "distance": 171, "fixed": true, "target": [0, 40, 0] }
+  },
+  "hotspots": [
+    {
+      "id": "base",
+      "label": "塔基 · 玻璃大厅",
+      "anchor": "base",
+      "type": "info",
+      "preset": "base",
+      "note": "白色扇形裙摆 + 玻璃大厅 + 南广场映塔水池；塔基近景。"
+    },
+    {
+      "id": "lattice",
+      "label": "塔身网格",
+      "anchor": "lattice",
+      "type": "info",
+      "preset": "lattice",
+      "note": "24 根直斜柱、46 组环梁、1104 根斜撑；腰部最细约 30 m。"
+    },
+    {
+      "id": "deck",
+      "label": "450 m 平台 · 摩天轮",
+      "anchor": "deck",
+      "type": "info",
+      "preset": "top",
+      "note": "450 m 户外观景平台与 16 舱摩天轮；官方售票常写“460 米摩天轮”。"
+    },
+    {
+      "id": "mast",
+      "label": "488 m 平台 · 桅杆",
+      "anchor": "mast",
+      "type": "info",
+      "preset": "top",
+      "note": "488 m 摄影平台、455–485 m 极速云霄与 146 m 天线桅杆。"
+    },
+    {
+      "id": "waterfront",
+      "label": "滨水大台阶",
+      "anchor": "steps",
+      "type": "info",
+      "preset": "base",
+      "note": "2025 年开放的北侧滨水大台阶与二层平台；尺寸按参考图示意。"
+    },
+    {
+      "id": "bridge",
+      "label": "海心桥",
+      "anchor": "bridge",
+      "type": "info",
+      "preset": "base",
+      "note": "白色拱跨珠江人行桥；模型按塔西约 90 m 压缩示意，只作江岸背景。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [220, 380],
+    "zoom": { "min": 20, "max": 3400 },
+    "note": "塔身/塔基/南广场/北岸为 1:1 尺度；北岸 CBD 与海心桥压缩示意；不做塔内电梯、观景厅内部、旋转餐厅、影院与商店；灯光为日光展柜，不对应每日灯光秀。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州塔官网票务 · 450 / 460 / 488 / 428 / 433 m",
+      "url": "https://mallpc.cantontower.com/ticket",
+      "author": "广州塔",
+      "license": "官方公开",
+      "accessed": "2026-11-05",
+      "confidence": "A",
+      "verified": true,
+      "note": "450 m 户外平台、460 m 摩天轮营销口径、488 m 平台、428/433 m 观光层。"
+    },
+    {
+      "type": "official",
+      "title": "广州建筑集团 GMC · Canton Tower",
+      "url": "http://www.gzmcg.com/enbusiness/awardshwo_37.html",
+      "author": "广州建筑集团",
+      "license": "官方公开",
+      "accessed": "2026-11-05",
+      "confidence": "A",
+      "verified": true,
+      "note": "用地约 17.5 公顷、总建筑面积 114,054 ㎡、塔体 44,276 ㎡、地下 69,779 ㎡；24 柱 / 46 环 / 135° 施工口径。"
+    },
+    {
+      "type": "design",
+      "title": "ArchDaily · Canton Tower / Information Based Architecture",
+      "url": "https://www.archdaily.com/89849/canton-tower-information-based-architecture",
+      "author": "ArchDaily",
+      "license": "媒体资料",
+      "accessed": "2026-11-05",
+      "confidence": "A",
+      "verified": true,
+      "note": "IBA 的 Mark Hemel 与 Barbara Kuit 设计；Arup 结构工程；2010 开放。"
+    },
+    {
+      "type": "reference",
+      "title": "百度百科 · 广州塔",
+      "url": "https://baike.baidu.com/item/%E5%B9%BF%E5%B7%9E%E5%A1%94/1951402",
+      "author": "百度百科",
+      "license": "公开资料",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "600/454/146 m、底/顶椭圆、腰部 30 m、112 编号层/37 实际层、摩天轮/速降/488 平台等交叉来源。"
+    },
+    {
+      "type": "reference",
+      "title": "维基百科 · 广州塔",
+      "url": "https://zh.wikipedia.org/zh-hans/%E5%B9%BF%E5%B7%9E%E5%A1%94",
+      "author": "维基百科",
+      "license": "CC BY-SA",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "高度沿革（610→600）、A–E 功能分区、蜘蛛侠栈道等。"
+    },
+    {
+      "type": "structure",
+      "title": "《广州新电视塔钢结构安装技术》",
+      "url": "http://www.zhulouren.com/n196311.html",
+      "author": "施工技术文章",
+      "license": "公开文章",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "24 根钢管混凝土斜柱、46 组环梁、1104 根斜撑、核心筒 17×14 m、柱截面渐变。"
+    },
+    {
+      "type": "official",
+      "title": "广州市住房和城乡建设局 · 广州塔滨水大台阶",
+      "url": "http://zfcj.gz.gov.cn/img/1/1503/1503005/10468476.png",
+      "author": "广州市住房和城乡建设局",
+      "license": "官方公开",
+      "accessed": "2026-11-05",
+      "confidence": "A",
+      "verified": true,
+      "note": "滨水大台阶（缤纷粤秀台）2025-09-29 开放；台阶尺寸未公开，模型为示意。"
+    },
+    {
+      "type": "reference",
+      "title": "百度百科 · 海心桥",
+      "url": "https://baike.baidu.com/item/%E6%B5%B7%E5%BF%83%E6%A1%A5/57448445",
+      "author": "百度百科",
+      "license": "公开资料",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "2021-06-25 开通；全长 488 m、主拱 198 m、桥面宽 15 m；模型按塔西侧压缩示意。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 广州塔",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前未取得可用 Overpass 结果；坐标仅用于距离估算，场地边界与塔基轮廓未测绘。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-05）：核心尺度与结构来源已交叉；模型为 220×380 m 场地段示意，严格轮廓/比例/尺度不适用记 null。总览 122 calls / 52,850 tris；五机位、六热点、iframe 进入、标记去过、返回图鉴、移动端 390×844 已验证。B 级 lite 识别 2 人 2/2 通过（用户确认；原始回答未回传）。"
+  },
+  "notes": "广州塔的可识别点是 600 m 扭转收腰塔身、24/46/1104 的白色镂空网格、450 m 平台/16 舱摩天轮、488 m 平台/146 m 桅杆与南岸塔基。城市与海心桥是压缩示意；夜景灯光不对应每日节目，模型采用日光展柜。"
+}

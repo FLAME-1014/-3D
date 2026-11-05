@@ -3,7 +3,7 @@
   "id": "yuntai",
   "name": "云台花园 · 花城明珠",
   "status": "draft",
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "geo": {
     "wgs84": [113.2977, 23.1617],
     "gcj02": [113.303, 23.159],
@@ -13,11 +13,11 @@
   "dimensions": {
     "siteAreaM2": 120000,
     "buildingAreaM2": null,
-    "footprintM": [400, 300],
+    "footprintM": [null, null],
     "heightM": null,
     "floors": null,
     "confidence": "A",
-    "note": "占地 12 万㎡、1995-09-28 开放、绿化覆盖约 85% 为官方口径；模型是 120×80m 花园段 diorama。"
+    "note": "占地 12 万㎡、1995-09-28 开放、绿化覆盖约 85% 为官方口径；官方未给出边界长宽，footprintM 不填估算值。模型是 120×80m 花园段 diorama。"
   },
   "features": [
     {
@@ -61,11 +61,11 @@
   },
   "presets": ["overview", "gate", "courtyard", "park", "detail"],
   "presetOverrides": {
-    "overview": { "yaw": 0.55, "pitch": 0.35, "distance": 130, "target": [0, 5, 0] },
-    "gate": { "yaw": 0.1, "pitch": 0.08, "distance": 30, "target": [0, 4, 30] },
-    "courtyard": { "yaw": 0.2, "pitch": 0.12, "distance": 38, "target": [0, 6, -2] },
-    "park": { "yaw": -0.5, "pitch": 0.2, "distance": 45, "target": [-20, 4, -8] },
-    "detail": { "yaw": 0.3, "pitch": 0.05, "distance": 14, "target": [18, 3, 6] }
+    "overview": { "yaw": 0.55, "pitch": 0.36, "distance": 112, "target": [0, 5, 0] },
+    "gate": { "yaw": 0.12, "pitch": 0.12, "distance": 32, "target": [0, 4.4, 30] },
+    "courtyard": { "yaw": 0.3, "pitch": 0.16, "distance": 32, "target": [0, 5, -5] },
+    "park": { "yaw": -0.55, "pitch": 0.22, "distance": 52, "target": [-18, 4.5, -4] },
+    "detail": { "yaw": -0.55, "pitch": 0.3, "distance": 22, "target": [28, 1.4, 7] }
   },
   "hotspots": [
     {
@@ -177,19 +177,19 @@
   ],
   "acceptance": {
     "tier": "B",
-    "status": "draft",
+    "status": "pass",
     "score": null,
     "checks": {
       "sources": true,
       "silhouette": null,
       "proportion": null,
       "scale": null,
-      "recognition": false,
+      "recognition": true,
       "style": true,
-      "performance": false,
-      "interaction": false
+      "performance": true,
+      "interaction": true
     },
-    "notes": "B 级：官方占地/花园定位 A 已核；模型是 120×80m 花园段示意；严格轮廓/尺度为 A 级项，B 级记 null；识别 lite 待做。"
+    "notes": "B 级通过（2026-11-04）：官方占地/花园定位 A 已核；模型是 120×80m 花园段示意；严格轮廓/尺度为 A 级项，B 级记 null。实测总览 225 calls / 25,148 tris；五机位、五热点、iframe、打卡、返回、移动端已验证。B 级 lite 识别 2 人 2/2 通过（用户反馈；原始回答未回传）。"
   },
   "notes": "云台花园的核心不是“花坛”，而是“罗马柱廊 + 中轴喷泉/阶梯水景 + 玻璃温室 + 花海 + 白云山背景”的欧式花园同框。模型只做花园段；不含整个白云山南门片区和全部专类园。"
 }

@@ -1,0 +1,237 @@
+{
+  "schemaVersion": "0.1",
+  "id": "gd-museum",
+  "name": "广东省博物馆·月光宝盒",
+  "status": "draft",
+  "updated": "2026-11-05",
+  "geo": {
+    "wgs84": [113.3277, 23.1176],
+    "gcj02": [113.3332, 23.1149],
+    "anchor": "天河区珠江东路 2 号广东省博物馆（新馆）盒体中心（WGS84/GCJ-02 为项目估算，待 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 41027,
+    "buildingAreaM2": 66980,
+    "footprintM": [113.5, 113.5],
+    "heightM": 44.5,
+    "floors": 5,
+    "confidence": "B",
+    "note": "总用地 41,027 ㎡、总建筑面积 66,980 ㎡（约 6.7 万㎡）、地上 5 层 + 地下 1 层、总高约 44.5 m（常见媒体 44.8 m，结构论文 44.65 m）来自官方介绍与多源交叉。footprintM 113.5×113.5 由 67.5 m 核心筒 + 两端各 23 m 悬挑推算，按结构轴线推算、非测绘；中央天窗约 40 m、盒体底约 +9 m 均为估算/示意。模型是 200×200 m 场地段 diorama。"
+  },
+  "features": [
+    {
+      "id": "box",
+      "name": "113.5 m 见方“回”字盒体",
+      "priority": 1,
+      "note": "平面约 113.5 m 见方、高约 44.5 m；中部 67.5 m 核心筒，四边各悬挑 23 m，盒体像漂浮在绿化广场上。平面尺寸按结构轴线推算，非测绘。"
+    },
+    {
+      "id": "facade",
+      "name": "红黑立面大洞口",
+      "priority": 1,
+      "note": "深灰/黑灰铝板 + 玻璃 + 花岗石，鲜红内壁凹口；四面大量大小不一的矩形洞口/凹龛/窗洞，顶边被切成锯齿状。约 1.5 m 模数、100–120 个洞口均为照片估算/示意，不是测绘数据。"
+    },
+    {
+      "id": "atrium",
+      "name": "中央天窗",
+      "priority": 2,
+      "note": "外圈 44.5 m 屋面围合约 40 m 见方的中央玻璃天窗（估算），天窗顶约 38 m，低于外圈；只做屋顶玻璃与井壁，不做中庭内部。"
+    },
+    {
+      "id": "entry",
+      "name": "西门草坡入口",
+      "priority": 1,
+      "note": "散客走西门，主入口在二层；宽台阶/缓坡从广场抬升约 3 m（示意），两侧草坡、波浪石径与树阵。不做西门大型水池，也不做下沉广场。"
+    },
+    {
+      "id": "moonbox",
+      "name": "“月光宝盒”",
+      "priority": 3,
+      "note": "公众/媒体昵称，不是正式馆名；来自深色盒体与夜间红色切口透光的意象。模型默认日光展柜，不声称实时灯光秀。"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#2f3335", "#161a1c", "#a31f24", "#cfc9bd", "#5f7449", "#e9e1d1", "#8f9698"],
+    "background": "#e9e1d1",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "facade", "box", "plaza", "detail"],
+  "hotspotMode": "preset",
+  "presetOverrides": {
+    "overview": { "yaw": -0.72, "pitch": 0.3, "distance": 242, "target": [0, 21, 0] },
+    "facade": { "yaw": -1.5708, "pitch": 0.06, "distance": 156, "target": [-56.75, 25, 0] },
+    "box": { "yaw": -1.05, "pitch": 0.03, "distance": 120, "target": [-30, 20, 30] },
+    "plaza": { "yaw": -1.2, "pitch": 0.14, "distance": 82, "target": [-64, 5, 4] },
+    "detail": { "yaw": -1.42, "pitch": 0.05, "distance": 44, "target": [-56.6, 29, -15] }
+  },
+  "hotspots": [
+    {
+      "id": "box",
+      "label": "宝盒体量",
+      "anchor": "box",
+      "type": "info",
+      "preset": "box",
+      "note": "约 113.5 m 见方、44.5 m 高；67.5 m 核心筒 + 四边各 23 m 悬挑。尺寸按结构轴线推算，非测绘。"
+    },
+    {
+      "id": "skin",
+      "label": "红黑立面",
+      "anchor": "skin",
+      "type": "info",
+      "preset": "detail",
+      "note": "深灰铝板 + 鲜红内壁 + 玻璃；约 1.5 m 模数、100–120 个矩形洞口为照片估算。外墙是铝板，不是铜板。"
+    },
+    {
+      "id": "atrium",
+      "label": "中央天窗",
+      "anchor": "atrium",
+      "type": "info",
+      "preset": "overview",
+      "note": "外圈 44.5 m 屋面围合约 40 m 见方的玻璃天窗（估算）；天窗顶约 38 m，低于外圈屋面。"
+    },
+    {
+      "id": "entry",
+      "label": "西门·二层入口",
+      "anchor": "entry",
+      "type": "info",
+      "preset": "plaza",
+      "note": "散客从西门进馆，主入口在二层；宽台阶与缓坡把广场抬到入口层，草坡与波浪石径是“月光宝盒下的丝绸”。"
+    },
+    {
+      "id": "cantilever",
+      "label": "23 m 悬挑",
+      "anchor": "cantilever",
+      "type": "info",
+      "preset": "box",
+      "note": "四边各悬挑 23 m，盒体底面与地面之间形成深阴影；底层 67.5 m 见方的玻璃大堂退在悬挑里面。"
+    },
+    {
+      "id": "grove",
+      "label": "草坡与树阵",
+      "anchor": "grove",
+      "type": "info",
+      "preset": "plaza",
+      "note": "西侧起伏草坡、树阵与波浪石径；公开资料与照片未见西门大型水池，模型不做水池。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [200, 200],
+    "zoom": { "min": 26, "max": 900 },
+    "note": "200×200 m 场地段 diorama：113.5×113.5 m“回”字盒体、中央约 40 m 天窗、四边 23 m 悬挑、底层退进玻璃大堂、西门台阶/缓坡、草坡、波浪石径、树阵；北侧图书馆/西侧大剧院/东与南城市块为压缩示意。不含展厅内部、地下空间、水池与夜景灯光秀。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广东省建筑设计研究院 · 广东省博物馆新馆",
+      "url": "https://www.gdadri.com/projects/project_x67.html",
+      "author": "广东省建筑设计研究院",
+      "license": "官方公开",
+      "accessed": "2026-11-05",
+      "confidence": "A",
+      "verified": true,
+      "note": "67.5 m × 67.5 m 核心筒、四边各悬挑 23 m、屋面钢桁架；建筑面积另有 66,000 ㎡ 口径。"
+    },
+    {
+      "type": "official",
+      "title": "广东省博物馆官网 · 本馆概况",
+      "url": "https://www.gdmuseum.org.cn/",
+      "author": "广东省博物馆",
+      "license": "官方公开",
+      "accessed": "2026-11-05",
+      "confidence": "A",
+      "verified": false,
+      "note": "官网为动态内容，未能稳定抓取尺寸原文；总用地/建筑面积/高度以官方介绍与多源交叉为准。"
+    },
+    {
+      "type": "reference",
+      "title": "广东省博物馆新馆介绍（41,027 ㎡ / 66,980 ㎡ / 44.5 m）",
+      "url": "https://max.book118.com/html/2024/0608/5144222322011222.shtm",
+      "author": "公开资料汇编",
+      "license": "公开资料",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "总用地 41,027 ㎡、总建筑面积 66,980 ㎡、地上 5 层 + 地下 1 层、总高 44.5 m、四至关系；与馆方介绍/媒体交叉。"
+    },
+    {
+      "type": "design",
+      "title": "ArchDaily · Guangdong Museum / Rocco Design Architects",
+      "url": "https://www.archdaily.com/zh/600844/guangdong-museum-slash-rocco-design-architects",
+      "author": "ArchDaily（Rocco Design Architects）",
+      "license": "公开媒体",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": true,
+      "note": "许李严建筑师事务所/严迅奇；铝板、玻璃、花岗石；五层；象牙球/宝盒设计概念；立面被切割/随机凹痕。"
+    },
+    {
+      "type": "academic",
+      "title": "江刚《掀开历史的珠帘——广东省博物馆新馆设计》，《建筑学报》2010.8",
+      "url": "https://m.doc.docsou.com/bcd9c460c182712e81ae5980c.html",
+      "author": "江刚",
+      "license": "公开论文摘要",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "立面肌理提炼自象牙雕/砖雕/木雕透雕；红黑取自传统漆器。"
+    },
+    {
+      "type": "academic",
+      "title": "《结构技术创新与建筑效果实现》",
+      "url": "https://wk.baidu.com/view/43a8fe1eccc789eb172ded630b1c59eef8c79a8c",
+      "author": "结构论文（公开摘要）",
+      "license": "公开论文摘要",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "高度 44.65 m、67.5 m 核心筒、两端各 23 m 悬挑、8,700 t 屋面桁架整体滑移。"
+    },
+    {
+      "type": "reference",
+      "title": "百度百科 · 广东省博物馆",
+      "url": "https://baike.baidu.com/item/%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%8D%9A%E7%89%A9%E9%A6%86",
+      "author": "百度百科",
+      "license": "公开资料",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "2010-05-18 建成开馆、2004-12-12 奠基、设计竞赛与面积口径交叉；“月光宝盒”为公众/媒体昵称。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 广东省博物馆",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前未取得可用 Overpass 结果；坐标仅用于定位估算，建筑轮廓与场地边界未测绘。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-05）：官方/设计方/结构论文来源已核 41,027 ㎡、66,980 ㎡、约 44.5 m、67.5 m 核心 + 四边 23 m 悬挑；113.5 m 见方为轴线推算，中央天窗 40 m、盒体底 +9 m、1.5 m 模数与 100–120 洞口均为估算/示意。模型为 200×200 m 场地段 diorama；严格轮廓/比例/尺度不适用记 null。总览 40 calls / 17,586 tris；五机位、六热点、iframe 进入、标记去过、返回图鉴、移动端 390×844 已验证。B 级 lite 识别 2 人 2/2 通过（用户确认；原始回答未回传）。"
+  },
+  "notes": "广东省博物馆（新馆）不是广州博物馆/镇海楼；地址珠江东路 2 号。可识别点是“113.5 m 见方悬挑盒体 + 红黑立面大洞口 + 中央天窗 + 草坡上的二层西门”。模型只做外观、入口广场与压缩周边，不做展厅内部、地下空间、大型水池与夜景灯光秀；洞口/分格为照片估算，不作为修缮或测绘依据。"
+}

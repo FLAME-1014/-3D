@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "0.1",
+  "id": "opera-house",
+  "name": "广州大剧院·双砾石",
+  "status": "draft",
+  "updated": "2026-11-05",
+  "geo": {
+    "wgs84": [113.3214, 23.1154],
+    "gcj02": [113.3269, 23.1127],
+    "anchor": "天河区珠江西路 1 号广州大剧院（花城广场西南角）双砾之间；WGS84/GCJ-02 为项目估算，GCJ-02 按项目常用偏移换算，待 OSM/现场核对",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 42000,
+    "buildingAreaM2": 73000,
+    "footprintM": [120, 85],
+    "heightM": 43.1,
+    "floors": null,
+    "confidence": "B",
+    "note": "占地 42,000 ㎡、建筑面积 73,000 ㎡（另有 70,000 ㎡ 旧口径）、总高 43.1 m（另有 43 m 圆整）为公开常见口径；footprintM [120, 85] 是大砾石外壳最大长度 × 约宽，约 120 m 是整体外壳最大长度，不是结构跨度，也不是规划边界。小砾石约 65×45×28 m、两体最近约 3 m、水池约 90×25 m + 40×20 m、草坡/坡道宽度与平台精确边界均为照片/卫星/课程分析估算，标注示意；入口平台标高 5 m 来自公开描述，平台/坡道尺寸未公开；实际边界与 OSM 轮廓未测绘。"
+  },
+  "features": [
+    {
+      "id": "twin",
+      "name": "一大一小、一黑一白的双砾石",
+      "priority": 1,
+      "note": "大砾石（西/深灰近黑）是 1,804 座歌剧厅及配套，外壳最大长度约 120 m、高 43.1 m；小砾石（东/白或浅灰）是实验剧场/多功能厅（常见约 400 座，官方 2026 写 350 座），约 65×45×28 m 为估算。两体最近约 3 m（未测绘）；长轴大致西北—东南，外壳无直角。"
+    },
+    {
+      "id": "mouth",
+      "name": "大砾石南/东南三角玻璃口部",
+      "priority": 1,
+      "note": "大砾石南/东南的大三角玻璃“口部”是主入口形象；内部钢斜网格清晰，白天反射天空，夜间透暖光。5 m 入口平台与南侧缓坡把观众送到口部前；门位为示意。"
+    },
+    {
+      "id": "skin",
+      "name": "三角形石材 + 点支玻璃表皮",
+      "priority": 1,
+      "note": "三向斜交折板式单层网壳，屋顶与幕墙连续；外立面约 5,000+ 块三角玻璃、约 75,000 块三角石材（精确口径 5,200 / 75,422）。大砾石深色石材，小砾石白色石材；公开资料未确认铝板为主表皮。模型用三角折面网格、板缝线与程序化纹理表达，不逐块建模。"
+    },
+    {
+      "id": "platform",
+      "name": "5 m 入口平台、水池与草坡",
+      "priority": 2,
+      "note": "南入口沿缓坡上到 5 m 标高入口平台，平台是大小砾石共用的室外门厅；建筑置于水池之中，草坡是“山丘”的组成部分。水池/坡道/草坡尺寸均为估算/示意，不做地下车库、落客区与草坡下室内。"
+    },
+    {
+      "id": "shell",
+      "name": "64 面 / 104 棱线的折板网壳",
+      "priority": 2,
+      "note": "大砾石公开结构分析口径为 64 个空间折面、104 条空间棱线、41 个空间角点；小砾石 37 面、54 棱线、18 转角（另有 64/47/104 口径）。模型只做低模折面壳，不逐面复刻。"
+    },
+    {
+      "id": "night",
+      "name": "夜景“水映双砾”",
+      "priority": 3,
+      "note": "照明设计为北京光景照明设计有限公司，主题“水映双砾”：石根淡投光、平台/草坡边缘水纹光带、玻璃口部内透，暖白/中性白，不做 RGB 灯光秀。模型默认日光展柜，只保留轻微水纹光带，不声称实时灯光。"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#3d403e", "#171a19", "#d7d1c2", "#6f8b95", "#4f7074", "#5a7340", "#e9e1d1", "#f0d2a4"],
+    "background": "#e9e1d1",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "facade", "pool", "mouth", "detail"],
+  "hotspotMode": "preset",
+  "presetOverrides": {
+    "overview": { "yaw": 0.12, "pitch": 0.24, "distance": 300, "target": [0, 18, -12] },
+    "facade": { "yaw": 0.04, "pitch": 0.12, "distance": 155, "target": [-8, 21, 4] },
+    "pool": { "yaw": 0.08, "pitch": 0.04, "distance": 105, "target": [-18, 10, 24] },
+    "mouth": { "yaw": 0.38, "pitch": 0.13, "distance": 55, "target": [-24, 20, 12] },
+    "detail": { "yaw": 0.4, "pitch": 0.12, "distance": 38, "target": [-34, 28, 2] }
+  },
+  "hotspots": [
+    {
+      "id": "twin",
+      "label": "一大一小，一黑一白",
+      "anchor": "twin",
+      "type": "info",
+      "preset": "overview",
+      "note": "大砾石 43.1 m / 小砾石约 28 m（估算）；最近约 3 m；1,804 座歌剧厅 + 约 400 座实验剧场（官方 2026 写 350 座）。"
+    },
+    {
+      "id": "shell",
+      "label": "无直角的三角折面",
+      "anchor": "shell",
+      "type": "info",
+      "preset": "overview",
+      "note": "三向斜交折板式单层网壳；大砾石 64 面 / 104 棱线 / 41 角点，小砾石 37 / 54 / 18。模型只做低模折面，不逐面复刻。"
+    },
+    {
+      "id": "mouth",
+      "label": "大玻璃口部",
+      "anchor": "mouth",
+      "type": "info",
+      "preset": "mouth",
+      "note": "南/东南主入口的大三角玻璃口部，内部钢斜网格；从室外缓坡上到 5 m 平台。三角形点支玻璃、石材分片为示意。"
+    },
+    {
+      "id": "small",
+      "label": "小砾石·实验剧场",
+      "anchor": "small",
+      "type": "info",
+      "preset": "facade",
+      "note": "白色/浅灰石材，较低较长的南/东玻璃带；常见约 400 座（官方 350 座），黑匣子/多功能剧场。高度与平面为估算。"
+    },
+    {
+      "id": "water",
+      "label": "水池与 5 m 平台",
+      "anchor": "entry",
+      "type": "info",
+      "preset": "pool",
+      "note": "建筑置于水池之中；5 m 入口平台联系大小砾石，平台边缘有狭缝与水纹光带。水池/坡道尺寸未公开，模型按照片/卫星估算。"
+    },
+    {
+      "id": "skin",
+      "label": "三角石材/玻璃分片",
+      "anchor": "detail",
+      "type": "info",
+      "preset": "detail",
+      "note": "大砾石深灰近黑石材、小砾石白/浅灰石材；三角形石材 + 三角形点支玻璃。约 5,000+ 玻璃、约 75,000 石材，模型只做纹理与板缝。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [220, 220],
+    "zoom": { "min": 14, "max": 1200 },
+    "note": "220×220 m 场地段 diorama：大砾石（西、深色）约 120×85×43.1 m、小砾石（东、浅色）约 65×45×28 m（估算）、约 3 m 间距（示意）、大砾石南/东南玻璃口部 + 内部斜网格、小砾石南/东玻璃带、5 m 入口平台、南侧缓坡、水池、草坡/山丘、树阵与铺装；北/东侧省博、图书馆、西塔为压缩剪影。不含剧场/舞台/后台/车库/落客区/室内，不做 RGB 灯光秀。"
+  },
+  "sources": [
+    {
+      "type": "design",
+      "title": "Zaha Hadid Architects · Guangzhou Opera House",
+      "url": "https://www.zha.com/architecture/guangzhou-opera-house/",
+      "author": "Zaha Hadid Architects",
+      "license": "官方公开",
+      "accessed": "2026-11-05",
+      "confidence": "A",
+      "verified": true,
+      "note": "项目周期 2004–2010、twin boulder 概念、Pearl River 关系；设计方官方项目页。"
+    },
+    {
+      "type": "official",
+      "title": "广州大剧院官网 · 剧院概况",
+      "url": "https://www.gzdjy.org/intro.html",
+      "author": "广州大剧院",
+      "license": "官方公开",
+      "accessed": "2026-11-05",
+      "confidence": "A",
+      "verified": true,
+      "note": "1,687 座歌剧厅（不含乐池）、350 座实验剧场、2010-05-09 启幕、《图兰朵》/洛林·马泽尔；座位口径与常见 1,804/400 并列。"
+    },
+    {
+      "type": "academic",
+      "title": "广州歌剧院结构分析（三向斜交折板式单层网壳）",
+      "url": "https://m.renrendoc.com/paper/487335054.html",
+      "author": "公开课程/结构分析资料",
+      "license": "公开资料摘要",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "大砾石 64 面 / 104 棱线 / 41 角点，小砾石 37 / 54 / 18；5 m 平台、约 3 m 间距、草坡/架空层；仅公开摘要，未逐字复核。"
+    },
+    {
+      "type": "reference",
+      "title": "百度百科 · 广州大剧院",
+      "url": "https://baike.baidu.com/item/%E5%B9%BF%E5%B7%9E%E5%A4%A7%E5%89%A7%E9%99%A2/1421140",
+      "author": "百度百科",
+      "license": "公开资料",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "4.2 万 ㎡ / 7.3 万 ㎡ / 43.1 m / 1,804 座 / 64 面 / 5,000 玻璃 / 75,000 石材 / 舞台 74×46 / 台口 18×12；与官网/媒体交叉。"
+    },
+    {
+      "type": "reference",
+      "title": "广州大剧院室内设计与“水映双砾”照明（公开资料摘要）",
+      "url": "https://m.renrendoc.com/paper/239291079.html",
+      "author": "公开资料汇编",
+      "license": "公开资料摘要",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "北京光景照明设计；石根淡投光、平台/草坡水纹光带、玻璃口部内透；暖白/中性白，不做 RGB；仅作夜景文案依据。"
+    },
+    {
+      "type": "reference",
+      "title": "ArchDaily · Guangzhou Opera House（项目检索）",
+      "url": "https://www.archdaily.com/search/projects?q=Guangzhou%20Opera%20House",
+      "author": "ArchDaily",
+      "license": "公开媒体",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "未取得稳定项目直链；仅作二次参考，不用于尺寸或结构判定。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 广州大剧院",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-05",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前未取得可用 Overpass 结果；坐标仅用于定位估算，建筑轮廓、双砾间距与场地边界未测绘。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "draft",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": false,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级草稿（2026-11-05）：ZHA/官方/结构分析/百科/照明/OSM 来源已登记；42,000 ㎡、73,000 ㎡、43.1 m、约 120 m 外壳最大长度有多源，约 120 m 是最大长度不是跨度。小砾石 65×45×28、约 3 m 间距、水池/坡道/草坡与三角分片密度均为估算/示意；113.5 m 见方一类的测绘边界未做。模型为 220×220 m 场地段 diorama；严格轮廓/比例/尺度不适用记 null。B 级 lite 识别测试尚未执行，acceptance.status 保持 draft，recognition=false。"
+  },
+  "notes": "广州大剧院不是广东省博物馆/广州图书馆/广州塔：识别点是“一黑一白两块无直角砾石 + 大砾石南/东南三角玻璃口部 + 5 m 入口平台/水池 + 三角形石材/玻璃表皮”。模型只做外观、入口与前广场，不做剧场/舞台/后台/观众厅、地下车库/落客区、室内与 RGB 灯光秀；双砾折面、玻璃/石材逐块、小砾石高度、约 3 m 间距、水池/坡道/草坡尺寸与周边城市距离均为估算/压缩示意，不作为测绘或修缮依据。"
+}

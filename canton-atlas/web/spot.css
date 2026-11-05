@@ -400,7 +400,8 @@ blockquote {
   background: var(--accent);
 }
 
-.hotspot.is-hidden {
+.hotspot.is-hidden,
+.hotspot.is-offpreset {
   opacity: 0;
   pointer-events: none;
 }
@@ -654,9 +655,46 @@ body.silhouette-mode .failure {
   .toolbar [data-preset="wall"],
   .toolbar [data-preset="house"],
   .toolbar [data-preset="opera"],
+  .toolbar [data-preset="jade"],
   .toolbar [data-preset="lianxiang"],
+  .toolbar [data-preset="paifang"],
+  .toolbar [data-preset="summit"],
+  .toolbar [data-preset="lattice"],
+  .toolbar [data-preset="river"],
+  .toolbar [data-preset="side"],
+  .toolbar [data-preset="apse"],
+  .toolbar [data-preset="mouth"],
   #autoRotate {
     display: none;
+  }
+
+  /* 南越王墓展区的门楼、细节是核心视角，手机端保留；玉圭门阙仍可从热点进入。 */
+  body[data-spot="nanyue-museum"] .toolbar [data-preset="gate"],
+  body[data-spot="nanyue-museum"] .toolbar [data-preset="detail"] {
+    display: inline-block;
+  }
+
+  /* 摩星岭手机端保留总览、石门与山顶；牌坊与细节可从热点进入。 */
+  body[data-spot="baiyun"] .toolbar [data-preset="gate"],
+  body[data-spot="baiyun"] .toolbar [data-preset="summit"] {
+    display: inline-block;
+  }
+
+  /* 广东省博物馆手机端保留总览、正立面与草坡入口；盒体与细节从热点进入。 */
+  body[data-spot="gd-museum"] .toolbar [data-preset="box"] {
+    display: none;
+  }
+
+  /* 广州大剧院手机端热点较多：缩小标签，减少双砾总览的互相重叠。 */
+  body[data-spot="opera-house"] .hotspot {
+    gap: 5px;
+    padding: 4px 8px 4px 6px;
+    font-size: 10px;
+  }
+
+  body[data-spot="opera-house"] .hotspot-dot {
+    width: 5px;
+    height: 5px;
   }
 
   .hotspot-card {

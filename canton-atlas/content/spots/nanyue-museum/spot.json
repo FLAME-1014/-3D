@@ -1,0 +1,243 @@
+{
+  "schemaVersion": "0.1",
+  "id": "nanyue-museum",
+  "name": "南越王博物院 · 王墓展区",
+  "status": "draft",
+  "updated": "2026-11-04",
+  "geo": {
+    "wgs84": [113.255687, 23.140498],
+    "gcj02": [113.261015, 23.137823],
+    "anchor": "解放北路 867 号王墓展区（GCJ-02 来自高德 POI；WGS84 由算法转换；未与 OSM/现场核对）",
+    "north": "-Z"
+  },
+  "dimensions": {
+    "siteAreaM2": 9668,
+    "buildingAreaM2": 17400,
+    "footprintM": [null, null],
+    "heightM": null,
+    "floors": null,
+    "confidence": "B",
+    "note": "9,668㎡ 为广州日报 2024 年“首期陈列馆+古墓馆+二期珍品馆”总面积口径；1.74 万㎡ 为人民日报 2020 年建筑面积口径；另有 9,000/14,000㎡ 的早期或二手说法。官方未给边界长宽，footprintM 不填估算值。模型是 120×80m 场地段示意。"
+  },
+  "features": [
+    {
+      "id": "gate",
+      "name": "石阙入口 · 一线天",
+      "priority": 1,
+      "note": "临解放北路是一整面 36m 宽、约 12m 高的红砂岩墙，中央开一条玻璃缝并在顶部收成半圆拱，拱内嵌铜蟠龙圆饰；门额刻‘南越王博物院’，墙下是入口大台阶，两翼台地上伏卧一对石虎。墙面上是潘鹤 8m 男女越人头顶日月、赤足踏蛇浮雕"
+    },
+    {
+      "id": "tomb",
+      "name": "覆斗形玻璃光棚",
+      "priority": 1,
+      "note": "墓室原址保护罩，仿汉武帝茂陵覆斗形，钢架金属玻璃；约 460㎡，周围回廊约 550㎡"
+    },
+    {
+      "id": "chamber",
+      "name": "南越文王墓",
+      "priority": 1,
+      "note": "1983 年发现；坐北朝南，南北 10.85m、东西最宽 12.5m、约 100㎡、七室；墓顶距岗顶约 20m，750 多块红砂岩砌筑；出土文帝行玺、丝缕玉衣"
+    },
+    {
+      "id": "jade",
+      "name": "主体陈列楼 · 玉圭门阙",
+      "priority": 2,
+      "note": "主体陈列楼北侧高耸玉圭形门阙；地下一层金字塔状光棚；东西墙有船纹浮雕，呼应出土船纹铜提筒"
+    },
+    {
+      "id": "hill",
+      "name": "象岗山",
+      "priority": 2,
+      "note": "博物馆依山而建，入口与岗顶高差约 15m；综合陈列楼另一端以 44 级蹬道连接墓室原址，红砂岩挡墙、台阶和绿化串起上山序列"
+    },
+    {
+      "id": "tiger",
+      "name": "圆雕石虎",
+      "priority": 2,
+      "note": "入口大台阶两侧台地上的一对圆雕石虎，呈伏卧欲跃之势；原型分别取自墓中屏风构件、玉璧与错金铭文虎节，与 8m 男女越人浮雕共同构成入口的越文化母题"
+    }
+  ],
+  "style": {
+    "artDirection": "museum-plinth",
+    "lighting": "studio",
+    "plinth": true,
+    "palette": ["#ac5b3f", "#813a29", "#e8dcc5", "#a9c9c6", "#5e8046", "#c9a04a"],
+    "background": "#e9e3d5",
+    "timeOfDay": "neutral"
+  },
+  "presets": ["overview", "gate", "tomb", "jade", "detail"],
+  "hotspotMode": "preset",
+  "presetOverrides": {
+    "overview": { "yaw": 1.18, "pitch": 0.12, "distance": 108, "target": [8, 8, 0] },
+    "gate": { "yaw": 1.5708, "pitch": 0.055, "distance": 56, "target": [37, 11, 0] },
+    "tomb": { "yaw": 0.7, "pitch": 0.38, "distance": 58, "target": [-28, 18, 0] },
+    "jade": { "yaw": -2.6, "pitch": 0.14, "distance": 36, "target": [-28, 24, -36] },
+    "detail": { "yaw": 1.55, "pitch": 0.02, "distance": 24, "target": [37.2, 12.5, 9.15] }
+  },
+  "hotspots": [
+    {
+      "id": "gate",
+      "label": "石阙入口",
+      "anchor": "gate",
+      "type": "info",
+      "preset": "gate",
+      "note": "1300 多块红砂岩砌成一整面 36m 宽、约 12m 高的石墙；中央一线玻璃缝收成半圆拱，拱内嵌铜蟠龙圆饰，门额刻‘南越王博物院’；左右墙面是 8m 越人浮雕，台阶两侧台地有一对石虎。"
+    },
+    {
+      "id": "tomb",
+      "label": "覆斗形玻璃光棚",
+      "anchor": "tomb",
+      "type": "info",
+      "preset": "tomb",
+      "note": "墓室原址上的钢架金属玻璃罩，仿茂陵覆斗形；约 460㎡，周围回廊约 550㎡。"
+    },
+    {
+      "id": "chamber",
+      "label": "南越文王墓",
+      "anchor": "chamber",
+      "type": "info",
+      "preset": "tomb",
+      "note": "1983 年发现，坐北朝南，约 100㎡、七室；墓顶距岗顶约 20m。文帝行玺、丝缕玉衣都出自这里。"
+    },
+    {
+      "id": "jade",
+      "label": "主体陈列楼 · 玉圭门阙",
+      "anchor": "jade",
+      "type": "info",
+      "preset": "jade",
+      "note": "主体陈列楼北侧的玉圭形门阙；地下一层金字塔光棚，东西墙船纹浮雕取自出土船纹铜提筒。"
+    },
+    {
+      "id": "detail",
+      "label": "越人浮雕",
+      "anchor": "detail",
+      "type": "info",
+      "preset": "detail",
+      "note": "潘鹤所作 8m 高男女越人浮雕：头顶日月、赤足踏蛇，象征驱邪；原位于临街石阙的红色砂岩墙面。"
+    },
+    {
+      "id": "tiger",
+      "label": "圆雕石虎",
+      "anchor": "tiger",
+      "type": "info",
+      "preset": "gate",
+      "note": "临街正立面、两堵石阙左右的一对圆雕石虎，呈欲跃之势；原型分别取自墓中屏风构件、玉璧与错金铭文虎节。它们与石阙上的男女越人浮雕共同构成入口的越文化母题。"
+    }
+  ],
+  "model": {
+    "module": "./model.js",
+    "unit": "meter",
+    "up": "Y",
+    "origin": "base-center",
+    "footprintM": [120, 80],
+    "zoom": { "min": 4, "max": 280 },
+    "note": "王墓展区场地段 diorama：解放北路石阙入口 + 综合陈列楼 + 象岗山台地 + 覆斗形墓室光棚/回廊 + 主体陈列楼/玉圭门阙；不是 9,668㎡ 全展区 1:1，也不含王宫展区。"
+  },
+  "sources": [
+    {
+      "type": "official",
+      "title": "广州市越秀区人民政府 · 南越王博物院（王墓展区）",
+      "url": "https://www.yuexiu.gov.cn/zjyx/yxjd/ycty/content/post_8658612.html",
+      "author": "广州市越秀区人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-04",
+      "confidence": "A",
+      "verified": true,
+      "note": "解放北路 867 号；前身 1988 年开放；1983 年发现南越文王墓；文帝行玺、角形玉杯、丝缕玉衣；周一闭馆。"
+    },
+    {
+      "type": "official",
+      "title": "南越王博物院 · 南越文王墓",
+      "url": "https://www.nywmuseum.org.cn/News/Details/yzzs?nid=7736",
+      "author": "南越王博物院",
+      "license": "官方公开",
+      "accessed": "2026-11-04",
+      "confidence": "A",
+      "verified": true,
+      "note": "1983-06 发现；墓顶距岗顶约 20m；750 多块红砂岩；南北 10.85m、东西最宽 12.5m、约 100㎡、七室；坐北朝南。"
+    },
+    {
+      "type": "official",
+      "title": "人民日报海外版 · 探寻两千年前的“地下王宫”",
+      "url": "http://paper.people.com.cn/rmrbhwb/html/2020-03/17/content_1976652.htm",
+      "author": "人民日报海外版",
+      "license": "官方媒体",
+      "accessed": "2026-11-04",
+      "confidence": "A",
+      "verified": true,
+      "note": "建筑面积 1.74 万㎡；综合陈列楼、古墓保护区、主体陈列楼三部分；覆斗形玻璃光棚；主体陈列楼玉圭形门阙、金字塔光棚、船纹浮雕；文帝行玺 148.5g；丝缕玉衣 1.73m/2291 片。"
+    },
+    {
+      "type": "secondary",
+      "title": "广州日报 · 读懂广州：昔建博物馆开风气",
+      "url": "https://news.dayoo.com/guangzhou/202407/31/139995_54694156.htm",
+      "author": "广州日报",
+      "license": "媒体资料",
+      "accessed": "2026-11-04",
+      "confidence": "B",
+      "verified": true,
+      "note": "首期+二期总面积 9,668㎡；1300 多块红砂岩；一线通道入口；潘鹤 8m 越人浮雕与石虎；覆斗形金属玻璃盖顶。"
+    },
+    {
+      "type": "official",
+      "title": "广州市人民政府 · 广州是全国最早建立博物馆的城市之一",
+      "url": "https://www.gz.gov.cn/zlgz/whgz/content/post_9786168.html",
+      "author": "广州市人民政府",
+      "license": "官方公开",
+      "accessed": "2026-11-04",
+      "confidence": "A",
+      "verified": true,
+      "note": "临街正立面用 1300 多块红砂岩砌成两堵石墙，中间一线通道；潘鹤雕刻两幅巨型浮雕，两个身高 8m 的男女越人头顶日月、赤足踏蛇；左右一对圆雕大石虎呈欲跃之势，原型分别取自墓中屏风构件、玉璧与错金铭文虎节；首期 1988、古墓馆 1989、二期 1993，总面积 9,668㎡。"
+    },
+    {
+      "type": "project",
+      "title": "莫伯治建筑师事务所 · 西汉南越王墓博物馆规划设计",
+      "url": "http://www.mobozhi.com/m.php/News/show/id/35",
+      "author": "莫伯治建筑师事务所",
+      "license": "项目公开",
+      "accessed": "2026-11-04",
+      "confidence": "A",
+      "verified": true,
+      "note": "莫伯治主持总体设计；依山而建；石阙、半圆筒形顶光棚、覆斗形墓室光棚；墓室展馆 460㎡、回廊 550㎡；高台阶与红砂岩贴面。"
+    },
+    {
+      "type": "secondary",
+      "title": "高德地图 · 南越王博物院（王墓展区）",
+      "url": "https://www.amap.com/place/B0014021B3",
+      "author": "高德地图",
+      "license": "地图服务",
+      "accessed": "2026-11-04",
+      "confidence": "C",
+      "verified": false,
+      "note": "GCJ-02 23.137823,113.261015；WGS84 由算法转换；未与 OSM/现场核对。"
+    },
+    {
+      "type": "osm",
+      "title": "OpenStreetMap 展区轮廓",
+      "url": "https://www.openstreetmap.org/",
+      "author": "OSM contributors",
+      "license": "ODbL",
+      "accessed": "2026-11-04",
+      "confidence": "B",
+      "verified": false,
+      "note": "当前环境未完成 OSM/Overpass 轮廓核对；场地边界、建筑轮廓与山体高差仍为示意。"
+    }
+  ],
+  "acceptance": {
+    "tier": "B",
+    "status": "pass",
+    "score": null,
+    "checks": {
+      "sources": true,
+      "silhouette": null,
+      "proportion": null,
+      "scale": null,
+      "recognition": true,
+      "style": true,
+      "performance": true,
+      "interaction": true
+    },
+    "notes": "B 级通过（2026-11-05）：官方地址/沿革/墓室尺寸/石阙与石虎形制 A 已核；场地边界与建筑轮廓未测绘，footprintM 记录为 120×80m 场地段示意。首轮 3 秒识别测试未通过（用户口头反馈，未提供人数与原始回答），随后按实景照片重做临街石阙正立面、石缝、浮雕、石虎与台阶；复测 B 级 lite 识别 2 人 2/2 通过（用户确认，原始回答未回传）。严格 silhouette/proportion/scale 为 A 级项，B 级记 null。实测总览 399 calls / 29,266 tris；五机位、六热点、iframe、打卡、返回、移动端已验证。"
+  },
+  "notes": "南越王博物院分王墓、王宫两个展区；本卡只做王墓展区（解放北路 867 号）。模型核心是“红砂岩石阙正立面 + 一线天入口 + 象岗山台地 + 覆斗形墓室光棚 + 玉圭门阙 + 圆雕石虎”的遗址博物馆序列，不是王宫展区，也不是墓室内部 1:1。"
+}

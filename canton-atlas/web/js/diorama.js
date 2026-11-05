@@ -13,6 +13,7 @@
 
   var params = new URLSearchParams(location.search);
   var spotId = params.get("id") || "chenjiaci";
+  document.body.dataset.spot = spotId;
   var forceRender = params.get("debug") === "1";
   var spot = null;
   var place = null;
@@ -52,6 +53,7 @@
   var fpsState = { frames: 0, last: performance.now(), fps: 0 };
   var hotspotEls = new Map();
   var hotspotAnchors = new Map();
+  var hotspotPresets = new Map();
   var decor = [];
   var toastTimer = 0;
   var disposed = false,animationId=0;
@@ -88,7 +90,23 @@
     taotao: "陶陶居",
     lianxiang: "莲香楼",
     hall: "大殿",
-    pagoda: "塔"
+    pagoda: "塔",
+    tomb: "墓室",
+    jade: "玉圭门阙",
+    paifang: "牌坊",
+    summit: "山顶",
+    base: "塔基",
+    lattice: "塔身",
+    top: "塔顶",
+    river: "仰视",
+    facade: "正立面",
+    rose: "玫瑰窗",
+    side: "侧廊",
+    apse: "后殿",
+    box: "盒体",
+    plaza: "草坡入口",
+    pool: "水池",
+    mouth: "玻璃口部"
   };
 
   function q(id) {
@@ -276,8 +294,19 @@
     renderer.shadowMap.needsUpdate = true;
 
     scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0xe9e1d1, 230, 520);
+    scene.fog = spotId === "gd-museum"
+      ? new THREE.Fog(0xe9e1d1, 380, 1200)
+      : spotId === "opera-house"
+      ? new THREE.Fog(0xe9e1d1, 450, 1700)
+      : new THREE.Fog(0xe9e1d1, 230, 520);
     camera = new THREE.PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.5, 1400);
+    if (spotId === "canton-tower") {
+      camera.far = 4400;
+      camera.updateProjectionMatrix();
+    } else if (spotId === "opera-house") {
+      camera.far = 2400;
+      camera.updateProjectionMatrix();
+    }
     clock = new THREE.Clock(false);
 
     scene.add(new THREE.HemisphereLight(0xfff7e8, 0x8d8274, 0.95));
@@ -401,7 +430,23 @@
       taotao: { yaw: 0.2, pitch: 0.1, distance: maxDim * 0.25 * aspectFactor, target: (anchors.taotao || baseTarget).clone() },
       lianxiang: { yaw: 0.2, pitch: 0.1, distance: maxDim * 0.25 * aspectFactor, target: (anchors.lianxiang || baseTarget).clone() },
       hall: { yaw: 0.1, pitch: 0.1, distance: maxDim * 0.35 * aspectFactor, target: (anchors.hall || baseTarget).clone() },
-      pagoda: { yaw: 0.25, pitch: 0.1, distance: maxDim * 0.32 * aspectFactor, target: (anchors.pagoda || baseTarget).clone() }
+      pagoda: { yaw: 0.25, pitch: 0.1, distance: maxDim * 0.32 * aspectFactor, target: (anchors.pagoda || baseTarget).clone() },
+      tomb: { yaw: -2.3, pitch: 0.45, distance: maxDim * 0.46 * aspectFactor, target: (anchors.tomb || baseTarget).clone() },
+      jade: { yaw: -2.6, pitch: 0.2, distance: maxDim * 0.38 * aspectFactor, target: (anchors.jade || baseTarget).clone() },
+      paifang: { yaw: 0.05, pitch: 0.13, distance: maxDim * 0.16 * aspectFactor, target: (anchors.paifang || baseTarget).clone() },
+      summit: { yaw: 3.34, pitch: 0.2, distance: maxDim * 0.3 * aspectFactor, target: (anchors.summit || anchors.star || baseTarget).clone() },
+      base: { yaw: 0.35, pitch: 0.12, distance: maxDim * 0.36 * aspectFactor, target: (anchors.base || baseTarget).clone() },
+      lattice: { yaw: 0.9, pitch: 0.05, distance: maxDim * 0.6 * aspectFactor, target: (anchors.lattice || baseTarget).clone() },
+      top: { yaw: 0.6, pitch: 0.06, distance: maxDim * 0.5 * aspectFactor, target: (anchors.mast || anchors.deck || baseTarget).clone() },
+      river: { yaw: Math.PI, pitch: 0.05, distance: maxDim * 1.5 * aspectFactor, target: (anchors.steps || baseTarget).clone() },
+      facade: { yaw: 0, pitch: 0.05, distance: maxDim * 0.7 * aspectFactor, target: (anchors.facade || baseTarget).clone() },
+      rose: { yaw: 0.04, pitch: 0.05, distance: maxDim * 0.2 * aspectFactor, target: (anchors.rose || baseTarget).clone() },
+      side: { yaw: Math.PI / 2, pitch: 0.08, distance: maxDim * 0.55 * aspectFactor, target: (anchors.buttress || baseTarget).clone() },
+      apse: { yaw: 3.6, pitch: 0.1, distance: maxDim * 0.5 * aspectFactor, target: (anchors.apse || baseTarget).clone() },
+      box: { yaw: -1.05, pitch: 0.03, distance: maxDim * 0.6 * aspectFactor, target: (anchors.box || baseTarget).clone() },
+      plaza: { yaw: -1.2, pitch: 0.14, distance: maxDim * 0.4 * aspectFactor, target: (anchors.plaza || baseTarget).clone() },
+      pool: { yaw: -0.08, pitch: 0.05, distance: maxDim * 0.5 * aspectFactor, target: (anchors.pool || baseTarget).clone() },
+      mouth: { yaw: 0.32, pitch: 0.11, distance: maxDim * 0.28 * aspectFactor, target: (anchors.mouth || baseTarget).clone() }
     };
 
     var overrides = spot.presetOverrides || {};
@@ -410,7 +455,7 @@
       if (!presets[name] || !o) return;
       if (typeof o.yaw === "number") presets[name].yaw = o.yaw;
       if (typeof o.pitch === "number") presets[name].pitch = o.pitch;
-      if (typeof o.distance === "number") presets[name].distance = o.distance * Math.min(aspectFactor, 1.8);
+      if (typeof o.distance === "number") presets[name].distance = o.distance * (o.fixed ? 1 : Math.min(aspectFactor, spotId === "gd-museum" ? 2.6 : spotId === "opera-house" ? 2.0 : 1.8));
       if (Array.isArray(o.target) && o.target.length === 3) {
         presets[name].target.set(o.target[0], o.target[1], o.target[2]);
       }
@@ -434,6 +479,7 @@
       hotspotLayer.appendChild(btn);
       hotspotEls.set(hs.id, btn);
       hotspotAnchors.set(hs.id, anchor.clone());
+      hotspotPresets.set(hs.id, hs.preset || "");
     });
   }
 
@@ -591,6 +637,12 @@
     document.querySelectorAll("[data-preset]").forEach(function (btn) {
       btn.setAttribute("aria-pressed", String(btn.dataset.preset === name));
     });
+    if (spot.hotspotMode === "preset") {
+      hotspotEls.forEach(function (el, id) {
+        var ownPreset = hotspotPresets.get(id);
+        el.classList.toggle("is-offpreset", name !== "overview" && !!ownPreset && ownPreset !== name);
+      });
+    }
   }
 
   function bindControls() {
@@ -710,6 +762,11 @@
       if (!visible) return;
       var x = (v.x * 0.5 + 0.5) * width;
       var y = (-v.y * 0.5 + 0.5) * height;
+      var pad = 8;
+      var halfW = (el.offsetWidth || 0) / 2;
+      var halfH = (el.offsetHeight || 0) / 2;
+      x = Math.max(halfW + pad, Math.min(width - halfW - pad, x));
+      y = Math.max(halfH + pad, Math.min(height - halfH - pad, y));
       el.style.transform = "translate(" + x + "px," + y + "px) translate(-50%,-50%)";
     });
   }

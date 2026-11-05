@@ -35,7 +35,7 @@ npm run dev
 
 - 规范：`docs/景点建模规范.md`
 - 验收工作记录：`docs/验收工作记录-2026-11-02.md`
-- 试点记录：`docs/陈家祠样板记录.md` / `docs/永庆坊样板记录.md` / `docs/沙面样板记录.md` / `docs/北京路样板记录.md` / `docs/越秀公园样板记录.md` / `docs/荔枝湾样板记录.md` / `docs/上下九样板记录.md` / `docs/粤剧艺术博物馆样板记录.md` / `docs/光孝寺样板记录.md` / `docs/六榕寺样板记录.md` / `docs/中山纪念堂样板记录.md`
+- 试点记录：`docs/陈家祠样板记录.md` / `docs/永庆坊样板记录.md` / `docs/沙面样板记录.md` / `docs/北京路样板记录.md` / `docs/越秀公园样板记录.md` / `docs/荔枝湾样板记录.md` / `docs/上下九样板记录.md` / `docs/粤剧艺术博物馆样板记录.md` / `docs/光孝寺样板记录.md` / `docs/六榕寺样板记录.md` / `docs/中山纪念堂样板记录.md` / `docs/云台花园样板记录.md` / `docs/南越王博物院样板记录.md` / `docs/白云山样板记录.md` / `docs/广州塔样板记录.md` / `docs/石室圣心大教堂样板记录.md` / `docs/广东省博物馆样板记录.md` / `docs/广州大剧院样板记录.md`
 
 已接入：
 
@@ -52,8 +52,15 @@ npm run dev
 | 光孝寺 · 岭南第一古刹 | B（通过） | `/spot.html?id=guangxiao` | `docs/光孝寺样板记录.md` |
 | 六榕寺 · 六榕花塔 | B（通过） | `/spot.html?id=six-banyan` | `docs/六榕寺样板记录.md` |
 | 中山纪念堂 · 蓝顶会堂 | B（通过） | `/spot.html?id=memorial-hall` | `docs/中山纪念堂样板记录.md` |
+| 云台花园 · 花城明珠 | B（通过） | `/spot.html?id=yuntai` | `docs/云台花园样板记录.md` |
+| 南越王博物院 · 王墓展区 | B（通过） | `/spot.html?id=nanyue-museum` | `docs/南越王博物院样板记录.md` |
+| 白云山 · 摩星岭 | B（通过） | `/spot.html?id=baiyun` | `docs/白云山样板记录.md` |
+| 广州塔 · 小蛮腰 | B（通过） | `/spot.html?id=canton-tower` | `docs/广州塔样板记录.md` |
+| 石室圣心大教堂 | B（通过） | `/spot.html?id=sacred-heart` | `docs/石室圣心大教堂样板记录.md` |
+| 广东省博物馆 · 月光宝盒 | B（通过） | `/spot.html?id=gd-museum` | `docs/广东省博物馆样板记录.md` |
+| 广州大剧院 · 双砾石 | B（待识别） | `/spot.html?id=opera-house` | `docs/广州大剧院样板记录.md` |
 
-机位参数：`&preset=overview|front|detail|courtyard|alley|street|gate|stage|avenue|church|hotel|park|ancient-road|temple|wuyang|wall|zhenhai|canal|bridge|tower|house|opera|qilou|taotao|lianxiang`
+机位参数：`&preset=overview|front|detail|courtyard|alley|street|gate|tomb|jade|stage|avenue|church|hotel|park|ancient-road|temple|wuyang|wall|zhenhai|canal|bridge|tower|house|opera|qilou|taotao|lianxiang|paifang|summit|base|lattice|top|river|facade|rose|side|apse|box|plaza|pool|mouth`
 
 数据卡与模型：
 
@@ -68,6 +75,13 @@ npm run dev
 - `canton-atlas/content/spots/guangxiao/`
 - `canton-atlas/content/spots/six-banyan/`
 - `canton-atlas/content/spots/memorial-hall/`
+- `canton-atlas/content/spots/yuntai/`
+- `canton-atlas/content/spots/nanyue-museum/`
+- `canton-atlas/content/spots/baiyun/`
+- `canton-atlas/content/spots/canton-tower/`
+- `canton-atlas/content/spots/sacred-heart/`
+- `canton-atlas/content/spots/gd-museum/`
+- `canton-atlas/content/spots/opera-house/`
 - 模板：`canton-atlas/content/spots/_template/spot.json`
 - 预览截图：各自 `refs/preview/`
 
@@ -76,7 +90,7 @@ npm run dev
 - 陈家祠正立面剪影：`canton-atlas/content/spots/chenjiaci/refs/overlay/model-front-silhouette.png`
 - 单殿剪影/叠图：`front-hall-silhouette.png` / `overlay-front-hall.png`
 - 轮廓叠图工具：http://127.0.0.1:4188/silhouette.html
-- 识别测试包：`chenjiaci/refs/recognition/`（A 级）、`yongqingfang/refs/recognition/`（B 级 lite）、`shamian/refs/recognition/`（B 级 lite）、`beijinglu/refs/recognition/`（B 级 lite）、`yuexiu-park/refs/recognition/`（B 级 lite）、`lizhiwan/refs/recognition/`（B 级 lite）、`shangxiajiu/refs/recognition/`（B 级 lite）、`opera-museum/refs/recognition/`（B 级 lite）、`guangxiao/refs/recognition/`（B 级 lite）、`six-banyan/refs/recognition/`（B 级 lite）、`memorial-hall/refs/recognition/`（B 级 lite）
+- 识别测试包：`chenjiaci/refs/recognition/`（A 级）、`yongqingfang/refs/recognition/`（B 级 lite）、`shamian/refs/recognition/`（B 级 lite）、`beijinglu/refs/recognition/`（B 级 lite）、`yuexiu-park/refs/recognition/`（B 级 lite）、`lizhiwan/refs/recognition/`（B 级 lite）、`shangxiajiu/refs/recognition/`（B 级 lite）、`opera-museum/refs/recognition/`（B 级 lite）、`guangxiao/refs/recognition/`（B 级 lite）、`six-banyan/refs/recognition/`（B 级 lite）、`memorial-hall/refs/recognition/`（B 级 lite）、`yuntai/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`nanyue-museum/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`baiyun/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`canton-tower/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`sacred-heart/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`gd-museum/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`opera-house/refs/recognition/`（B 级 lite，待识别）
 
 
 
