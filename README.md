@@ -58,7 +58,7 @@ npm run dev
 | 广州塔 · 小蛮腰 | B（通过） | `/spot.html?id=canton-tower` | `docs/广州塔样板记录.md` |
 | 石室圣心大教堂 | B（通过） | `/spot.html?id=sacred-heart` | `docs/石室圣心大教堂样板记录.md` |
 | 广东省博物馆 · 月光宝盒 | B（通过） | `/spot.html?id=gd-museum` | `docs/广东省博物馆样板记录.md` |
-| 广州大剧院 · 双砾石 | B（待识别） | `/spot.html?id=opera-house` | `docs/广州大剧院样板记录.md` |
+| 广州大剧院 · 双砾石 | B（通过） | `/spot.html?id=opera-house` | `docs/广州大剧院样板记录.md` |
 
 机位参数：`&preset=overview|front|detail|courtyard|alley|street|gate|tomb|jade|stage|avenue|church|hotel|park|ancient-road|temple|wuyang|wall|zhenhai|canal|bridge|tower|house|opera|qilou|taotao|lianxiang|paifang|summit|base|lattice|top|river|facade|rose|side|apse|box|plaza|pool|mouth`
 
@@ -90,7 +90,7 @@ npm run dev
 - 陈家祠正立面剪影：`canton-atlas/content/spots/chenjiaci/refs/overlay/model-front-silhouette.png`
 - 单殿剪影/叠图：`front-hall-silhouette.png` / `overlay-front-hall.png`
 - 轮廓叠图工具：http://127.0.0.1:4188/silhouette.html
-- 识别测试包：`chenjiaci/refs/recognition/`（A 级）、`yongqingfang/refs/recognition/`（B 级 lite）、`shamian/refs/recognition/`（B 级 lite）、`beijinglu/refs/recognition/`（B 级 lite）、`yuexiu-park/refs/recognition/`（B 级 lite）、`lizhiwan/refs/recognition/`（B 级 lite）、`shangxiajiu/refs/recognition/`（B 级 lite）、`opera-museum/refs/recognition/`（B 级 lite）、`guangxiao/refs/recognition/`（B 级 lite）、`six-banyan/refs/recognition/`（B 级 lite）、`memorial-hall/refs/recognition/`（B 级 lite）、`yuntai/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`nanyue-museum/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`baiyun/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`canton-tower/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`sacred-heart/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`gd-museum/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`opera-house/refs/recognition/`（B 级 lite，待识别）
+- 识别测试包：`chenjiaci/refs/recognition/`（A 级）、`yongqingfang/refs/recognition/`（B 级 lite）、`shamian/refs/recognition/`（B 级 lite）、`beijinglu/refs/recognition/`（B 级 lite）、`yuexiu-park/refs/recognition/`（B 级 lite）、`lizhiwan/refs/recognition/`（B 级 lite）、`shangxiajiu/refs/recognition/`（B 级 lite）、`opera-museum/refs/recognition/`（B 级 lite）、`guangxiao/refs/recognition/`（B 级 lite）、`six-banyan/refs/recognition/`（B 级 lite）、`memorial-hall/refs/recognition/`（B 级 lite）、`yuntai/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`nanyue-museum/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`baiyun/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`canton-tower/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`sacred-heart/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`gd-museum/refs/recognition/`（B 级 lite，2 人 2/2 通过）、`opera-house/refs/recognition/`（B 级 lite，2 人 2/2 通过）
 
 
 
