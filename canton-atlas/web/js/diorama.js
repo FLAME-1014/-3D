@@ -8,11 +8,14 @@
     document.title='模型加载失败 · 广州城市模型册';q('sceneName').textContent='模型未加载';q('spotPanel').hidden=true;document.querySelector('.toolbar').hidden=true;q('backAtlas').onclick=backAtlas;
     failure.hidden = false;
     failure.textContent = "Three.js 未加载，无法进入模型页。";
+    var earlyParams = new URLSearchParams(location.search);
+    if (earlyParams.get("from") === "museum" && window.parent !== window) window.parent.postMessage({ type: "canton-museum-error", id: earlyParams.get("id") }, location.origin);
     return;
   }
 
   var params = new URLSearchParams(location.search);
   var spotId = params.get("id") || "chenjiaci";
+  if (params.get("from") === "museum") document.body.classList.add("embed-museum");
   document.body.dataset.spot = spotId;
   var forceRender = params.get("debug") === "1";
   var spot = null;
@@ -61,6 +64,14 @@
   var releaseResources=window.SpotResources.createCleanup(function(){return {model:model,scene:scene,renderer:renderer};});
   window.addEventListener('pagehide',cleanup);
   window.addEventListener('pageshow',function(event){if(event.persisted&&disposed)location.reload();});
+  window.addEventListener('message', function (event) {
+    if (event.origin !== location.origin || event.source !== window.parent || window.parent === window || params.get("from") !== "museum") return;
+    var data = event.data || {};
+    if (data.type === "canton-museum-open-details" && data.id === spotId) {
+      var panelEl = document.getElementById("spotPanel");
+      if (panelEl) { panelEl.hidden = false; panelEl.scrollTop = 0; }
+    }
+  });
 
   var PRESET_LABELS = {
     overview: "总览",
@@ -141,6 +152,9 @@
     document.title='模型加载失败 · 广州城市模型册';q('sceneName').textContent='模型未加载';q('spotPanel').hidden=true;document.querySelector('.toolbar').hidden=true;q('backAtlas').onclick=backAtlas;
     failure.hidden = false;
     failure.textContent = message + " 返回图鉴后可以重试。";
+    if (params.get("from") === "museum" && window.parent !== window) {
+      try { window.parent.postMessage({ type: "canton-museum-error", id: spotId }, location.origin); } catch (error) { /* ignore */ }
+    }
   }
 
   async function boot() {
@@ -184,6 +198,9 @@
 
     q("loading").hidden = true;
     window.__SPOT_READY__ = true;
+    if (params.get("from") === "museum" && window.parent !== window) {
+      try { window.parent.postMessage({ type: "canton-museum-ready", id: spotId }, location.origin); } catch (error) { /* ignore */ }
+    }
     window.__SPOT_API__ = {
       setPreset: function (name) { setPreset(name, true); },
       stats: function () {
@@ -570,7 +587,7 @@
     });
     q("hotspotClose").addEventListener("click", closeHotspot);
 
-    if (window.innerWidth < 760) panel.hidden = true;
+    if (window.innerWidth < 760 || params.get("from") === "museum") panel.hidden = true;
     updateMarkButton();
   }
 

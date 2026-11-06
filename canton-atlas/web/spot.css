@@ -733,5 +733,20 @@ body.silhouette-mode .failure {
     transition: none;
   }
 }
+
+/* Museum H5 owns the navigation, exhibit progress and personal collection. */
+body.embed-museum .topbar,
+body.embed-museum #markVisited,
+body.embed-museum #autoRotate {
+  display: none !important;
+}
+body.embed-museum .toolbar {
+  bottom: 28px;
+}
+@media (max-width: 760px) {
+  body.embed-museum .toolbar {
+    bottom: max(31px, env(safe-area-inset-bottom));
+  }
+}
 /* Keep failed/hidden controls out of layout and accessibility trees. */
 [hidden]{display:none!important}

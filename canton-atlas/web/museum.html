@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14251f">
+  <meta name="description" content="把广州翻成立体的一页。18 件可旋转阅读的广州地标模型，欢迎入馆观展。">
+  <meta property="og:title" content="广州立体志 · 一座可以旋转阅读的城市模型博物馆">
+  <meta property="og:description" content="18 件广州地标模型，重新发现熟悉的城市。">
+  <meta property="og:type" content="website">
+  <title>广州立体志 · 一座可以旋转阅读的城市模型博物馆</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23b5432f'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23fdf8ee' font-family='serif'%3E穗%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="museum.css">
+</head>
+<body>
+  <div class="paper-grain" aria-hidden="true"></div>
+  <header class="museum-header">
+    <a class="museum-brand" href="museum.html" aria-label="广州立体志首页">
+      <span class="museum-seal" aria-hidden="true">穗</span>
+      <span><strong>广州立体志</strong><small>CANTON ATLAS · MODEL MUSEUM</small></span>
+    </a>
+    <nav class="header-nav" aria-label="展览导航">
+      <a href="#collection">展品长廊</a>
+      <a href="#chapters">主题策展</a>
+      <button id="cabinetButton" class="cabinet-button" type="button">我的藏册 <span id="cabinetCount">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span>一座可以旋转阅读的城市模型博物馆</p>
+        <h1 id="heroTitle">把广州，<br><em>翻成立体的一页。</em></h1>
+        <p class="hero-description">十八件城市切片，十八种凝望广州的方式。转动模型，走近那些熟悉的屋檐、街巷与天际线。</p>
+        <div class="hero-actions">
+          <button class="button-primary" type="button" data-open="canton-tower">开始观展 <span aria-hidden="true">↗</span></button>
+          <a class="button-text" href="#collection">浏览全部展品 <span>18</span></a>
+        </div>
+        <div class="hero-edition"><span>首展</span><span>广州 · 城市模型收藏</span><span>2026 / VOL. 01</span></div>
+      </div>
+      <button class="hero-art" type="button" data-open="canton-tower" aria-label="进入广州塔模型展柜">
+        <span class="hero-art-index">本期特展 · 广州塔</span>
+        <img src="assets/museum/canton-tower.jpg" alt="广州塔及珠江周边的风格化 3D 模型预览" fetchpriority="high">
+        <span class="hero-art-caption"><span>珠江之上 · 塔的曲线</span><span class="hero-art-link">进入展柜 ↗</span></span>
+        <span class="hero-orbit orbit-one" aria-hidden="true"></span><span class="hero-orbit orbit-two" aria-hidden="true"></span>
+      </button>
+      <div class="hero-index" aria-hidden="true"><span>01</span><i></i><span>18</span></div>
+    </section>
+
+    <section class="chapter-strip" id="chapters" aria-labelledby="chapterTitle">
+      <div class="section-heading chapter-heading">
+        <div><p class="eyebrow">CURATED ROOMS</p><h2 id="chapterTitle">从一件展品，走进一座城。</h2></div>
+        <p>这不是一张地图。<br>是几条由形态、记忆与生活组成的观看线索。</p>
+      </div>
+      <div class="chapter-cards" id="chapterCards"></div>
+    </section>
+
+    <section class="gallery" id="collection" aria-labelledby="galleryTitle">
+      <div class="gallery-head">
+        <div class="section-heading">
+          <p class="eyebrow">THE COLLECTION · 2026</p>
+          <h2 id="galleryTitle">展品长廊</h2>
+        </div>
+        <p class="collection-note"><span id="resultCount">18</span> 件模型 · 逐件打开，慢慢看</p>
+      </div>
+      <div class="gallery-tools">
+        <div class="theme-tabs" id="themeTabs" role="group" aria-label="按主题筛选展品"></div>
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="寻找一件展品" autocomplete="off"><kbd>⌘ / Ctrl K</kbd></label>
+      </div>
+      <div class="exhibit-grid" id="exhibitGrid" aria-live="polite"></div>
+      <p class="empty-state" id="emptyState" hidden>没有找到这件展品。试试另一个关键词，或清除主题筛选。</p>
+    </section>
+
+    <section class="cabinet-section" id="cabinet" aria-labelledby="cabinetTitle">
+      <div class="cabinet-copy">
+        <p class="eyebrow">YOUR COLLECTION</p>
+        <h2 id="cabinetTitle">一座属于你的<br><em>微型藏册。</em></h2>
+        <p>把喜欢的模型收进藏册。看过的展品会留下印记，只保存在这台设备上。</p>
+        <button class="button-outline" id="shareCabinet" type="button">分享我的藏册 <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="cabinet-visual" aria-live="polite">
+        <div class="cabinet-seal" aria-hidden="true">穗</div>
+        <p class="cabinet-count"><strong id="seenCount">00</strong><span> / 18<br>已观展</span></p>
+        <div class="cabinet-progress"><span id="cabinetProgress"></span></div>
+        <p class="cabinet-hint" id="cabinetHint">打开一件展品，开始你的城市收藏。</p>
+        <button class="cabinet-link" id="showSaved" type="button">只看我收藏的 <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="museum-footer">
+    <a class="footer-brand" href="museum.html"><span class="museum-seal">穗</span><span>广州立体志<small>CANTON ATLAS</small></span></a>
+    <p>风格化模型，仅用于文化展示；模型范围、比例和细节不代表测绘成果。</p>
+    <a href="index.html">返回城市图鉴 ↗</a>
+  </footer>
+
+  <div class="viewer" id="viewer" hidden aria-modal="true" role="dialog" aria-label="3D 展品展柜">
+    <div class="viewer-poster" id="viewerPoster"><img id="viewerPosterImage" alt=""><span>正在为你打开这件展品…</span><div class="viewer-loader" aria-hidden="true"></div></div>
+    <iframe id="viewerFrame" title="3D 展品模型" allow="fullscreen" loading="eager"></iframe>
+    <div class="viewer-topline">
+      <button class="viewer-back" id="viewerClose" type="button"><span aria-hidden="true">←</span> 返回展馆</button>
+      <div class="viewer-title"><span id="viewerEdition">展品 01 / 18</span><strong id="viewerName">展品名称</strong></div>
+      <div class="viewer-actions">
+        <button id="viewerFavorite" type="button" aria-pressed="false">＋ 收藏</button>
+        <button id="viewerShare" type="button">分享 ↗</button>
+        <button id="viewerPrev" type="button" aria-label="上一件展品">←</button>
+        <button id="viewerNext" type="button" aria-label="下一件展品">→</button>
+      </div>
+    </div>
+    <div class="viewer-exhibit-note" id="viewerExhibitNote"><p id="viewerLead"></p><button id="viewerDetails" type="button" aria-label="打开模型展签与观察点">展签与观察点 <span aria-hidden="true">↑</span></button></div>
+    <div class="viewer-bottomline"><span id="viewerHint">拖动模型，转一个角度看看</span><span>风格化示意 · 非测绘</span></div>
+    <p class="viewer-error" id="viewerError" hidden>模型暂时没有打开。检查网络后可以重试。 <button id="viewerRetry" type="button">重新加载</button></p>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script>window.__ATLAS_PLACES = PLACES;</script>
+  <script src="museum-catalog.js"></script>
+  <script src="museum.js" defer></script>
+</body>
+</html>
