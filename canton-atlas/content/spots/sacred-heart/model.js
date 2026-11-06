@@ -7,6 +7,8 @@
 
 const THREE = window.THREE;
 if (!THREE) throw new Error("Three.js is not loaded");
+const PAL = window.CantonPalette;
+if (!PAL) throw new Error("Canton palette is not loaded");
 
 const SITE_W = 100;
 const SITE_D = 140;
@@ -301,8 +303,8 @@ function glassMat(tex, strength) {
 
 function createMaterials(textures) {
   return {
-    base: std({ map: textures.paving, color: 0x8a857a, roughness: 0.97 }),
-    paving: std({ map: textures.paving, color: 0xd4cec1, roughness: 0.95 }),
+    base: std({ map: textures.paving, color: PAL.colors.earth, roughness: 0.97 }),
+    paving: std({ map: textures.paving, color: PAL.colors.paving, roughness: 0.95 }),
     granite: std({ map: textures.granite, color: 0xd8d1c2, roughness: 0.95 }),
     graniteDark: std({ map: textures.granite, color: 0xb5ad9e, roughness: 0.96 }),
     trim: std({ color: 0xe2dbcc, roughness: 0.88 }),

@@ -7,6 +7,8 @@
 
 const THREE = window.THREE;
 if (!THREE) throw new Error("Three.js is not loaded");
+const PAL = window.CantonPalette;
+if (!PAL) throw new Error("Canton palette is not loaded");
 
 const SITE_W = 120;
 const SITE_D = 80;
@@ -1351,7 +1353,7 @@ function cloneTexture(tex, rx, ry) {
 
 function createMaterials(textures) {
   return {
-    base: std({ color: 0xb9ad99, roughness: 0.95 }),
+    base: std({ color: PAL.colors.earth, roughness: 0.95 }),
     earth: std({ color: 0x6b4a34, roughness: 0.98 }),
     sandstone: std({ map: textures.sandstone, color: 0xffffff, roughness: 0.95 }),
     facadeStone: std({ map: textures.facade, color: 0xffffff, roughness: 0.95 }),
@@ -1361,7 +1363,7 @@ function createMaterials(textures) {
     sandstoneDark: std({ color: 0x3a1712, roughness: 0.94 }),
     groove: std({ color: 0x24100b, roughness: 0.98 }),
     cream: std({ color: 0xd6bd9a, roughness: 0.92 }),
-    paving: std({ map: textures.paving, color: 0xcbbba6, roughness: 0.96 }),
+    paving: std({ map: textures.paving, color: PAL.colors.paving, roughness: 0.96 }),
     lawn: std({ map: textures.lawn, color: 0xffffff, roughness: 0.98 }),
     hill: std({ map: textures.lawn, color: 0xffffff, roughness: 0.99 }),
     asphalt: std({ color: 0x242624, roughness: 0.98 }),

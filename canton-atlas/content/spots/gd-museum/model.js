@@ -9,6 +9,8 @@
 
 const THREE = window.THREE;
 if (!THREE) throw new Error("Three.js is not loaded");
+const PAL = window.CantonPalette;
+if (!PAL) throw new Error("Canton palette is not loaded");
 
 const SITE = 200;
 const BASE_Y = 0.9;
@@ -209,7 +211,7 @@ function std(opts) {
 
 function createMaterials(T) {
   return {
-    base: std({ color: 0x6f6b62, roughness: 0.97 }),
+    base: std({ color: PAL.colors.earth, roughness: 0.97 }),
     metal: std({ map: T.metal, color: 0xffffff, roughness: 0.55, metalness: 0.3 }),
     metalDark: std({ map: T.metal, color: 0xd8dadb, roughness: 0.62, metalness: 0.24 }),
     red: std({ map: T.red, color: 0xffffff, roughness: 0.64, metalness: 0.06, emissive: 0x2a0507, emissiveIntensity: 0.05 }),
@@ -221,7 +223,7 @@ function createMaterials(T) {
     mullion: std({ color: 0x3d4345, roughness: 0.7, metalness: 0.26 }),
     soffit: std({ color: 0x101315, roughness: 0.92, metalness: 0.08 }),
     warm: std({ color: 0xe4c59a, roughness: 0.68, emissive: 0xffb264, emissiveIntensity: 0.45, side: THREE.DoubleSide }),
-    paving: std({ map: T.paving, color: 0xd8d2c5, roughness: 0.95 }),
+    paving: std({ map: T.paving, color: PAL.colors.paving, roughness: 0.95 }),
     stone: std({ map: T.paving, color: 0xc4bdae, roughness: 0.92 }),
     walk: std({ map: T.paving, color: 0xe4ded1, roughness: 0.93 }),
     grass: std({ map: T.grass, color: 0xffffff, roughness: 1 }),

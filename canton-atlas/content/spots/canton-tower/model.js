@@ -7,6 +7,8 @@
 
 const THREE = window.THREE;
 if (!THREE) throw new Error("Three.js is not loaded");
+const PAL = window.CantonPalette;
+if (!PAL) throw new Error("Canton palette is not loaded");
 
 const SITE_W = 220;
 const SITE_D = 380;
@@ -154,7 +156,7 @@ function std(opts) {
 
 function createMaterials(textures) {
   return {
-    base: std({ map: textures.paving, color: 0x7f7a6f, roughness: 0.96 }),
+    base: std({ map: textures.paving, color: PAL.colors.earth, roughness: 0.96 }),
     plaza: std({ map: textures.paving, color: 0xc6c0b4, roughness: 0.95 }),
     ripple: std({ map: textures.ripple, color: 0xc0baae, roughness: 0.94 }),
     stone: std({ color: 0xb4b0a5, roughness: 0.9 }),

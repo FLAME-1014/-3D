@@ -54,6 +54,20 @@ body::before {
   cursor: grabbing;
 }
 
+.stage-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(118% 92% at 50% 42%, rgba(38, 34, 28, 0) 46%, rgba(38, 34, 28, 0.10) 100%);
+}
+
+@media (max-width: 760px) {
+  .stage-vignette {
+    background: radial-gradient(120% 95% at 50% 40%, rgba(38, 34, 28, 0) 50%, rgba(38, 34, 28, 0.06) 100%);
+  }
+}
+
 /* ---------- top bar ---------- */
 
 .topbar {

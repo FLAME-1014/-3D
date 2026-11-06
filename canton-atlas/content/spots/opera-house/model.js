@@ -13,6 +13,8 @@
 
 const THREE = window.THREE;
 if (!THREE) throw new Error("Three.js is not loaded");
+const PAL = window.CantonPalette;
+if (!PAL) throw new Error("Canton palette is not loaded");
 
 const SITE = 220;
 const HALF = SITE / 2;
@@ -921,7 +923,7 @@ function createMaterials(T) {
     steel: std({ color: 0x2a2e2d, roughness: 0.56, metalness: 0.62 }),
     lobby: std({ color: 0x1b1d1c, roughness: 0.9, metalness: 0.1, side: THREE.DoubleSide }),
     warm: std({ color: 0xe6c59a, roughness: 0.6, emissive: 0xffb35f, emissiveIntensity: 0.8 }),
-    platform: std({ map: T.paving, color: 0xe3ddd0, roughness: 0.9 }),
+    platform: std({ map: T.paving, color: PAL.colors.stoneLight, roughness: 0.9 }),
     platformEdge: std({ color: 0x8f8b80, roughness: 0.92 }),
     ramp: std({ map: T.paving, color: 0xd8d2c5, roughness: 0.92 }),
     slot: std({ color: 0x141616, roughness: 0.88 }),
@@ -938,7 +940,7 @@ function createMaterials(T) {
     signBase: std({ color: 0x2e3230, roughness: 0.8 }),
     context: std({ color: 0xc9c6bc, roughness: 0.9 }),
     contextDark: std({ color: 0x8c918f, roughness: 0.85 }),
-    base: std({ color: 0x6e6a61, roughness: 0.97 })
+    base: std({ color: PAL.colors.earth, roughness: 0.97 })
   };
 }
 

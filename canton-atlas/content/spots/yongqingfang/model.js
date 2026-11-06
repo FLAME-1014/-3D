@@ -6,6 +6,8 @@
 
 const THREE = window.THREE;
 if (!THREE) throw new Error("Three.js is not loaded");
+const PAL = window.CantonPalette;
+if (!PAL) throw new Error("Canton palette is not loaded");
 
 const BASE_H = 0.8;
 const GROUND_Y = 0.92;
@@ -365,7 +367,7 @@ function createMaterials(textures) {
     brickGrey: std({ map: textures.brickGrey, roughness: 0.96 }),
     brickRed: std({ map: textures.brickRed, roughness: 0.94 }),
     stone: std({ map: textures.stone, roughness: 0.95 }),
-    paving: std({ map: textures.paving, color: 0xb0a89a, roughness: 0.98 }),
+    paving: std({ map: textures.paving, color: PAL.colors.paving, roughness: 0.98 }),
     roof: std({ map: textures.roof, roughness: 0.9 }),
     wood: std({ map: textures.wood, roughness: 0.8 }),
     woodDark: std({ color: 0x3a241a, roughness: 0.82 }),
