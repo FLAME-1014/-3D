@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>导出 · 立体书素材</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f4eee1; color: #26221c; font-family: system-ui, sans-serif; overflow: hidden; }
+  canvas { display: block; background: transparent; }
+  .hint { position: absolute; top: 12px; left: 12px; font-size: 12px; color: #6f6659; }
+</style>
+</head>
+<body>
+<canvas id="exportCanvas"></canvas>
+<div class="hint" id="hint">准备中…</div>
+<script src="immersive/three.min.js"></script>
+<script src="js/palette.js"></script>
+<script src="js/stage-core.js"></script>
+<script>
+(function () {
+  'use strict';
+  var params = new URLSearchParams(location.search);
+  var id = params.get('id') || 'chenjiaci';
+  var type = params.get('type') || 'cover'; // cover | silhouette | silhouette-persp
+  var size = parseInt(params.get('size') || '800', 10);
+  var canvas = document.getElementById('exportCanvas');
+  var hint = document.getElementById('hint');
+  canvas.width = size;
+  canvas.height = size;
+
+  var THREE = window.THREE;
+  var stage = window.StageCore.createStage(canvas, { alpha: true, maxPixelRatio: 1 });
+  stage.resize();
+
+  var inkColor = new THREE.Color(0x26221c);
+  var paperColor = new THREE.Color((window.CantonPalette && window.CantonPalette.colors && window.CantonPalette.colors.paper) !== undefined ? window.CantonPalette.colors.paper : 0xf4eee1);
+
+  var modelResult = null;
+  var orthoCam = null;
+
+  function loadSpotJson() {
+    return fetch('../content/spots/' + encodeURIComponent(id) + '/spot.json', { cache: 'no-store' })
+      .then(function (res) { if (!res.ok) throw new Error('spot.json ' + res.status); return res.json(); });
+  }
+
+  function buildOrtho(box, size) {
+    var s = box.getSize(new THREE.Vector3());
+    var c = box.getCenter(new THREE.Vector3());
+    var maxDim = Math.max(s.x, s.y, s.z);
+    var pad = 1.15;
+    var h = maxDim * 0.6 * pad;
+    var w = h;
+    var cam = new THREE.OrthographicCamera(-w, w, h, -h, 0.1, 4400);
+    // 正立面：从正前方（-Z 为北，观众位于 -Z 偏前）看正面；取概览的 yaw≈0、pitch 俯视略高
+    cam.position.set(c.x, c.y + h * 0.45, c.z - h * 1.6);
+    cam.lookAt(c.x, c.y + s.y * 0.34, c.z);
+    return cam;
+  }
+
+  function applySilhouetteMaterial() {
+    var seen = new Set();
+    modelResult.group.traverse(function (o) {
+      if (!o.material) return;
+      var mats = Array.isArray(o.material) ? o.material : [o.material];
+      mats.forEach(function (m) {
+        if (!m || seen.has(m)) return;
+        seen.add(m);
+        m.color = inkColor;
+        m.needsUpdate = true;
+      });
+    });
+  }
+
+  function restoreMaterial() {
+    // 封面需要材质本色：stage.load 时已按 model.js 原样建立，无需额外处理（未做 override）。
+  }
+
+  function renderAndExport() {
+    if (type === 'silhouette') {
+      stage.renderer.render(stage.scene, orthoCam);
+    } else {
+      stage.renderer.render(stage.scene, stage.camera);
+    }
+    var dataURL = canvas.toDataURL('image/png');
+    window.__EXPORT_RESULT__ = dataURL;
+    window.__EXPORT_READY__ = true;
+    hint.textContent = '完成：' + type;
+  }
+
+  async function run() {
+    try {
+      var spot = await loadSpotJson();
+      window.SPOT_DATA = spot;
+      var mod = await import('../content/spots/' + encodeURIComponent(id) + '/model.js');
+      if (typeof mod.create !== 'function') throw new Error('模型缺少 create()');
+      modelResult = mod.create();
+
+      await stage.load(id);
+      stage.setPreset('overview', true);
+
+      if (type === 'cover') {
+        stage.rise(1);
+        // 透明底：renderer setClearColor 已为透明；stage.scene 有 fog，fog 色为纸色会染远处。cover 希望干净，关 fog。
+        stage.scene.fog = null;
+        renderAndExport();
+      } else if (type === 'silhouette-persp') {
+        stage.rise(0); // 平贴底面，与立起起点对齐
+        applySilhouetteMaterial();
+        stage.scene.fog = null;
+        renderAndExport();
+      } else if (type === 'silhouette') {
+        var box = new THREE.Box3().setFromObject(modelResult.group);
+        orthoCam = buildOrtho(box, size);
+        applySilhouetteMaterial();
+        stage.scene.fog = null;
+        renderAndExport();
+      }
+    } catch (e) {
+      hint.textContent = '失败：' + e.message;
+      window.__EXPORT_ERROR__ = e.message;
+      window.__EXPORT_READY__ = true;
+    }
+  }
+  run();
+})();
+</script>
+</body>
+</html>

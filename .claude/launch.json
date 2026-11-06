@@ -1,0 +1,13 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "museum",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/preview.mjs"],
+      "port": 4189,
+      "url": "http://127.0.0.1:4189",
+      "autoPort": true
+    }
+  ]
+}

@@ -19,34 +19,13 @@
   document.body.dataset.spot = spotId;
   var forceRender = params.get("debug") === "1";
   var spot = null;
-  var place = null;
   var model = null;
-  var anchors = {};
-  var presets = {};
-  var activePreset = "overview";
-  var minDistance = 24;
-  var maxDistance = 360;
-
-  var renderer = null;
-  var scene = null;
-  var camera = null;
-  var clock = null;
+  var place = null;
   var canvas = null;
   var hotspotLayer = null;
   var panel = null;
 
-  var current = {
-    yaw: 0.7,
-    pitch: 0.52,
-    distance: 140,
-    target: new THREE.Vector3(0, 6, 0)
-  };
-  var desired = {
-    yaw: 0.7,
-    pitch: 0.52,
-    distance: 140,
-    target: new THREE.Vector3(0, 6, 0)
-  };
+  var stage = null;
 
   var dragging = false;
   var autoRotate = false;
@@ -59,9 +38,8 @@
   var hotspotPresets = new Map();
   var decor = [];
   var toastTimer = 0;
-  var disposed = false,animationId=0;
-  var loadAbort=new AbortController();
-  var releaseResources=window.SpotResources.createCleanup(function(){return {model:model,scene:scene,renderer:renderer};});
+  var disposed = false, animationId = 0;
+  var loadAbort = new AbortController();
   window.addEventListener('pagehide',cleanup);
   window.addEventListener('pageshow',function(event){if(event.persisted&&disposed)location.reload();});
   window.addEventListener('message', function (event) {
@@ -173,11 +151,12 @@
       var mod = await import("../content/spots/" + encodeURIComponent(spotId) + "/model.js");
       if(disposed)return;
       if(typeof mod.create!=='function')throw new Error('模型缺少 create()');
+      window.SPOT_DATA = spot;
       model = mod.create();
       var modelErrors=window.SpotContract.validateModel(model,spot);if(modelErrors.length)throw new Error(modelErrors.join('；'));
     } catch (error) {
       if(disposed)return;cleanup();
-      showFailure("模型加载失败：" + error.message);
+      showFailure("模型加载失败：" + error.message + " | STACK: " + (error.stack || "").split("\n").slice(0,4).join(" / "));
       return;
     }
 
@@ -187,77 +166,86 @@
     lowPower = window.matchMedia("(max-width: 760px)").matches ||
       (navigator.hardwareConcurrency || 8) <= 4;
 
-    initScene();
-    addModel();
-    buildPresets();
-    buildHotspots();
-    buildUI();
-    bindControls();
-    var requestedPreset = params.get("preset");
-    setPreset(requestedPreset && presets[requestedPreset] ? requestedPreset : "overview", true);
+    canvas = q("scene");
+    stage = window.StageCore.createStage(canvas, {
+      alpha: true,
+      maxPixelRatio: lowPower ? 1.25 : 1.75
+    });
+    stage.resize();
 
-    q("loading").hidden = true;
-    window.__SPOT_READY__ = true;
-    if (params.get("from") === "museum" && window.parent !== window) {
-      try { window.parent.postMessage({ type: "canton-museum-ready", id: spotId }, location.origin); } catch (error) { /* ignore */ }
-    }
-    window.__SPOT_API__ = {
-      setPreset: function (name) { setPreset(name, true); },
-      stats: function () {
-        return {
-          calls: renderer.info.render.calls,
-          triangles: renderer.info.render.triangles,
-          fps: fpsState.fps
-        };
-      },
-      camera: function () {
-        return {
-          position: camera.position.toArray(),
-          target: current.target.toArray()
-        };
-      },
-      bench: function (n) {
-        var frames = Math.max(1, Math.min(240, n || 60));
-        var t0 = performance.now();
-        for (var i = 0; i < frames; i++) renderer.render(scene, camera);
-        var t1 = performance.now();
-        return {
-          frames: frames,
-          msPerFrame: Number(((t1 - t0) / frames).toFixed(2)),
-          calls: renderer.info.render.calls,
-          triangles: renderer.info.render.triangles
-        };
+    stage.load(spotId).then(function () {
+      if (disposed) return;
+      buildHotspots();
+      buildUI();
+      bindControls();
+      var requestedPreset = params.get("preset");
+      setPreset(requestedPreset && stage.getPresets()[requestedPreset] ? requestedPreset : "overview", true);
+
+      q("loading").hidden = true;
+      window.__SPOT_READY__ = true;
+      if (params.get("from") === "museum" && window.parent !== window) {
+        try { window.parent.postMessage({ type: "canton-museum-ready", id: spotId }, location.origin); } catch (error) { /* ignore */ }
       }
-    };
+      window.__SPOT_API__ = {
+        setPreset: function (name) { setPreset(name, true); },
+        stats: function () {
+          var s = stage.stats();
+          return { calls: s.calls, triangles: s.triangles, fps: fpsState.fps };
+        },
+        camera: function () {
+          return {
+            position: stage.camera.position.toArray(),
+            target: null
+          };
+        },
+        bench: function (n) {
+          var frames = Math.max(1, Math.min(240, n || 60));
+          var t0 = performance.now();
+          for (var i = 0; i < frames; i++) stage.render();
+          var t1 = performance.now();
+          var s = stage.stats();
+          return {
+            frames: frames,
+            msPerFrame: Number(((t1 - t0) / frames).toFixed(2)),
+            calls: s.calls,
+            triangles: s.triangles
+          };
+        }
+      };
 
-    if (params.get("silhouette") === "1") {
-      setupSilhouette();
-    } else {
-      clock.start();
-      updateCamera();
-      updateHotspots();
-      renderer.render(scene, camera);
-      renderStats();
-      animate();
-    }
+      if (params.get("silhouette") === "1") {
+        setupSilhouette();
+      } else {
+        stage.start();
+        stage.render();
+        renderStats();
+      }
+    }).catch(function (error) {
+      if (disposed) return;
+      cleanup();
+      showFailure("模型加载失败：" + error.message + " | STACK: " + (error.stack || "").split("\n").slice(0,4).join(" / "));
+    });
   }
 
   function setupSilhouette() {
     document.body.classList.add("silhouette-mode");
-    decor.forEach(function (obj) { obj.visible = false; });
-    scene.fog = null;
-    scene.background = new THREE.Color(0xffffff);
-    renderer.setClearColor(0xffffff, 1);
-    renderer.shadowMap.enabled = false;
-    scene.overrideMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    var r = stage.renderer;
+    var sc = stage.scene;
+    sc.fog = null;
+    sc.background = new THREE.Color(0xffffff);
+    r.setClearColor(0xffffff, 1);
+    r.shadowMap.enabled = false;
+    sc.overrideMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
 
+    var m = stage.getModel();
     var part = params.get("part");
-    if (part) {
-      model.group.children.forEach(function (child) {
+    var group = m && m.group;
+    if (group && part) {
+      group.children.forEach(function (child) {
         child.visible = child.name === part;
       });
     }
-    var target = part ? model.group.getObjectByName(part) : model.group;
+    var target = (group && part ? group.getObjectByName(part) : group) || group;
     var box = new THREE.Box3().setFromObject(target);
     var size = box.getSize(new THREE.Vector3());
     var center = box.getCenter(new THREE.Vector3());
@@ -268,8 +256,8 @@
     var cam = new THREE.OrthographicCamera(-halfW, halfW, halfH, -halfH, 0.1, 3000);
     cam.position.set(center.x, center.y, box.max.z + 600);
     cam.lookAt(center.x, center.y, center.z);
-    renderer.render(scene, cam);
-    var gl = renderer.getContext();
+    r.render(sc, cam);
+    var gl = r.getContext();
     var sample = new Uint8Array(4);
     gl.readPixels(Math.floor(gl.drawingBufferWidth / 2), Math.floor(gl.drawingBufferHeight / 2), 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, sample);
     window.__SILHOUETTE_CENTER__ = Array.from(sample);
@@ -277,210 +265,15 @@
 
     var loop = function () {
       if (disposed) return;
-      renderer.render(scene, cam);
-      animationId=requestAnimationFrame(loop);
+      r.render(sc, cam);
+      animationId = requestAnimationFrame(loop);
     };
-    animationId=requestAnimationFrame(loop);
-  }
-
-  function colorSpace(renderer) {
-    if ("outputColorSpace" in renderer && THREE.SRGBColorSpace) {
-      renderer.outputColorSpace = THREE.SRGBColorSpace;
-    } else if ("outputEncoding" in renderer && THREE.sRGBEncoding) {
-      renderer.outputEncoding = THREE.sRGBEncoding;
-    }
-  }
-
-  function initScene() {
-    renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-      antialias: true,
-      alpha: true,
-      powerPreference: "high-performance",
-      preserveDrawingBuffer: params.get("silhouette") === "1"
-    });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lowPower ? 1.25 : 1.75));
-    renderer.setSize(window.innerWidth, window.innerHeight, false);
-    renderer.setClearColor(0x000000, 0);
-    colorSpace(renderer);
-    if (THREE.ACESFilmicToneMapping) renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.02;
-    renderer.shadowMap.enabled = !lowPower;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    renderer.shadowMap.autoUpdate = false;
-    renderer.shadowMap.needsUpdate = true;
-
-    scene = new THREE.Scene();
-    scene.fog = spotId === "gd-museum"
-      ? new THREE.Fog(0xe9e1d1, 380, 1200)
-      : spotId === "opera-house"
-      ? new THREE.Fog(0xe9e1d1, 450, 1700)
-      : new THREE.Fog(0xe9e1d1, 230, 520);
-    camera = new THREE.PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.5, 1400);
-    if (spotId === "canton-tower") {
-      camera.far = 4400;
-      camera.updateProjectionMatrix();
-    } else if (spotId === "opera-house") {
-      camera.far = 2400;
-      camera.updateProjectionMatrix();
-    }
-    clock = new THREE.Clock(false);
-
-    scene.add(new THREE.HemisphereLight(0xfff7e8, 0x8d8274, 0.95));
-
-    var key = new THREE.DirectionalLight(0xfff0d0, 1.9);
-    key.position.set(70, 120, 90);
-    key.castShadow = !lowPower;
-    key.shadow.mapSize.set(2048, 2048);
-    key.shadow.camera.left = -95;
-    key.shadow.camera.right = 95;
-    key.shadow.camera.top = 95;
-    key.shadow.camera.bottom = -95;
-    key.shadow.camera.near = 1;
-    key.shadow.camera.far = 420;
-    key.shadow.bias = -0.0005;
-    key.shadow.normalBias = 0.02;
-    scene.add(key);
-
-    var fill = new THREE.DirectionalLight(0xcfe0ff, 0.5);
-    fill.position.set(-90, 55, -70);
-    scene.add(fill);
-
-    var rim = new THREE.DirectionalLight(0xffd8a8, 0.7);
-    rim.position.set(0, 40, -120);
-    scene.add(rim);
-
-    var plinthMat = new THREE.MeshStandardMaterial({ color: 0xd7cec0, roughness: 0.92 });
-    var plinth = new THREE.Mesh(new THREE.BoxGeometry(98, 1.2, 80), plinthMat);
-    plinth.position.y = -0.6;
-    plinth.receiveShadow = true;
-    scene.add(plinth);
-
-    var plinthTopMat = new THREE.MeshStandardMaterial({ color: 0xe2d9c9, roughness: 0.95 });
-    var plinthTop = new THREE.Mesh(new THREE.BoxGeometry(92, 0.12, 74), plinthTopMat);
-    plinthTop.position.y = 0.04;
-    plinthTop.receiveShadow = true;
-    scene.add(plinthTop);
-
-    var groundMat = new THREE.MeshStandardMaterial({ color: 0xe6dece, roughness: 1 });
-    var ground = new THREE.Mesh(new THREE.CircleGeometry(380, 64), groundMat);
-    ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -1.3;
-    scene.add(ground);
-
-    var shadowTex = makeContactShadow();
-    var shadowMat = new THREE.MeshBasicMaterial({
-      map: shadowTex,
-      transparent: true,
-      opacity: 0.4,
-      depthWrite: false
-    });
-    var contact = new THREE.Mesh(new THREE.PlaneGeometry(112, 92), shadowMat);
-    contact.rotation.x = -Math.PI / 2;
-    contact.position.y = 0.12;
-    scene.add(contact);
-    decor.push(plinth, plinthTop, ground, contact);
-  }
-
-  function makeContactShadow() {
-    var c = document.createElement("canvas");
-    c.width = 256;
-    c.height = 256;
-    var ctx = c.getContext("2d");
-    var grad = ctx.createRadialGradient(128, 128, 8, 128, 128, 128);
-    grad.addColorStop(0, "rgba(42,32,22,0.55)");
-    grad.addColorStop(0.55, "rgba(42,32,22,0.2)");
-    grad.addColorStop(1, "rgba(42,32,22,0)");
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 256, 256);
-    return new THREE.CanvasTexture(c);
-  }
-
-  function addModel() {
-    scene.add(model.group);
-    anchors = model.anchors || {};
-  }
-
-  function buildPresets() {
-    var box = new THREE.Box3().setFromObject(model.group);
-    var size = box.getSize(new THREE.Vector3());
-    var center = box.getCenter(new THREE.Vector3());
-    var maxDim = Math.max(size.x, size.y, size.z);
-
-    minDistance = maxDim * 0.28;
-    maxDistance = maxDim * 4.2;
-    var zoom = (spot.model && spot.model.zoom) || {};
-    if (typeof zoom.min === "number") minDistance = zoom.min;
-    if (typeof zoom.max === "number") maxDistance = zoom.max;
-
-    var aspectFactor = Math.max(1, 1.3 / camera.aspect);
-    var baseTarget = new THREE.Vector3(center.x, box.min.y + size.y * 0.34, center.z);
-    var frontTarget = new THREE.Vector3(center.x, box.min.y + size.y * 0.3, center.z);
-    var detailTarget = (anchors.detail || anchors.roof_figures || baseTarget).clone();
-    var courtyardTarget = (anchors.courtyard || baseTarget).clone();
-
-    presets = {
-      overview: { yaw: 0.7, pitch: 0.52, distance: maxDim * 1.55 * aspectFactor, target: baseTarget.clone() },
-      front: { yaw: 0, pitch: 0.2, distance: maxDim * 1.45 * aspectFactor, target: frontTarget },
-      detail: { yaw: 0.32, pitch: 0.34, distance: maxDim * 0.72 * aspectFactor, target: detailTarget },
-      courtyard: { yaw: 0.04, pitch: 0.11, distance: maxDim * 0.46 * aspectFactor, target: courtyardTarget },
-      alley: { yaw: 0, pitch: 0.45, distance: maxDim * 0.55 * aspectFactor, target: (anchors.alley_view || anchors.alley || baseTarget).clone() },
-      street: { yaw: Math.PI / 2, pitch: 0.08, distance: maxDim * 0.32 * aspectFactor, target: (anchors.street || baseTarget).clone() },
-      arcade: { yaw: 0.1, pitch: 0.1, distance: maxDim * 0.3 * aspectFactor, target: (anchors.arcade || baseTarget).clone() },
-      gate: { yaw: Math.PI / 2, pitch: 0.15, distance: maxDim * 0.45 * aspectFactor, target: (anchors.gate || baseTarget).clone() },
-      stage: { yaw: Math.PI, pitch: 0.16, distance: maxDim * 0.4 * aspectFactor, target: (anchors.stage || baseTarget).clone() },
-      avenue: { yaw: -Math.PI / 2, pitch: 0.06, distance: maxDim * 0.4 * aspectFactor, target: (anchors.avenue || baseTarget).clone() },
-      church: { yaw: 0, pitch: 0.1, distance: maxDim * 0.25 * aspectFactor, target: (anchors.church || baseTarget).clone() },
-      hotel: { yaw: Math.PI, pitch: 0.1, distance: maxDim * 0.3 * aspectFactor, target: (anchors.hotel || baseTarget).clone() },
-      park: { yaw: Math.PI / 2, pitch: 0.08, distance: maxDim * 0.2 * aspectFactor, target: (anchors.park || baseTarget).clone() },
-      "ancient-road": { yaw: 0, pitch: 0.55, distance: maxDim * 0.3 * aspectFactor, target: (anchors.ancient || baseTarget).clone() },
-      temple: { yaw: 0.4, pitch: 0.3, distance: maxDim * 0.5 * aspectFactor, target: (anchors.temple || baseTarget).clone() },
-      wuyang: { yaw: 0.2, pitch: 0.16, distance: maxDim * 0.28 * aspectFactor, target: (anchors.wuyang || baseTarget).clone() },
-      wall: { yaw: 0.15, pitch: 0.2, distance: maxDim * 0.34 * aspectFactor, target: (anchors.wall || baseTarget).clone() },
-      zhenhai: { yaw: 0.25, pitch: 0.18, distance: maxDim * 0.4 * aspectFactor, target: (anchors.zhenhai || baseTarget).clone() },
-      canal: { yaw: -Math.PI / 2, pitch: 0.06, distance: maxDim * 0.5 * aspectFactor, target: (anchors.canal || baseTarget).clone() },
-      bridge: { yaw: 0.5, pitch: 0.12, distance: maxDim * 0.3 * aspectFactor, target: (anchors.bridge || baseTarget).clone() },
-      tower: { yaw: 0.35, pitch: 0.12, distance: maxDim * 0.28 * aspectFactor, target: (anchors.tower || baseTarget).clone() },
-      house: { yaw: 0.25, pitch: 0.08, distance: maxDim * 0.28 * aspectFactor, target: (anchors.house || baseTarget).clone() },
-      opera: { yaw: 0.2, pitch: 0.1, distance: maxDim * 0.28 * aspectFactor, target: (anchors.opera || baseTarget).clone() },
-      qilou: { yaw: 0.3, pitch: 0.1, distance: maxDim * 0.28 * aspectFactor, target: (anchors.qilou || baseTarget).clone() },
-      taotao: { yaw: 0.2, pitch: 0.1, distance: maxDim * 0.25 * aspectFactor, target: (anchors.taotao || baseTarget).clone() },
-      lianxiang: { yaw: 0.2, pitch: 0.1, distance: maxDim * 0.25 * aspectFactor, target: (anchors.lianxiang || baseTarget).clone() },
-      hall: { yaw: 0.1, pitch: 0.1, distance: maxDim * 0.35 * aspectFactor, target: (anchors.hall || baseTarget).clone() },
-      pagoda: { yaw: 0.25, pitch: 0.1, distance: maxDim * 0.32 * aspectFactor, target: (anchors.pagoda || baseTarget).clone() },
-      tomb: { yaw: -2.3, pitch: 0.45, distance: maxDim * 0.46 * aspectFactor, target: (anchors.tomb || baseTarget).clone() },
-      jade: { yaw: -2.6, pitch: 0.2, distance: maxDim * 0.38 * aspectFactor, target: (anchors.jade || baseTarget).clone() },
-      paifang: { yaw: 0.05, pitch: 0.13, distance: maxDim * 0.16 * aspectFactor, target: (anchors.paifang || baseTarget).clone() },
-      summit: { yaw: 3.34, pitch: 0.2, distance: maxDim * 0.3 * aspectFactor, target: (anchors.summit || anchors.star || baseTarget).clone() },
-      base: { yaw: 0.35, pitch: 0.12, distance: maxDim * 0.36 * aspectFactor, target: (anchors.base || baseTarget).clone() },
-      lattice: { yaw: 0.9, pitch: 0.05, distance: maxDim * 0.6 * aspectFactor, target: (anchors.lattice || baseTarget).clone() },
-      top: { yaw: 0.6, pitch: 0.06, distance: maxDim * 0.5 * aspectFactor, target: (anchors.mast || anchors.deck || baseTarget).clone() },
-      river: { yaw: Math.PI, pitch: 0.05, distance: maxDim * 1.5 * aspectFactor, target: (anchors.steps || baseTarget).clone() },
-      facade: { yaw: 0, pitch: 0.05, distance: maxDim * 0.7 * aspectFactor, target: (anchors.facade || baseTarget).clone() },
-      rose: { yaw: 0.04, pitch: 0.05, distance: maxDim * 0.2 * aspectFactor, target: (anchors.rose || baseTarget).clone() },
-      side: { yaw: Math.PI / 2, pitch: 0.08, distance: maxDim * 0.55 * aspectFactor, target: (anchors.buttress || baseTarget).clone() },
-      apse: { yaw: 3.6, pitch: 0.1, distance: maxDim * 0.5 * aspectFactor, target: (anchors.apse || baseTarget).clone() },
-      box: { yaw: -1.05, pitch: 0.03, distance: maxDim * 0.6 * aspectFactor, target: (anchors.box || baseTarget).clone() },
-      plaza: { yaw: -1.2, pitch: 0.14, distance: maxDim * 0.4 * aspectFactor, target: (anchors.plaza || baseTarget).clone() },
-      pool: { yaw: -0.08, pitch: 0.05, distance: maxDim * 0.5 * aspectFactor, target: (anchors.pool || baseTarget).clone() },
-      mouth: { yaw: 0.32, pitch: 0.11, distance: maxDim * 0.28 * aspectFactor, target: (anchors.mouth || baseTarget).clone() }
-    };
-
-    var overrides = spot.presetOverrides || {};
-    Object.keys(overrides).forEach(function (name) {
-      var o = overrides[name];
-      if (!presets[name] || !o) return;
-      if (typeof o.yaw === "number") presets[name].yaw = o.yaw;
-      if (typeof o.pitch === "number") presets[name].pitch = o.pitch;
-      if (typeof o.distance === "number") presets[name].distance = o.distance * (o.fixed ? 1 : Math.min(aspectFactor, spotId === "gd-museum" ? 2.6 : spotId === "opera-house" ? 2.0 : 1.8));
-      if (Array.isArray(o.target) && o.target.length === 3) {
-        presets[name].target.set(o.target[0], o.target[1], o.target[2]);
-      }
-    });
+    animationId = requestAnimationFrame(loop);
   }
 
   function buildHotspots() {
     var list = spot.hotspots || [];
+    var anchors = (stage.getModel() && stage.getModel().anchors) || {};
     list.forEach(function (hs) {
       var anchor = anchors[hs.anchor];
       if (!anchor) return;
@@ -505,7 +298,7 @@
     q("hotspotTitle").textContent = hs.label || "";
     q("hotspotText").textContent = hs.note || "";
     var focus = q("hotspotFocus");
-    if (hs.preset && presets[hs.preset]) {
+    if (hs.preset && stage.getPresets()[hs.preset]) {
       focus.hidden = false;
       focus.onclick = function () { setPreset(hs.preset); };
     } else {
@@ -560,8 +353,9 @@
     if (presetWrap) {
       presetWrap.innerHTML = "";
       var presetNames = Array.isArray(spot.presets) && spot.presets.length ? spot.presets : ["overview"];
+      var allPresets = stage.getPresets();
       presetNames.forEach(function (name) {
-        if (!presets[name]) return;
+        if (!allPresets[name]) return;
         var btn = document.createElement("button");
         btn.type = "button";
         btn.dataset.preset = name;
@@ -573,6 +367,7 @@
 
     q("autoRotate").addEventListener("click", function () {
       autoRotate = !autoRotate;
+      stage.setAutoRotate(autoRotate);
       this.setAttribute("aria-pressed", String(autoRotate));
       this.textContent = autoRotate ? "自动旋转 开" : "自动旋转";
     });
@@ -638,26 +433,14 @@
   }
 
   function setPreset(name, instant) {
-    var p = presets[name];
-    if (!p) return;
-    desired.yaw = p.yaw;
-    desired.pitch = p.pitch;
-    desired.distance = clamp(p.distance, minDistance, maxDistance);
-    desired.target.copy(p.target);
-    if (instant) {
-      current.yaw = desired.yaw;
-      current.pitch = desired.pitch;
-      current.distance = desired.distance;
-      current.target.copy(desired.target);
-    }
-    activePreset = name;
+    stage.setPreset(name, instant === true);
     document.querySelectorAll("[data-preset]").forEach(function (btn) {
-      btn.setAttribute("aria-pressed", String(btn.dataset.preset === name));
+      btn.setAttribute("aria-pressed", String(btn.dataset.preset === stage.getActivePreset()));
     });
     if (spot.hotspotMode === "preset") {
       hotspotEls.forEach(function (el, id) {
         var ownPreset = hotspotPresets.get(id);
-        el.classList.toggle("is-offpreset", name !== "overview" && !!ownPreset && ownPreset !== name);
+        el.classList.toggle("is-offpreset", stage.getActivePreset() !== "overview" && !!ownPreset && ownPreset !== stage.getActivePreset());
       });
     }
   }
@@ -678,12 +461,12 @@
       var dy = event.clientY - lastPointer.y;
       lastPointer.x = event.clientX;
       lastPointer.y = event.clientY;
-      desired.yaw -= dx * 0.006;
-      desired.pitch = clamp(desired.pitch + dy * 0.006, 0.06, 1.35);
+      stage.tilt(dx * -0.006, dy * 0.006);
     });
 
     function endDrag() {
       dragging = false;
+      stage.resetTilt();
       canvas.classList.remove("is-dragging");
     }
     canvas.addEventListener("pointerup", endDrag);
@@ -692,7 +475,7 @@
 
     canvas.addEventListener("wheel", function (event) {
       event.preventDefault();
-      desired.distance = clamp(desired.distance * Math.exp(event.deltaY * 0.0012), minDistance, maxDistance);
+      stage.zoom(Math.exp(event.deltaY * 0.0012));
     }, { passive: false });
 
     canvas.addEventListener("dblclick", function () {
@@ -710,7 +493,7 @@
       if (event.touches.length === 2) {
         var span = touchDistance(event.touches);
         if (touchSpan && span) {
-          desired.distance = clamp(desired.distance * (touchSpan / span), minDistance, maxDistance);
+          stage.zoom(touchSpan / span);
         }
         touchSpan = span;
         event.preventDefault();
@@ -721,12 +504,10 @@
 
     window.addEventListener("keydown", function (event) {
       var step = 0.08;
-      if (event.key === "ArrowLeft") desired.yaw += step;
-      else if (event.key === "ArrowRight") desired.yaw -= step;
-      else if (event.key === "ArrowUp") desired.pitch = clamp(desired.pitch + step, 0.06, 1.35);
-      else if (event.key === "ArrowDown") desired.pitch = clamp(desired.pitch - step, 0.06, 1.35);
-      else if (event.key === "+" || event.key === "=") desired.distance = clamp(desired.distance * 0.9, minDistance, maxDistance);
-      else if (event.key === "-") desired.distance = clamp(desired.distance * 1.1, minDistance, maxDistance);
+      if (event.key === "ArrowLeft") stage.tilt(step, 0);
+      else if (event.key === "ArrowRight") stage.tilt(-step, 0);
+      else if (event.key === "ArrowUp") stage.tilt(0, step);
+      else if (event.key === "ArrowDown") stage.tilt(0, -step);
       else if (event.key === "0") setPreset("overview");
       else return;
       event.preventDefault();
@@ -743,37 +524,26 @@
   }
 
   function onResize() {
-    if (!renderer || !camera) return;
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lowPower ? 1.25 : 1.75));
-    renderer.setSize(window.innerWidth, window.innerHeight, false);
+    stage.resize();
   }
 
   function updateCamera() {
-    var cp = Math.cos(current.pitch);
-    var sp = Math.sin(current.pitch);
-    camera.position.set(
-      current.target.x + Math.sin(current.yaw) * cp * current.distance,
-      current.target.y + sp * current.distance,
-      current.target.z + Math.cos(current.yaw) * cp * current.distance
-    );
-    camera.lookAt(current.target);
+    // 由 stage 内部自行更新相机，diorama 层不再直接操作
   }
 
   function updateHotspots() {
-    var width = renderer.domElement.clientWidth;
-    var height = renderer.domElement.clientHeight;
-    var dir = camera.getWorldDirection(new THREE.Vector3());
+    var width = stage.canvas.clientWidth;
+    var height = stage.canvas.clientHeight;
+    var dir = stage.camera.getWorldDirection(new THREE.Vector3());
     hotspotEls.forEach(function (el, id) {
       var anchor = hotspotAnchors.get(id);
       if (!anchor) {
         el.classList.add("is-hidden");
         return;
       }
-      var toAnchor = anchor.clone().sub(camera.position);
+      var toAnchor = anchor.clone().sub(stage.camera.position);
       var inFront = toAnchor.dot(dir) > 0;
-      var v = anchor.clone().project(camera);
+      var v = anchor.clone().project(stage.camera);
       var visible = inFront && v.z > -1 && v.z < 1 && Math.abs(v.x) < 0.92 && Math.abs(v.y) < 0.92;
       el.classList.toggle("is-hidden", !visible);
       if (!visible) return;
@@ -789,9 +559,9 @@
   }
 
   function renderStats() {
-    var info = renderer.info.render;
+    var s = stage.stats();
     var prefix = fpsState.fps > 0 ? fpsState.fps + " fps · " : "";
-    q("metrics").textContent = prefix + info.calls + " calls · " + info.triangles.toLocaleString("en-US") + " tris";
+    q("metrics").textContent = prefix + s.calls + " calls · " + s.triangles.toLocaleString("en-US") + " tris";
   }
 
   function updateMetrics() {
@@ -808,26 +578,20 @@
 
   function animate() {
     if (disposed) return;
-    animationId=requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
     if (document.hidden && !forceRender) return;
 
-    var dt = Math.min(clock.getDelta(), 0.05);
-    if (autoRotate && !dragging) desired.yaw += dt * 0.16;
-
-    var k = 0.14;
-    current.yaw += (desired.yaw - current.yaw) * k;
-    current.pitch += (desired.pitch - current.pitch) * k;
-    current.distance += (desired.distance - current.distance) * k;
-    current.target.lerp(desired.target, k);
-
-    updateCamera();
+    stage.render();
     updateHotspots();
-    renderer.render(scene, camera);
     updateMetrics();
   }
 
   function cleanup() {
-    if(disposed)return;disposed=true;loadAbort.abort();cancelAnimationFrame(animationId);window.clearTimeout(toastTimer);releaseResources();
+    if (disposed) return; disposed = true;
+    loadAbort.abort();
+    cancelAnimationFrame(animationId);
+    window.clearTimeout(toastTimer);
+    if (stage) stage.dispose();
   }
 
   boot().catch(function (error) {
