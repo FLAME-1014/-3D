@@ -1,6 +1,20 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createPreview } from './preview.mjs';
+import path from 'node:path';
+import { createPreview, isWithinRoot } from './preview.mjs';
+
+test('preview path boundary handles Windows drive casing without allowing escapes', () => {
+  const win = path.win32;
+  assert.equal(isWithinRoot('c:/project/web', 'C:/project/web/index.html', win), true);
+  assert.equal(isWithinRoot('c:/project/web', 'C:/project/web', win), true);
+  assert.equal(isWithinRoot('c:/project/web', 'C:/project/web/assets/../book.html', win), true);
+  assert.equal(isWithinRoot('c:/project/web', 'C:/project/web/../private.json', win), false);
+  assert.equal(isWithinRoot('c:/project/web', 'C:/project/web-old/index.html', win), false);
+  assert.equal(isWithinRoot('c:/project/web', 'D:/project/web/index.html', win), false);
+  assert.equal(isWithinRoot('/project/web', '/project/web/index.html', path.posix), true);
+  assert.equal(isWithinRoot('/project/web', '/project/Web/index.html', path.posix), false);
+  assert.equal(isWithinRoot('/project/web', '/project/private.json', path.posix), false);
+});
 test('preview serves assets, injects safe fallback and rejects writes', async () => {
   const server = createPreview({ configPath: 'missing-config-for-test.json' });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));

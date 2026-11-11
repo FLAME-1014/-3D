@@ -21,6 +21,12 @@ const types = {
   '.bin': 'application/octet-stream',
   '.ktx2': 'image/ktx2'
 };
+// Windows 的 realpath 可能规范化盘符大小写；用路径语义判断边界，
+// 不使用区分大小写的字符串前缀，同时继续阻止父目录、相邻目录与跨盘访问。
+export function isWithinRoot(root, candidate, pathImpl = path) {
+  const relative = pathImpl.relative(root, candidate);
+  return relative === '' || (relative !== '..' && !relative.startsWith('..' + pathImpl.sep) && !pathImpl.isAbsolute(relative));
+}
 export function createPreview({ configPath = path.join(workspace, '.local/amap.development.json') } = {}) {
   return http.createServer(async (req, res) => {
     res.setHeader('Cache-Control', 'no-store');
@@ -48,7 +54,7 @@ export function createPreview({ configPath = path.join(workspace, '.local/amap.d
         root = refs;
         relative = pathname.slice('/refs'.length) || '/';
       }
-      const within = (candidate) => candidate === root || candidate.startsWith(root + path.sep);
+      const within = (candidate) => isWithinRoot(root, candidate);
       let target = path.resolve(root, '.' + relative);
       if (!within(target)) { res.writeHead(403); return res.end(); }
       const stat = await fs.stat(target);

@@ -48,7 +48,7 @@ const SPOT_IDS = [
 let spotIndex = 0;
 let renderer, scene, camera;
 let modelRoot = null;
-let risePlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+let risePlane = new THREE.Plane(new THREE.Vector3(0, -1, 0), 0);
 let riseProgress = 0; // 0 = 平躺纸面, 1 = 完全立起
 let isRising = false, isFolding = false;
 let dragMode = null; // null | 'orbit' | 'page'
@@ -84,8 +84,10 @@ async function loadSpot(id) {
 // 剖切平面必须挂在模型每个材质上，否则只有装饰网格被切、模型整体仍在
 // 注意按材质去重：18 件大量网格共享同一材质，逐 mesh 赋值会白耗
 function applyRisePlane(root, progress, box) {
-  const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0),
-    -(box.min.y + progress * (box.max.y - box.min.y)));
+  // r128 保留 normal·p >= -constant：用 -Y 法线即"保留 y <= height"，
+  // 高度从 min.y 升到 max.y 时模型自下而上显现（早期写成 +Y 会反过来把模型裁光）
+  const plane = new THREE.Plane(new THREE.Vector3(0, -1, 0),
+    box.min.y + progress * (box.max.y - box.min.y));
   const seen = new Set();
   root.traverse((o) => {
     const mats = Array.isArray(o.material) ? o.material : [o.material];

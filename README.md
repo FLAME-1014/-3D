@@ -9,6 +9,15 @@
 - 单件展柜复用既有 `spot.html` 模型；链接可使用 `/museum.html?item=canton-tower` 直达广州塔。
 - “线上观展”与现实到访状态分开存储，长廊预览阶段不运行 3D 场景。
 
+## 立体书《翻开，立起来》
+
+- 入口：`/book.html`。封面墨色剪影演示 → 剪影印谱 → 18 页三镜导览 → 「走近看」自由展柜 → 我的印谱（收藏 / 主题完成章 / 分享卡）。
+- 深链：`?p=canton-tower`（页）、`&shot=2`（第二镜）、`&open=1`（展开）、`?v=toc`（印谱）、`?v=end`（尾页）。
+- 键盘：`←/→` 翻页、`↑/↓` 推进镜头、空格/回车下一镜、`Home/End` 目录/尾页、`F` 收藏、`Escape` 逐级退出；系统开启「减少动态」时全部动效改为 200ms 交叉淡化。
+- 分享卡在尾页「生成分享卡 ↗」，纯 Canvas 2D 输出 1080×1440 PNG，可保存图片 / 系统分享 / 复制链接；进度只存本机 `localStorage`。
+- 三镜数据：`canton-atlas/web/museum-catalog.js`（54 条短句已于 2026-11-10 编辑定稿，口径与逐条依据见方案 4.3.1）；素材：`canton-atlas/refs/preview/<id>-cover|-silhouette|-silhouette-persp.png`（由 `node scripts/preview.mjs export` 生成）。
+- 方案与阶段记录：`docs/广州立体志-交互方向研究.md`（4.7 阶段 4 / 4.8 阶段 5）；回归测试：`scripts/book.test.mjs`。
+
 > 接手/新会话请先读 `docs/交接-2026-11-03.md`（含阅读顺序与当前状态快照），本文件的「模型册样板」表是 18 个已接入景点的状态总表。
 
 ## 启动与检查

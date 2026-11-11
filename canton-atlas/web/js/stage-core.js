@@ -47,6 +47,8 @@
     opts = opts || {};
     var alpha = opts.alpha !== false;
     var maxPixelRatio = opts.maxPixelRatio == null ? 1.75 : opts.maxPixelRatio;
+    // 书页模式把机位整体拉远，给页眉/页脚留出纸面留白；spot.html 展柜保持 1
+    var viewScale = opts.viewScale == null ? 1 : opts.viewScale;
 
     var renderer = new THREE.WebGLRenderer({
       canvas: canvas,
@@ -104,8 +106,11 @@
     var renderRequested = false;
     var loadAbort = new AbortController();
 
-    var risePlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
-    var riseProgress = 0; // 0 = 平躺，1 = 完全立起
+    // r128 clipping 保留 normal·p >= -constant 的一侧。
+    // 用 -Y 法线 + constant = height 得到"保留 y <= height"：
+    // height 从 box.min.y 升到 box.max.y 时，模型自下而上逐渐显现 = 从纸面立起。
+    var risePlane = new THREE.Plane(new THREE.Vector3(0, -1, 0), 0);
+    var riseProgress = 0; // 0 = 平躺（全裁），1 = 完全立起（完整）
     var riseEnabled = false;
 
     // ---------------------------------------------------------------- 机位生成（与 diorama.js buildPresets 同口径）
@@ -187,6 +192,10 @@
         }
       });
 
+      if (viewScale !== 1) {
+        Object.keys(presets).forEach(function (name) { presets[name].distance *= viewScale; });
+      }
+
       activePreset = presets['overview'] ? 'overview' : Object.keys(presets)[0];
     }
 
@@ -201,13 +210,9 @@
       camera.lookAt(current.target);
       if (riseEnabled && box) {
         var size = box.getSize(new THREE.Vector3());
-        var height = box.min.y + riseProgress * size.y;
-        risePlane.constant = -height;
-        var mats = collectMaterials();
-        mats.forEach(function (m) {
-          if (m.clippingPlanes) m.clippingPlanes[0] = risePlane;
-          m.needsUpdate = true;
-        });
+        // clipping uniform 每帧从同一个 Plane 实例读取，改 constant 即可。
+        // 逐帧给所有材质设 needsUpdate 会反复触发 shader 重编译，严重拖慢翻页与运镜。
+        risePlane.constant = box.min.y + riseProgress * size.y;
       }
     }
 
@@ -224,22 +229,20 @@
       return list;
     }
 
+    // 使用渲染器级全局裁切平面，而不是逐材质 clippingPlanes：
+    // r128 的 WebGLClipping 每帧 init() 都会重新投影全局平面；局部平面在连续
+    // 渲染时会命中 useCache 而停在首帧，立起动画就不动了。
+    // 只在 rise() 被调用时挂上，spot.html 不调用 rise 便完全不受影响。
     function attachRisePlane() {
-      var mats = collectMaterials();
-      mats.forEach(function (m) {
-        m.clippingPlanes = [risePlane];
-        m.clipShadows = true;
-        m.needsUpdate = true;
-      });
+      if (renderer.clippingPlanes.indexOf(risePlane) < 0) {
+        renderer.clippingPlanes = [risePlane];
+      }
       riseEnabled = true;
       updateCamera();
     }
 
     function detachRisePlane() {
-      var mats = collectMaterials();
-      mats.forEach(function (m) {
-        if (m.clippingPlanes) { m.clippingPlanes = null; m.needsUpdate = true; }
-      });
+      renderer.clippingPlanes = [];
       riseEnabled = false;
       riseProgress = 0;
     }
@@ -269,7 +272,7 @@
 
       box = new THREE.Box3().setFromObject(model.group);
       buildPresets();
-      attachRisePlane();
+      // 不在这里挂裁切平面：spot.html 展柜不调用 rise，应显示完整模型
 
       // 默认到 overview 机位，瞬间到位
       setPreset('overview', true);
@@ -328,9 +331,10 @@
     // 由外部驱动的剖切进度：0 = 平躺纸面，1 = 完全立起
     function rise(progress) {
       progress = clamp(progress, 0, 1);
+      if (!riseEnabled) attachRisePlane();
       if (progress === riseProgress) return;
       riseProgress = progress;
-      updateCamera();
+      updateCamera();          // 全局平面由 renderer 每帧重新投影，改 constant 即生效
       requestRender();
     }
     function getRiseProgress() { return riseProgress; }
@@ -347,6 +351,16 @@
     }
     function resetTilt() { tilt(0, 0); }
 
+    // 自由展柜：直接跟手改变相机球坐标（不走 tilt 叠加，避免翻页倾斜残留）
+    function orbit(dyaw, dpitch) {
+      desired.yaw += dyaw;
+      desired.pitch = clamp(desired.pitch + dpitch, 0.06, 1.35);
+      current.yaw += dyaw;
+      current.pitch = clamp(current.pitch + dpitch, 0.06, 1.35);
+      updateCamera();
+      requestRender();
+    }
+
     // ---------------------------------------------------------------- 渲染循环
     function render() {
       if (disposed) return;
@@ -356,7 +370,13 @@
     var frame = 0, last = performance.now(), fps = 0;
     function animate() {
       animationId = requestAnimationFrame(animate);
-      if (!renderRequested && !autoRotate && !dragging) return;
+      var settled =
+        Math.abs(desired.yaw - current.yaw) < 0.0005 &&
+        Math.abs(desired.pitch - current.pitch) < 0.0005 &&
+        Math.abs(desired.distance - current.distance) < 0.01 &&
+        desired.target.distanceToSquared(current.target) < 0.0004;
+      // 运镜未收敛时继续跑；静止且无外部请求时才真正停帧
+      if (!renderRequested && settled && !autoRotate && !dragging) return;
       var now = performance.now();
       var dt = Math.min(now - last, 50);
       last = now;
@@ -371,6 +391,7 @@
 
       updateCamera();
       render();
+      renderRequested = false;
 
       frame++;
       if (now - last >= 1000) { /* fps 统计占位，保持结构兼容 */ last = now; frame = 0; }
@@ -456,6 +477,7 @@
       rise: rise,
       getRiseProgress: getRiseProgress,
       tilt: tilt,
+      orbit: orbit,
       resetTilt: resetTilt,
       attachRisePlane: attachRisePlane,
       detachRisePlane: detachRisePlane,

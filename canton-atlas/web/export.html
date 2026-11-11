@@ -32,11 +32,11 @@
   var THREE = window.THREE;
   var stage = window.StageCore.createStage(canvas, { alpha: true, maxPixelRatio: 1 });
   stage.resize();
+  window.__EXPORT_STAGE__ = stage;
 
   var inkColor = new THREE.Color(0x26221c);
   var paperColor = new THREE.Color((window.CantonPalette && window.CantonPalette.colors && window.CantonPalette.colors.paper) !== undefined ? window.CantonPalette.colors.paper : 0xf4eee1);
 
-  var modelResult = null;
   var orthoCam = null;
 
   function loadSpotJson() {
@@ -44,36 +44,23 @@
       .then(function (res) { if (!res.ok) throw new Error('spot.json ' + res.status); return res.json(); });
   }
 
-  function buildOrtho(box, size) {
+  function buildOrtho(box) {
     var s = box.getSize(new THREE.Vector3());
     var c = box.getCenter(new THREE.Vector3());
+    // 正方形画幅：按最长边留 25% 边距，确保高塔/宽院都不被裁断
     var maxDim = Math.max(s.x, s.y, s.z);
-    var pad = 1.15;
-    var h = maxDim * 0.6 * pad;
-    var w = h;
-    var cam = new THREE.OrthographicCamera(-w, w, h, -h, 0.1, 4400);
-    // 正立面：从正前方（-Z 为北，观众位于 -Z 偏前）看正面；取概览的 yaw≈0、pitch 俯视略高
-    cam.position.set(c.x, c.y + h * 0.45, c.z - h * 1.6);
-    cam.lookAt(c.x, c.y + s.y * 0.34, c.z);
+    var h = maxDim * 0.5 * 1.25;
+    var cam = new THREE.OrthographicCamera(-h, h, h, -h, 0.1, 4400 * 2);
+    // 正立面：从 -Z 方向平视，略带俯角
+    cam.position.set(c.x, c.y + maxDim * 0.08, c.z - maxDim * 2);
+    cam.lookAt(c.x, c.y, c.z);
     return cam;
   }
 
-  function applySilhouetteMaterial() {
-    var seen = new Set();
-    modelResult.group.traverse(function (o) {
-      if (!o.material) return;
-      var mats = Array.isArray(o.material) ? o.material : [o.material];
-      mats.forEach(function (m) {
-        if (!m || seen.has(m)) return;
-        seen.add(m);
-        m.color = inkColor;
-        m.needsUpdate = true;
-      });
-    });
-  }
-
-  function restoreMaterial() {
-    // 封面需要材质本色：stage.load 时已按 model.js 原样建立，无需额外处理（未做 override）。
+  function finish(dataURL) {
+    window.__EXPORT_RESULT__ = dataURL;
+    window.__EXPORT_READY__ = true;
+    hint.textContent = '完成：' + type;
   }
 
   function renderAndExport() {
@@ -83,9 +70,40 @@
       stage.renderer.render(stage.scene, stage.camera);
     }
     var dataURL = canvas.toDataURL('image/png');
-    window.__EXPORT_RESULT__ = dataURL;
-    window.__EXPORT_READY__ = true;
-    hint.textContent = '完成：' + type;
+    if (type === 'cover') { finish(dataURL); return; }
+
+    // 剪影：把渲染结果的非透明像素统一染成墨色。
+    // 不替换材质 —— 部分模型的合并几何体在 r128 下换材质会触发 attribute 报错；
+    // 后处理还顺带保证剪影与 3D 首帧像素级对齐（立起起点不跳）。
+    var img = new Image();
+    img.onload = function () {
+      try {
+        var off = document.createElement('canvas');
+        off.width = size; off.height = size;
+        var ctx = off.getContext('2d');
+        ctx.drawImage(img, 0, 0, size, size);
+        // 二值化 alpha：得到纯墨色实心剪影，去掉半透明玻璃/背景板留下的灰边
+        var data = ctx.getImageData(0, 0, size, size);
+        var px = data.data;
+        for (var i = 0; i < px.length; i += 4) {
+          if (px[i + 3] > 32) {
+            px[i] = 38; px[i + 1] = 34; px[i + 2] = 28; px[i + 3] = 255;
+          } else {
+            px[i + 3] = 0;
+          }
+        }
+        ctx.putImageData(data, 0, 0);
+        finish(off.toDataURL('image/png'));
+      } catch (e) {
+        window.__EXPORT_ERROR__ = e.message;
+        window.__EXPORT_READY__ = true;
+      }
+    };
+    img.onerror = function () {
+      window.__EXPORT_ERROR__ = '剪影后处理失败';
+      window.__EXPORT_READY__ = true;
+    };
+    img.src = dataURL;
   }
 
   async function run() {
@@ -94,8 +112,6 @@
       window.SPOT_DATA = spot;
       var mod = await import('../content/spots/' + encodeURIComponent(id) + '/model.js');
       if (typeof mod.create !== 'function') throw new Error('模型缺少 create()');
-      modelResult = mod.create();
-
       await stage.load(id);
       stage.setPreset('overview', true);
 
@@ -105,20 +121,21 @@
         stage.scene.fog = null;
         renderAndExport();
       } else if (type === 'silhouette-persp') {
-        stage.rise(0); // 平贴底面，与立起起点对齐
-        applySilhouetteMaterial();
+        // 立起起点用的是完整轮廓（剪影图），不是 rise(0) 的空白首帧
+        stage.rise(1);
         stage.scene.fog = null;
         renderAndExport();
       } else if (type === 'silhouette') {
-        var box = new THREE.Box3().setFromObject(modelResult.group);
-        orthoCam = buildOrtho(box, size);
-        applySilhouetteMaterial();
+        stage.rise(1);
+        var box = new THREE.Box3().setFromObject(stage.getModel().group);
+        orthoCam = buildOrtho(box);
         stage.scene.fog = null;
         renderAndExport();
       }
     } catch (e) {
       hint.textContent = '失败：' + e.message;
       window.__EXPORT_ERROR__ = e.message;
+      window.__EXPORT_STACK__ = e.stack || String(e);
       window.__EXPORT_READY__ = true;
     }
   }
