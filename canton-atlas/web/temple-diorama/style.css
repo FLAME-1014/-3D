@@ -1,0 +1,93 @@
+:root {
+  color-scheme: dark;
+  --background: #718895;
+  --text: #fffaf0;
+  --muted: #e5eceb;
+  --line: rgb(255 250 240 / 24%);
+  --panel: rgb(45 65 76 / 27%);
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+  color: var(--text);
+  background: var(--background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 300px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+button, a { touch-action: manipulation; }
+button:focus-visible, a:focus-visible, canvas:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 5px;
+}
+button:disabled { opacity: 0.42; cursor: wait; }
+button, a { color: inherit; }
+button { cursor: pointer; }
+svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.45; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+[hidden] { display: none !important; }
+.page { min-height: 100svh; padding: 25px 24px 20px; display: flex; flex-direction: column; align-items: center; }
+.heading { text-align: center; flex: 0 0 auto; }
+.eyebrow { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 0 0 8px; color: var(--muted); font-size: 10px; font-weight: 500; letter-spacing: 2px; }
+.status-dot { width: 5px; height: 5px; border-radius: 50%; background: #dfedda; box-shadow: 0 0 0 3px rgb(223 237 218 / 10%); }
+h1 { margin: 0; padding-left: 0.19em; font-size: clamp(32px, 3.5vw, 46px); font-weight: 900; letter-spacing: 0.19em; line-height: 1.3; text-shadow: 0 2px 8px rgb(35 51 61 / 7%); }
+.intro { color: var(--muted); font-size: 11px; letter-spacing: 1.8px; margin: 9px 0 0; }
+.scene-section { width: min(100%, 860px, calc(100svh - 160px)); min-width: min(100%, 320px); flex: 1 0 auto; display: flex; align-items: center; margin-top: 3px; }
+.stage { position: relative; width: 100%; aspect-ratio: 1; overflow: hidden; }
+canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+canvas:active { cursor: grabbing; }
+.loading, .error { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; z-index: 2; background: var(--background); text-align: center; }
+.loading p { font-size: 12px; color: var(--muted); letter-spacing: 1px; margin-top: 18px; }
+.loading-ring { width: 24px; height: 24px; border: 1.5px solid rgb(255 250 240 / 25%); border-top-color: var(--text); border-radius: 50%; animation: spin 1s linear infinite; }
+.error { padding: 30px; }
+.error-title { margin: 0; font-size: 18px; font-weight: 700; }
+#error-detail { font-size: 12px; color: var(--muted); line-height: 1.8; max-width: 340px; }
+#retry { border: 1px solid var(--line); border-radius: 8px; background: rgb(255 250 240 / 10%); padding: 8px 20px; font-size: 12px; }
+.tools { display: flex; flex-direction: column; align-items: center; width: 100%; flex-shrink: 0; }
+.gesture-hint { margin: 0 0 13px; font-size: 10px; color: var(--muted); letter-spacing: 0.7px; }
+.gesture-hint span { padding: 0 12px; opacity: 0.6; }
+.toolbar { padding: 5px; display: flex; align-items: center; justify-content: center; background: var(--panel); border: 1px solid var(--line); border-radius: 13px; box-shadow: 0 6px 20px rgb(35 51 61 / 5%); }
+.view-buttons, .mode-buttons { display: flex; gap: 2px; }
+.toolbar button { border: 0; background: transparent; border-radius: 8px; min-height: 37px; padding: 0 13px; font-size: 11px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: background 160ms ease, color 160ms ease; white-space: nowrap; }
+.toolbar button:hover { background: rgb(255 250 240 / 10%); }
+.toolbar button[aria-pressed="true"] { color: #3e5763; background: var(--text); box-shadow: 0 2px 6px rgb(20 35 45 / 8%); font-weight: 700; }
+.separator { width: 1px; height: 19px; background: var(--line); margin: 0 7px; }
+.downloads { margin-top: 17px; display: flex; align-items: center; justify-content: center; gap: 21px; font-size: 11px; }
+.downloads a, .downloads button { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 7px; white-space: nowrap; }
+.downloads a:hover, .downloads button:hover { color: white; text-decoration: underline; text-underline-offset: 4px; }
+.downloads button { background: none; border: 0; padding: 0; font-size: inherit; }
+.primary-download { font-weight: 700; }
+.primary-download span { font-size: 8px; font-weight: 600; border: 1px solid rgb(255 250 240 / 34%); border-radius: 3px; padding: 2px 4px; letter-spacing: 0.5px; }
+.download-note { margin: 12px 0 0; font-size: 9px; color: rgb(255 250 240 / 64%); letter-spacing: 0.3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (min-width: 1500px) and (min-height: 1000px) {
+  .page { padding-top: 33px; padding-bottom: 26px; }
+  .scene-section { width: min(100%, 1000px, calc(100svh - 180px)); }
+  .intro { margin-top: 12px; }
+  .toolbar button { font-size: 12px; min-height: 40px; padding: 0 15px; }
+}
+
+@media (max-width: 600px) {
+  .page { padding: 24px 12px 22px; }
+  .heading { margin-bottom: 8px; }
+  .scene-section { width: 100%; min-width: 0; max-width: 540px; flex-grow: 0; margin-top: 4px; }
+  .tools { margin-top: 13px; }
+  .toolbar { width: min(100%, 430px); flex-wrap: wrap; row-gap: 5px; padding: 6px; }
+  .view-buttons { justify-content: space-between; flex: 1 1 100%; }
+  .view-buttons button { flex: 1; }
+  .toolbar button { min-height: 36px; padding: 0 10px; font-size: 11px; }
+  .mode-buttons { flex: 1 1 100%; border-top: 1px solid rgb(255 250 240 / 12%); padding-top: 5px; justify-content: center; gap: 8px; }
+  .mode-buttons button { min-width: 118px; min-height: 32px; }
+  .separator { display: none; }
+  .downloads { gap: 17px; flex-wrap: wrap; row-gap: 14px; margin-top: 20px; font-size: 10px; }
+  .download-note { max-width: 100%; font-size: 8px; margin-top: 14px; text-align: center; }
+  .gesture-hint { font-size: 9px; margin-bottom: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-ring { animation-duration: 2.5s; }
+  .toolbar button { transition: none; }
+}

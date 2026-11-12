@@ -1,0 +1,97 @@
+{
+  "passed": true,
+  "verifiedAt": "2026-11-11T09:48:37.419Z",
+  "file": "temple-diorama.glb",
+  "errors": [],
+  "warnings": [],
+  "checks": [
+    "GLB 2.0 header, total byte length, aligned JSON/BIN chunks",
+    "Every accessor scalar is finite; accessor ranges and declared bounds are valid",
+    "All images and geometry are inside the GLB; no URI or external asset dependencies",
+    "Metallic/roughness PBR materials, valid colors and texture references, embedded normal maps",
+    "Triangle indices, vertex/normal/UV counts, normals and scene transforms are valid",
+    "Three-dimensional bounds; front, rear, roofs, columns, gate, censer, pavilions, trees and extruded lettering",
+    "All mesh nodes are reachable; presentation ground, camera and lights are excluded",
+    "Separate editable .blend source exists"
+  ],
+  "glbBytes": 9801944,
+  "sha256": "38afe02b74db68ca963edc255bd5833587d725036782e4029e329457cacb3724",
+  "generator": "Khronos glTF Blender I/O v5.2.40",
+  "accessors": 532,
+  "checkedNumericValues": 2726456,
+  "blendBytes": 6787430,
+  "meshes": 138,
+  "nodes": 138,
+  "primitives": 138,
+  "exportedVertices": 243616,
+  "triangles": 261068,
+  "materials": 20,
+  "textures": 11,
+  "uniqueEmbeddedImages": 3,
+  "normalMappedMaterials": 11,
+  "embeddedImages": [
+    {
+      "name": "PBR · stone microrelief",
+      "mimeType": "image/png",
+      "width": 256,
+      "height": 256,
+      "bytes": 106221
+    },
+    {
+      "name": "PBR · wood microrelief",
+      "mimeType": "image/png",
+      "width": 256,
+      "height": 256,
+      "bytes": 117078
+    },
+    {
+      "name": "PBR · tile microrelief",
+      "mimeType": "image/png",
+      "width": 256,
+      "height": 256,
+      "bytes": 91267
+    }
+  ],
+  "boundsYUp": {
+    "min": [
+      -6.3,
+      0,
+      -5.9
+    ],
+    "max": [
+      6.3,
+      7.219082,
+      6.18
+    ],
+    "size": [
+      12.6,
+      7.219082,
+      12.08
+    ]
+  },
+  "requiredParts": [
+    "Foundation",
+    "Courtyard paving",
+    "Gate",
+    "Gate roof",
+    "Gate open doors",
+    "Main hall",
+    "Main hall lower roof",
+    "Main hall upper roof",
+    "Main hall rear windows",
+    "Main hall columns",
+    "Main hall brackets",
+    "Main hall steps",
+    "Censer bronze",
+    "Bell pavilion",
+    "Drum pavilion",
+    "Rear left tree",
+    "Rear right tree",
+    "Typography"
+  ],
+  "partCount": 44,
+  "excludedPresentationNodes": true,
+  "externalDependencies": 0,
+  "nearZeroAreaTriangles": 0,
+  "zeroNormals": 0
+}

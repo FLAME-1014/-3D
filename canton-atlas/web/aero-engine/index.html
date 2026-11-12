@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#131718">
+  <meta name="description" content="AERIS 航空动力实验室 — 以交互式 3D 探索涡扇发动机的精密结构、分步拆解与工作原理。">
+  <title>AERIS · 航空动力实验室</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">
+    {"imports":{"three":"./vendor/build/three.module.js","three/addons/controls/OrbitControls.js":"./vendor/controls/OrbitControls.js"}}
+  </script>
+</head>
+<body>
+  <svg class="svg-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="i-logo" viewBox="0 0 32 32"><path d="m16 2 12 7v14l-12 7-12-7V9Z"/><path d="m16 8 7 4v8l-7 4-7-4v-8Z"/><path d="M16 2v6m12 1-5 3m5 11-5-3m-7 10v-6M4 23l5-3M4 9l5 3m7-4v8l7 4m-14 0 7-4"/></symbol>
+      <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9Z"/><path d="m4 7.5 8 4.8 8-4.8m-8 4.8V21"/></symbol>
+      <symbol id="i-flow" viewBox="0 0 24 24"><path d="M3 7h12c5 0 5-5 1-5M3 12h16c4 0 4 6 0 6M3 17h8c4 0 4 5 0 5"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5Zm-9 9 9 5 9-5m-18 5 9 5 9-5"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+      <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5m6 0h5v5m0 6v5h-5m-6 0H4v-5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4 2c-1 .6-1.5 1-1.5 2m0 3h.01"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-cut" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9Zm0 0v18M4 7.5l8 4.5 8-4.5"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="m14 2-9 12h6l-1 8 9-13h-6Z"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      <symbol id="i-mouse" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M12 2v7"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5v16m0-16C9 2 4 3 2 4v15c4-1 7-1 10 2 3-3 6-3 10-2V4c-2-1-7-2-10 1Z"/></symbol>
+      <symbol id="i-fan" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.4"/><circle cx="12" cy="12" r="9"/><path d="m11 9-4-5m8 7 5-4m-7 8 4 5m-8-7-5 4m5-7-5-1m10 0 1-5m0 10 5 1m-10 0-1 5"/></symbol>
+      <symbol id="i-compressor" viewBox="0 0 24 24"><path d="M4 7v10m4-12v14m4-16v18m4-16v14m4-12v10M2 12h20"/></symbol>
+      <symbol id="i-flame" viewBox="0 0 24 24"><path d="M13 2c1 7-4 6-4 11-2-1-2-3-2-4-7 8-1 13 5 13s12-8 1-20Z"/><path d="M12 14c-4 4-2 7 1 7s5-4-1-7Z"/></symbol>
+      <symbol id="i-turbine" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m10 9-4-6 10 2-1 4m0 2 7-1-6 8-2-3m-3 0-3 7-4-9 5-1"/></symbol>
+      <symbol id="i-nozzle" viewBox="0 0 24 24"><path d="M4 5v14m0-14 11 3v8L4 19m11-11 5 1m-5 3h7m-7 4 5-1"/></symbol>
+      <symbol id="i-pipe" viewBox="0 0 24 24"><path d="M3 5h10a4 4 0 0 1 4 4v10m-14-8h7a1 1 0 0 1 1 1v7M2 3v10m7 7h10m-9-13v6m4 1h4"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3Z"/><circle cx="12" cy="13" r="4"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="app-header">
+    <a class="brand" href="./" aria-label="AERIS 航空动力实验室首页">
+      <svg class="brand-mark"><use href="#i-logo"/></svg>
+      <span class="brand-word">AERIS<span class="brand-dot">.</span></span>
+      <span class="brand-divider"></span>
+      <span class="brand-caption">航空动力实验室<span>AEROSPACE EXPLORER</span></span>
+    </a>
+    <nav class="header-nav" aria-label="主要导航">
+      <button class="header-link active" data-mode="explore">探索引擎</button>
+      <button class="header-link" data-mode="principle">原理实验室</button>
+      <button class="header-link" id="open-about">关于项目<svg><use href="#i-arrow"/></svg></button>
+    </nav>
+    <div class="header-actions">
+      <span class="live-status"><i></i> 交互体验已就绪</span>
+      <button class="icon-button" id="open-help" aria-label="操作指南" title="操作指南"><svg><use href="#i-help"/></svg></button>
+      <button class="icon-button mobile-menu" id="mobile-menu" aria-label="展开部件导航" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="发动机导航">
+      <div class="collection-caption"><span>引擎档案</span><span class="mono">COLLECTION 01</span></div>
+      <div class="engine-card">
+        <span class="engine-card-kicker">通用电气 · GE AEROSPACE</span>
+        <div class="engine-card-title">CF6–80C2 <span class="small-tag">涡扇</span></div>
+        <p>高涵道比航空发动机</p>
+        <div class="engine-card-footer"><span><i></i> 交互结构示意模型</span><svg><use href="#i-cube"/></svg></div>
+      </div>
+      <div class="sidebar-label">探索方式 <span>EXPLORE</span></div>
+      <nav class="mode-nav" aria-label="探索方式">
+        <button class="mode-button active" data-mode="explore" aria-pressed="true"><svg><use href="#i-cube"/></svg><span>结构探索</span><span class="mode-shortcut">01</span></button>
+        <button class="mode-button" data-mode="principle" aria-pressed="false"><svg><use href="#i-flow"/></svg><span>工作原理</span><span class="mode-shortcut">02</span></button>
+        <button class="mode-button" data-mode="tour" aria-pressed="false"><svg><use href="#i-layers"/></svg><span>分步拆解</span><span class="mode-shortcut">03</span></button>
+      </nav>
+      <div class="parts-heading"><div class="sidebar-label">核心部件 <span>COMPONENTS</span></div><span class="parts-count">06</span></div>
+      <nav id="parts-list" class="parts-list" aria-label="选择发动机部件"></nav>
+      <div class="sidebar-bottom">
+        <button class="sidebar-help" id="mobile-help"><svg><use href="#i-help"/></svg><span>操作指南</span><svg><use href="#i-arrow"/></svg></button>
+        <div class="learning-card"><div class="learning-icon"><svg><use href="#i-book"/></svg></div><div><strong>让复杂，变得直观。</strong><p>从一个零件，理解一次飞行。</p></div></div>
+        <div class="sidebar-footnote"><span>AERIS ENGINE LAB</span><span>© 2026</span></div>
+      </div>
+    </aside>
+
+    <section class="workspace" id="workspace" aria-label="发动机三维交互展台">
+      <div class="scene-host" id="scene-host" aria-label="三维模型，拖动旋转、滚轮缩放；也可通过部件列表和镜头按钮操作"></div>
+      <div class="stage-grain" aria-hidden="true"></div>
+      <div class="scene-vignette" aria-hidden="true"></div>
+
+      <div class="stage-heading">
+        <div class="breadcrumb"><span>动力系统</span><svg><use href="#i-chevron"/></svg><span>涡扇发动机</span><svg><use href="#i-chevron"/></svg><strong>CF6–80C2</strong></div>
+        <div class="eyebrow"><span class="mint-line"></span> ENGINEERED TO MOVE THE WORLD</div>
+        <h1 id="stage-title">动力，源自精密<span>。</span></h1>
+        <p id="stage-subtitle">穿透表象，探索航空发动机的非凡构造。</p>
+      </div>
+
+      <div class="stage-meta"><span class="live-pill"><i></i> LIVE 3D</span><button class="text-button" id="open-specs"><svg><use href="#i-info"/></svg>技术档案</button></div>
+      <div class="view-switch" aria-label="模型显示模式">
+        <button class="active" id="assembled-view" aria-pressed="true"><svg><use href="#i-cube"/></svg>完整视图</button>
+        <button id="exploded-view" aria-pressed="false"><svg><use href="#i-layers"/></svg>爆炸视图</button>
+      </div>
+      <div class="explode-control" id="explode-control" hidden><label for="explode-range">拆解程度</label><input id="explode-range" type="range" min="0" max="100" value="100" aria-label="拆解程度"><output id="explode-output">100%</output></div>
+
+      <div class="orientation" aria-hidden="true">
+        <svg viewBox="0 0 72 72"><path d="M36 39 36 10" class="axis-y"/><path d="m36 39 24 15" class="axis-x"/><path d="M36 39 12 54" class="axis-z"/><circle cx="36" cy="39" r="3"/><text x="32" y="8">Y</text><text x="62" y="61">X</text><text x="3" y="61">Z</text></svg>
+      </div>
+      <div class="annotation-layer" id="annotations" aria-label="模型部件标注"></div>
+      <div class="hover-tip" id="hover-tip" hidden></div>
+      <div class="model-caption"><span class="caption-cross">+</span><span>CF6–80C2</span><span class="caption-rule"></span><span>HIGH-BYPASS TURBOFAN</span></div>
+
+      <aside class="part-detail" id="part-detail" hidden aria-live="polite">
+        <div class="detail-top"><span id="detail-index">COMPONENT / 01</span><button class="icon-button" id="close-detail" aria-label="关闭部件说明"><svg><use href="#i-close"/></svg></button></div>
+        <button class="detail-back" id="detail-back" hidden><svg><use href="#i-arrow"/></svg>返回所属系统</button>
+        <span class="detail-english" id="detail-english"></span>
+        <h2 id="detail-title"></h2>
+        <p id="detail-description"></p>
+        <div class="detail-stats" id="detail-stats"></div>
+        <div class="detail-principle"><span><svg><use href="#i-spark"/></svg>它如何工作</span><p id="detail-principle"></p></div>
+        <div class="detail-material"><span>主要材质</span><strong id="detail-material"></strong></div>
+        <div class="detail-features" id="detail-features" aria-label="进一步探索关键零件"></div>
+        <button class="detail-focus" id="focus-part">聚焦此部件<svg><use href="#i-arrow"/></svg></button>
+      </aside>
+
+      <section class="principle-panel" id="principle-panel" hidden aria-label="工作原理">
+        <div class="principle-label"><span class="pulse-dot"></span> THE BRAYTON CYCLE <span>布雷顿循环</span></div>
+        <div id="principle-steps" class="principle-steps"></div>
+        <p class="principle-description" id="principle-description"></p>
+        <div class="flow-legend"><span><i class="cool"></i>冷空气 / 外涵道</span><span><i class="warm"></i>高温燃气 / 核心流</span></div>
+      </section>
+
+      <div class="loading-screen" id="loading-screen"><svg class="loading-mark"><use href="#i-logo"/></svg><span>正在构建精密世界</span><span class="loading-line"></span><small>PREPARING YOUR ENGINE</small></div>
+      <div class="scene-error" id="scene-error" hidden><svg><use href="#i-cube"/></svg><h2>3D 展台暂时无法启动</h2><p id="scene-error-message">请使用支持 WebGL 2 的浏览器并开启硬件加速。部件资料仍可在左侧查看。</p><button id="retry-scene">重新加载</button></div>
+
+      <div class="viewer-bottom">
+        <div class="interaction-hint"><svg><use href="#i-mouse"/></svg><span>拖动旋转<span class="hint-dot">·</span>滚轮缩放<span class="hint-dot">·</span>点击探索</span></div>
+        <label class="quality-control" for="quality-select"><span>画质</span><select id="quality-select" aria-label="渲染画质"><option value="auto">自动适配</option><option value="high">细节优先</option><option value="low">流畅优先</option></select></label>
+        <div class="viewer-toolbar" aria-label="三维镜头与显示控制">
+          <button class="tool-button" id="reset-camera" aria-label="重置视角" title="重置视角 · R"><svg><use href="#i-reset"/></svg></button>
+          <span class="toolbar-divider"></span>
+          <button class="tool-button" id="zoom-out" aria-label="缩小" title="缩小"><svg><use href="#i-minus"/></svg></button>
+          <button class="tool-button" id="zoom-in" aria-label="放大" title="放大"><svg><use href="#i-plus"/></svg></button>
+          <span class="toolbar-divider"></span>
+          <button class="tool-button active" id="toggle-cutaway" aria-label="剖面显示" aria-pressed="true" title="切换剖面 · C"><svg><use href="#i-cut"/></svg><span>剖面</span></button>
+          <button class="tool-button active" id="toggle-labels" aria-label="部件标注" aria-pressed="true" title="显示部件标注 · L"><svg><use href="#i-eye"/></svg></button>
+          <span class="toolbar-divider"></span>
+          <button class="tool-button" id="toggle-fullscreen" aria-label="进入全屏" title="全屏 · F"><svg><use href="#i-expand"/></svg></button>
+        </div>
+        <button class="orbit-button" id="auto-orbit" aria-pressed="false"><span class="orbit-symbol">↻</span><span>自动环绕</span></button>
+      </div>
+
+      <footer class="experience-bar" id="experience-bar">
+        <div class="experience-intro"><span class="section-number">01<span>/ 03</span></span><div><h2 id="experience-title">从整体，到每一个细节</h2><p id="experience-description">自由探索，或开启一场有引导的拆解之旅。</p><button class="experience-details" id="toggle-experience-details" hidden>阅读完整讲解<svg><use href="#i-arrow"/></svg></button></div></div>
+        <div class="tour-controls" id="tour-controls" hidden>
+          <button class="tour-prev" id="tour-prev" aria-label="上一步"><svg><use href="#i-chevron"/></svg></button>
+          <div class="tour-progress"><span id="tour-counter">01 / 07</span><div class="tour-dots" id="tour-dots"></div></div>
+          <button class="tour-next" id="tour-next" aria-label="下一步"><svg><use href="#i-chevron"/></svg></button>
+          <button class="tour-play" id="tour-play" aria-label="自动播放拆解"><svg><use href="#i-play"/></svg></button>
+        </div>
+        <button class="primary-button" id="start-tour"><svg><use href="#i-play"/></svg>开始拆解之旅<svg class="button-arrow"><use href="#i-arrow"/></svg></button>
+        <button class="primary-button" id="toggle-running" hidden><svg><use href="#i-pause"/></svg><span>暂停运行</span></button>
+      </footer>
+    </section>
+  </main>
+
+  <dialog class="app-dialog" id="info-dialog">
+    <div class="dialog-top"><span class="dialog-kicker" id="dialog-kicker">AERIS ENGINE LAB</span><button class="icon-button" id="close-dialog" aria-label="关闭弹窗"><svg><use href="#i-close"/></svg></button></div>
+    <div id="dialog-content"></div>
+    <button class="primary-button dialog-done" id="dialog-done">开始探索<svg><use href="#i-arrow"/></svg></button>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

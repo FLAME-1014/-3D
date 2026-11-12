@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ec">
+  <meta name="description" content="设计、代码与一点好奇心。一个可以旋转、探索与编辑的立体作品集。">
+  <title>林间 — 让想象，有形可见。</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">
+    {"imports":{"three":"../blender-workflow/vendor/build/three.module.js","three/addons/":"../blender-workflow/vendor/examples/jsm/"}}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#work">跳到作品</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="返回首页">
+      <svg class="brand-symbol" viewBox="0 0 32 32" aria-hidden="true"><path d="M14 1h4v10l7-7 3 3-7 7h10v4H21l7 7-3 3-7-7v10h-4V21l-7 7-3-3 7-7H1v-4h10L4 7l3-3 7 7Z"/></svg>
+      <span data-profile="name">林间</span><span class="brand-note">独立设计 · 自由探索</span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#work">作品 <span>01</span></a>
+      <a href="#about">关于 <span>02</span></a>
+      <a href="#speaking">演讲 <span>03</span></a>
+    </nav>
+    <button class="edit-trigger" type="button" data-open-editor><span class="edit-icon" aria-hidden="true">✎</span><span>编辑作品集</span></button>
+  </header>
+
+  <main>
+    <section class="hero section-shell" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow hero-eyebrow"><span class="live-dot"></span> 保持好奇，持续创造 <span class="edition">PORTFOLIO / 2026</span></div>
+        <h1 id="hero-title" data-profile="headline">让想象，<br>有形可见。</h1>
+        <p class="hero-intro" data-profile="intro">你好，我是林间。一名在设计与代码之间探索的创作者，把好奇心变成可以触摸的数字体验。</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#work">探索我的作品 <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="#about">多认识我一点 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-location"><span aria-hidden="true">◷</span><span data-profile="location">中国 · 广州</span><span class="location-line"></span><span>用心制作，连接世界</span></div>
+      </div>
+      <div class="portrait-stage">
+        <div class="portrait-orbit" aria-hidden="true"></div>
+        <span class="stage-cross stage-cross-top" aria-hidden="true">+</span>
+        <span class="stage-cross stage-cross-bottom" aria-hidden="true">+</span>
+        <div class="stage-index"><span>FIG. 01</span><span>A DIGITAL ME</span></div>
+        <div class="character-host" id="character-host" role="img" aria-label="可拖动旋转的原创示例三维角色">
+          <img class="character-poster" src="./assets/character-poster.png" alt="奶油色外套、深绿上衣与圆框眼镜的原创示例角色" width="900" height="1000">
+          <div class="model-loading" id="model-loading"><span></span>正在唤醒另一个我</div>
+        </div>
+        <span class="hello-sticker">hello,<br><em>world!</em><svg viewBox="0 0 50 40" aria-hidden="true"><path d="M4 6C28 1 18 31 41 27M34 17l9 11-14 5" /></svg></span>
+        <div class="character-name"><span class="name-dot"></span><span data-profile="latinName">LIN JIAN</span><span class="name-small">IN 3D</span></div>
+        <div class="stage-footer">
+          <span id="model-hint"><span aria-hidden="true">↔</span> 拖动，换个角度认识我</span>
+          <div class="model-tools" aria-label="角色展示控制">
+            <button type="button" id="character-rotate" aria-label="开启角色自动旋转" aria-pressed="false" title="自动旋转">↻</button>
+            <button type="button" id="character-wireframe" aria-label="显示角色线框" aria-pressed="false" title="线框视图">▧</button>
+            <button type="button" id="character-reset" aria-label="恢复角色视角" title="恢复视角">⌖</button>
+            <button type="button" id="character-capture" aria-label="保存角色视图" title="保存视图">↓</button>
+          </div>
+        </div>
+        <span class="demo-note" id="character-demo">原创示例角色 · 等待你的肖像</span>
+      </div>
+    </section>
+
+    <div class="practice-strip section-shell" aria-label="创作领域">
+      <span>以设计思考<span class="strip-en">THINK IN DESIGN</span></span><span class="asterisk" aria-hidden="true">✳</span>
+      <span>用代码表达<span class="strip-en">BUILD WITH CODE</span></span><span class="asterisk" aria-hidden="true">✳</span>
+      <span>让体验发生<span class="strip-en">MAKE IT FEEL</span></span><span class="strip-arrow" aria-hidden="true">↙</span>
+    </div>
+
+    <section class="work-section section-shell" id="work" aria-labelledby="work-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-title">一些想法，<span class="serif">落地成真。</span></h2></div>
+        <p class="section-aside">从城市记忆到微观机械，<br>让屏幕成为探索的入口。<span>三个项目，三种看世界的方式 ↙</span></p>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+      <div class="work-footnote"><span>交互设计 / 创意开发 / 三维视觉</span><span>点击项目，进入完整体验 <span aria-hidden="true">↗</span></span></div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="about-inner section-shell">
+        <div class="about-title">
+          <p class="eyebrow">02 / A LITTLE ABOUT ME</p>
+          <h2 id="about-title">理性构建，<br><span class="serif">感性表达。</span></h2>
+          <svg class="about-flower" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 7c22 0 11 31 23 30s20-18 29 1-25 22-21 33 24 16 9 32-29-15-40-11-19 28-36 14 17-29 10-40S1 59 8 39s29 6 35-4S38 7 60 7Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="60" cy="60" r="14" fill="currentColor"/></svg>
+        </div>
+        <div class="about-copy">
+          <span class="about-label" data-profile="role">设计师 / 创意开发者</span>
+          <p>我喜欢那些跨越边界的创作：<br>设计让技术有温度，代码让想象有形状。</p>
+          <p class="about-detail">这里是一个开放的数字工作室。你可以转动我的数字分身，走进每一件作品，也可以沿着地球上的坐标，发现想法相遇的地方。</p>
+          <div class="skill-tags"><span>Design</span><span>Creative Coding</span><span>Blender</span><span>WebGL</span></div>
+          <a class="about-link" href="./assets/character.blend" download>打开示例角色的创作源文件 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="speaking-section section-shell" id="speaking" aria-labelledby="speaking-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 / IDEAS WITHOUT BORDERS</p><h2 id="speaking-title">让想法，<span class="serif">走远一点。</span></h2></div>
+        <p class="section-aside">屏幕之外，面对面分享。<br>每一次交流，都是新的坐标。<span class="demo-badge" id="events-demo">演讲路线 · 示例数据</span></p>
+      </div>
+      <div class="speaking-layout">
+        <div class="globe-panel">
+          <div class="globe-heading"><span><span class="live-dot"></span> CONNECTING THE DOTS</span><button type="button" id="globe-rotate" aria-pressed="true">暂停旋转 <span aria-hidden="true">Ⅱ</span></button></div>
+          <div id="globe-host" class="globe-host" role="group" aria-label="标出演讲活动的可交互旋转地球仪"></div>
+          <div class="globe-caption"><span>拖动地球探索 · 点击坐标定位</span><span id="globe-coordinates">23.13° N / 113.26° E</span></div>
+          <div class="selected-stop" id="selected-stop" aria-live="polite"></div>
+        </div>
+        <div class="events-panel">
+          <div class="events-heading"><span>分享与相遇 <span id="events-count">06</span></span><div class="event-filters" id="event-filters" aria-label="按年份筛选活动"></div></div>
+          <div id="events-list" class="events-list"></div>
+          <button class="invite-link" type="button" id="invite-speaking">下一站，也许是你的城市。 <span>聊聊合作 ↗</span></button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="section-shell">
+        <div class="footer-top"><p class="eyebrow"><span class="live-dot"></span> GOOD THINGS START WITH A HELLO</p><span>保持开放，期待碰撞。</span></div>
+        <button type="button" class="contact-title" id="contact-button">有个好想法？<br><span class="serif">一起让它发生。</span><span class="contact-arrow" aria-hidden="true">↗</span></button>
+        <div class="footer-bottom"><a class="brand" href="#home"><span class="asterisk" aria-hidden="true">✳</span><span data-profile="name">林间</span></a><span>用设计、代码和好奇心制作。</span><a href="./assets/asset-manifest.json" target="_blank" rel="noopener">素材清单 ↗</a><span id="site-demo">示例作品集 / 2026</span><a href="#home">回到顶部 ↑</a></div>
+      </div>
+    </footer>
+  </main>
+
+  <dialog class="editor-dialog" id="editor-dialog" aria-labelledby="editor-title">
+    <div class="editor-header"><div><span class="eyebrow">MAKE IT YOURS</span><h2 id="editor-title">把这里，变成你的。</h2></div><button type="button" class="icon-button" id="close-editor" aria-label="关闭编辑面板">×</button></div>
+    <p class="editor-description">修改保存在此浏览器。导出配置可备份文字与图片；自定义 GLB 单独保存在本机。</p>
+    <div class="editor-tabs" role="tablist" aria-label="编辑分类">
+      <button type="button" role="tab" id="tab-profile" aria-controls="panel-profile" aria-selected="true" data-tab="profile">个人资料</button>
+      <button type="button" role="tab" id="tab-events" aria-controls="panel-events" aria-selected="false" tabindex="-1" data-tab="events">演讲路线</button>
+      <button type="button" role="tab" id="tab-assets" aria-controls="panel-assets" aria-selected="false" tabindex="-1" data-tab="assets">角色与素材</button>
+    </div>
+    <form id="editor-form">
+      <div class="editor-body">
+        <section id="panel-profile" role="tabpanel" aria-labelledby="tab-profile">
+          <div class="form-grid"><label>姓名<input name="name" maxlength="24" required></label><label>英文名<input name="latinName" maxlength="36" required></label></div>
+          <label>职业 / 身份<input name="role" maxlength="60" required></label>
+          <label>所在城市<input name="location" maxlength="60" required></label>
+          <label>开场标题<textarea name="headline" rows="2" maxlength="50" required></textarea><small>建议两行，每行 4–8 个字。</small></label>
+          <label>个人介绍<textarea name="intro" rows="3" maxlength="240" required></textarea></label>
+          <label>联系邮箱<input name="email" type="email" maxlength="120" placeholder="添加后启用邮件联系"></label>
+        </section>
+        <section id="panel-events" role="tabpanel" aria-labelledby="tab-events" hidden>
+          <div class="events-editor-toolbar"><label>选择活动<select id="edit-event-select"></select></label><button class="small-button" id="add-event" type="button">＋ 添加</button></div>
+          <div id="event-edit-fields">
+            <label>分享主题<input id="event-title" maxlength="100"></label>
+            <div class="form-grid"><label>城市<input id="event-city" maxlength="50"></label><label>国家 / 地区<input id="event-country" maxlength="50"></label></div>
+            <div class="form-grid"><label>日期<input id="event-date" type="date" min="1900-01-01" max="2100-12-31"></label><label>形式<select id="event-type"><option>主题演讲</option><option>工作坊</option><option>设计分享</option><option>技术分享</option><option>设计对谈</option><option>圆桌交流</option></select></label></div>
+            <label>活动 / 场地<input id="event-venue" maxlength="100"></label>
+            <div class="form-grid"><label>纬度<input id="event-lat" type="number" min="-90" max="90" step="any"></label><label>经度<input id="event-lng" type="number" min="-180" max="180" step="any"></label></div>
+            <small>纬度：南负北正；经度：西负东正。保存后同步更新地球坐标。</small>
+            <button type="button" class="delete-event" id="delete-event">删除此活动</button>
+          </div>
+          <p id="empty-editor-events" hidden>还没有活动。添加第一站，开始你的分享路线。</p>
+        </section>
+        <section id="panel-assets" role="tabpanel" aria-labelledby="tab-assets" hidden>
+          <div class="asset-info"><span>01</span><div><strong>你的肖像参考</strong><p>上传照片作为 Blender 建模参考。当前角色是原创示例；上传照片不会自动重建人脸。</p><label class="upload-label" for="portrait-upload">选择肖像照片 ↗</label><input id="portrait-upload" class="visually-hidden" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG / PNG / WebP · 最大 8 MB</small></div><img id="portrait-reference" alt="已上传的肖像建模参考" hidden></div>
+          <div class="asset-info"><span>02</span><div><strong>替换三维角色</strong><p>使用 Blender 导出的自包含 GLB，自动居中适配。模型保存在本机浏览器中。</p><label class="upload-label" for="model-upload">导入 .glb 模型 ↗</label><input id="model-upload" class="visually-hidden" type="file" accept=".glb,model/gltf-binary"><small>GLB · 最大 20 MB · 图片与材质须嵌入</small><p id="custom-model-name">当前：原创示例角色</p><button type="button" class="small-button" id="restore-model">恢复示例模型</button></div></div>
+          <div class="asset-info"><span>03</span><div><strong>角色外套配色</strong><div class="color-options" aria-label="选择角色外套颜色"><button type="button" data-color="#e7dac0" aria-label="奶油白" aria-pressed="true" style="--swatch:#e7dac0"></button><button type="button" data-color="#b6c1a6" aria-label="鼠尾草绿" aria-pressed="false" style="--swatch:#b6c1a6"></button><button type="button" data-color="#c17759" aria-label="陶土橙" aria-pressed="false" style="--swatch:#c17759"></button><button type="button" data-color="#526878" aria-label="雾霾蓝" aria-pressed="false" style="--swatch:#526878"></button></div><small>适用于示例角色或含 Clothing_Jacket 材质的模型。</small></div></div>
+          <div class="asset-downloads"><a href="./assets/character.blend" download>示例 Blender 源文件 ↗</a><a id="download-current-model" href="./assets/character.glb" download="character.glb">当前角色 GLB ↗</a><a href="./assets/asset-manifest.json" target="_blank" rel="noopener">网站素材清单 ↗</a></div>
+          <div class="backup-actions"><button class="small-button" type="button" id="export-content">导出配置 JSON ↓</button><label class="small-button" for="import-content">导入配置 JSON ↑</label><input id="import-content" class="visually-hidden" type="file" accept=".json,application/json"></div>
+        </section>
+        <p class="form-message" id="form-message" role="status"></p>
+      </div>
+      <div class="editor-footer"><span id="save-description">资料与路线在点击保存后生效。</span><button class="button button-dark" id="save-content" type="submit">保存更改 <span aria-hidden="true">↗</span></button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

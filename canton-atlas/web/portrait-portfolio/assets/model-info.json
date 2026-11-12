@@ -1,0 +1,92 @@
+{
+  "name": "Portrait No. 01 — The thoughtful maker",
+  "status": "original-demo",
+  "reference": "none",
+  "likenessClaim": false,
+  "description": "Original stylized half-body character. No portrait was supplied; this asset is not a likeness reconstruction.",
+  "workflow": "Blender Python → editable .blend → self-contained PBR .glb → Three.js",
+  "generator": "scripts/build_portfolio_character.py",
+  "assets": {
+    "blend": "character.blend",
+    "glb": "character.glb",
+    "poster": "character-poster.png"
+  },
+  "axes": {
+    "blenderUp": "+Z",
+    "blenderFront": "-Y",
+    "gltfUp": "+Y",
+    "gltfFront": "+Z"
+  },
+  "origin": "Torso center, feet/bust base at z=0",
+  "dimensionsBlender": [
+    2.07561,
+    1.04629,
+    3.22367
+  ],
+  "boundsBlender": {
+    "min": [
+      -1.03632,
+      -0.58529,
+      0.0
+    ],
+    "max": [
+      1.03929,
+      0.461,
+      3.22367
+    ]
+  },
+  "meshCount": 130,
+  "triangleCount": 130256,
+  "materialNames": [
+    "Clothing_ForestKnit",
+    "Clothing_HornButtons",
+    "Clothing_Jacket",
+    "Clothing_KnitRibbing",
+    "Clothing_Lapel",
+    "Clothing_Seams",
+    "Details_BrushedBrass",
+    "Eyes_Catchlight",
+    "Eyes_Hazel",
+    "Eyes_Pupil",
+    "Eyes_WarmIvory",
+    "Face_Lips",
+    "Face_SoftCreases",
+    "Glasses_Charcoal",
+    "Glasses_ClearLenses",
+    "Hair_Chestnut",
+    "Hair_SculptedHighlights",
+    "Skin_EarRecess",
+    "Skin_WarmTerracotta"
+  ],
+  "recolorMaterial": "Clothing_Jacket",
+  "recommendedCameraGltf": {
+    "position": [
+      3.8,
+      4.2,
+      9.8
+    ],
+    "target": [
+      0,
+      1.62,
+      0.015
+    ],
+    "orthographicHeight": 3.65
+  },
+  "poster": {
+    "width": 1200,
+    "height": 1500,
+    "transparent": true
+  },
+  "files": {
+    "character.blend": {
+      "bytes": 818267
+    },
+    "character.glb": {
+      "bytes": 2520452
+    },
+    "character-poster.png": {
+      "bytes": 1213610
+    }
+  },
+  "generatedInSeconds": 26.07
+}

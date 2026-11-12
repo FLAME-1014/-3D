@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "preparedAt": "2026-11-11",
+  "portfolioRoot": "canton-atlas/web/portrait-portfolio",
+  "rightsNotice": "本清单中的项目封面与链接均整合自工作区已有资产；本次未新增核实其作者、版权归属或第三方授权。整合不表示授予新的使用许可。",
+  "demoNotice": "林间 / LIN JIAN 为示例身份。姓名、职业、自述、城市与全部演讲活动均为演示内容，不代表真人履历、实际主办方或真实出席记录。三维人物为原创示例，肖像参考为 none，不是用户肖像重建。项目链接指向工作区现有项目页面。",
+  "assets": [
+    {
+      "id": "canton-atlas-cover",
+      "path": "assets/projects/canton-atlas.jpg",
+      "source": "canton-atlas/web/assets/museum/canton-tower.jpg",
+      "purpose": "广州立体志项目卡封面",
+      "mimeType": "image/jpeg",
+      "width": 1000,
+      "height": 936,
+      "bytes": 51306,
+      "processing": "保留原图构图及原站地标标注，将 831 × 778 像素图像缩放为 1000 × 936，并以 JPEG 质量 88 重编码。未生成或补绘图像。",
+      "rightsStatus": "工作区已有资产，权属未新增核实",
+      "projectUrl": "../museum.html"
+    },
+    {
+      "id": "aeris-engine-cover",
+      "path": "assets/projects/aeris-engine.jpg",
+      "source": "output/aero-engine/desktop.png",
+      "purpose": "AERIS 航空动力项目卡封面",
+      "mimeType": "image/jpeg",
+      "width": 1000,
+      "height": 530,
+      "bytes": 110655,
+      "processing": "从 1440 × 1000 现有页面截图裁取 x=285、y=285、宽 1000、高 530 的发动机区域，以 JPEG 质量 88 重编码。裁去导航、侧栏与底部栏，保留截图中原有部件标注及少量完整的视图控件，未生成或补绘图像。",
+      "rightsStatus": "工作区已有资产，权属未新增核实",
+      "projectUrl": "../aero-engine/"
+    },
+    {
+      "id": "temple-diorama-cover",
+      "path": "assets/projects/temple-diorama.jpg",
+      "source": "canton-atlas/web/temple-diorama/temple-diorama-1080.png",
+      "purpose": "微缩东方项目卡封面",
+      "mimeType": "image/jpeg",
+      "width": 1000,
+      "height": 833,
+      "bytes": 113796,
+      "processing": "从 1080 × 1080 现有模型渲染图裁取 x=0、y=180、宽 1080、高 900 的区域，去除顶部标题，缩放至 1000 × 833，并以 JPEG 质量 88 重编码。未生成或补绘图像。",
+      "rightsStatus": "工作区已有资产，权属未新增核实",
+      "projectUrl": "../temple-diorama/",
+      "relatedWorkspaceAssets": [
+        "canton-atlas/web/temple-diorama/temple-diorama.glb",
+        "canton-atlas/web/temple-diorama/temple-diorama.blend"
+      ]
+    },
+    {
+      "id": "globe-land",
+      "path": "assets/globe-land.geojson",
+      "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson",
+      "purpose": "旋转地球仪陆地轮廓及 SVG 地图回退",
+      "mimeType": "application/geo+json",
+      "dataset": "Natural Earth 1:110m physical vectors / land",
+      "rightsStatus": "Public domain",
+      "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "localSourceRecord": "assets/globe-land-source.txt",
+      "notes": "仅提供地理轮廓，不包含任何演讲活动信息。"
+    },
+    {
+      "id": "character-blender-source",
+      "path": "assets/character.blend",
+      "source": "scripts/build_portfolio_character.py",
+      "purpose": "可编辑的 Blender 角色源文件",
+      "mimeType": "application/x-blender",
+      "status": "original-demo",
+      "reference": "none",
+      "likenessClaim": false,
+      "rightsStatus": "本次程序化创建的原创示例，未使用真人肖像参考"
+    },
+    {
+      "id": "character-webgl-model",
+      "path": "assets/character.glb",
+      "source": "canton-atlas/web/portrait-portfolio/assets/character.blend",
+      "purpose": "作品集 WebGL 角色模型",
+      "mimeType": "model/gltf-binary",
+      "status": "original-demo",
+      "reference": "none",
+      "likenessClaim": false,
+      "rightsStatus": "本次程序化创建的原创示例，未使用真人肖像参考"
+    },
+    {
+      "id": "character-poster",
+      "path": "assets/character-poster.png",
+      "source": "canton-atlas/web/portrait-portfolio/assets/character.blend",
+      "purpose": "角色预览及 WebGL 不可用时的静态替代图",
+      "mimeType": "image/png",
+      "status": "original-demo",
+      "reference": "none",
+      "likenessClaim": false,
+      "rightsStatus": "本次原创示例角色的 Blender 渲染图"
+    },
+    {
+      "id": "character-model-info",
+      "path": "assets/model-info.json",
+      "source": "scripts/build_portfolio_character.py",
+      "purpose": "角色生成工作流、材质、轴向与模型统计记录",
+      "mimeType": "application/json",
+      "status": "original-demo",
+      "reference": "none",
+      "likenessClaim": false,
+      "rightsStatus": "本次生成的原创示例模型元数据"
+    }
+  ],
+  "content": {
+    "source": "data.js",
+    "demo": true,
+    "identityStatus": "示例人物资料，未与用户肖像建立身份对应",
+    "eventStatus": "六个虚构活动示例，每个活动的 venue 均明确标注「演示活动」",
+    "eventCities": ["广州", "上海", "东京", "新加坡", "阿姆斯特丹", "伦敦"],
+    "coordinates": "城市中心的近似坐标，仅用于地球仪展示",
+    "email": "留空，待用户提供真实联系方式"
+  }
+}

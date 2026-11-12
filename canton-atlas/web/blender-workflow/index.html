@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>海滨酒店 · Blender × Three.js</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/build/three.module.js",
+          "three/addons/": "./vendor/examples/jsm/"
+        }
+      }
+    </script>
+    <link rel="icon" href="data:,">
+  </head>
+  <body>
+    <main class="frame">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">BLENDER → GLB → THREE.JS</p>
+          <h1>海岸之间 <span>Seaside House</span></h1>
+        </div>
+        <div class="badge"><i></i> 交互式建筑模型</div>
+      </header>
+      <section class="viewer" aria-label="可交互的海滨酒店三维模型">
+        <div id="scene"></div>
+        <div class="help">拖动旋转 · 滚轮缩放 · 右键平移 · 点击建筑查看信息</div>
+        <aside class="info" id="info" aria-live="polite">
+          <button class="close" id="close" aria-label="关闭建筑信息">×</button>
+          <p class="eyebrow">ARCHITECTURE / 01</p>
+          <h2>海岸之间 · 海滨酒店</h2>
+          <p>一座以温暖砂岩、红陶屋檐与海蓝玻璃为主材的低层滨海度假建筑。</p>
+          <dl>
+            <div><dt>建筑类型</dt><dd>滨海精品酒店</dd></div>
+            <div><dt>结构意向</dt><dd>三层主体 + 玻璃中庭</dd></div>
+            <div><dt>模型风格</dt><dd>Low Poly · 低面数</dd></div>
+          </dl>
+        </aside>
+        <div class="status" id="status">正在加载 3D 模型…</div>
+      </section>
+      <footer><span>程序化建模 · Blender 5.2</span><span>GLB / PBR 材质 / OrbitControls</span></footer>
+    </main>
+    <script type="module" src="./viewer.js"></script>
+  </body>
+</html>

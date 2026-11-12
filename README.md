@@ -1,5 +1,13 @@
 # Canton Atlas 开发工作区
 
+## 肖像 × WebGL 编辑式作品集
+
+新增独立入口 `/portrait-portfolio/`：真实 Blender 半身角色、杂志式项目编排、可旋转的演讲地球仪，以及本机资料编辑、活动坐标维护、GLB 替换、JSON 备份。运行 `npm run dev:portfolio` 后访问 http://127.0.0.1:4192/portrait-portfolio/；运行 `npm run test:portfolio` 验证。当前未收到肖像照片及演讲清单，人物、身份与活动明确标为示例，未宣称真人相似度。三个项目链接接入工作区已有作品。完整使用与资产说明见 [作品集 README](canton-atlas/web/portrait-portfolio/README.md)。
+
+## AERIS 航空发动机交互展台
+
+新增独立页面 `/aero-engine/`，包含 Three.js 发动机模型、部件探索、爆炸视图、七步拆解与气流原理演示。运行 `npm run dev:engine` 后访问 http://127.0.0.1:4190/aero-engine/；详细使用方式与模型准确性说明见 [展台 README](canton-atlas/web/aero-engine/README.md)。验证命令为 `npm run test:engine`。
+
 当前项目是待继续开发的原型。历史验收记录不代表产品或模型质量已完成。
 
 ## 3D 地标博物馆 H5

@@ -1,0 +1,77 @@
+{
+  "kind": "true 3D mesh asset",
+  "meshes": 138,
+  "vertices": 138862,
+  "triangles": 261068,
+  "material_count": 20,
+  "embedded_normal_textures": 3,
+  "blender_bounds": {
+    "min": [
+      -6.300000190734863,
+      -6.179999828338623,
+      0.0
+    ],
+    "max": [
+      6.300000190734863,
+      5.900000095367432,
+      7.219082355499268
+    ]
+  },
+  "size": [
+    12.600000381469727,
+    12.079999923706055,
+    7.219082355499268
+  ],
+  "default_camera": {
+    "projection": "orthographic",
+    "elevation_degrees": 45,
+    "azimuth_degrees": 45
+  },
+  "parts": [
+    "Bell pavilion",
+    "Bell pavilion roof",
+    "Censer",
+    "Censer bronze",
+    "Censer incense",
+    "Courtyard",
+    "Courtyard paving",
+    "Drum pavilion",
+    "Drum pavilion roof",
+    "Foundation",
+    "Front left bonsai",
+    "Front right bonsai",
+    "Garden stones",
+    "Gate",
+    "Gate beams",
+    "Gate brackets",
+    "Gate columns",
+    "Gate door studs",
+    "Gate open doors",
+    "Gate roof",
+    "Gate steps",
+    "Main hall",
+    "Main hall balustrade",
+    "Main hall beams",
+    "Main hall brackets",
+    "Main hall columns",
+    "Main hall doors",
+    "Main hall lower roof",
+    "Main hall platform",
+    "Main hall rafters",
+    "Main hall rear windows",
+    "Main hall screens",
+    "Main hall steps",
+    "Main hall upper roof",
+    "Main hall woodwork",
+    "Perimeter",
+    "Perimeter coping",
+    "Perimeter tiles",
+    "Rear left tree",
+    "Rear right tree",
+    "Roof finial",
+    "Stone lanterns",
+    "Typography",
+    "Upper storey screens"
+  ],
+  "build_seconds": 9.59
+}

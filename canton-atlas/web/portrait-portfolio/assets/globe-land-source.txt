@@ -1,0 +1,9 @@
+Asset: globe-land.geojson
+Dataset: Natural Earth, 1:110m physical vectors / land
+Source: https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson
+License: Public domain — https://www.naturalearthdata.com/about/terms-of-use/
+Downloaded: 2026-11-11
+
+This is geographic geometry only. Speaking events are supplied separately by the
+portfolio application; no event names, locations, or dates come from this dataset.
+The local GeoJSON is used by both the Three.js globe and its SVG map fallback.

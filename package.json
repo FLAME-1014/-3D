@@ -3,8 +3,12 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/preview.mjs",
+    "dev:engine": "node scripts/preview.mjs --engine",
+    "dev:portfolio": "node scripts/preview.mjs --portfolio",
     "check": "node scripts/check.mjs",
-    "test": "node --test scripts/*.test.mjs"
+    "test": "node --test scripts/*.test.mjs",
+    "test:engine": "node scripts/verify-aero-engine.mjs",
+    "test:portfolio": "node scripts/verify-portrait-portfolio.mjs"
   },
   "engines": {
     "node": ">=18"

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#191b1b">
+  <meta name="description" content="走近精密制表的世界。在浏览器中旋转、拆解和探索 IWC 葡萄牙系列自动腕表 40 的交互式三维研究模型。">
+  <title>IWC · 时间的构造 | The Digital Atelier</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">
+    {"imports":{"three":"./vendor/build/three.module.js","three/addons/controls/OrbitControls.js":"./vendor/controls/OrbitControls.js"}}
+  </script>
+</head>
+<body>
+  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+      <symbol id="icon-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(-35 12 12)"/><path d="m16 4 2 1-1 3"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="icon-reset" viewBox="0 0 24 24"><path d="M4 9a8 8 0 1 1 0 7M4 3v6h6"/></symbol>
+      <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M4 9V4h5m6 0h5v5m0 6v5h-5M9 20H4v-5"/></symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M5 12h14m-7-7v14"/></symbol>
+      <symbol id="icon-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      <symbol id="icon-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5Zm-9 9 9 5 9-5m-18 5 9 5 9-5"/></symbol>
+      <symbol id="icon-watch" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="m8 5 1-4h6l1 4M8 19l1 4h6l1-4M12 8v4l3 2m4-4h2v4h-2"/></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx=".5"/><rect x="15" y="3" width="6" height="6" rx=".5"/><rect x="3" y="15" width="6" height="6" rx=".5"/><rect x="15" y="15" width="6" height="6" rx=".5"/></symbol>
+      <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="icon-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 8a2.5 2.5 0 1 1 3.5 3c-1 .5-1 1.2-1 2m0 3h.01"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="icon-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></symbol>
+      <symbol id="icon-gear" viewBox="0 0 24 24"><path d="m9 3 1-2h4l1 2 3 2 2 1 2 4-2 2v3l-1 3-3 1-2 3h-4l-2-3-3-1-1-3v-3l-2-2 2-4 2-1Z"/><circle cx="12" cy="12" r="4"/></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/></symbol>
+      <symbol id="icon-mouse" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M12 2v7"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="header">
+    <a class="brand" href="./" aria-label="IWC 时间的构造首页">
+      <span class="brand-name">IWC</span>
+      <span class="brand-origin">SCHAFFHAUSEN</span>
+    </a>
+    <div class="header-separator"></div>
+    <div class="atelier-label">THE DIGITAL ATELIER<span>数字制表工坊</span></div>
+    <nav class="main-nav" aria-label="主要导航">
+      <button class="nav-link active" id="nav-watch" aria-current="page">腕表鉴赏</button>
+      <button class="nav-link" id="nav-movement">机芯探索</button>
+      <button class="nav-link" id="nav-craft">工艺档案 <span>↗</span></button>
+    </nav>
+    <button class="help-button" id="help-button" aria-label="查看操作指南"><svg><use href="#icon-help"/></svg><span>操作指南</span></button>
+  </header>
+
+  <main>
+    <section class="experience" id="experience" aria-label="腕表三维互动体验">
+      <div class="ambient-word" aria-hidden="true">PORTUGIESER</div>
+      <div class="scene-grain" aria-hidden="true"></div>
+      <div class="scene-topline"><span>SWISS PRECISION. EVERY DETAIL.</span><span class="scene-edition">INTERACTIVE STUDY &nbsp; / &nbsp; Nº 01</span></div>
+
+      <div class="intro" id="intro">
+        <div class="eyebrow"><span></span> 时间的构造</div>
+        <h1>每一秒，<br>皆有章法<span>。</span></h1>
+        <p class="intro-description">从一枚指针，到一整个机械宇宙。<br>亲手探索，藏于方寸之间的精密艺术。</p>
+        <div class="watch-name">
+          <span class="watch-name-en">PORTUGIESER</span>
+          <h2>葡萄牙系列自动腕表 40</h2>
+          <span class="reference">REF. IW358303</span>
+        </div>
+        <button class="discover-button" id="discover-button"><span>探索内部构造</span><svg><use href="#icon-arrow"/></svg></button>
+        <div class="live-clock"><span class="live-dot"></span><time id="live-time">--:--:--</time><span id="clock-label">本地时间 · 实时运转</span></div>
+      </div>
+
+      <div class="viewport" id="viewport" role="img" aria-label="可旋转、缩放、拆解的 IWC 葡萄牙系列三维腕表" tabindex="0">
+        <div class="loading" id="loading"><span class="loading-watch"><i></i></span><span>正在装配您的腕表</span><small>PRECISION TAKES A MOMENT</small></div>
+        <div class="webgl-error" id="webgl-error" hidden><h2>暂时无法开启 3D 体验</h2><p>此体验需要浏览器支持 WebGL 2。请启用硬件加速后重新打开。</p><button id="retry-button">重新载入</button></div>
+      </div>
+
+      <div class="view-selector" aria-label="预设观察视角">
+        <span class="side-label">PERSPECTIVE</span>
+        <button class="view-button active" data-view="hero" title="经典视角" aria-label="经典视角" aria-pressed="true"><span class="view-glyph glyph-perspective"></span><small>经典</small></button>
+        <button class="view-button" data-view="front" title="正面表盘" aria-label="正面表盘" aria-pressed="false"><span class="view-glyph glyph-front"></span><small>正面</small></button>
+        <button class="view-button" data-view="back" title="透底机芯" aria-label="透底机芯" aria-pressed="false"><span class="view-glyph glyph-back"></span><small>背面</small></button>
+        <button class="view-button" data-view="side" title="侧面表壳" aria-label="侧面表壳" aria-pressed="false"><span class="view-glyph glyph-side"></span><small>侧面</small></button>
+      </div>
+
+      <div class="scene-caption" id="scene-caption"><span class="caption-number">01</span><span class="caption-line"></span><span id="view-caption">经典视角</span><span class="caption-en" id="view-caption-en">THE COMPLETE TIMEPIECE</span></div>
+      <div class="scene-tools" role="toolbar" aria-label="三维视图工具">
+        <button id="auto-rotate" aria-label="自动旋转" title="自动旋转" aria-pressed="false"><svg><use href="#icon-orbit"/></svg></button>
+        <span class="tool-divider"></span>
+        <button id="zoom-out" aria-label="缩小" title="缩小"><svg><use href="#icon-minus"/></svg></button>
+        <button id="zoom-in" aria-label="放大" title="放大"><svg><use href="#icon-plus"/></svg></button>
+        <span class="tool-divider"></span>
+        <button id="reset-view" aria-label="重置视角与装配" title="重置视角与装配"><svg><use href="#icon-reset"/></svg></button>
+        <button id="fullscreen" aria-label="全屏观看" title="全屏观看"><svg><use href="#icon-expand"/></svg></button>
+      </div>
+      <div class="gesture-hint"><svg><use href="#icon-mouse"/></svg><span>拖动旋转</span><i>·</i><span>滚轮缩放</span><i>·</i><span>点击探索零件</span></div>
+      <div class="quality-indicator" id="quality-indicator"><span></span><span id="quality-label">精细渲染</span></div>
+      <button class="return-button" id="return-button" hidden><span>←</span> 返回完整腕表</button>
+
+      <aside class="part-card" id="part-card" aria-label="当前部件详情" hidden>
+        <div class="part-card-top"><span id="part-index">COMPONENT / 01</span><button id="close-part" aria-label="关闭部件详情"><svg><use href="#icon-close"/></svg></button></div>
+        <span class="part-category" id="part-category">精密部件</span>
+        <h3 id="part-name">蓝宝石玻璃表镜</h3>
+        <p class="part-name-en" id="part-name-en">SAPPHIRE CRYSTAL</p>
+        <p class="part-description" id="part-description"></p>
+        <dl><div><dt>材质</dt><dd id="part-material"></dd></div><div id="part-dimension-row"><dt>规格</dt><dd id="part-dimensions"></dd></div></dl>
+        <div class="part-actions"><button id="isolate-part"><svg><use href="#icon-eye"/></svg>单独查看</button><button id="separate-part"><svg><use href="#icon-layers"/></svg><span>分离部件</span></button></div>
+      </aside>
+    </section>
+
+    <section class="workbench" aria-label="拆解工作台">
+      <div class="workbench-intro"><span class="section-kicker">BEYOND THE DIAL</span><h2>不止于所见<span>。</span></h2><p>让精密，层层展开。</p></div>
+      <div class="assembly-controls">
+        <div class="assembly-toggle" role="group" aria-label="装配模式">
+          <button id="assembled-button" class="active" aria-pressed="true"><svg><use href="#icon-watch"/></svg>完整腕表</button>
+          <button id="exploded-button" aria-pressed="false"><svg><use href="#icon-layers"/></svg>拆解探索</button>
+        </div>
+        <div class="explosion-heading"><label for="explosion">拆解进度</label><output id="explosion-value" for="explosion">0<span>%</span></output></div>
+        <input id="explosion" type="range" min="0" max="100" value="0" step="1" aria-label="拆解进度">
+        <div class="slider-labels"><span>完整装配</span><span>完全拆解</span></div>
+      </div>
+      <div class="bench-divider"></div>
+      <div class="component-entry">
+        <div class="component-entry-heading"><span class="section-kicker">EVERY PART MATTERS</span><span class="part-count" id="part-count">— PARTS</span></div>
+        <button class="component-button" id="components-button"><span class="component-icon"><svg><use href="#icon-grid"/></svg></span><span><strong>零件图鉴</strong><small>逐一发现，每一处匠心</small></span><svg class="component-arrow"><use href="#icon-arrow"/></svg></button>
+      </div>
+    </section>
+
+    <section class="spec-strip" aria-label="腕表参考规格">
+      <div class="spec-item"><span class="spec-index">01 / DIMENSION</span><span class="spec-value">40.4 <small>mm</small></span><span class="spec-name">经典表径，恰如其分</span><svg class="spec-art" viewBox="0 0 80 64" aria-hidden="true"><circle cx="40" cy="32" r="23"/><path d="M10 9v46M70 9v46M10 15h60m-60-4v8m60-8v8M30 9V3h20v6M30 55v6h20v-6"/><path d="m40 20 0 12 12 6"/></svg></div>
+      <div class="spec-item"><span class="spec-index">02 / RESERVE</span><span class="spec-value">60 <small>hours</small></span><span class="spec-name">自动上链，蓄力时光</span><svg class="spec-art" viewBox="0 0 80 64" aria-hidden="true"><path d="M40 8a24 24 0 1 1-24 24M16 8v24h24"/><path d="M40 18v14l10 7"/><circle cx="40" cy="32" r="3"/></svg></div>
+      <div class="spec-item"><span class="spec-index">03 / CALIBRE</span><span class="spec-value">82200</span><span class="spec-name">自制机芯，精密律动</span><svg class="spec-art" viewBox="0 0 80 64" aria-hidden="true"><circle cx="40" cy="32" r="21"/><circle cx="40" cy="32" r="13"/><circle cx="40" cy="32" r="4"/><path d="M40 4v7m0 42v7M12 32h7m42 0h7M20 12l5 5m30 30 5 5M20 52l5-5m30-30 5-5M40 19v9m0 8v9M27 32h9m8 0h9"/></svg></div>
+    </section>
+  </main>
+
+  <footer class="footer"><span>IWC SCHAFFHAUSEN <i>·</i> ENGINEERING TIME SINCE 1868</span><span>独立交互研究作品 <i>/</i> 非官方产品展示</span><button id="model-notes">关于此模型 <span>↗</span></button></footer>
+
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <aside class="components-drawer" id="components-drawer" aria-label="零件图鉴" role="dialog" aria-modal="true" hidden>
+    <div class="drawer-heading"><div><span class="section-kicker">THE ANATOMY OF TIME</span><h2>零件图鉴<span id="drawer-count"></span></h2></div><button class="round-close" id="close-components" aria-label="关闭零件图鉴"><svg><use href="#icon-close"/></svg></button></div>
+    <p class="drawer-intro">每个部件各司其职，让时间有迹可循。</p>
+    <label class="part-search"><svg><use href="#icon-search"/></svg><input id="part-search" type="search" aria-label="搜索零件或材质" placeholder="搜索部件、材质…" autocomplete="off"><span>⌕</span></label>
+    <div class="part-filters" role="group" aria-label="零件分类"><button class="active" data-filter="all" aria-pressed="true">全部</button><button data-filter="exterior" aria-pressed="false">表壳</button><button data-filter="dial" aria-pressed="false">表盘</button><button data-filter="movement" aria-pressed="false">机芯</button><button data-filter="strap" aria-pressed="false">表带</button></div>
+    <div class="parts-list" id="parts-list"></div>
+    <div class="drawer-footer"><svg><use href="#icon-eye"/></svg><span>点击部件查看详情，再选择「单独查看」</span></div>
+  </aside>
+
+  <dialog class="info-dialog" id="info-dialog" aria-label="工坊说明">
+    <div class="dialog-top"><span class="section-kicker" id="dialog-kicker">THE DIGITAL ATELIER</span><button class="round-close" id="close-dialog" aria-label="关闭"><svg><use href="#icon-close"/></svg></button></div>
+    <div id="dialog-content"></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
