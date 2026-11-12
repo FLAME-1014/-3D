@@ -4,6 +4,8 @@
 
 新增独立入口 `/portrait-portfolio/`：真实 Blender 半身角色、杂志式项目编排、可旋转的演讲地球仪，以及本机资料编辑、活动坐标维护、GLB 替换、JSON 备份。运行 `npm run dev:portfolio` 后访问 http://127.0.0.1:4192/portrait-portfolio/；运行 `npm run test:portfolio` 验证。当前未收到肖像照片及演讲清单，人物、身份与活动明确标为示例，未宣称真人相似度。三个项目链接接入工作区已有作品。完整使用与资产说明见 [作品集 README](canton-atlas/web/portrait-portfolio/README.md)。
 
+GitHub Pages 由 `.github/workflows/pages.yml` 发布：仅上传 `canton-atlas/web`，每次推送 `main` 或手动运行工作流都会触发。仓库管理员首次需要在 GitHub 的 `Settings → Pages` 中选择 `GitHub Actions` 作为发布来源。项目站地址通常为 `https://<用户名>.github.io/<仓库名>/portrait-portfolio/`；若仓库私有，还需账户与仓库套餐支持 Pages。
+
 ## AERIS 航空发动机交互展台
 
 新增独立页面 `/aero-engine/`，包含 Three.js 发动机模型、部件探索、爆炸视图、七步拆解与气流原理演示。运行 `npm run dev:engine` 后访问 http://127.0.0.1:4190/aero-engine/；详细使用方式与模型准确性说明见 [展台 README](canton-atlas/web/aero-engine/README.md)。验证命令为 `npm run test:engine`。
