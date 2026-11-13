@@ -1,0 +1,836 @@
+{
+  "stage": "05",
+  "shop": "stamping",
+  "errors": [],
+  "diagnostic": {
+    "shop": "stamping",
+    "time": 34.2,
+    "playing": false,
+    "speed": 1,
+    "rendererCount": 1,
+    "loopCount": 1,
+    "clockCount": 1,
+    "worldCount": 1,
+    "viewport": [
+      1600,
+      1000
+    ],
+    "quality": "balanced",
+    "renderScale": 0.65,
+    "drawCalls": 844,
+    "triangles": 430225,
+    "geometries": 292,
+    "textures": 49,
+    "frameMs": 14.699999999254942,
+    "frameIntervals": [
+      33.299999999999955,
+      33.40000000000009,
+      16.59999999999991
+    ],
+    "frames": 5,
+    "robots": 2,
+    "disposedWorlds": 0,
+    "lodCounts": {
+      "proxy": 8,
+      "low": 0,
+      "medium": 0,
+      "original": 0
+    },
+    "details": {
+      "upstreamParts": [
+        {
+          "id": "SP-SIDE-L-01010",
+          "x": -28.320591728754987,
+          "y": 1.62,
+          "stage": "落料 → 拆垛"
+        },
+        {
+          "id": "SP-SIDE-L-01009",
+          "x": -22.678157060408502,
+          "y": 1.7043650345129149,
+          "stage": "单张清洗 → 对中"
+        }
+      ],
+      "reelAngle": -39.31034482758621,
+      "blankingStroke": 0,
+      "scrapInstances": 48,
+      "lod": {
+        "active": {
+          "proxy": 8,
+          "low": 0,
+          "medium": 0,
+          "original": 0
+        },
+        "residentVariants": 8,
+        "residentRobotOriginals": 0,
+        "residentTriangles": 1440,
+        "residentGeometries": 30,
+        "residentWorldTriangles": 148838,
+        "residentWorldGeometries": 303,
+        "wallSeconds": 2.4635,
+        "models": [
+          {
+            "id": "PACK-ROBOT-1",
+            "kind": "robot",
+            "visible": true,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 72,
+                "geometries": 6
+              }
+            ]
+          },
+          {
+            "id": "PACK-ROBOT-2",
+            "kind": "robot",
+            "visible": true,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 72,
+                "geometries": 6
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-01008",
+            "kind": "panel",
+            "visible": true,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-01007",
+            "kind": "panel",
+            "visible": true,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-01006",
+            "kind": "panel",
+            "visible": true,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-01005",
+            "kind": "panel",
+            "visible": true,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-01004",
+            "kind": "panel",
+            "visible": true,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-01003",
+            "kind": "panel",
+            "visible": true,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          }
+        ]
+      },
+      "robotTools": [
+        {
+          "id": "PACK-ROBOT-1",
+          "level": "proxy",
+          "tool": [
+            33,
+            3.03,
+            -4.4
+          ],
+          "jointOrigins": [
+            [
+              0,
+              0.38,
+              0
+            ],
+            [
+              0,
+              1.1,
+              0
+            ],
+            [
+              0,
+              1.3,
+              0
+            ],
+            [
+              0,
+              1.25,
+              0
+            ],
+            [
+              0,
+              0.22,
+              0
+            ],
+            [
+              0,
+              0.17,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "PACK-ROBOT-2",
+          "level": "proxy",
+          "tool": [
+            34.65763371954336,
+            2.790062926843935,
+            6.027578015333127
+          ],
+          "jointOrigins": [
+            [
+              0,
+              0.38,
+              0
+            ],
+            [
+              0,
+              1.1,
+              0
+            ],
+            [
+              0,
+              1.3,
+              0
+            ],
+            [
+              0,
+              1.25,
+              0
+            ],
+            [
+              0,
+              0.22,
+              0
+            ],
+            [
+              0,
+              0.17,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    "pickableScreens": [
+      {
+        "id": "COIL",
+        "name": "钢卷鞍座库",
+        "station": 0,
+        "x": 461.0178984343375,
+        "y": 408.57639252844115,
+        "visible": true
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "station": 0,
+        "x": 498.4602232790065,
+        "y": 388.5241700984894,
+        "visible": true
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷 · 矫平 · 落料线",
+        "station": 1,
+        "x": 550.4040575625233,
+        "y": 439.4136000765873,
+        "visible": true
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "station": 1,
+        "x": 529.6992198591736,
+        "y": 434.1592242016402,
+        "visible": true
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "station": 1,
+        "x": 571.9642376502262,
+        "y": 439.0912460430504,
+        "visible": true
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "station": 2,
+        "x": 610.2300029876222,
+        "y": 460.31321949024976,
+        "visible": true
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "station": 2,
+        "x": 622.9335243484633,
+        "y": 462.066355233105,
+        "visible": true
+      },
+      {
+        "id": "OP10",
+        "name": "OP10 拉延",
+        "station": 3,
+        "x": 691.1673289170103,
+        "y": 454.4593190754154,
+        "visible": true
+      },
+      {
+        "id": "OP20",
+        "name": "OP20 修边冲孔",
+        "station": 4,
+        "x": 765.9963573163564,
+        "y": 476.83464259341076,
+        "visible": true
+      },
+      {
+        "id": "OP30",
+        "name": "OP30 修边整形",
+        "station": 5,
+        "x": 846.5947757202694,
+        "y": 500.9351250586095,
+        "visible": true
+      },
+      {
+        "id": "OP40",
+        "name": "OP40 冲孔翻边切断",
+        "station": 6,
+        "x": 933.6565761247781,
+        "y": 526.9682834702593,
+        "visible": true
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "station": 3,
+        "x": 733.8287965079527,
+        "y": 468.1237240350146,
+        "visible": true
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "左线装框机器人",
+        "station": 7,
+        "x": 1164.643470462335,
+        "y": 598.851262781295,
+        "visible": true
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "右线装框机器人",
+        "station": 7,
+        "x": 1123.7942003464311,
+        "y": 662.158604293824,
+        "visible": true
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "station": 7,
+        "x": 1073.1911458733766,
+        "y": 603.2772391728242,
+        "visible": true
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "station": 8,
+        "x": 1391.4596728517627,
+        "y": 689.0835252173972,
+        "visible": true
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "station": 7,
+        "x": 1101.1921163122934,
+        "y": 687.1583915816599,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-01008",
+        "name": "侧围外板",
+        "station": 3,
+        "x": 693.0169562149572,
+        "y": 486.1572525521334,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-01007",
+        "name": "侧围外板",
+        "station": 4,
+        "x": 766.6469316134206,
+        "y": 508.38673081919984,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-01006",
+        "name": "侧围外板",
+        "station": 5,
+        "x": 845.8966113178067,
+        "y": 533.2721644622122,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-01005",
+        "name": "侧围外板",
+        "station": 6,
+        "x": 931.3926958562657,
+        "y": 560.0451126233538,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-01004",
+        "name": "侧围外板",
+        "station": 7,
+        "x": 1056.9073689599695,
+        "y": 577.5558649892531,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-01003",
+        "name": "侧围外板",
+        "station": 7,
+        "x": 1134.639800671066,
+        "y": 658.3490257402614,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-01010",
+        "name": "落料料片",
+        "station": 1,
+        "x": 582.418184482728,
+        "y": 451.2265238397543,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-01009",
+        "name": "清洗对中料片",
+        "station": 2,
+        "x": 623.0130846998844,
+        "y": 463.25923890193354,
+        "visible": true
+      },
+      {
+        "id": "LIVE-RACK-0",
+        "name": "左线料架",
+        "station": 7,
+        "x": 1175.9941680804895,
+        "y": 588.7858983500743,
+        "visible": true
+      },
+      {
+        "id": "LIVE-RACK-1",
+        "name": "右线料架",
+        "station": 7,
+        "x": 1102.6550475526533,
+        "y": 675.9298072948333,
+        "visible": true
+      }
+    ],
+    "poses": {
+      "time": 34.2,
+      "cycle": 8,
+      "cycleTime": 2.200000000000003,
+      "progress": 0.5500000000000007,
+      "presses": [
+        {
+          "index": 0,
+          "x": -13.5,
+          "name": "OP10 拉延",
+          "downstroke": 1.35,
+          "sliderY": 3.9999999999999996,
+          "phase": "保压",
+          "forming": 1
+        },
+        {
+          "index": 1,
+          "x": -4.5,
+          "name": "OP20 修边冲孔",
+          "downstroke": 1.35,
+          "sliderY": 3.9999999999999996,
+          "phase": "保压",
+          "forming": 1
+        },
+        {
+          "index": 2,
+          "x": 4.5,
+          "name": "OP30 修边整形",
+          "downstroke": 1.35,
+          "sliderY": 3.9999999999999996,
+          "phase": "保压",
+          "forming": 1
+        },
+        {
+          "index": 3,
+          "x": 13.5,
+          "name": "OP40 冲孔翻边切断",
+          "downstroke": 1.35,
+          "sliderY": 3.9999999999999996,
+          "phase": "保压",
+          "forming": 1
+        }
+      ],
+      "parts": [
+        {
+          "id": "SP-SIDE-L-01008",
+          "serial": 1008,
+          "slot": 0,
+          "x": -13.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 0,
+          "shape": 1
+        },
+        {
+          "id": "SP-SIDE-L-01007",
+          "serial": 1007,
+          "slot": 1,
+          "x": -4.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 1,
+          "shape": 2
+        },
+        {
+          "id": "SP-SIDE-L-01006",
+          "serial": 1006,
+          "slot": 2,
+          "x": 4.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 2,
+          "shape": 3
+        },
+        {
+          "id": "SP-SIDE-L-01005",
+          "serial": 1005,
+          "slot": 3,
+          "x": 13.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 3,
+          "shape": 4
+        },
+        {
+          "id": "SP-SIDE-L-01004",
+          "serial": 1004,
+          "slot": 4,
+          "x": 24,
+          "y": 1.62,
+          "z": -3.4,
+          "stage": 4,
+          "shape": 4
+        },
+        {
+          "id": "SP-SIDE-L-01003",
+          "serial": 1003,
+          "slot": 5,
+          "x": 33,
+          "y": 1.62,
+          "z": 3.4,
+          "stage": 4,
+          "shape": 4
+        }
+      ],
+      "transfer": {
+        "active": false,
+        "progress": 1,
+        "lift": 4.286263797015736e-17
+      },
+      "coil": {
+        "stage": "平移至开卷机",
+        "hook": [
+          -47.7595011269722,
+          6.7,
+          3.3469349361382417
+        ],
+        "coil": [
+          -47.7595011269722,
+          5.8,
+          3.3469349361382417
+        ],
+        "carrying": true,
+        "progress": 0.35625
+      },
+      "rack": {
+        "id": "RACK-0001",
+        "filled": 8,
+        "capacity": 120,
+        "exchanging": false,
+        "exchangeProgress": 0,
+        "agvX": 33,
+        "agvZ": 8,
+        "fullRackX": 33,
+        "bufferCount": 0,
+        "storedParts": [
+          {
+            "id": "SP-SIDE-L-00995",
+            "serial": 995,
+            "line": 1,
+            "rackSlot": 0,
+            "arrivedAt": 4,
+            "loadedAt": 4,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-B",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-00996",
+            "serial": 996,
+            "line": 0,
+            "rackSlot": 0,
+            "arrivedAt": 8,
+            "loadedAt": 8,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-A",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-00997",
+            "serial": 997,
+            "line": 1,
+            "rackSlot": 1,
+            "arrivedAt": 12,
+            "loadedAt": 12,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-B",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-00998",
+            "serial": 998,
+            "line": 0,
+            "rackSlot": 1,
+            "arrivedAt": 16,
+            "loadedAt": 16,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-A",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-00999",
+            "serial": 999,
+            "line": 1,
+            "rackSlot": 2,
+            "arrivedAt": 20,
+            "loadedAt": 20,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-B",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-01000",
+            "serial": 1000,
+            "line": 0,
+            "rackSlot": 2,
+            "arrivedAt": 24,
+            "loadedAt": 24,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-A",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-01001",
+            "serial": 1001,
+            "line": 1,
+            "rackSlot": 3,
+            "arrivedAt": 28,
+            "loadedAt": 28,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-B",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-01002",
+            "serial": 1002,
+            "line": 0,
+            "rackSlot": 3,
+            "arrivedAt": 32,
+            "loadedAt": 32,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-A",
+            "shape": 4,
+            "stage": 4
+          }
+        ],
+        "bufferParts": [],
+        "lines": [
+          {
+            "id": "RACK-0001-A",
+            "z": -3.4,
+            "capacity": 60,
+            "filled": 4,
+            "storedParts": [
+              {
+                "id": "SP-SIDE-L-00996",
+                "serial": 996,
+                "line": 0,
+                "rackSlot": 0,
+                "arrivedAt": 8,
+                "loadedAt": 8,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-A",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-00998",
+                "serial": 998,
+                "line": 0,
+                "rackSlot": 1,
+                "arrivedAt": 16,
+                "loadedAt": 16,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-A",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-01000",
+                "serial": 1000,
+                "line": 0,
+                "rackSlot": 2,
+                "arrivedAt": 24,
+                "loadedAt": 24,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-A",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-01002",
+                "serial": 1002,
+                "line": 0,
+                "rackSlot": 3,
+                "arrivedAt": 32,
+                "loadedAt": 32,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-A",
+                "shape": 4,
+                "stage": 4
+              }
+            ]
+          },
+          {
+            "id": "RACK-0001-B",
+            "z": 3.4,
+            "capacity": 60,
+            "filled": 4,
+            "storedParts": [
+              {
+                "id": "SP-SIDE-L-00995",
+                "serial": 995,
+                "line": 1,
+                "rackSlot": 0,
+                "arrivedAt": 4,
+                "loadedAt": 4,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-B",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-00997",
+                "serial": 997,
+                "line": 1,
+                "rackSlot": 1,
+                "arrivedAt": 12,
+                "loadedAt": 12,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-B",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-00999",
+                "serial": 999,
+                "line": 1,
+                "rackSlot": 2,
+                "arrivedAt": 20,
+                "loadedAt": 20,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-B",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-01001",
+                "serial": 1001,
+                "line": 1,
+                "rackSlot": 3,
+                "arrivedAt": 28,
+                "loadedAt": 28,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-B",
+                "shape": 4,
+                "stage": 4
+              }
+            ]
+          }
+        ],
+        "completedRacks": [],
+        "archivedRackCount": 0,
+        "shippedCount": 0
+      },
+      "completed": 8
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "status": "passed",
+  "startedAt": "2026-11-13T08:49:58.234Z",
+  "runtime": "v24.21.0",
+  "checks": [
+    {
+      "name": "logic-tests",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\node_modules\\vitest\\vitest.mjs",
+        "run"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-11-13T08:49:58.235Z",
+      "finishedAt": "2026-11-13T08:50:00.612Z",
+      "log": "docs/verification/stage-10/logic-tests.log"
+    },
+    {
+      "name": "tools-tests",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--test",
+        "scripts/capture-checks.mjs",
+        "scripts/media-checks.mjs",
+        "scripts/backup-checks.mjs"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-11-13T08:50:00.612Z",
+      "finishedAt": "2026-11-13T08:50:02.362Z",
+      "log": "docs/verification/stage-10/tools-tests.log"
+    },
+    {
+      "name": "typecheck",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\node_modules\\typescript\\bin\\tsc",
+        "-b"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-11-13T08:50:02.362Z",
+      "finishedAt": "2026-11-13T08:50:04.822Z",
+      "log": "docs/verification/stage-10/typecheck.log"
+    },
+    {
+      "name": "build",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\node_modules\\vite\\bin\\vite.js",
+        "build"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-11-13T08:50:04.823Z",
+      "finishedAt": "2026-11-13T08:50:08.947Z",
+      "log": "docs/verification/stage-10/build.log"
+    },
+    {
+      "name": "assets-check",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "scripts/assets.mjs",
+        "--check"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-11-13T08:50:08.947Z",
+      "finishedAt": "2026-11-13T08:50:09.159Z",
+      "log": "docs/verification/stage-10/assets-check.log"
+    },
+    {
+      "name": "summary-check",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "scripts/summarize-evidence.mjs"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-11-13T08:50:09.159Z",
+      "finishedAt": "2026-11-13T08:50:09.404Z",
+      "log": "docs/verification/stage-10/summary-check.log"
+    },
+    {
+      "name": "browser",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "scripts/with-server.mjs",
+        "scripts/verify.mjs",
+        "--strict-images",
+        "--output",
+        "docs/verification/stage-10/browser"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-11-13T08:50:09.404Z",
+      "finishedAt": "2026-11-13T08:50:43.548Z",
+      "log": "docs/verification/stage-10/browser.log"
+    },
+    {
+      "name": "park",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "scripts/with-server.mjs",
+        "scripts/park.mjs",
+        "docs/verification/stage-10/park"
+      ],
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-11-13T08:50:43.548Z",
+      "finishedAt": "2026-11-13T08:51:03.285Z",
+      "log": "docs/verification/stage-10/park.log"
+    }
+  ],
+  "finishedAt": "2026-11-13T08:51:03.286Z"
+}

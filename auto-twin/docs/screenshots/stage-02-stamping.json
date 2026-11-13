@@ -1,0 +1,387 @@
+{
+  "stage": "02",
+  "shop": "stamping",
+  "errors": [],
+  "diagnostic": {
+    "shop": "stamping",
+    "time": 34.2,
+    "rendererCount": 1,
+    "loopCount": 1,
+    "clockCount": 1,
+    "worldCount": 1,
+    "viewport": [
+      1600,
+      1000
+    ],
+    "quality": "balanced",
+    "renderScale": 0.65,
+    "drawCalls": 812,
+    "triangles": 430381,
+    "geometries": 278,
+    "textures": 49,
+    "frameMs": 5.900000000372529,
+    "frameIntervals": [
+      33.40000000000009,
+      33.5,
+      16.59999999999991
+    ],
+    "frames": 5,
+    "robots": 2,
+    "disposedWorlds": 0,
+    "lodCounts": {},
+    "poses": {
+      "time": 34.2,
+      "cycle": 8,
+      "cycleTime": 2.200000000000003,
+      "progress": 0.5500000000000007,
+      "presses": [
+        {
+          "index": 0,
+          "x": -13.5,
+          "name": "OP10 拉延",
+          "downstroke": 1.35,
+          "sliderY": 3.9999999999999996,
+          "phase": "保压",
+          "forming": 1
+        },
+        {
+          "index": 1,
+          "x": -4.5,
+          "name": "OP20 修边冲孔",
+          "downstroke": 1.35,
+          "sliderY": 3.9999999999999996,
+          "phase": "保压",
+          "forming": 1
+        },
+        {
+          "index": 2,
+          "x": 4.5,
+          "name": "OP30 修边整形",
+          "downstroke": 1.35,
+          "sliderY": 3.9999999999999996,
+          "phase": "保压",
+          "forming": 1
+        },
+        {
+          "index": 3,
+          "x": 13.5,
+          "name": "OP40 冲孔翻边切断",
+          "downstroke": 1.35,
+          "sliderY": 3.9999999999999996,
+          "phase": "保压",
+          "forming": 1
+        }
+      ],
+      "parts": [
+        {
+          "id": "SP-SIDE-L-01008",
+          "serial": 1008,
+          "slot": 0,
+          "x": -13.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 0,
+          "shape": 1
+        },
+        {
+          "id": "SP-SIDE-L-01007",
+          "serial": 1007,
+          "slot": 1,
+          "x": -4.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 1,
+          "shape": 2
+        },
+        {
+          "id": "SP-SIDE-L-01006",
+          "serial": 1006,
+          "slot": 2,
+          "x": 4.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 2,
+          "shape": 3
+        },
+        {
+          "id": "SP-SIDE-L-01005",
+          "serial": 1005,
+          "slot": 3,
+          "x": 13.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 3,
+          "shape": 4
+        },
+        {
+          "id": "SP-SIDE-L-01004",
+          "serial": 1004,
+          "slot": 4,
+          "x": 24,
+          "y": 1.62,
+          "z": -3.4,
+          "stage": 4,
+          "shape": 4
+        },
+        {
+          "id": "SP-SIDE-L-01003",
+          "serial": 1003,
+          "slot": 5,
+          "x": 33,
+          "y": 1.62,
+          "z": 3.4,
+          "stage": 4,
+          "shape": 4
+        }
+      ],
+      "transfer": {
+        "active": false,
+        "progress": 1,
+        "lift": 4.286263797015736e-17
+      },
+      "coil": {
+        "stage": "平移至开卷机",
+        "hook": [
+          -47.7595011269722,
+          6.7,
+          3.3469349361382417
+        ],
+        "coil": [
+          -47.7595011269722,
+          5.8,
+          3.3469349361382417
+        ],
+        "carrying": true,
+        "progress": 0.35625
+      },
+      "rack": {
+        "id": "RACK-0001",
+        "filled": 8,
+        "capacity": 120,
+        "exchanging": false,
+        "exchangeProgress": 0,
+        "agvX": 33,
+        "agvZ": 8,
+        "fullRackX": 33,
+        "bufferCount": 0,
+        "storedParts": [
+          {
+            "id": "SP-SIDE-L-00995",
+            "serial": 995,
+            "line": 1,
+            "rackSlot": 0,
+            "arrivedAt": 4,
+            "loadedAt": 4,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-B",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-00996",
+            "serial": 996,
+            "line": 0,
+            "rackSlot": 0,
+            "arrivedAt": 8,
+            "loadedAt": 8,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-A",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-00997",
+            "serial": 997,
+            "line": 1,
+            "rackSlot": 1,
+            "arrivedAt": 12,
+            "loadedAt": 12,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-B",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-00998",
+            "serial": 998,
+            "line": 0,
+            "rackSlot": 1,
+            "arrivedAt": 16,
+            "loadedAt": 16,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-A",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-00999",
+            "serial": 999,
+            "line": 1,
+            "rackSlot": 2,
+            "arrivedAt": 20,
+            "loadedAt": 20,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-B",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-01000",
+            "serial": 1000,
+            "line": 0,
+            "rackSlot": 2,
+            "arrivedAt": 24,
+            "loadedAt": 24,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-A",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-01001",
+            "serial": 1001,
+            "line": 1,
+            "rackSlot": 3,
+            "arrivedAt": 28,
+            "loadedAt": 28,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-B",
+            "shape": 4,
+            "stage": 4
+          },
+          {
+            "id": "SP-SIDE-L-01002",
+            "serial": 1002,
+            "line": 0,
+            "rackSlot": 3,
+            "arrivedAt": 32,
+            "loadedAt": 32,
+            "rackId": "RACK-0001",
+            "lineRackId": "RACK-0001-A",
+            "shape": 4,
+            "stage": 4
+          }
+        ],
+        "bufferParts": [],
+        "lines": [
+          {
+            "id": "RACK-0001-A",
+            "z": -3.4,
+            "capacity": 60,
+            "filled": 4,
+            "storedParts": [
+              {
+                "id": "SP-SIDE-L-00996",
+                "serial": 996,
+                "line": 0,
+                "rackSlot": 0,
+                "arrivedAt": 8,
+                "loadedAt": 8,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-A",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-00998",
+                "serial": 998,
+                "line": 0,
+                "rackSlot": 1,
+                "arrivedAt": 16,
+                "loadedAt": 16,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-A",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-01000",
+                "serial": 1000,
+                "line": 0,
+                "rackSlot": 2,
+                "arrivedAt": 24,
+                "loadedAt": 24,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-A",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-01002",
+                "serial": 1002,
+                "line": 0,
+                "rackSlot": 3,
+                "arrivedAt": 32,
+                "loadedAt": 32,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-A",
+                "shape": 4,
+                "stage": 4
+              }
+            ]
+          },
+          {
+            "id": "RACK-0001-B",
+            "z": 3.4,
+            "capacity": 60,
+            "filled": 4,
+            "storedParts": [
+              {
+                "id": "SP-SIDE-L-00995",
+                "serial": 995,
+                "line": 1,
+                "rackSlot": 0,
+                "arrivedAt": 4,
+                "loadedAt": 4,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-B",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-00997",
+                "serial": 997,
+                "line": 1,
+                "rackSlot": 1,
+                "arrivedAt": 12,
+                "loadedAt": 12,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-B",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-00999",
+                "serial": 999,
+                "line": 1,
+                "rackSlot": 2,
+                "arrivedAt": 20,
+                "loadedAt": 20,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-B",
+                "shape": 4,
+                "stage": 4
+              },
+              {
+                "id": "SP-SIDE-L-01001",
+                "serial": 1001,
+                "line": 1,
+                "rackSlot": 3,
+                "arrivedAt": 28,
+                "loadedAt": 28,
+                "rackId": "RACK-0001",
+                "lineRackId": "RACK-0001-B",
+                "shape": 4,
+                "stage": 4
+              }
+            ]
+          }
+        ],
+        "completedRacks": [],
+        "archivedRackCount": 0,
+        "shippedCount": 0
+      },
+      "completed": 8
+    }
+  }
+}

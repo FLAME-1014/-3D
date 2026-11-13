@@ -1,0 +1,24 @@
+{
+  "stage": "01",
+  "shop": "park",
+  "errors": [],
+  "diagnostic": {
+    "shop": "park",
+    "time": 34.2,
+    "rendererCount": 1,
+    "loopCount": 1,
+    "clockCount": 1,
+    "viewport": [
+      1600,
+      1000
+    ],
+    "quality": "balanced",
+    "drawCalls": 20,
+    "triangles": 53,
+    "geometries": 3,
+    "textures": 21,
+    "frameMs": 1.1000000014901161,
+    "frames": 5,
+    "robots": 0
+  }
+}

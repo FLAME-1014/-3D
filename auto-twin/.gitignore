@@ -1,0 +1,7 @@
+node_modules/
+.npm-cache/
+.tools/
+dist/
+*.tsbuildinfo
+docs/video-frames/
+docs/captures/**/frame-*.png

@@ -1,0 +1,192 @@
+{
+  "startedAt": "2026-11-13T01:25:13.904Z",
+  "output": "docs/verification/stage-07-passed",
+  "checks": [
+    {
+      "name": "campus/DOM/one scene",
+      "passed": true,
+      "details": {
+        "siteSize": [
+          260,
+          180
+        ],
+        "destinations": [
+          {
+            "id": "stamping",
+            "name": "冲压车间",
+            "en": "STAMPING SHOP",
+            "center": [
+              -30,
+              0,
+              -28
+            ],
+            "size": [
+              62,
+              8.6,
+              37
+            ],
+            "planned": false,
+            "entryCamera": [
+              -18,
+              20,
+              -5
+            ],
+            "entryTarget": [
+              -30,
+              3,
+              -28
+            ]
+          },
+          {
+            "id": "welding",
+            "name": "焊装车间",
+            "en": "BODY SHOP",
+            "center": [
+              47,
+              0,
+              -28
+            ],
+            "size": [
+              62,
+              8.2,
+              37
+            ],
+            "planned": false,
+            "entryCamera": [
+              59,
+              20,
+              -5
+            ],
+            "entryTarget": [
+              47,
+              3,
+              -28
+            ]
+          },
+          {
+            "id": "paint",
+            "name": "涂装车间",
+            "en": "PAINT SHOP",
+            "center": [
+              47,
+              0,
+              30
+            ],
+            "size": [
+              64,
+              7.8,
+              34
+            ],
+            "planned": true,
+            "entryCamera": [
+              59,
+              20,
+              53
+            ],
+            "entryTarget": [
+              47,
+              3,
+              30
+            ]
+          },
+          {
+            "id": "assembly",
+            "name": "总装车间",
+            "en": "FINAL ASSEMBLY",
+            "center": [
+              -30,
+              0,
+              30
+            ],
+            "size": [
+              64,
+              7.8,
+              34
+            ],
+            "planned": true,
+            "entryCamera": [
+              -18,
+              20,
+              53
+            ],
+            "entryTarget": [
+              -30,
+              3,
+              30
+            ]
+          }
+        ],
+        "treeInstances": 141,
+        "visitorCars": 14,
+        "finishedCars": 48,
+        "freightTrucks": 6,
+        "hallCount": 4,
+        "plannedShops": [
+          "paint",
+          "assembly"
+        ],
+        "navigationShops": [
+          "stamping",
+          "welding"
+        ]
+      }
+    },
+    {
+      "name": "paint remains planned",
+      "passed": true
+    },
+    {
+      "name": "assembly remains planned",
+      "passed": true
+    },
+    {
+      "name": "actual stamping building flight/route",
+      "passed": true,
+      "disposedWorlds": 1
+    },
+    {
+      "name": "actual welding building flight/route",
+      "passed": true,
+      "disposedWorlds": 3
+    },
+    {
+      "name": "stamping DOM entrance/loader completion",
+      "passed": true
+    },
+    {
+      "name": "welding DOM entrance/loader completion",
+      "passed": true
+    },
+    {
+      "name": "browser back to park",
+      "passed": true
+    },
+    {
+      "name": "browser forward to welding",
+      "passed": true
+    },
+    {
+      "name": "home cancels in-progress entrance",
+      "passed": true
+    },
+    {
+      "name": "latest header destination replaces pending entrance",
+      "passed": true
+    },
+    {
+      "name": "park direct URL and initial loader completion",
+      "passed": true
+    },
+    {
+      "name": "stamping direct URL and initial loader completion",
+      "passed": true
+    },
+    {
+      "name": "welding direct URL and initial loader completion",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "status": "passed",
+  "finishedAt": "2026-11-13T01:25:30.958Z"
+}

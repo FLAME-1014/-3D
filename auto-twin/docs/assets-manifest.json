@@ -1,0 +1,386 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-13T08:49:57.747Z",
+  "project": {
+    "name": "automotive-digital-twin",
+    "version": "1.0.0"
+  },
+  "modelVersion": "procedural-v1",
+  "checksumAlgorithm": "SHA-256",
+  "selectedModelRoute": "self-authored procedural simplified geometry",
+  "sources": [
+    {
+      "id": "procedural:core:clock",
+      "version": "procedural-v1",
+      "category": "production-clock",
+      "path": "src/core/clock.ts",
+      "bytes": 1616,
+      "sha256": "e0ec506e96c20a6da621a3a81868c4aa6011266f2a7230a7482854b15ba2d4f9",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:core:lod",
+      "version": "procedural-v1",
+      "category": "lod-policy",
+      "path": "src/core/lod.ts",
+      "bytes": 7471,
+      "sha256": "7c780a2aedd8698212da5edeef9d50f249566f2b4bb80e631941838f1553eacd",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:core:production",
+      "version": "procedural-v1",
+      "category": "deterministic-production-logic",
+      "path": "src/core/production.ts",
+      "bytes": 10176,
+      "sha256": "1a6bf5a73aa317616fb96f66e2d76faae112e63c4e75131e2cccf9e1cb91559f",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:park:scene",
+      "version": "procedural-v1",
+      "category": "procedural-park-scene",
+      "path": "src/park/scene.ts",
+      "bytes": 17122,
+      "sha256": "c2518ed2351ec35137be8dff08402aa735bc47b63759c0c1f87df86390934754",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:prefabs:carBody",
+      "version": "procedural-v1",
+      "category": "procedural-model-prefab",
+      "path": "src/prefabs/carBody.ts",
+      "bytes": 14874,
+      "sha256": "e6bfb7e13c0dca1823e6fdc66dc658a174c4d0ba4ab770e8029f7fa330af24ec",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:prefabs:factory",
+      "version": "procedural-v1",
+      "category": "procedural-model-prefab",
+      "path": "src/prefabs/factory.ts",
+      "bytes": 9031,
+      "sha256": "74be56b400e7468c9cacb23a6f004ef21e1e6b8076fa4a9950cc4164254af5e4",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:prefabs:materials",
+      "version": "procedural-v1",
+      "category": "procedural-material-textures",
+      "path": "src/prefabs/materials.ts",
+      "bytes": 2884,
+      "sha256": "aef483fa8feda36a96673d2bb98bf6e96bea526eba765a97bcae802d5d6b7cfa",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:prefabs:robot",
+      "version": "procedural-v1",
+      "category": "procedural-model-prefab",
+      "path": "src/prefabs/robot.ts",
+      "bytes": 12132,
+      "sha256": "f55843db5aa6cb1086c55c6f13db1baae27be112be94faf3b10a14073a7a9bf8",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:prefabs:sparks",
+      "version": "procedural-v1",
+      "category": "procedural-particles",
+      "path": "src/prefabs/sparks.ts",
+      "bytes": 4584,
+      "sha256": "b754d9eae5bff3bd9d4111de152e30fe671c0bad5db8dcdc9ba8ff0a694f2574",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:scene:stamping",
+      "version": "procedural-v1",
+      "category": "procedural-shop-scene",
+      "path": "src/scene/stamping.ts",
+      "bytes": 43190,
+      "sha256": "3890c908cadfd246ffcc1466f9605c8892ec528f57a06ab29fce706e85c8381d",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:welding:logic",
+      "version": "procedural-v1",
+      "category": "deterministic-production-logic",
+      "path": "src/welding/logic.ts",
+      "bytes": 21253,
+      "sha256": "c35683ce70eebbcb6a60a817c831f0d6ddf735a03b25d5fdfc56f9934f6b2746",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    },
+    {
+      "id": "procedural:welding:scene",
+      "version": "procedural-v1",
+      "category": "procedural-shop-scene",
+      "path": "src/welding/scene.ts",
+      "bytes": 21544,
+      "sha256": "a465b1d4a2d0075e67fb44498914f30bced7237ac7ef38b9a1913da8050a38fe",
+      "origin": {
+        "kind": "self-authored-procedural-source",
+        "originalFormat": "TypeScript",
+        "externalAssetUrl": null,
+        "externalAssetLicense": null,
+        "originalDownload": null,
+        "usdToGlbConversion": null
+      }
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "package.json",
+      "bytes": 1153,
+      "sha256": "9780842881b342291f562ecb5213a3bbc309bd27a034365dc45afffa272b060e"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 75637,
+      "sha256": "9618415ee2f8333589af8ea14909c3a068824ab7c01cbd5b93779902cfa4d296"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "lucide-react",
+      "group": "dependencies",
+      "requestedRange": "^0.468.0",
+      "resolvedVersion": "0.468.0",
+      "license": "ISC",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/lucide-react"
+    },
+    {
+      "name": "react",
+      "group": "dependencies",
+      "requestedRange": "^19.2.0",
+      "resolvedVersion": "19.3.1",
+      "license": "MIT",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/react"
+    },
+    {
+      "name": "react-dom",
+      "group": "dependencies",
+      "requestedRange": "^19.2.0",
+      "resolvedVersion": "19.3.1",
+      "license": "MIT",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/react-dom"
+    },
+    {
+      "name": "three",
+      "group": "dependencies",
+      "requestedRange": "~0.186.0",
+      "resolvedVersion": "0.186.1",
+      "license": "MIT",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/three"
+    },
+    {
+      "name": "zustand",
+      "group": "dependencies",
+      "requestedRange": "^5.0.8",
+      "resolvedVersion": "5.1.0",
+      "license": "MIT",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/zustand"
+    },
+    {
+      "name": "@types/react",
+      "group": "devDependencies",
+      "requestedRange": "^19.2.0",
+      "resolvedVersion": "19.3.0",
+      "license": "MIT",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/@types/react"
+    },
+    {
+      "name": "@types/react-dom",
+      "group": "devDependencies",
+      "requestedRange": "^19.2.0",
+      "resolvedVersion": "19.3.0",
+      "license": "MIT",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/@types/react-dom"
+    },
+    {
+      "name": "@types/three",
+      "group": "devDependencies",
+      "requestedRange": "^0.183.0",
+      "resolvedVersion": "0.183.1",
+      "license": "MIT",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/@types/three"
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "group": "devDependencies",
+      "requestedRange": "^5.1.0",
+      "resolvedVersion": "5.2.0",
+      "license": "MIT",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/@vitejs/plugin-react"
+    },
+    {
+      "name": "playwright",
+      "group": "devDependencies",
+      "requestedRange": "^1.65.0",
+      "resolvedVersion": "1.65.0",
+      "license": "Apache-2.0",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/playwright"
+    },
+    {
+      "name": "typescript",
+      "group": "devDependencies",
+      "requestedRange": "^5.9.0",
+      "resolvedVersion": "5.9.3",
+      "license": "Apache-2.0",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/typescript"
+    },
+    {
+      "name": "vite",
+      "group": "devDependencies",
+      "requestedRange": "^7.2.0",
+      "resolvedVersion": "7.3.8",
+      "license": "MIT",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/vite"
+    },
+    {
+      "name": "vitest",
+      "group": "devDependencies",
+      "requestedRange": "^5.1.0",
+      "resolvedVersion": "5.1.0",
+      "license": "MIT",
+      "licenseEvidence": "package-lock.json license field; full text remains in the installed package LICENSE",
+      "lockPath": "node_modules/vitest"
+    }
+  ],
+  "scan": {
+    "include": [
+      "src/prefabs/**/*.ts",
+      "src/scene/stamping.ts",
+      "src/welding/scene.ts",
+      "src/park/**/*.ts",
+      "src/core/clock.ts",
+      "src/core/production.ts",
+      "src/welding/logic.ts",
+      "src/**/lod*.ts"
+    ],
+    "exclude": [
+      "**/*.test.ts",
+      "**/*.spec.ts"
+    ],
+    "optionalGroups": [
+      {
+        "id": "park-sources",
+        "exists": true
+      },
+      {
+        "id": "lod-policy-source",
+        "exists": true
+      }
+    ],
+    "sourceCount": 12,
+    "sourceBytes": 165877
+  },
+  "conditions": {
+    "noDownloadedSimReadyAssets": true,
+    "nvidiaOrComauModelLicenseClaimed": false,
+    "precision": "Self-authored schematic geometry; lower precision than manufacturer CAD/SimReady; no certified collision, kinematics, manufacturing surfaces, or metrology properties.",
+    "data": "Production quantities, quality, OEE, measurement deviations and events are demo data.",
+    "projectLicense": "No project-wide license is assigned by this manifest; external software package licenses are separate from model provenance.",
+    "lod": {
+      "targetTiers": [
+        "proxy",
+        "low",
+        "medium",
+        "original-procedural-detail"
+      ],
+      "originalMeans": "highest detail generated by this project, not official USD/CAD detail",
+      "targetMaximumOriginalRobots": 3,
+      "implementationStatus": "Source inventory does not establish runtime implementation or acceptance; confirm in phase records and engine debug output.",
+      "measuredTriangleCounts": null,
+      "measuredResidentCounts": null,
+      "runtimeEvidence": null
+    },
+    "hashes": "Hashes establish file identity only; they do not certify license eligibility, factory accuracy, LOD behavior, frame rate, or completed acceptance."
+  }
+}

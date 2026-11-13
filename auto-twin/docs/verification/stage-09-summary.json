@@ -1,0 +1,279 @@
+{
+  "status": "passed",
+  "generatedAt": "2026-11-13T08:50:09.340Z",
+  "videos": [
+    {
+      "folder": "stage-09-welding-contact",
+      "manifest": "docs/captures/stage-09-welding-contact/manifest.json",
+      "video": "docs/captures/stage-09-welding-contact/capture.mp4",
+      "status": "complete",
+      "shop": "welding",
+      "quality": "fine",
+      "station": 2,
+      "speed": 1,
+      "start": 33.8,
+      "lastTime": 35.78333333333333,
+      "frames": 120,
+      "virtualClock": {
+        "now": 2000.0000000000034,
+        "queued": 1,
+        "maxQueued": 1,
+        "steppedFrames": 121
+      },
+      "frameChecks": [
+        {
+          "index": 0,
+          "productionTime": 33.8,
+          "png": {
+            "width": 1600,
+            "height": 1000,
+            "channels": 3,
+            "meanBrightness": 123.5356871949304,
+            "nonBlackProportion": 1,
+            "stddev": 72.74113413881341
+          }
+        },
+        {
+          "index": 60,
+          "productionTime": 34.8,
+          "png": {
+            "width": 1600,
+            "height": 1000,
+            "channels": 3,
+            "meanBrightness": 123.53853961680555,
+            "nonBlackProportion": 1,
+            "stddev": 72.74208646364923
+          }
+        },
+        {
+          "index": 119,
+          "productionTime": 35.78333333333333,
+          "png": {
+            "width": 1600,
+            "height": 1000,
+            "channels": 3,
+            "meanBrightness": 122.61050899545742,
+            "nonBlackProportion": 1,
+            "stddev": 72.63394127907782
+          }
+        }
+      ],
+      "input": {
+        "codec": "h264",
+        "pixelFormat": "yuv420p",
+        "width": 1600,
+        "height": 1000,
+        "fps": 60,
+        "duration": 2
+      },
+      "bytes": 639280,
+      "sha256": "0389ce1e675901ce0821290630cd4dd910d3fd9132fd17766280ad98f52d6c09",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\scripts\\capture.mjs",
+        "--shop",
+        "welding",
+        "--start",
+        "33.8",
+        "--duration",
+        "2",
+        "--fps",
+        "60",
+        "--quality",
+        "fine",
+        "--station",
+        "2",
+        "--close",
+        "--video",
+        "--ffmpeg",
+        ".tools/python/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+        "--output",
+        "docs/captures/stage-09-welding-contact"
+      ],
+      "errors": []
+    },
+    {
+      "folder": "stage-09-stamping-cycle-v3",
+      "manifest": "docs/captures/stage-09-stamping-cycle-v3/manifest.json",
+      "video": "docs/captures/stage-09-stamping-cycle-v3/capture.mp4",
+      "status": "complete",
+      "shop": "stamping",
+      "quality": "balanced",
+      "station": 3,
+      "speed": 1,
+      "start": 0,
+      "lastTime": 3.9833333333333334,
+      "frames": 240,
+      "virtualClock": {
+        "now": 3999.999999999986,
+        "queued": 1,
+        "maxQueued": 1,
+        "steppedFrames": 241
+      },
+      "frameChecks": [
+        {
+          "index": 0,
+          "productionTime": 0,
+          "png": {
+            "width": 1600,
+            "height": 1000,
+            "channels": 3,
+            "meanBrightness": 139.24965531256822,
+            "nonBlackProportion": 1,
+            "stddev": 78.22989667384044
+          }
+        },
+        {
+          "index": 120,
+          "productionTime": 2,
+          "png": {
+            "width": 1600,
+            "height": 1000,
+            "channels": 3,
+            "meanBrightness": 141.6332031842232,
+            "nonBlackProportion": 1,
+            "stddev": 77.84602741950133
+          }
+        },
+        {
+          "index": 239,
+          "productionTime": 3.9833333333333334,
+          "png": {
+            "width": 1600,
+            "height": 1000,
+            "channels": 3,
+            "meanBrightness": 139.6273083557126,
+            "nonBlackProportion": 1,
+            "stddev": 78.12848050515662
+          }
+        }
+      ],
+      "input": {
+        "codec": "h264",
+        "pixelFormat": "yuv420p",
+        "width": 1600,
+        "height": 1000,
+        "fps": 60,
+        "duration": 4
+      },
+      "bytes": 327888,
+      "sha256": "d7f9d2b6ff60b7f79007f30d051d2c880fb1a5354370fc57f9d04acf92138b5e",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\scripts\\capture.mjs",
+        "--shop",
+        "stamping",
+        "--start",
+        "0",
+        "--duration",
+        "4",
+        "--fps",
+        "60",
+        "--quality",
+        "balanced",
+        "--station",
+        "3",
+        "--video",
+        "--ffmpeg",
+        ".tools/python/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+        "--output",
+        "docs/captures/stage-09-stamping-cycle-v3"
+      ],
+      "errors": []
+    },
+    {
+      "folder": "stage-09-welding-process-v2",
+      "manifest": "docs/captures/stage-09-welding-process-v2/manifest.json",
+      "video": "docs/captures/stage-09-welding-process-v2/capture.mp4",
+      "status": "complete",
+      "shop": "welding",
+      "quality": "balanced",
+      "station": null,
+      "speed": 16,
+      "start": 0,
+      "lastTime": 79.73333333333333,
+      "frames": 300,
+      "virtualClock": {
+        "now": 5000.000000000002,
+        "queued": 1,
+        "maxQueued": 1,
+        "steppedFrames": 301
+      },
+      "frameChecks": [
+        {
+          "index": 0,
+          "productionTime": 0,
+          "png": {
+            "width": 1600,
+            "height": 1000,
+            "channels": 3,
+            "meanBrightness": 157.0827520132822,
+            "nonBlackProportion": 1,
+            "stddev": 74.01509967424292
+          }
+        },
+        {
+          "index": 150,
+          "productionTime": 40,
+          "png": {
+            "width": 1600,
+            "height": 1000,
+            "channels": 3,
+            "meanBrightness": 157.41898385102928,
+            "nonBlackProportion": 1,
+            "stddev": 73.86147227054097
+          }
+        },
+        {
+          "index": 299,
+          "productionTime": 79.73333333333333,
+          "png": {
+            "width": 1600,
+            "height": 1000,
+            "channels": 3,
+            "meanBrightness": 157.156270906276,
+            "nonBlackProportion": 1,
+            "stddev": 73.96226266970504
+          }
+        }
+      ],
+      "input": {
+        "codec": "h264",
+        "pixelFormat": "yuv420p",
+        "width": 1600,
+        "height": 1000,
+        "fps": 60,
+        "duration": 5
+      },
+      "bytes": 385541,
+      "sha256": "da9397fb3b1686af357d5c81f073a4f252308cbd5637d6dedab34485fa96ba3a",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\scripts\\capture.mjs",
+        "--shop",
+        "welding",
+        "--start",
+        "0",
+        "--duration",
+        "5",
+        "--fps",
+        "60",
+        "--speed",
+        "16",
+        "--quality",
+        "balanced",
+        "--video",
+        "--ffmpeg",
+        ".tools/python/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+        "--output",
+        "docs/captures/stage-09-welding-process-v2"
+      ],
+      "errors": []
+    }
+  ],
+  "verification": {
+    "eachFrame": "DOM production time, shop, loader absence and exactly one rendered frame",
+    "pngBrightness": "first, middle and last frames",
+    "video": "full FFmpeg decode; frames, size, FPS, duration, codec, pixel format and blackdetect"
+  }
+}

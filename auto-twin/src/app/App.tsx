@@ -1,0 +1,41 @@
+import {useEffect,useLayoutEffect,useRef,useState} from 'react';
+import {ArrowLeft,Pause,Play,RotateCcw,Layers,ChartNoAxesCombined,Info,Maximize,Box} from 'lucide-react';
+import {WorkshopEngine} from '../scene/engine';
+import {createParkWorld} from '../park/scene';
+import {createStampingWorld} from '../scene/stamping';
+import {createWeldingWorld} from '../welding/scene';
+import {useUI,type Shop,type Quality} from './store';
+import {Dropdown} from './Dropdown';
+import {Dashboard} from './Dashboard';
+import {ParkOverview} from './ParkOverview';
+import type {Station,World} from '../scene/types';
+function createWorld(shop:Shop):World{return shop==='park'?createParkWorld():shop==='welding'?createWeldingWorld():createStampingWorld()}
+export function App(){
+ const u=useUI(),host=useRef<HTMLDivElement>(null),engine=useRef<WorkshopEngine|null>(null);
+ const [loading,setLoading]=useState<string|null>('正在建立数字孪生');
+ const [stations,setStations]=useState<Station[]>([]),[hover,setHover]=useState<{name:string;id:string;x:number;y:number}|null>(null),[info,setInfo]=useState<{name:string;id:string;description?:string;parameters?:string;component?:boolean}|null>(null);
+ useEffect(()=>{const w=createWorld(useUI.getState().shop),e=new WorkshopEngine(host.current!,w);engine.current=e;setStations(w.stations);
+  (window as any).__workshop={station:(s:number|string)=>e.station(typeof s==='number'?s:e.world.stations.findIndex(x=>x.id===s)),seek:e.seek,speed:(n:number)=>useUI.getState().set({speed:n}),play:()=>useUI.getState().set({playing:true}),pause:()=>useUI.getState().set({playing:false}),camera:e.setCamera,explode:()=>useUI.getState().set({exploded:!useUI.getState().exploded}),quality:(q:Quality)=>{if(['smooth','balanced','fine'].includes(q))useUI.getState().set({quality:q})},debug:e.debug,metrics:e.metrics};
+  const h=(ev:Event)=>setHover((ev as CustomEvent).detail),i=(ev:Event)=>setInfo((ev as CustomEvent).detail),ready=()=>setLoading(null),load=(ev:Event)=>setLoading((ev as CustomEvent).detail||'正在建立数字孪生'),back=()=>{const s=new URLSearchParams(location.search).get('shop');useUI.getState().set({shop:s==='stamping'||s==='welding'?s:'park'})};
+  window.addEventListener('workshop-hover',h);window.addEventListener('workshop-component',i);window.addEventListener('popstate',back);
+  window.addEventListener('workshop-ready',ready);window.addEventListener('workshop-loading',load);
+  return()=>{window.removeEventListener('workshop-hover',h);window.removeEventListener('workshop-component',i);window.removeEventListener('popstate',back);window.removeEventListener('workshop-ready',ready);window.removeEventListener('workshop-loading',load);e.dispose();engine.current=null}
+ },[]);
+ useEffect(()=>{const e=engine.current;if(e&&e.world.shop!==u.shop){e.setWorld(()=>createWorld(u.shop));setStations(e.world.stations);setInfo(null);const destination=u.shop==='park'?location.pathname:location.pathname+'?shop='+u.shop;if(location.pathname+location.search!==destination)history.pushState({},'',destination)}},[u.shop]);
+ useLayoutEffect(()=>{engine.current?.projectLabels();engine.current?.projectComponent()});
+ const go=(shop:Shop)=>{if(shop==='park'&&engine.current?.world.shop==='park')engine.current.home();if(shop!=='park'&&engine.current?.world.shop==='park')engine.current.enterShop(shop);else u.set({shop,selected:null,station:-1,exploded:false})};
+ const title=u.shop==='welding'?'焊装车间':u.shop==='stamping'?'冲压车间':'汽车工厂数字孪生';
+ const focus=(i:number)=>{u.set({station:i});engine.current?.station(i)};
+ return <main className={u.shop==='park'?'park-mode':'shop-mode'} data-shop={u.shop} data-production-time={u.time}><div className="viewport" ref={host}/>
+  <header><div className="brand"><div className="brand-mark">A</div><div><b>AXIOM <em>AUTOMOTIVE</em></b><small>DIGITAL TWIN / 数字孪生平台</small></div></div><div className="top-title">{title}<span>FACTORY OPERATIONS</span></div><div className="header-actions"><button data-testid="shop-home" onClick={()=>go('park')}><ArrowLeft size={15}/>园区总览</button><button data-testid="shop-stamping" onClick={()=>go('stamping')}>冲压</button><button data-testid="shop-welding" onClick={()=>go('welding')}>焊装</button></div></header>
+  <div className="shop-toolbar"><div><strong>{title}</strong><Dropdown testId="station" value={String(u.station)} options={[{value:'-1',label:'产线全景'},...stations.map((s,i)=>({value:String(i),label:`${s.id} · ${s.name}`}))]} onChange={v=>{u.set({station:Number(v)});engine.current?.station(Number(v))}}/></div><div><button data-testid="roof-toggle" className={u.roof?'active':''} onClick={()=>u.set({roof:!u.roof})}><Layers size={14}/>屋架显隐</button><button data-testid="process-toggle" className={u.process?'active':''} onClick={()=>u.set({process:!u.process})}><Info size={14}/>工艺说明</button><button data-testid="dashboard-toggle" className={u.dashboard?'active':''} onClick={()=>u.set({dashboard:!u.dashboard})}><ChartNoAxesCombined size={14}/>数据看板</button><Dropdown testId="quality" value={u.quality} options={[{value:'smooth',label:'流畅'},{value:'balanced',label:'均衡'},{value:'fine',label:'精细'}]} onChange={v=>u.set({quality:v as Quality})}/></div></div>
+  {u.shop!=='park'&&u.dashboard&&!u.selected&&<Dashboard shop={u.shop} stations={stations} time={u.time} activeStation={u.station} onStation={focus}/>}
+  {u.shop==='park'&&<ParkOverview onEnter={go}/>}
+  {(!u.dashboard||u.shop==='park')&&!u.selected&&<div className="base-card">{u.shop==='park'?'智能制造园区':'产线运行中'}<br/><small>连续工艺模拟 · 演示数据</small></div>}
+  {u.selected&&<><svg className="component-leader" data-testid="component-leader" aria-hidden="true"><polyline data-component-line points=""/><circle data-component-dot r="4"/></svg><aside className="machine-info" data-testid="component-info"><small className="info-eyebrow">EQUIPMENT INSPECTOR / 单机模式</small><div><Box size={15}/><b>{info?.name||u.selected}</b></div><p>{info?.description||'点击部件查看结构和作用。'}</p><code>{info?.id||u.selected}</code>{info?.parameters&&<div className="component-parameters"><span>参数 · 示意尺寸</span><strong>{info.parameters}</strong></div>}<div><button data-testid="explode-toggle" onClick={()=>u.set({exploded:!u.exploded})}>{u.exploded?'还原结构':'拆解结构'}</button><button data-testid="return-overview" onClick={()=>{u.set({selected:null,exploded:false,station:-1});setInfo(null);engine.current?.home()}}>返回产线</button></div><small className="info-foot">点击结构部件查看作用 · 尺寸为程序化演示参数</small></aside></>}
+  {u.process&&<aside className="process-info"><b>工艺说明 / PROCESS</b><p>{stations[u.station]?.description||(u.shop==='welding'?'下车体 → 侧围 → 主拼 → 补焊 → 顶盖 → 门盖 → 测量 → 升降出线':'钢卷 → 开卷落料 → 清洗对中 → 四序冲压 → 检查装框 → 发货')}</p><small>全部动作由统一生产时钟计算。</small></aside>}
+  {hover&&<div className="hover-info" style={{left:Math.min(hover.x+15,window.innerWidth-240),top:hover.y+18}}><strong>{hover.name}</strong><code>{hover.id}</code></div>}
+  {loading&&<div className={"loading-overlay"+(loading.startsWith("正在进入")?" entering":"")} data-testid="workshop-loading"><div className="loading-card"><div className="loading-symbol"/><strong>{loading}</strong><small>INITIALIZING DIGITAL TWIN</small><div className="loading-track"><i/></div></div></div>}
+  <footer className="playback"><button data-testid="play-toggle" className="play-button" aria-label={u.playing?'暂停':'播放'} onClick={()=>u.set({playing:!u.playing})}>{u.playing?<Pause size={16}/>:<Play size={16}/>}</button><button aria-label="从头播放" onClick={()=>engine.current?.seek(0)}><RotateCcw size={14}/></button><div className="clock"><small>PRODUCTION CLOCK</small><b>{String(Math.floor(u.time/60)).padStart(2,'0')}:{(u.time%60).toFixed(1).padStart(4,'0')}</b></div><input data-testid="time-seek" aria-label="生产时钟秒数" type="range" min="0" max="960" step=".1" value={Math.min(u.time,960)} onChange={e=>engine.current?.seek(Number(e.target.value))}/><Dropdown testId="speed" value={String(u.speed)} options={[.25,.5,1,2,4,8,16].map(v=>({value:String(v),label:`${v}×`}))} onChange={v=>u.set({speed:Number(v)})}/><span className="controls-hint">左键旋转 · Shift 平移 · 滚轮缩放</span><button aria-label="全景" onClick={()=>engine.current?.home()}><Maximize size={15}/></button><span className="demo">● 演示数据</span></footer>
+ </main>
+}

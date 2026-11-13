@@ -1,0 +1,39 @@
+{
+  "startedAt": "2026-11-13T07:23:41.374Z",
+  "status": "failed",
+  "host": {
+    "platform": "win32",
+    "cpu": "AMD Ryzen 7 5700G with Radeon Graphics         "
+  },
+  "viewport": [
+    1600,
+    1000
+  ],
+  "devicePixelRatio": 1,
+  "interpretation": "passed means valid foreground measurement evidence and resource checks; no target FPS was specified or assessed",
+  "measurements": {
+    "cpuMs": "CPU render submission duration, not GPU time",
+    "gpuTime": "not measured",
+    "exactVideoMemory": "not measured",
+    "geometriesAndTextures": "renderer.info object counts, not bytes"
+  },
+  "samplingPolicy": {
+    "nativeRAF": true,
+    "realChrome": true,
+    "chunkMs": 10000,
+    "chunkWatchdogMs": 15000,
+    "maximumScenarioWallMs": 100000,
+    "browserSamplingBudgetMs": 99000,
+    "schedulingGapLimitMs": 500,
+    "anyGapAboveLimit": "partial",
+    "fullCycle": "production starts at zero and must reach at least 76 seconds"
+  },
+  "performance": [],
+  "switching": [],
+  "checks": [],
+  "errors": [],
+  "warnings": [],
+  "browser": "157.0.8103.52",
+  "failure": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4200/\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4200/\", waiting until \"load\"\u001b[22m\n",
+  "finishedAt": "2026-11-13T07:23:41.830Z"
+}

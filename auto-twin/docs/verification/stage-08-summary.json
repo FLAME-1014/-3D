@@ -1,0 +1,804 @@
+{
+  "status": "passed",
+  "generatedAt": "2026-11-13T08:50:09.331Z",
+  "meaning": "Valid measured evidence; no target FPS was specified",
+  "host": {
+    "platform": "win32",
+    "cpu": "AMD Ryzen 7 5700G with Radeon Graphics         "
+  },
+  "gpu": {
+    "renderer": "ANGLE (AMD, AMD Radeon(TM) Graphics (0x00001638) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "vendor": "Google Inc. (AMD)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  },
+  "browser": "157.0.8103.52",
+  "viewport": [
+    1600,
+    1000
+  ],
+  "devicePixelRatio": 1,
+  "measurements": {
+    "cpuMs": "CPU render submission duration, not GPU time",
+    "gpuTime": "not measured",
+    "exactVideoMemory": "not measured",
+    "geometriesAndTextures": "renderer.info object counts, not bytes"
+  },
+  "sources": [
+    "docs/verification/stage-08-foreground-final-v2/report.json",
+    "docs/verification/stage-08-welding-rerun/report.json"
+  ],
+  "scenes": [
+    {
+      "id": "park-balanced",
+      "source": "docs/verification/stage-08-foreground-final-v2/report.json",
+      "sourceReportStatus": "failed",
+      "status": "passed",
+      "shop": "park",
+      "quality": "balanced",
+      "station": -1,
+      "elapsedMs": 8002.20000000298,
+      "frames": 479,
+      "renderedFps": 59.85853890177971,
+      "productionSeconds": 7.991700000000022,
+      "productionToWallRatio": 0.9986878608379003,
+      "fullCycleCovered": null,
+      "renderSize": [
+        1040,
+        650
+      ],
+      "intervalMs": {
+        "count": 479,
+        "min": 9.199999999254942,
+        "mean": 16.686847599164928,
+        "p50": 16.699999999254942,
+        "p95": 20.899999998509884,
+        "max": 25.399999998509884
+      },
+      "cpuMs": {
+        "count": 479,
+        "min": 1.199999999254942,
+        "mean": 2.361795407185226,
+        "p50": 2.199999999254942,
+        "p95": 3.900000002235174,
+        "max": 6.5
+      },
+      "drawCalls": {
+        "count": 479,
+        "min": 209,
+        "mean": 209,
+        "p50": 209,
+        "p95": 209,
+        "max": 209
+      },
+      "triangles": {
+        "count": 479,
+        "min": 69225,
+        "mean": 69225,
+        "p50": 69225,
+        "p95": 69225,
+        "max": 69225
+      },
+      "geometries": {
+        "count": 479,
+        "min": 109,
+        "mean": 109,
+        "p50": 109,
+        "p95": 109,
+        "max": 109
+      },
+      "textures": {
+        "count": 479,
+        "min": 32,
+        "mean": 32,
+        "p50": 32,
+        "p95": 32,
+        "max": 32
+      },
+      "maxOriginalRobots": null,
+      "lodStates": [
+        {
+          "lod": {},
+          "observations": 481,
+          "firstTime": 0,
+          "lastTime": 7.991700000000022
+        }
+      ],
+      "camera": {
+        "position": [
+          -25,
+          315,
+          150.00000000000006
+        ],
+        "target": [
+          -25,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "park-fine",
+      "source": "docs/verification/stage-08-foreground-final-v2/report.json",
+      "sourceReportStatus": "failed",
+      "status": "passed",
+      "shop": "park",
+      "quality": "fine",
+      "station": -1,
+      "elapsedMs": 8007.699999999255,
+      "frames": 480,
+      "renderedFps": 59.94230553093206,
+      "productionSeconds": 8.008200000000034,
+      "productionToWallRatio": 1.000062439901692,
+      "fullCycleCovered": null,
+      "renderSize": [
+        1600,
+        1000
+      ],
+      "intervalMs": {
+        "count": 480,
+        "min": 11.899999998509884,
+        "mean": 16.682500000003106,
+        "p50": 16.699999999254942,
+        "p95": 19.600000001490116,
+        "max": 21.399999998509884
+      },
+      "cpuMs": {
+        "count": 480,
+        "min": 1.0999999977648258,
+        "mean": 1.5197916667132327,
+        "p50": 1.4000000022351742,
+        "p95": 2.100000001490116,
+        "max": 3.399999998509884
+      },
+      "drawCalls": {
+        "count": 480,
+        "min": 209,
+        "mean": 209,
+        "p50": 209,
+        "p95": 209,
+        "max": 209
+      },
+      "triangles": {
+        "count": 480,
+        "min": 69225,
+        "mean": 69225,
+        "p50": 69225,
+        "p95": 69225,
+        "max": 69225
+      },
+      "geometries": {
+        "count": 480,
+        "min": 109,
+        "mean": 109,
+        "p50": 109,
+        "p95": 109,
+        "max": 109
+      },
+      "textures": {
+        "count": 480,
+        "min": 32,
+        "mean": 32,
+        "p50": 32,
+        "p95": 32,
+        "max": 32
+      },
+      "maxOriginalRobots": null,
+      "lodStates": [
+        {
+          "lod": {},
+          "observations": 482,
+          "firstTime": 0,
+          "lastTime": 8.008200000000034
+        }
+      ],
+      "camera": {
+        "position": [
+          -25,
+          315,
+          150.00000000000006
+        ],
+        "target": [
+          -25,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "stamping-balanced",
+      "source": "docs/verification/stage-08-foreground-final-v2/report.json",
+      "sourceReportStatus": "failed",
+      "status": "passed",
+      "shop": "stamping",
+      "quality": "balanced",
+      "station": -1,
+      "elapsedMs": 12015.800000000745,
+      "frames": 720,
+      "renderedFps": 59.92110387988776,
+      "productionSeconds": 12.012499999999983,
+      "productionToWallRatio": 0.9997253616071539,
+      "fullCycleCovered": null,
+      "renderSize": [
+        1040,
+        650
+      ],
+      "intervalMs": {
+        "count": 714,
+        "min": 5.299999997019768,
+        "mean": 16.828711484592795,
+        "p50": 16.699999999254942,
+        "p95": 24.099999997764826,
+        "max": 120.90000000223517
+      },
+      "cpuMs": {
+        "count": 714,
+        "min": 3.699999999254942,
+        "mean": 4.7679271708537385,
+        "p50": 4.299999997019768,
+        "p95": 7.899999998509884,
+        "max": 12.199999999254942
+      },
+      "drawCalls": {
+        "count": 714,
+        "min": 824,
+        "mean": 834.9495798319327,
+        "p50": 832,
+        "p95": 845,
+        "max": 848
+      },
+      "triangles": {
+        "count": 714,
+        "min": 426241,
+        "mean": 426940.02521008404,
+        "p50": 426937,
+        "p95": 427633,
+        "max": 427777
+      },
+      "geometries": {
+        "count": 714,
+        "min": 292,
+        "mean": 292,
+        "p50": 292,
+        "p95": 292,
+        "max": 292
+      },
+      "textures": {
+        "count": 714,
+        "min": 49,
+        "mean": 49,
+        "p50": 49,
+        "p95": 49,
+        "max": 49
+      },
+      "maxOriginalRobots": null,
+      "lodStates": [
+        {
+          "lod": {
+            "proxy": 8,
+            "low": 0,
+            "medium": 0,
+            "original": 0
+          },
+          "observations": 572,
+          "firstTime": 0,
+          "lastTime": 12.012499999999983
+        },
+        {
+          "lod": {
+            "proxy": 7,
+            "low": 0,
+            "medium": 0,
+            "original": 0
+          },
+          "observations": 144,
+          "firstTime": 3.203400000000004,
+          "lastTime": 11.99579999999998
+        }
+      ],
+      "camera": {
+        "position": [
+          16,
+          61.99999999999999,
+          110.00000000000001
+        ],
+        "target": [
+          0,
+          1.5,
+          0
+        ]
+      }
+    },
+    {
+      "id": "stamping-fine",
+      "source": "docs/verification/stage-08-foreground-final-v2/report.json",
+      "sourceReportStatus": "failed",
+      "status": "passed",
+      "shop": "stamping",
+      "quality": "fine",
+      "station": -1,
+      "elapsedMs": 12000.699999999255,
+      "frames": 719,
+      "renderedFps": 59.91317173165271,
+      "productionSeconds": 11.995699999999996,
+      "productionToWallRatio": 0.9995833576375328,
+      "fullCycleCovered": null,
+      "renderSize": [
+        1600,
+        1000
+      ],
+      "intervalMs": {
+        "count": 712,
+        "min": 6.900000002235174,
+        "mean": 16.850140449439248,
+        "p50": 16.699999999254942,
+        "p95": 23.5,
+        "max": 139.09999999776483
+      },
+      "cpuMs": {
+        "count": 712,
+        "min": 3.599999997764826,
+        "mean": 4.693398876377287,
+        "p50": 4.300000000745058,
+        "p95": 7.099999997764826,
+        "max": 13
+      },
+      "drawCalls": {
+        "count": 712,
+        "min": 824,
+        "mean": 834.9410112359551,
+        "p50": 832,
+        "p95": 845,
+        "max": 848
+      },
+      "triangles": {
+        "count": 712,
+        "min": 426241,
+        "mean": 426938.1797752809,
+        "p50": 426937,
+        "p95": 427633,
+        "max": 427777
+      },
+      "geometries": {
+        "count": 712,
+        "min": 292,
+        "mean": 292,
+        "p50": 292,
+        "p95": 292,
+        "max": 292
+      },
+      "textures": {
+        "count": 712,
+        "min": 49,
+        "mean": 49,
+        "p50": 49,
+        "p95": 49,
+        "max": 49
+      },
+      "maxOriginalRobots": null,
+      "lodStates": [
+        {
+          "lod": {
+            "proxy": 8,
+            "low": 0,
+            "medium": 0,
+            "original": 0
+          },
+          "observations": 569,
+          "firstTime": 0,
+          "lastTime": 11.195
+        },
+        {
+          "lod": {
+            "proxy": 7,
+            "low": 0,
+            "medium": 0,
+            "original": 0
+          },
+          "observations": 145,
+          "firstTime": 3.2032999999999987,
+          "lastTime": 11.995699999999996
+        }
+      ],
+      "camera": {
+        "position": [
+          16,
+          61.99999999999999,
+          110.00000000000001
+        ],
+        "target": [
+          0,
+          1.5,
+          0
+        ]
+      }
+    },
+    {
+      "id": "welding-balanced",
+      "source": "docs/verification/stage-08-welding-rerun/report.json",
+      "sourceReportStatus": "passed",
+      "status": "passed",
+      "shop": "welding",
+      "quality": "balanced",
+      "station": -1,
+      "elapsedMs": 76015.09999999776,
+      "frames": 4549,
+      "renderedFps": 59.84337322453215,
+      "productionSeconds": 76.01190000000429,
+      "productionToWallRatio": 0.999957903100917,
+      "fullCycleCovered": true,
+      "renderSize": [
+        1040,
+        650
+      ],
+      "intervalMs": {
+        "count": 4480,
+        "min": 6.599999997764826,
+        "mean": 16.967633928571427,
+        "p50": 16.600000001490116,
+        "p95": 23.899999998509884,
+        "max": 201.60000000149012
+      },
+      "cpuMs": {
+        "count": 4480,
+        "min": 6,
+        "mean": 8.140111607151006,
+        "p50": 7.600000001490116,
+        "p95": 12.099999997764826,
+        "max": 21.300000000745058
+      },
+      "drawCalls": {
+        "count": 4480,
+        "min": 1480,
+        "mean": 1504.7421875,
+        "p50": 1509,
+        "p95": 1525,
+        "max": 1525
+      },
+      "triangles": {
+        "count": 4480,
+        "min": 179501,
+        "mean": 180734.30178571428,
+        "p50": 180581,
+        "p95": 181421,
+        "max": 186509
+      },
+      "geometries": {
+        "count": 4480,
+        "min": 517,
+        "mean": 525.8140625,
+        "p50": 517,
+        "p95": 537,
+        "max": 537
+      },
+      "textures": {
+        "count": 4480,
+        "min": 48,
+        "mean": 48,
+        "p50": 48,
+        "p95": 48,
+        "max": 48
+      },
+      "maxOriginalRobots": 0,
+      "lodStates": [
+        {
+          "lod": {
+            "proxy": 30,
+            "low": 0,
+            "medium": 0,
+            "original": 0,
+            "robotOriginalResident": 0,
+            "robots_proxy": 22,
+            "bodies_proxy": 8,
+            "robots_low": 0,
+            "bodies_low": 0,
+            "robots_medium": 0,
+            "bodies_medium": 0,
+            "robots_original": 0,
+            "bodies_original": 0
+          },
+          "observations": 3773,
+          "firstTime": 0,
+          "lastTime": 76.01190000000429
+        },
+        {
+          "lod": {
+            "proxy": 29,
+            "low": 0,
+            "medium": 0,
+            "original": 0,
+            "robotOriginalResident": 0,
+            "robots_proxy": 22,
+            "bodies_proxy": 7,
+            "robots_low": 0,
+            "bodies_low": 0,
+            "robots_medium": 0,
+            "bodies_medium": 0,
+            "robots_original": 0,
+            "bodies_original": 0
+          },
+          "observations": 709,
+          "firstTime": 64.01610000000223,
+          "lastTime": 75.9951000000043
+        }
+      ],
+      "camera": {
+        "position": [
+          16,
+          61.99999999999999,
+          110.00000000000001
+        ],
+        "target": [
+          0,
+          1.5,
+          0
+        ]
+      }
+    },
+    {
+      "id": "welding-fine",
+      "source": "docs/verification/stage-08-welding-rerun/report.json",
+      "sourceReportStatus": "passed",
+      "status": "passed",
+      "shop": "welding",
+      "quality": "fine",
+      "station": -1,
+      "elapsedMs": 12002.900000002235,
+      "frames": 717,
+      "renderedFps": 59.735563905378406,
+      "productionSeconds": 11.995699999999976,
+      "productionToWallRatio": 0.9994001449647788,
+      "fullCycleCovered": null,
+      "renderSize": [
+        1600,
+        1000
+      ],
+      "intervalMs": {
+        "count": 706,
+        "min": 6.199999999254942,
+        "mean": 16.995609065158973,
+        "p50": 16.699999999254942,
+        "p95": 23.5,
+        "max": 215.39999999850988
+      },
+      "cpuMs": {
+        "count": 706,
+        "min": 5.699999999254942,
+        "mean": 7.3366855524016,
+        "p50": 6.800000000745058,
+        "p95": 11.600000001490116,
+        "max": 19
+      },
+      "drawCalls": {
+        "count": 706,
+        "min": 1480,
+        "mean": 1480.169971671388,
+        "p50": 1480,
+        "p95": 1482,
+        "max": 1482
+      },
+      "triangles": {
+        "count": 706,
+        "min": 179887,
+        "mean": 179887.33994334278,
+        "p50": 179887,
+        "p95": 179891,
+        "max": 179891
+      },
+      "geometries": {
+        "count": 706,
+        "min": 537,
+        "mean": 537,
+        "p50": 537,
+        "p95": 537,
+        "max": 537
+      },
+      "textures": {
+        "count": 706,
+        "min": 48,
+        "mean": 48,
+        "p50": 48,
+        "p95": 48,
+        "max": 48
+      },
+      "maxOriginalRobots": 0,
+      "lodStates": [
+        {
+          "lod": {
+            "proxy": 30,
+            "low": 0,
+            "medium": 0,
+            "original": 0,
+            "robotOriginalResident": 0,
+            "robots_proxy": 22,
+            "bodies_proxy": 8,
+            "robots_low": 0,
+            "bodies_low": 0,
+            "robots_medium": 0,
+            "bodies_medium": 0,
+            "robots_original": 0,
+            "bodies_original": 0
+          },
+          "observations": 708,
+          "firstTime": 0,
+          "lastTime": 11.995699999999976
+        }
+      ],
+      "camera": {
+        "position": [
+          16,
+          61.99999999999999,
+          110.00000000000001
+        ],
+        "target": [
+          0,
+          1.5,
+          0
+        ]
+      }
+    },
+    {
+      "id": "welding-fine-station-2",
+      "source": "docs/verification/stage-08-foreground-final-v2/report.json",
+      "sourceReportStatus": "failed",
+      "status": "passed",
+      "shop": "welding",
+      "quality": "fine",
+      "station": 2,
+      "elapsedMs": 10007.89999999851,
+      "frames": 324,
+      "renderedFps": 32.37442420488296,
+      "productionSeconds": 9.993800000000027,
+      "productionToWallRatio": 0.998591113020865,
+      "fullCycleCovered": null,
+      "renderSize": [
+        1600,
+        1000
+      ],
+      "intervalMs": {
+        "count": 322,
+        "min": 4.099999997764826,
+        "mean": 31.047204968941784,
+        "p50": 30.699999999254942,
+        "p95": 38.19999999925494,
+        "max": 62.399999998509884
+      },
+      "cpuMs": {
+        "count": 322,
+        "min": 3.899999998509884,
+        "mean": 6.152484471892348,
+        "p50": 5.699999999254942,
+        "p95": 8.5,
+        "max": 14.799999997019768
+      },
+      "drawCalls": {
+        "count": 322,
+        "min": 944,
+        "mean": 956.1366459627329,
+        "p50": 956,
+        "p95": 964,
+        "max": 966
+      },
+      "triangles": {
+        "count": 322,
+        "min": 585275,
+        "mean": 604524.4472049689,
+        "p50": 601027,
+        "p95": 619357,
+        "max": 633349
+      },
+      "geometries": {
+        "count": 322,
+        "min": 607,
+        "mean": 1031.1180124223602,
+        "p50": 1223,
+        "p95": 1223,
+        "max": 1223
+      },
+      "textures": {
+        "count": 322,
+        "min": 48,
+        "mean": 48,
+        "p50": 48,
+        "p95": 48,
+        "max": 48
+      },
+      "maxOriginalRobots": 3,
+      "lodStates": [
+        {
+          "lod": {
+            "proxy": 0,
+            "low": 0,
+            "medium": 4,
+            "original": 4,
+            "robotOriginalResident": 3,
+            "robots_proxy": 0,
+            "bodies_proxy": 0,
+            "robots_low": 0,
+            "bodies_low": 0,
+            "robots_medium": 3,
+            "bodies_medium": 1,
+            "robots_original": 3,
+            "bodies_original": 1
+          },
+          "observations": 298,
+          "firstTime": 0,
+          "lastTime": 9.993800000000027
+        },
+        {
+          "lod": {
+            "proxy": 0,
+            "low": 0,
+            "medium": 3,
+            "original": 5,
+            "robotOriginalResident": 3,
+            "robots_proxy": 0,
+            "bodies_proxy": 0,
+            "robots_low": 0,
+            "bodies_low": 0,
+            "robots_medium": 3,
+            "bodies_medium": 0,
+            "robots_original": 3,
+            "bodies_original": 2
+          },
+          "observations": 17,
+          "firstTime": 2.9031000000000065,
+          "lastTime": 3.386900000000024
+        },
+        {
+          "lod": {
+            "proxy": 0,
+            "low": 0,
+            "medium": 4,
+            "original": 5,
+            "robotOriginalResident": 3,
+            "robots_proxy": 0,
+            "bodies_proxy": 0,
+            "robots_low": 0,
+            "bodies_low": 0,
+            "robots_medium": 3,
+            "bodies_medium": 1,
+            "robots_original": 3,
+            "bodies_original": 2
+          },
+          "observations": 9,
+          "firstTime": 3.420300000000018,
+          "lastTime": 3.6538000000000177
+        }
+      ],
+      "camera": {
+        "position": [
+          -14,
+          4.799999999999999,
+          6.500000000000001
+        ],
+        "target": [
+          -18,
+          2,
+          0
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "seven warmed scene cycles preserve live GL handle counts",
+      "passed": true
+    },
+    {
+      "name": "paused scene does not draw",
+      "passed": true
+    }
+  ],
+  "historical": [
+    {
+      "source": "docs/verification/stage-08-performance/report.json",
+      "status": "partial",
+      "reason": "Long native RAF evaluations were throttled; not valid sustained foreground FPS evidence"
+    },
+    {
+      "source": "docs/verification/stage-08-foreground-final-v2/report.json",
+      "status": "failed",
+      "reason": "Two welding panorama scenarios changed quality or shop during sampling; only its five individually passed scenarios are accepted"
+    }
+  ]
+}

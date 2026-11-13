@@ -1,0 +1,1634 @@
+{
+  "stage": "05-detail",
+  "shop": "welding",
+  "errors": [],
+  "diagnostic": {
+    "shop": "welding",
+    "time": 34.2,
+    "playing": false,
+    "speed": 1,
+    "rendererCount": 1,
+    "loopCount": 1,
+    "clockCount": 1,
+    "worldCount": 1,
+    "viewport": [
+      1600,
+      1000
+    ],
+    "quality": "fine",
+    "renderScale": 1,
+    "drawCalls": 959,
+    "triangles": 611607,
+    "geometries": 638,
+    "textures": 47,
+    "frameMs": 100.5,
+    "frameIntervals": [
+      50.09999999999991,
+      16.59999999999991,
+      16.600000000000364
+    ],
+    "frames": 5,
+    "robots": 22,
+    "disposedWorlds": 0,
+    "lodCounts": {
+      "proxy": 0,
+      "low": 0,
+      "medium": 4,
+      "original": 4,
+      "robotOriginalResident": 3,
+      "robots_proxy": 0,
+      "bodies_proxy": 0,
+      "robots_low": 0,
+      "bodies_low": 0,
+      "robots_medium": 3,
+      "bodies_medium": 1,
+      "robots_original": 3,
+      "bodies_original": 1
+    },
+    "details": {
+      "robots": 22,
+      "robotContacts": [
+        {
+          "index": 0,
+          "station": 0,
+          "process": "spr",
+          "actualTCP": [
+            -43.55,
+            1.3999999999999997,
+            -0.8699999999999999
+          ],
+          "plannedTCP": [
+            -43.55,
+            1.4,
+            -0.8700000000000001
+          ],
+          "contactError": 3.1401849173675503e-16,
+          "electrodeError": 0,
+          "targetError": 2.482534153247273e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 1,
+          "station": 0,
+          "process": "spr",
+          "actualTCP": [
+            -40.45,
+            1.3999999999999997,
+            -0.8699999999999999
+          ],
+          "plannedTCP": [
+            -40.45,
+            1.4,
+            -0.8700000000000001
+          ],
+          "contactError": 3.1401849173675503e-16,
+          "electrodeError": 0,
+          "targetError": 2.482534153247273e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 2,
+          "station": 0,
+          "process": "spr",
+          "actualTCP": [
+            -43.55,
+            1.3999999999999997,
+            0.8699999999999999
+          ],
+          "plannedTCP": [
+            -43.55,
+            1.4,
+            0.8700000000000001
+          ],
+          "contactError": 3.1401849173675503e-16,
+          "electrodeError": 0,
+          "targetError": 2.482534153247273e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 3,
+          "station": 0,
+          "process": "spr",
+          "actualTCP": [
+            -40.45,
+            1.3999999999999997,
+            0.8699999999999999
+          ],
+          "plannedTCP": [
+            -40.45,
+            1.4,
+            0.8700000000000001
+          ],
+          "contactError": 3.1401849173675503e-16,
+          "electrodeError": 0,
+          "targetError": 2.482534153247273e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 4,
+          "station": 1,
+          "process": "handling",
+          "actualTCP": [
+            -31.578206648391312,
+            2.20460986311382,
+            -1.171842758640753
+          ],
+          "plannedTCP": [
+            -31.578206648391312,
+            2.20460986311382,
+            -1.171842758640753
+          ],
+          "contactError": 0,
+          "electrodeError": 0,
+          "targetError": 0,
+          "active": false,
+          "carrying": false
+        },
+        {
+          "index": 5,
+          "station": 1,
+          "process": "handling",
+          "actualTCP": [
+            -28.421793351608688,
+            2.20460986311382,
+            -1.171842758640753
+          ],
+          "plannedTCP": [
+            -28.421793351608688,
+            2.20460986311382,
+            -1.171842758640753
+          ],
+          "contactError": 0,
+          "electrodeError": 0,
+          "targetError": 0,
+          "active": false,
+          "carrying": false
+        },
+        {
+          "index": 6,
+          "station": 1,
+          "process": "handling",
+          "actualTCP": [
+            -31.578206648391312,
+            2.20460986311382,
+            1.171842758640753
+          ],
+          "plannedTCP": [
+            -31.578206648391312,
+            2.20460986311382,
+            1.171842758640753
+          ],
+          "contactError": 0,
+          "electrodeError": 0,
+          "targetError": 0,
+          "active": false,
+          "carrying": false
+        },
+        {
+          "index": 7,
+          "station": 1,
+          "process": "handling",
+          "actualTCP": [
+            -28.421793351608688,
+            2.20460986311382,
+            1.171842758640753
+          ],
+          "plannedTCP": [
+            -28.421793351608688,
+            2.20460986311382,
+            1.171842758640753
+          ],
+          "contactError": 0,
+          "electrodeError": 0,
+          "targetError": 0,
+          "active": false,
+          "carrying": false
+        },
+        {
+          "index": 8,
+          "station": 2,
+          "process": "spot",
+          "actualTCP": [
+            -19.55,
+            1.9099999999999997,
+            -0.9400000000000005
+          ],
+          "plannedTCP": [
+            -19.55,
+            1.9100000000000001,
+            -0.9400000000000003
+          ],
+          "contactError": 4.965068306494546e-16,
+          "electrodeError": 0,
+          "targetError": 5.978733960281817e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 9,
+          "station": 2,
+          "process": "spot",
+          "actualTCP": [
+            -16.45,
+            1.9099999999999997,
+            -0.9400000000000003
+          ],
+          "plannedTCP": [
+            -16.45,
+            1.9100000000000001,
+            -0.9400000000000003
+          ],
+          "contactError": 4.440892098500626e-16,
+          "electrodeError": 0,
+          "targetError": 4.002966042486721e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 10,
+          "station": 2,
+          "process": "spot",
+          "actualTCP": [
+            -19.55,
+            1.9099999999999997,
+            0.9400000000000005
+          ],
+          "plannedTCP": [
+            -19.55,
+            1.9100000000000001,
+            0.9400000000000003
+          ],
+          "contactError": 4.965068306494546e-16,
+          "electrodeError": 0,
+          "targetError": 5.978733960281817e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 11,
+          "station": 2,
+          "process": "spot",
+          "actualTCP": [
+            -16.45,
+            1.9099999999999997,
+            0.9400000000000003
+          ],
+          "plannedTCP": [
+            -16.45,
+            1.9100000000000001,
+            0.9400000000000003
+          ],
+          "contactError": 4.440892098500626e-16,
+          "electrodeError": 0,
+          "targetError": 4.002966042486721e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 12,
+          "station": 3,
+          "process": "spot",
+          "actualTCP": [
+            -7.550000000000001,
+            1.9099999999999997,
+            -0.9400000000000003
+          ],
+          "plannedTCP": [
+            -7.550000000000001,
+            1.9100000000000001,
+            -0.9400000000000003
+          ],
+          "contactError": 4.440892098500626e-16,
+          "electrodeError": 0,
+          "targetError": 9.742167503148516e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 13,
+          "station": 3,
+          "process": "spot",
+          "actualTCP": [
+            -4.449999999999999,
+            1.9099999999999997,
+            -0.9400000000000003
+          ],
+          "plannedTCP": [
+            -4.449999999999999,
+            1.9100000000000001,
+            -0.9400000000000003
+          ],
+          "contactError": 4.440892098500626e-16,
+          "electrodeError": 0,
+          "targetError": 9.742167503148516e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 14,
+          "station": 3,
+          "process": "spot",
+          "actualTCP": [
+            -7.550000000000001,
+            1.9099999999999997,
+            0.9400000000000003
+          ],
+          "plannedTCP": [
+            -7.550000000000001,
+            1.9100000000000001,
+            0.9400000000000003
+          ],
+          "contactError": 4.440892098500626e-16,
+          "electrodeError": 0,
+          "targetError": 9.742167503148516e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 15,
+          "station": 3,
+          "process": "spot",
+          "actualTCP": [
+            -4.449999999999999,
+            1.9099999999999997,
+            0.9400000000000003
+          ],
+          "plannedTCP": [
+            -4.449999999999999,
+            1.9100000000000001,
+            0.9400000000000003
+          ],
+          "contactError": 4.440892098500626e-16,
+          "electrodeError": 0,
+          "targetError": 9.742167503148516e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 16,
+          "station": 4,
+          "process": "laser",
+          "actualTCP": [
+            5.300679339380558,
+            2.4866510684786807,
+            -0.8399922250663083
+          ],
+          "plannedTCP": [
+            5.300679339380558,
+            2.4866510684786807,
+            -0.8399922250663082
+          ],
+          "contactError": 1.1102230246251565e-16,
+          "electrodeError": 0,
+          "targetError": 1.1102230246251565e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 17,
+          "station": 4,
+          "process": "laser",
+          "actualTCP": [
+            7.799320660619441,
+            2.4866510684786807,
+            0.8399922250663083
+          ],
+          "plannedTCP": [
+            7.799320660619442,
+            2.4866510684786807,
+            0.8399922250663079
+          ],
+          "contactError": 9.930136612989092e-16,
+          "electrodeError": 0,
+          "targetError": 9.930136612989092e-16,
+          "active": true,
+          "carrying": false
+        },
+        {
+          "index": 18,
+          "station": 5,
+          "process": "assembly",
+          "actualTCP": [
+            17.450240658600542,
+            1.9099978491357867,
+            -1.8243612512954428
+          ],
+          "plannedTCP": [
+            17.450240658600542,
+            1.909997849135787,
+            -1.8243612512954428
+          ],
+          "contactError": 2.220446049250313e-16,
+          "electrodeError": 0,
+          "targetError": 0.005684173662005942,
+          "active": false,
+          "carrying": true,
+          "cargoPart": "frontDoors"
+        },
+        {
+          "index": 19,
+          "station": 5,
+          "process": "assembly",
+          "actualTCP": [
+            19.25,
+            2.75,
+            -0.8999999999999999
+          ],
+          "plannedTCP": [
+            19.25,
+            2.75,
+            -0.9000000000000001
+          ],
+          "contactError": 2.220446049250313e-16,
+          "electrodeError": 0,
+          "targetError": 2.220446049250313e-16,
+          "active": false,
+          "carrying": false
+        },
+        {
+          "index": 20,
+          "station": 5,
+          "process": "assembly",
+          "actualTCP": [
+            17.450240658600542,
+            1.9099978491357867,
+            1.8243612512954428
+          ],
+          "plannedTCP": [
+            17.450240658600542,
+            1.909997849135787,
+            1.8243612512954428
+          ],
+          "contactError": 2.220446049250313e-16,
+          "electrodeError": 0,
+          "targetError": 0.005684173662005942,
+          "active": false,
+          "carrying": true,
+          "cargoPart": "frontDoors"
+        },
+        {
+          "index": 21,
+          "station": 5,
+          "process": "assembly",
+          "actualTCP": [
+            19.25,
+            2.75,
+            0.8999999999999999
+          ],
+          "plannedTCP": [
+            19.25,
+            2.75,
+            0.9000000000000001
+          ],
+          "contactError": 2.220446049250313e-16,
+          "electrodeError": 0,
+          "targetError": 2.220446049250313e-16,
+          "active": false,
+          "carrying": false
+        }
+      ],
+      "maxContactError": 9.930136612989092e-16,
+      "sparks": {
+        "capacity": 6000,
+        "live": 2560,
+        "particleDrawCalls": 1,
+        "emitterBudget": 16,
+        "sparksPerContact": 320,
+        "normalBlending": true
+      },
+      "lod": {
+        "quality": "fine",
+        "counts": {
+          "proxy": 0,
+          "low": 0,
+          "medium": 4,
+          "original": 4,
+          "robotOriginalResident": 3,
+          "robots_proxy": 0,
+          "bodies_proxy": 0,
+          "robots_low": 0,
+          "bodies_low": 0,
+          "robots_medium": 3,
+          "bodies_medium": 1,
+          "robots_original": 3,
+          "bodies_original": 1
+        },
+        "residentOriginalRobots": 3,
+        "originalRobotLimit": 3,
+        "robotLOD": [
+          {
+            "index": 0,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "visible": true,
+            "level": "medium",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              },
+              {
+                "level": "medium",
+                "triangles": 14072,
+                "geometries": 16
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "visible": true,
+            "level": "medium",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              },
+              {
+                "level": "medium",
+                "triangles": 14072,
+                "geometries": 16
+              }
+            ]
+          },
+          {
+            "index": 6,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              }
+            ]
+          },
+          {
+            "index": 7,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              }
+            ]
+          },
+          {
+            "index": 8,
+            "visible": true,
+            "level": "medium",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              },
+              {
+                "level": "medium",
+                "triangles": 14120,
+                "geometries": 20
+              }
+            ]
+          },
+          {
+            "index": 9,
+            "visible": true,
+            "level": "original",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              },
+              {
+                "level": "original",
+                "triangles": 28712,
+                "geometries": 21
+              }
+            ]
+          },
+          {
+            "index": 10,
+            "visible": true,
+            "level": "original",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              },
+              {
+                "level": "original",
+                "triangles": 28712,
+                "geometries": 21
+              }
+            ]
+          },
+          {
+            "index": 11,
+            "visible": true,
+            "level": "original",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              },
+              {
+                "level": "original",
+                "triangles": 28712,
+                "geometries": 21
+              }
+            ]
+          },
+          {
+            "index": 12,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              }
+            ]
+          },
+          {
+            "index": 13,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              }
+            ]
+          },
+          {
+            "index": 14,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              }
+            ]
+          },
+          {
+            "index": 15,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 96,
+                "geometries": 8
+              }
+            ]
+          },
+          {
+            "index": 16,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 84,
+                "geometries": 7
+              }
+            ]
+          },
+          {
+            "index": 17,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 84,
+                "geometries": 7
+              }
+            ]
+          },
+          {
+            "index": 18,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 108,
+                "geometries": 9
+              }
+            ]
+          },
+          {
+            "index": 19,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 108,
+                "geometries": 9
+              }
+            ]
+          },
+          {
+            "index": 20,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 108,
+                "geometries": 9
+              }
+            ]
+          },
+          {
+            "index": 21,
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 108,
+                "geometries": 9
+              }
+            ]
+          }
+        ],
+        "bodyLOD": [
+          {
+            "index": 0,
+            "id": "BIW-001000",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 266,
+                "geometries": 14
+              }
+            ]
+          },
+          {
+            "index": 1,
+            "id": "BIW-000999",
+            "visible": true,
+            "level": "medium",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 266,
+                "geometries": 14
+              },
+              {
+                "level": "medium",
+                "triangles": 15484,
+                "geometries": 14
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "id": "BIW-000998",
+            "visible": true,
+            "level": "original",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 266,
+                "geometries": 14
+              },
+              {
+                "level": "original",
+                "triangles": 33388,
+                "geometries": 14
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "id": "BIW-000997",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 266,
+                "geometries": 14
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "id": "BIW-000996",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 266,
+                "geometries": 14
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "id": "BIW-000995",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 266,
+                "geometries": 14
+              }
+            ]
+          },
+          {
+            "index": 6,
+            "id": "BIW-000994",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 266,
+                "geometries": 14
+              }
+            ]
+          },
+          {
+            "index": 7,
+            "id": "BIW-000993",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 266,
+                "geometries": 14
+              }
+            ]
+          },
+          {
+            "index": 8,
+            "id": "OUTBOUND",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 266,
+                "geometries": 14
+              }
+            ]
+          },
+          {
+            "index": 9,
+            "id": "OUTBOUND",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 266,
+                "geometries": 14
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "pickableScreens": [
+      {
+        "id": "UB-10-FIX-0",
+        "name": "下车体连接 左夹具",
+        "station": 0,
+        "x": -422.28299543724665,
+        "y": 286.0655721510437,
+        "visible": false
+      },
+      {
+        "id": "UB-10-FIX-1",
+        "name": "下车体连接 右夹具",
+        "station": 0,
+        "x": -599.945569333779,
+        "y": 308.6513498632948,
+        "visible": false
+      },
+      {
+        "id": "BS-20-FIX-0",
+        "name": "侧围总成 左夹具",
+        "station": 1,
+        "x": -23.75558604583876,
+        "y": 387.9571089976529,
+        "visible": false
+      },
+      {
+        "id": "BS-20-FIX-1",
+        "name": "侧围总成 右夹具",
+        "station": 1,
+        "x": -229.53419459410628,
+        "y": 432.830446957878,
+        "visible": false
+      },
+      {
+        "id": "FR-30-FIX-0",
+        "name": "主拼 左夹具",
+        "station": 2,
+        "x": 878.7785002940271,
+        "y": 491.3566388001797,
+        "visible": true
+      },
+      {
+        "id": "FR-30-FIX-1",
+        "name": "主拼 右夹具",
+        "station": 2,
+        "x": 703.3943905727615,
+        "y": 597.538081677912,
+        "visible": true
+      },
+      {
+        "id": "RS-40-FIX-0",
+        "name": "补焊 左夹具",
+        "station": 3,
+        "x": 4824.189301446665,
+        "y": 1627.431593045333,
+        "visible": false
+      },
+      {
+        "id": "RS-40-FIX-1",
+        "name": "补焊 右夹具",
+        "station": 3,
+        "x": 7744.4631946261925,
+        "y": 3106.0847354468883,
+        "visible": false
+      },
+      {
+        "id": "RL-50-FIX-0",
+        "name": "顶盖连接 左夹具",
+        "station": 4,
+        "x": -10500.397099834669,
+        "y": -2290.6067229382347,
+        "visible": false
+      },
+      {
+        "id": "RL-50-FIX-1",
+        "name": "顶盖连接 右夹具",
+        "station": 4,
+        "x": -5534.761030903035,
+        "y": -1345.7279973604204,
+        "visible": false
+      },
+      {
+        "id": "CL-60-FIX-0",
+        "name": "四门两盖 左夹具",
+        "station": 5,
+        "x": -4083.644798949174,
+        "y": -650.0351133225278,
+        "visible": false
+      },
+      {
+        "id": "CL-60-FIX-1",
+        "name": "四门两盖 右夹具",
+        "station": 5,
+        "x": -3124.3607558350427,
+        "y": -537.6498706969428,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-01",
+        "name": "机器人 R01",
+        "station": 0,
+        "x": -372.3111863726212,
+        "y": 245.0424587974646,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-02",
+        "name": "机器人 R02",
+        "station": 0,
+        "x": -310.0337798563549,
+        "y": 257.8691317727184,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-03",
+        "name": "机器人 R03",
+        "station": 0,
+        "x": -747.6611527070614,
+        "y": 286.33683699974375,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-04",
+        "name": "机器人 R04",
+        "station": 0,
+        "x": -698.9271824750637,
+        "y": 304.55030922842377,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-05",
+        "name": "机器人 R05",
+        "station": 1,
+        "x": 22.22979728333705,
+        "y": 297.5821864979653,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-06",
+        "name": "机器人 R06",
+        "station": 1,
+        "x": 139.12789866417913,
+        "y": 319.3851962397125,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-07",
+        "name": "机器人 R07",
+        "station": 1,
+        "x": -465.2201560269889,
+        "y": 389.8284777975364,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-08",
+        "name": "机器人 R08",
+        "station": 1,
+        "x": -361.16485262713684,
+        "y": 428.50006954608415,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-09",
+        "name": "机器人 R09",
+        "station": 2,
+        "x": 813.0005750579439,
+        "y": 464.1401384983779,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-10",
+        "name": "机器人 R10",
+        "station": 2,
+        "x": 1105.652565575901,
+        "y": 521.6607650619758,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-11",
+        "name": "机器人 R11",
+        "station": 2,
+        "x": 393.81818155014525,
+        "y": 684.4998213518987,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-12",
+        "name": "机器人 R12",
+        "station": 2,
+        "x": 777.5869723421431,
+        "y": 820.6214595309848,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-13",
+        "name": "机器人 R13",
+        "station": 3,
+        "x": 3557.3892510820033,
+        "y": 1020.8422823233785,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-14",
+        "name": "机器人 R14",
+        "station": 3,
+        "x": 5246.249165717449,
+        "y": 1357.3709925026685,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-15",
+        "name": "机器人 R15",
+        "station": 3,
+        "x": 8849.150774181418,
+        "y": 3797.135543412631,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-16",
+        "name": "机器人 R16",
+        "station": 3,
+        "x": 216267.7423067306,
+        "y": 79789.47690943173,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-17",
+        "name": "机器人 R17",
+        "station": 4,
+        "x": -10945.232299638516,
+        "y": -1945.877522747523,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-18",
+        "name": "机器人 R18",
+        "station": 4,
+        "x": -4362.131411951677,
+        "y": -876.9120655826441,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-19",
+        "name": "机器人 R19",
+        "station": 5,
+        "x": -4705.4457090830265,
+        "y": -588.614703399013,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-20",
+        "name": "机器人 R20",
+        "station": 5,
+        "x": -4099.24200499334,
+        "y": -481.71652055211956,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-21",
+        "name": "机器人 R21",
+        "station": 5,
+        "x": -2761.0906543447454,
+        "y": -401.87578081220977,
+        "visible": false
+      },
+      {
+        "id": "ROBOT-22",
+        "name": "机器人 R22",
+        "station": 5,
+        "x": -2696.445087570309,
+        "y": -358.85897544615665,
+        "visible": false
+      },
+      {
+        "id": "UB-FEED",
+        "name": "下车体上件与 SPR 工位",
+        "station": 0,
+        "x": -81.58196416244311,
+        "y": 196.72456015941853,
+        "visible": false
+      },
+      {
+        "id": "LASER-CABIN",
+        "name": "封闭激光钎焊防护房",
+        "station": 4,
+        "x": -5976.202484284027,
+        "y": -765.6318943287604,
+        "visible": false
+      },
+      {
+        "id": "QM-70",
+        "name": "在线几何测量门架",
+        "station": 6,
+        "x": -2654.819024558925,
+        "y": -242.21143369173726,
+        "visible": false
+      },
+      {
+        "id": "LIFT-80",
+        "name": "四柱升降出线台",
+        "station": 7,
+        "x": -2259.773121649354,
+        "y": -89.63867569098483,
+        "visible": false
+      },
+      {
+        "id": "HIGH-BRIDGE",
+        "name": "高位输送桥",
+        "station": 7,
+        "x": -1897.4908418493455,
+        "y": -21.923687715799666,
+        "visible": false
+      },
+      {
+        "id": "BIW-001000",
+        "name": "白车身与滑橇",
+        "station": 0,
+        "x": -550.0421379054435,
+        "y": 172.72091078560393,
+        "visible": false
+      },
+      {
+        "id": "BIW-000999",
+        "name": "白车身与滑橇",
+        "station": 1,
+        "x": -163.7010107834179,
+        "y": 237.30719953086853,
+        "visible": false
+      },
+      {
+        "id": "BIW-000998",
+        "name": "白车身与滑橇",
+        "station": 2,
+        "x": 803.7259091483854,
+        "y": 398.56202265793604,
+        "visible": true
+      },
+      {
+        "id": "BIW-000997",
+        "name": "白车身与滑橇",
+        "station": 3,
+        "x": 7536.728070493041,
+        "y": 1518.9655978050769,
+        "visible": false
+      },
+      {
+        "id": "BIW-000996",
+        "name": "白车身与滑橇",
+        "station": 4,
+        "x": -6149.22848051983,
+        "y": -842.0501493779444,
+        "visible": false
+      },
+      {
+        "id": "BIW-000995",
+        "name": "白车身与滑橇",
+        "station": 5,
+        "x": -3303.5349086141487,
+        "y": -318.2165199256055,
+        "visible": false
+      },
+      {
+        "id": "BIW-000994",
+        "name": "白车身与滑橇",
+        "station": 6,
+        "x": -2644.43945279699,
+        "y": -250.6615065028358,
+        "visible": false
+      },
+      {
+        "id": "BIW-000993",
+        "name": "白车身与滑橇",
+        "station": 7,
+        "x": -2080.773495847069,
+        "y": 76.88086561652008,
+        "visible": false
+      },
+      {
+        "id": "OUTBOUND",
+        "name": "高位转运白车身",
+        "station": 7,
+        "x": -57287.716792968095,
+        "y": -16303.362249554368,
+        "visible": false
+      },
+      {
+        "id": "OUTBOUND",
+        "name": "高位转运白车身",
+        "station": 7,
+        "x": -57287.716792968095,
+        "y": -16303.362249554368,
+        "visible": false
+      }
+    ],
+    "poses": {
+      "time": 34.2,
+      "cycle": 0,
+      "cycleTime": 34.2,
+      "progress": 0.45,
+      "transfer": {
+        "active": false,
+        "progress": 1
+      },
+      "stations": [
+        {
+          "index": 0,
+          "code": "UB-10",
+          "name": "下车体连接",
+          "x": -42,
+          "robotCount": 4,
+          "serial": 1000,
+          "carId": "BIW-001000",
+          "skidId": "SKID-001000",
+          "carX": -42,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "下车体",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 0,
+            "roofFrame": 0,
+            "roof": 0,
+            "rearDoors": 0,
+            "frontDoors": 0,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.5875,
+          "measurement": 0
+        },
+        {
+          "index": 1,
+          "code": "BS-20",
+          "name": "侧围总成",
+          "x": -30,
+          "robotCount": 4,
+          "serial": 999,
+          "carId": "BIW-000999",
+          "skidId": "SKID-000999",
+          "carX": -30,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "侧围合拢",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 0,
+            "roof": 0,
+            "rearDoors": 0,
+            "frontDoors": 0,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.5875,
+          "measurement": 0
+        },
+        {
+          "index": 2,
+          "code": "FR-30",
+          "name": "主拼",
+          "x": -18,
+          "robotCount": 4,
+          "serial": 998,
+          "carId": "BIW-000998",
+          "skidId": "SKID-000998",
+          "carX": -18,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "主拼顶框",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 0,
+            "rearDoors": 0,
+            "frontDoors": 0,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.5875,
+          "measurement": 0
+        },
+        {
+          "index": 3,
+          "code": "RS-40",
+          "name": "补焊",
+          "x": -6,
+          "robotCount": 4,
+          "serial": 997,
+          "carId": "BIW-000997",
+          "skidId": "SKID-000997",
+          "carX": -6,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "补焊完成",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 0,
+            "rearDoors": 0,
+            "frontDoors": 0,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.5875,
+          "measurement": 0
+        },
+        {
+          "index": 4,
+          "code": "RL-50",
+          "name": "顶盖连接",
+          "x": 6,
+          "robotCount": 2,
+          "serial": 996,
+          "carId": "BIW-000996",
+          "skidId": "SKID-000996",
+          "carX": 6,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "顶盖连接",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 1,
+            "rearDoors": 0,
+            "frontDoors": 0,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.5222222222222223,
+          "measurement": 0
+        },
+        {
+          "index": 5,
+          "code": "CL-60",
+          "name": "四门两盖",
+          "x": 18,
+          "robotCount": 4,
+          "serial": 995,
+          "carId": "BIW-000995",
+          "skidId": "SKID-000995",
+          "carX": 18,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "门盖装配",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 1,
+            "rearDoors": 1,
+            "frontDoors": 0.5804569868001824,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.4947368421052632,
+          "measurement": 0
+        },
+        {
+          "index": 6,
+          "code": "QM-70",
+          "name": "在线测量",
+          "x": 30,
+          "robotCount": 0,
+          "serial": 994,
+          "carId": "BIW-000994",
+          "skidId": "SKID-000994",
+          "carX": 30,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "测量完成",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 1,
+            "rearDoors": 1,
+            "frontDoors": 1,
+            "hood": 1,
+            "tailgate": 1
+          },
+          "clamp": 0,
+          "working": true,
+          "progress": 0.5035714285714287,
+          "measurement": 0.4163512320000001
+        },
+        {
+          "index": 7,
+          "code": "LIFT-80",
+          "name": "升降出线",
+          "x": 42,
+          "robotCount": 0,
+          "serial": 993,
+          "carId": "BIW-000993",
+          "skidId": "SKID-000993",
+          "carX": 45.381,
+          "skidY": 5,
+          "occupied": true,
+          "stage": "涂装转运",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 1,
+            "rearDoors": 1,
+            "frontDoors": 1,
+            "hood": 1,
+            "tailgate": 1
+          },
+          "clamp": 0,
+          "working": true,
+          "progress": 0.7833333333333334,
+          "measurement": 0
+        }
+      ],
+      "outbound": [],
+      "lift": {
+        "height": 5,
+        "occupied": true,
+        "working": true,
+        "bridgeProgress": 0.28175000000000033,
+        "outboundCarId": "BIW-000993"
+      },
+      "completed": 0
+    }
+  }
+}

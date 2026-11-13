@@ -1,0 +1,1452 @@
+{
+  "startedAt": "2026-11-13T01:32:56.083Z",
+  "host": {
+    "platform": "win32",
+    "cpu": "AMD Ryzen 7 5700G with Radeon Graphics         "
+  },
+  "viewport": [
+    1600,
+    1000
+  ],
+  "devicePixelRatio": 1,
+  "performance": [
+    {
+      "shop": "park",
+      "quality": "balanced",
+      "station": -1,
+      "elapsedMs": 8684.699999999813,
+      "frames": 49,
+      "renderedFps": 5.642106232800333,
+      "startTime": 0.8175999999999997,
+      "endTime": 2.3016,
+      "intervalMs": {
+        "count": 48,
+        "min": 16,
+        "mean": 180.73958333333334,
+        "p50": 16.699999999999818,
+        "p95": 1001.0999999999985,
+        "max": 1001.3999999999996
+      },
+      "cpuMs": {
+        "count": 49,
+        "min": 1.2999999998137355,
+        "mean": 1.487755102048419,
+        "p50": 1.3999999999068677,
+        "p95": 1.8999999999068677,
+        "max": 2.3000000002793968
+      },
+      "drawCalls": {
+        "count": 49,
+        "min": 209,
+        "mean": 209,
+        "p50": 209,
+        "p95": 209,
+        "max": 209
+      },
+      "maxOriginalRobots": 0,
+      "renderSize": [
+        1040,
+        650
+      ]
+    },
+    {
+      "shop": "park",
+      "quality": "fine",
+      "station": -1,
+      "elapsedMs": 8646.29999999972,
+      "frames": 47,
+      "renderedFps": 5.435851173334435,
+      "startTime": 0.8174999999999997,
+      "endTime": 2.2681,
+      "intervalMs": {
+        "count": 46,
+        "min": 15.900000000001455,
+        "mean": 187.87608695652173,
+        "p50": 16.700000000000728,
+        "p95": 1001.0999999999985,
+        "max": 1001.2999999999993
+      },
+      "cpuMs": {
+        "count": 47,
+        "min": 1.1999999997206032,
+        "mean": 1.4340425531696925,
+        "p50": 1.3999999999068677,
+        "p95": 1.7999999998137355,
+        "max": 2.1999999997206032
+      },
+      "drawCalls": {
+        "count": 47,
+        "min": 209,
+        "mean": 209,
+        "p50": 209,
+        "p95": 209,
+        "max": 209
+      },
+      "maxOriginalRobots": 0,
+      "renderSize": [
+        1600,
+        1000
+      ]
+    },
+    {
+      "shop": "stamping",
+      "quality": "balanced",
+      "station": -1,
+      "elapsedMs": 12731.600000000093,
+      "frames": 56,
+      "renderedFps": 4.398504508467089,
+      "startTime": 0.8174999999999998,
+      "endTime": 2.7515999999999985,
+      "intervalMs": {
+        "count": 55,
+        "min": 16.099999999998545,
+        "mean": 231.45090909090914,
+        "p50": 16.700000000004366,
+        "p95": 1001.0999999999985,
+        "max": 1001.3999999999942
+      },
+      "cpuMs": {
+        "count": 56,
+        "min": 4.2000000001862645,
+        "mean": 5.1874999999584235,
+        "p50": 4.800000000279397,
+        "p95": 5.899999999906868,
+        "max": 14.200000000186265
+      },
+      "drawCalls": {
+        "count": 56,
+        "min": 826,
+        "mean": 838.2857142857143,
+        "p50": 838,
+        "p95": 842,
+        "max": 842
+      },
+      "maxOriginalRobots": 0,
+      "renderSize": [
+        1040,
+        650
+      ]
+    },
+    {
+      "shop": "stamping",
+      "quality": "fine",
+      "station": -1,
+      "elapsedMs": 12614.199999999808,
+      "frames": 49,
+      "renderedFps": 3.8845111065307942,
+      "startTime": 0.8174000000000013,
+      "endTime": 2.6348000000000034,
+      "intervalMs": {
+        "count": 48,
+        "min": 16.5,
+        "mean": 262.7729166666665,
+        "p50": 16.700000000004366,
+        "p95": 1001.0999999999913,
+        "max": 1001.5
+      },
+      "cpuMs": {
+        "count": 49,
+        "min": 3.8999999999068677,
+        "mean": 4.489795918367347,
+        "p50": 4.399999999906868,
+        "p95": 5.2999999998137355,
+        "max": 5.7000000001862645
+      },
+      "drawCalls": {
+        "count": 49,
+        "min": 826,
+        "mean": 838.2448979591836,
+        "p50": 838,
+        "p95": 842,
+        "max": 842
+      },
+      "maxOriginalRobots": 0,
+      "renderSize": [
+        1600,
+        1000
+      ]
+    },
+    {
+      "shop": "welding",
+      "quality": "balanced",
+      "station": -1,
+      "elapsedMs": 76853.8000000001,
+      "frames": 123,
+      "renderedFps": 1.6004413574865501,
+      "startTime": 0.8341999999999967,
+      "endTime": 9.218299999999985,
+      "intervalMs": {
+        "count": 122,
+        "min": 16,
+        "mean": 629.8852459016395,
+        "p50": 1000.8999999999942,
+        "p95": 1001.3000000000029,
+        "max": 1001.6000000000058
+      },
+      "cpuMs": {
+        "count": 123,
+        "min": 6.100000000093132,
+        "mean": 7.452032520318388,
+        "p50": 7.199999999720603,
+        "p95": 9.200000000186265,
+        "max": 12.899999999906868
+      },
+      "drawCalls": {
+        "count": 123,
+        "min": 1480,
+        "mean": 1480,
+        "p50": 1480,
+        "p95": 1480,
+        "max": 1480
+      },
+      "maxOriginalRobots": 0,
+      "renderSize": [
+        1040,
+        650
+      ]
+    },
+    {
+      "shop": "welding",
+      "quality": "fine",
+      "station": -1,
+      "elapsedMs": 12600.300000000105,
+      "frames": 48,
+      "renderedFps": 3.8094331087354747,
+      "startTime": 0.8171999999999825,
+      "endTime": 2.618099999999978,
+      "intervalMs": {
+        "count": 47,
+        "min": 16.29999999998836,
+        "mean": 268.01276595744696,
+        "p50": 16.70000000001164,
+        "p95": 1001.1000000000058,
+        "max": 1001.6000000000058
+      },
+      "cpuMs": {
+        "count": 48,
+        "min": 5.899999999906868,
+        "mean": 7.947916666715173,
+        "p50": 7.300000000279397,
+        "p95": 11.400000000372529,
+        "max": 13.700000000186265
+      },
+      "drawCalls": {
+        "count": 48,
+        "min": 1480,
+        "mean": 1480,
+        "p50": 1480,
+        "p95": 1480,
+        "max": 1480
+      },
+      "maxOriginalRobots": 0,
+      "renderSize": [
+        1600,
+        1000
+      ]
+    },
+    {
+      "shop": "welding",
+      "quality": "fine",
+      "station": 2,
+      "elapsedMs": 10580.499999999709,
+      "frames": 38,
+      "renderedFps": 3.591512688436373,
+      "startTime": 0.8008999999999941,
+      "endTime": 2.401399999999995,
+      "intervalMs": {
+        "count": 37,
+        "min": 16.599999999976717,
+        "mean": 286.32972972972925,
+        "p50": 16.89999999999418,
+        "p95": 1001.1000000000058,
+        "max": 1001.1000000000058
+      },
+      "cpuMs": {
+        "count": 38,
+        "min": 6,
+        "mean": 8.147368421091846,
+        "p50": 7.399999999906868,
+        "p95": 13.099999999627471,
+        "max": 17.100000000093132
+      },
+      "drawCalls": {
+        "count": 38,
+        "min": 1293,
+        "mean": 1309.0526315789473,
+        "p50": 1311,
+        "p95": 1315,
+        "max": 1315
+      },
+      "maxOriginalRobots": 0,
+      "renderSize": [
+        1600,
+        1000
+      ]
+    }
+  ],
+  "switching": [
+    {
+      "cycle": 0,
+      "shop": "park",
+      "metrics": {
+        "shop": "park",
+        "time": 34.2,
+        "frames": 786,
+        "frameMs": 1.8999999999068677,
+        "drawCalls": 209,
+        "triangles": 69225,
+        "geometries": 110,
+        "textures": 33,
+        "quality": "balanced",
+        "lod": {},
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 4673,
+          "deleted": 4298,
+          "live": 375
+        },
+        "Texture": {
+          "created": 228,
+          "deleted": 191,
+          "live": 37
+        },
+        "Framebuffer": {
+          "created": 155,
+          "deleted": 133,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 40,
+          "deleted": 34,
+          "live": 6
+        },
+        "Program": {
+          "created": 79,
+          "deleted": 43,
+          "live": 36
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 0,
+      "shop": "stamping",
+      "metrics": {
+        "shop": "stamping",
+        "time": 34.2,
+        "frames": 795,
+        "frameMs": 5.800000000279397,
+        "drawCalls": 844,
+        "triangles": 430225,
+        "geometries": 293,
+        "textures": 49,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 8,
+          "low": 0,
+          "medium": 0,
+          "original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 5681,
+          "deleted": 4666,
+          "live": 1015
+        },
+        "Texture": {
+          "created": 256,
+          "deleted": 203,
+          "live": 53
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 86,
+          "deleted": 48,
+          "live": 38
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 0,
+      "shop": "welding",
+      "metrics": {
+        "shop": "welding",
+        "time": 34.2,
+        "frames": 803,
+        "frameMs": 14.299999999813735,
+        "drawCalls": 1521,
+        "triangles": 186485,
+        "geometries": 537,
+        "textures": 48,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 30,
+          "low": 0,
+          "medium": 0,
+          "original": 0,
+          "robotOriginalResident": 0,
+          "robots_proxy": 22,
+          "bodies_proxy": 8,
+          "robots_low": 0,
+          "bodies_low": 0,
+          "robots_medium": 0,
+          "bodies_medium": 0,
+          "robots_original": 0,
+          "bodies_original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 7603,
+          "deleted": 5674,
+          "live": 1929
+        },
+        "Texture": {
+          "created": 282,
+          "deleted": 230,
+          "live": 52
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 94,
+          "deleted": 55,
+          "live": 39
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 1,
+      "shop": "park",
+      "metrics": {
+        "shop": "park",
+        "time": 34.2,
+        "frames": 811,
+        "frameMs": 3.099999999627471,
+        "drawCalls": 209,
+        "triangles": 69225,
+        "geometries": 110,
+        "textures": 33,
+        "quality": "balanced",
+        "lod": {},
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 7971,
+          "deleted": 7596,
+          "live": 375
+        },
+        "Texture": {
+          "created": 293,
+          "deleted": 256,
+          "live": 37
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 99,
+          "deleted": 63,
+          "live": 36
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 1,
+      "shop": "stamping",
+      "metrics": {
+        "shop": "stamping",
+        "time": 34.2,
+        "frames": 820,
+        "frameMs": 5.2000000001862645,
+        "drawCalls": 844,
+        "triangles": 430225,
+        "geometries": 293,
+        "textures": 49,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 8,
+          "low": 0,
+          "medium": 0,
+          "original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 8979,
+          "deleted": 7964,
+          "live": 1015
+        },
+        "Texture": {
+          "created": 320,
+          "deleted": 267,
+          "live": 53
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 106,
+          "deleted": 68,
+          "live": 38
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 1,
+      "shop": "welding",
+      "metrics": {
+        "shop": "welding",
+        "time": 34.2,
+        "frames": 828,
+        "frameMs": 27.5,
+        "drawCalls": 1521,
+        "triangles": 186485,
+        "geometries": 537,
+        "textures": 48,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 30,
+          "low": 0,
+          "medium": 0,
+          "original": 0,
+          "robotOriginalResident": 0,
+          "robots_proxy": 22,
+          "bodies_proxy": 8,
+          "robots_low": 0,
+          "bodies_low": 0,
+          "robots_medium": 0,
+          "bodies_medium": 0,
+          "robots_original": 0,
+          "bodies_original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 10901,
+          "deleted": 8972,
+          "live": 1929
+        },
+        "Texture": {
+          "created": 346,
+          "deleted": 294,
+          "live": 52
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 114,
+          "deleted": 75,
+          "live": 39
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 2,
+      "shop": "park",
+      "metrics": {
+        "shop": "park",
+        "time": 34.2,
+        "frames": 836,
+        "frameMs": 3.3999999999068677,
+        "drawCalls": 209,
+        "triangles": 69225,
+        "geometries": 110,
+        "textures": 33,
+        "quality": "balanced",
+        "lod": {},
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 11269,
+          "deleted": 10894,
+          "live": 375
+        },
+        "Texture": {
+          "created": 357,
+          "deleted": 320,
+          "live": 37
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 119,
+          "deleted": 83,
+          "live": 36
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 2,
+      "shop": "stamping",
+      "metrics": {
+        "shop": "stamping",
+        "time": 34.2,
+        "frames": 845,
+        "frameMs": 6.800000000279397,
+        "drawCalls": 844,
+        "triangles": 430225,
+        "geometries": 293,
+        "textures": 49,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 8,
+          "low": 0,
+          "medium": 0,
+          "original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 12277,
+          "deleted": 11262,
+          "live": 1015
+        },
+        "Texture": {
+          "created": 384,
+          "deleted": 331,
+          "live": 53
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 126,
+          "deleted": 88,
+          "live": 38
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 2,
+      "shop": "welding",
+      "metrics": {
+        "shop": "welding",
+        "time": 34.2,
+        "frames": 853,
+        "frameMs": 13.200000000186265,
+        "drawCalls": 1521,
+        "triangles": 186485,
+        "geometries": 537,
+        "textures": 48,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 30,
+          "low": 0,
+          "medium": 0,
+          "original": 0,
+          "robotOriginalResident": 0,
+          "robots_proxy": 22,
+          "bodies_proxy": 8,
+          "robots_low": 0,
+          "bodies_low": 0,
+          "robots_medium": 0,
+          "bodies_medium": 0,
+          "robots_original": 0,
+          "bodies_original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 14199,
+          "deleted": 12270,
+          "live": 1929
+        },
+        "Texture": {
+          "created": 410,
+          "deleted": 358,
+          "live": 52
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 134,
+          "deleted": 95,
+          "live": 39
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 3,
+      "shop": "park",
+      "metrics": {
+        "shop": "park",
+        "time": 34.2,
+        "frames": 861,
+        "frameMs": 2.1000000000931323,
+        "drawCalls": 209,
+        "triangles": 69225,
+        "geometries": 110,
+        "textures": 33,
+        "quality": "balanced",
+        "lod": {},
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 14567,
+          "deleted": 14192,
+          "live": 375
+        },
+        "Texture": {
+          "created": 421,
+          "deleted": 384,
+          "live": 37
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 139,
+          "deleted": 103,
+          "live": 36
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 3,
+      "shop": "stamping",
+      "metrics": {
+        "shop": "stamping",
+        "time": 34.2,
+        "frames": 870,
+        "frameMs": 5,
+        "drawCalls": 844,
+        "triangles": 430225,
+        "geometries": 293,
+        "textures": 49,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 8,
+          "low": 0,
+          "medium": 0,
+          "original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 15575,
+          "deleted": 14560,
+          "live": 1015
+        },
+        "Texture": {
+          "created": 448,
+          "deleted": 395,
+          "live": 53
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 146,
+          "deleted": 108,
+          "live": 38
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 3,
+      "shop": "welding",
+      "metrics": {
+        "shop": "welding",
+        "time": 34.2,
+        "frames": 878,
+        "frameMs": 13.299999999813735,
+        "drawCalls": 1521,
+        "triangles": 186485,
+        "geometries": 537,
+        "textures": 48,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 30,
+          "low": 0,
+          "medium": 0,
+          "original": 0,
+          "robotOriginalResident": 0,
+          "robots_proxy": 22,
+          "bodies_proxy": 8,
+          "robots_low": 0,
+          "bodies_low": 0,
+          "robots_medium": 0,
+          "bodies_medium": 0,
+          "robots_original": 0,
+          "bodies_original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 17497,
+          "deleted": 15568,
+          "live": 1929
+        },
+        "Texture": {
+          "created": 474,
+          "deleted": 422,
+          "live": 52
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 154,
+          "deleted": 115,
+          "live": 39
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 4,
+      "shop": "park",
+      "metrics": {
+        "shop": "park",
+        "time": 34.2,
+        "frames": 886,
+        "frameMs": 2.6999999997206032,
+        "drawCalls": 209,
+        "triangles": 69225,
+        "geometries": 110,
+        "textures": 33,
+        "quality": "balanced",
+        "lod": {},
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 17865,
+          "deleted": 17490,
+          "live": 375
+        },
+        "Texture": {
+          "created": 485,
+          "deleted": 448,
+          "live": 37
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 159,
+          "deleted": 123,
+          "live": 36
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 4,
+      "shop": "stamping",
+      "metrics": {
+        "shop": "stamping",
+        "time": 34.2,
+        "frames": 895,
+        "frameMs": 5.800000000279397,
+        "drawCalls": 844,
+        "triangles": 430225,
+        "geometries": 293,
+        "textures": 49,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 8,
+          "low": 0,
+          "medium": 0,
+          "original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 18873,
+          "deleted": 17858,
+          "live": 1015
+        },
+        "Texture": {
+          "created": 512,
+          "deleted": 459,
+          "live": 53
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 166,
+          "deleted": 128,
+          "live": 38
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 4,
+      "shop": "welding",
+      "metrics": {
+        "shop": "welding",
+        "time": 34.2,
+        "frames": 903,
+        "frameMs": 12.799999999813735,
+        "drawCalls": 1521,
+        "triangles": 186485,
+        "geometries": 537,
+        "textures": 48,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 30,
+          "low": 0,
+          "medium": 0,
+          "original": 0,
+          "robotOriginalResident": 0,
+          "robots_proxy": 22,
+          "bodies_proxy": 8,
+          "robots_low": 0,
+          "bodies_low": 0,
+          "robots_medium": 0,
+          "bodies_medium": 0,
+          "robots_original": 0,
+          "bodies_original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 20795,
+          "deleted": 18866,
+          "live": 1929
+        },
+        "Texture": {
+          "created": 538,
+          "deleted": 486,
+          "live": 52
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 174,
+          "deleted": 135,
+          "live": 39
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 5,
+      "shop": "park",
+      "metrics": {
+        "shop": "park",
+        "time": 34.2,
+        "frames": 911,
+        "frameMs": 1.8000000002793968,
+        "drawCalls": 209,
+        "triangles": 69225,
+        "geometries": 110,
+        "textures": 33,
+        "quality": "balanced",
+        "lod": {},
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 21163,
+          "deleted": 20788,
+          "live": 375
+        },
+        "Texture": {
+          "created": 549,
+          "deleted": 512,
+          "live": 37
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 179,
+          "deleted": 143,
+          "live": 36
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 5,
+      "shop": "stamping",
+      "metrics": {
+        "shop": "stamping",
+        "time": 34.2,
+        "frames": 919,
+        "frameMs": 5.2000000001862645,
+        "drawCalls": 844,
+        "triangles": 430225,
+        "geometries": 293,
+        "textures": 49,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 8,
+          "low": 0,
+          "medium": 0,
+          "original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 22171,
+          "deleted": 21156,
+          "live": 1015
+        },
+        "Texture": {
+          "created": 576,
+          "deleted": 523,
+          "live": 53
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 186,
+          "deleted": 148,
+          "live": 38
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 5,
+      "shop": "welding",
+      "metrics": {
+        "shop": "welding",
+        "time": 34.2,
+        "frames": 927,
+        "frameMs": 10.299999999813735,
+        "drawCalls": 1521,
+        "triangles": 186485,
+        "geometries": 537,
+        "textures": 48,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 30,
+          "low": 0,
+          "medium": 0,
+          "original": 0,
+          "robotOriginalResident": 0,
+          "robots_proxy": 22,
+          "bodies_proxy": 8,
+          "robots_low": 0,
+          "bodies_low": 0,
+          "robots_medium": 0,
+          "bodies_medium": 0,
+          "robots_original": 0,
+          "bodies_original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 24093,
+          "deleted": 22164,
+          "live": 1929
+        },
+        "Texture": {
+          "created": 602,
+          "deleted": 550,
+          "live": 52
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 194,
+          "deleted": 155,
+          "live": 39
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 6,
+      "shop": "park",
+      "metrics": {
+        "shop": "park",
+        "time": 34.2,
+        "frames": 935,
+        "frameMs": 2.8000000002793968,
+        "drawCalls": 209,
+        "triangles": 69225,
+        "geometries": 110,
+        "textures": 33,
+        "quality": "balanced",
+        "lod": {},
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 24461,
+          "deleted": 24086,
+          "live": 375
+        },
+        "Texture": {
+          "created": 613,
+          "deleted": 576,
+          "live": 37
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 199,
+          "deleted": 163,
+          "live": 36
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 6,
+      "shop": "stamping",
+      "metrics": {
+        "shop": "stamping",
+        "time": 34.2,
+        "frames": 943,
+        "frameMs": 11.300000000279397,
+        "drawCalls": 844,
+        "triangles": 430225,
+        "geometries": 293,
+        "textures": 49,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 8,
+          "low": 0,
+          "medium": 0,
+          "original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 25469,
+          "deleted": 24454,
+          "live": 1015
+        },
+        "Texture": {
+          "created": 640,
+          "deleted": 587,
+          "live": 53
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 206,
+          "deleted": 168,
+          "live": 38
+        }
+      },
+      "canvases": 1
+    },
+    {
+      "cycle": 6,
+      "shop": "welding",
+      "metrics": {
+        "shop": "welding",
+        "time": 34.2,
+        "frames": 951,
+        "frameMs": 19.200000000186265,
+        "drawCalls": 1521,
+        "triangles": 186485,
+        "geometries": 537,
+        "textures": 48,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 30,
+          "low": 0,
+          "medium": 0,
+          "original": 0,
+          "robotOriginalResident": 0,
+          "robots_proxy": 22,
+          "bodies_proxy": 8,
+          "robots_low": 0,
+          "bodies_low": 0,
+          "robots_medium": 0,
+          "bodies_medium": 0,
+          "robots_original": 0,
+          "bodies_original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "gl": {
+        "Buffer": {
+          "created": 27391,
+          "deleted": 25462,
+          "live": 1929
+        },
+        "Texture": {
+          "created": 666,
+          "deleted": 614,
+          "live": 52
+        },
+        "Framebuffer": {
+          "created": 157,
+          "deleted": 135,
+          "live": 22
+        },
+        "Renderbuffer": {
+          "created": 43,
+          "deleted": 37,
+          "live": 6
+        },
+        "Program": {
+          "created": 214,
+          "deleted": 175,
+          "live": 39
+        }
+      },
+      "canvases": 1
+    }
+  ],
+  "checks": [
+    {
+      "name": "seven warmed scene cycles preserve live GL handle counts",
+      "passed": true
+    },
+    {
+      "name": "paused scene does not draw",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "Post-run audit: Chromium throttled long evaluations to 1-second RAF intervals after initial foreground activation. Resource switching checks passed, but these performance samples cannot establish sustained foreground FPS; see the subsequent foreground-maintained run."
+  ],
+  "browser": "157.0.8103.52",
+  "gpu": {
+    "renderer": "ANGLE (AMD, AMD Radeon(TM) Graphics (0x00001638) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "vendor": "Google Inc. (AMD)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  },
+  "status": "partial",
+  "finishedAt": "2026-11-13T01:43:00.361Z"
+}

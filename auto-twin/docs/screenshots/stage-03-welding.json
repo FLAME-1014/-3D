@@ -1,0 +1,706 @@
+{
+  "stage": "03",
+  "shop": "welding",
+  "errors": [],
+  "diagnostic": {
+    "shop": "welding",
+    "time": 34.2,
+    "playing": false,
+    "speed": 1,
+    "rendererCount": 1,
+    "loopCount": 1,
+    "clockCount": 1,
+    "worldCount": 1,
+    "viewport": [
+      1600,
+      1000
+    ],
+    "quality": "balanced",
+    "renderScale": 0.65,
+    "drawCalls": 1979,
+    "triangles": 196033,
+    "geometries": 667,
+    "textures": 47,
+    "frameMs": 33.40000000037253,
+    "frameIntervals": [
+      50.19999999999982,
+      16.59999999999991,
+      16.700000000000273
+    ],
+    "frames": 5,
+    "robots": 22,
+    "disposedWorlds": 0,
+    "lodCounts": {},
+    "pickableScreens": [
+      {
+        "id": "UB-10-FIX-0",
+        "name": "下车体连接 左夹具",
+        "station": 0,
+        "x": 474.8976366664997,
+        "y": 403.0557184783343,
+        "visible": true
+      },
+      {
+        "id": "UB-10-FIX-1",
+        "name": "下车体连接 右夹具",
+        "station": 0,
+        "x": 459.25612537191523,
+        "y": 408.493980015866,
+        "visible": true
+      },
+      {
+        "id": "BS-20-FIX-0",
+        "name": "侧围总成 左夹具",
+        "station": 1,
+        "x": 553.3946965570273,
+        "y": 427.57667530909885,
+        "visible": true
+      },
+      {
+        "id": "BS-20-FIX-1",
+        "name": "侧围总成 右夹具",
+        "station": 1,
+        "x": 537.8771261301844,
+        "y": 433.5780317367216,
+        "visible": true
+      },
+      {
+        "id": "FR-30-FIX-0",
+        "name": "主拼 左夹具",
+        "station": 2,
+        "x": 639.679504044316,
+        "y": 445.2880748831887,
+        "visible": true
+      },
+      {
+        "id": "FR-30-FIX-1",
+        "name": "主拼 右夹具",
+        "station": 2,
+        "x": 624.3457056414561,
+        "y": 451.8500039536596,
+        "visible": true
+      },
+      {
+        "id": "RS-40-FIX-0",
+        "name": "补焊 左夹具",
+        "station": 3,
+        "x": 736.6725925273907,
+        "y": 484.8291301321229,
+        "visible": true
+      },
+      {
+        "id": "RS-40-FIX-1",
+        "name": "补焊 右夹具",
+        "station": 3,
+        "x": 721.7872208649881,
+        "y": 492.2545975883724,
+        "visible": true
+      },
+      {
+        "id": "RL-50-FIX-0",
+        "name": "顶盖连接 左夹具",
+        "station": 4,
+        "x": 844.5604180015719,
+        "y": 518.5311912629079,
+        "visible": true
+      },
+      {
+        "id": "RL-50-FIX-1",
+        "name": "顶盖连接 右夹具",
+        "station": 4,
+        "x": 830.2722458778709,
+        "y": 526.8667743873971,
+        "visible": true
+      },
+      {
+        "id": "CL-60-FIX-0",
+        "name": "四门两盖 左夹具",
+        "station": 5,
+        "x": 966.0027325192291,
+        "y": 556.467411496743,
+        "visible": true
+      },
+      {
+        "id": "CL-60-FIX-1",
+        "name": "四门两盖 右夹具",
+        "station": 5,
+        "x": 952.5869036140215,
+        "y": 565.8912992761833,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-01",
+        "name": "机器人 R01",
+        "station": 0,
+        "x": 475.51873261068727,
+        "y": 395.9226464695856,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-02",
+        "name": "机器人 R02",
+        "station": 0,
+        "x": 491.088128872022,
+        "y": 400.71329329919325,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-03",
+        "name": "机器人 R03",
+        "station": 0,
+        "x": 442.42768301294984,
+        "y": 407.26478135954767,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-04",
+        "name": "机器人 R04",
+        "station": 0,
+        "x": 458.03050592347284,
+        "y": 412.2850538871602,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-05",
+        "name": "机器人 R05",
+        "station": 1,
+        "x": 553.5243253900642,
+        "y": 418.34951356533224,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-06",
+        "name": "机器人 R06",
+        "station": 1,
+        "x": 570.6920862020526,
+        "y": 423.61550454087546,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-07",
+        "name": "机器人 R07",
+        "station": 1,
+        "x": 519.7474407149529,
+        "y": 431.17885758788935,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-08",
+        "name": "机器人 R08",
+        "station": 1,
+        "x": 536.9949376193006,
+        "y": 436.71797502413807,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-09",
+        "name": "机器人 R09",
+        "station": 2,
+        "x": 639.3659292271371,
+        "y": 445.1750190271856,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-10",
+        "name": "机器人 R10",
+        "station": 2,
+        "x": 658.3821875339232,
+        "y": 451.01345673932,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-11",
+        "name": "机器人 R11",
+        "station": 2,
+        "x": 606.0860728219152,
+        "y": 459.4101309356347,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-12",
+        "name": "机器人 R12",
+        "station": 2,
+        "x": 625.2421539013401,
+        "y": 465.56788713716963,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-13",
+        "name": "机器人 R13",
+        "station": 3,
+        "x": 734.6274910706974,
+        "y": 474.42255480480964,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-14",
+        "name": "机器人 R14",
+        "station": 3,
+        "x": 755.8109790452177,
+        "y": 480.92638290125745,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-15",
+        "name": "机器人 R15",
+        "station": 3,
+        "x": 702.1618436209425,
+        "y": 490.2938576750458,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-16",
+        "name": "机器人 R16",
+        "station": 3,
+        "x": 723.5650852241104,
+        "y": 497.1739676082,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-17",
+        "name": "机器人 R17",
+        "station": 4,
+        "x": 852.3407253495851,
+        "y": 508.06932276867786,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-18",
+        "name": "机器人 R18",
+        "station": 4,
+        "x": 822.3151966452589,
+        "y": 525.4128328671687,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-19",
+        "name": "机器人 R19",
+        "station": 5,
+        "x": 960.5958911061094,
+        "y": 543.2135080569172,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-20",
+        "name": "机器人 R20",
+        "station": 5,
+        "x": 987.3990126399674,
+        "y": 551.4350226539242,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-21",
+        "name": "机器人 R21",
+        "station": 5,
+        "x": 931.1983263648573,
+        "y": 563.3183087501528,
+        "visible": true
+      },
+      {
+        "id": "ROBOT-22",
+        "name": "机器人 R22",
+        "station": 5,
+        "x": 958.4733277265233,
+        "y": 572.0778079664145,
+        "visible": true
+      },
+      {
+        "id": "UB-FEED",
+        "name": "下车体上件与 SPR 工位",
+        "station": 0,
+        "x": 511.9947993631526,
+        "y": 381.40003197988335,
+        "visible": true
+      },
+      {
+        "id": "LASER-CABIN",
+        "name": "封闭激光钎焊防护房",
+        "station": 4,
+        "x": 837.3142170239511,
+        "y": 503.5881112210833,
+        "visible": true
+      },
+      {
+        "id": "QM-70",
+        "name": "在线几何测量门架",
+        "station": 6,
+        "x": 1096.7408510639134,
+        "y": 591.0564872289872,
+        "visible": true
+      },
+      {
+        "id": "LIFT-80",
+        "name": "四柱升降出线台",
+        "station": 7,
+        "x": 1260.8021794770946,
+        "y": 626.3870561508348,
+        "visible": true
+      },
+      {
+        "id": "HIGH-BRIDGE",
+        "name": "高位输送桥",
+        "station": 7,
+        "x": 1833.0929852647018,
+        "y": 791.9120937965752,
+        "visible": false
+      },
+      {
+        "id": "BIW-001000",
+        "name": "白车身与滑橇",
+        "station": 0,
+        "x": 464.78606454281584,
+        "y": 389.0126603822346,
+        "visible": true
+      },
+      {
+        "id": "BIW-000999",
+        "name": "白车身与滑橇",
+        "station": 1,
+        "x": 543.7462186443056,
+        "y": 413.1250480036186,
+        "visible": true
+      },
+      {
+        "id": "BIW-000998",
+        "name": "白车身与滑橇",
+        "station": 2,
+        "x": 631.162955904379,
+        "y": 439.81985727035743,
+        "visible": true
+      },
+      {
+        "id": "BIW-000997",
+        "name": "白车身与滑橇",
+        "station": 3,
+        "x": 728.4716841190777,
+        "y": 469.5354245758732,
+        "visible": true
+      },
+      {
+        "id": "BIW-000996",
+        "name": "白车身与滑橇",
+        "station": 4,
+        "x": 837.4170373598386,
+        "y": 505.5300594046128,
+        "visible": true
+      },
+      {
+        "id": "BIW-000995",
+        "name": "白车身与滑橇",
+        "station": 5,
+        "x": 960.1783799175021,
+        "y": 543.1919097437159,
+        "visible": true
+      },
+      {
+        "id": "BIW-000994",
+        "name": "白车身与滑橇",
+        "station": 6,
+        "x": 1098.4389175652957,
+        "y": 593.540992933884,
+        "visible": true
+      },
+      {
+        "id": "BIW-000993",
+        "name": "白车身与滑橇",
+        "station": 7,
+        "x": 1316.386462207293,
+        "y": 606.6849653017513,
+        "visible": true
+      },
+      {
+        "id": "OUTBOUND",
+        "name": "高位转运白车身",
+        "station": 7,
+        "x": 781.2142357342914,
+        "y": 505.4725009176011,
+        "visible": true
+      },
+      {
+        "id": "OUTBOUND",
+        "name": "高位转运白车身",
+        "station": 7,
+        "x": 781.2142357342914,
+        "y": 505.4725009176011,
+        "visible": true
+      }
+    ],
+    "poses": {
+      "time": 34.2,
+      "cycle": 0,
+      "cycleTime": 34.2,
+      "progress": 0.45,
+      "transfer": {
+        "active": false,
+        "progress": 1
+      },
+      "stations": [
+        {
+          "index": 0,
+          "code": "UB-10",
+          "name": "下车体连接",
+          "x": -42,
+          "robotCount": 4,
+          "serial": 1000,
+          "carId": "BIW-001000",
+          "skidId": "SKID-001000",
+          "carX": -42,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "下车体",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 0,
+            "roofFrame": 0,
+            "roof": 0,
+            "rearDoors": 0,
+            "frontDoors": 0,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.5875,
+          "measurement": 0
+        },
+        {
+          "index": 1,
+          "code": "BS-20",
+          "name": "侧围总成",
+          "x": -30,
+          "robotCount": 4,
+          "serial": 999,
+          "carId": "BIW-000999",
+          "skidId": "SKID-000999",
+          "carX": -30,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "侧围合拢",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 0,
+            "roof": 0,
+            "rearDoors": 0,
+            "frontDoors": 0,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.5875,
+          "measurement": 0
+        },
+        {
+          "index": 2,
+          "code": "FR-30",
+          "name": "主拼",
+          "x": -18,
+          "robotCount": 4,
+          "serial": 998,
+          "carId": "BIW-000998",
+          "skidId": "SKID-000998",
+          "carX": -18,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "主拼顶框",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 0,
+            "rearDoors": 0,
+            "frontDoors": 0,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.5875,
+          "measurement": 0
+        },
+        {
+          "index": 3,
+          "code": "RS-40",
+          "name": "补焊",
+          "x": -6,
+          "robotCount": 4,
+          "serial": 997,
+          "carId": "BIW-000997",
+          "skidId": "SKID-000997",
+          "carX": -6,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "补焊完成",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 0,
+            "rearDoors": 0,
+            "frontDoors": 0,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.5875,
+          "measurement": 0
+        },
+        {
+          "index": 4,
+          "code": "RL-50",
+          "name": "顶盖连接",
+          "x": 6,
+          "robotCount": 2,
+          "serial": 996,
+          "carId": "BIW-000996",
+          "skidId": "SKID-000996",
+          "carX": 6,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "顶盖连接",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 1,
+            "rearDoors": 0,
+            "frontDoors": 0,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.5222222222222223,
+          "measurement": 0
+        },
+        {
+          "index": 5,
+          "code": "CL-60",
+          "name": "四门两盖",
+          "x": 18,
+          "robotCount": 4,
+          "serial": 995,
+          "carId": "BIW-000995",
+          "skidId": "SKID-000995",
+          "carX": 18,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "门盖装配",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 1,
+            "rearDoors": 1,
+            "frontDoors": 0.5804569868001824,
+            "hood": 0,
+            "tailgate": 0
+          },
+          "clamp": 1,
+          "working": true,
+          "progress": 0.4947368421052632,
+          "measurement": 0
+        },
+        {
+          "index": 6,
+          "code": "QM-70",
+          "name": "在线测量",
+          "x": 30,
+          "robotCount": 0,
+          "serial": 994,
+          "carId": "BIW-000994",
+          "skidId": "SKID-000994",
+          "carX": 30,
+          "skidY": 1,
+          "occupied": true,
+          "stage": "测量完成",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 1,
+            "rearDoors": 1,
+            "frontDoors": 1,
+            "hood": 1,
+            "tailgate": 1
+          },
+          "clamp": 0,
+          "working": true,
+          "progress": 0.5035714285714287,
+          "measurement": 0.4163512320000001
+        },
+        {
+          "index": 7,
+          "code": "LIFT-80",
+          "name": "升降出线",
+          "x": 42,
+          "robotCount": 0,
+          "serial": 993,
+          "carId": "BIW-000993",
+          "skidId": "SKID-000993",
+          "carX": 45.381,
+          "skidY": 5,
+          "occupied": true,
+          "stage": "涂装转运",
+          "stageComplete": false,
+          "assembly": {
+            "floor": 1,
+            "frontFloor": 1,
+            "rearFloor": 1,
+            "engineBay": 1,
+            "sides": 1,
+            "roofFrame": 1,
+            "roof": 1,
+            "rearDoors": 1,
+            "frontDoors": 1,
+            "hood": 1,
+            "tailgate": 1
+          },
+          "clamp": 0,
+          "working": true,
+          "progress": 0.7833333333333334,
+          "measurement": 0
+        }
+      ],
+      "outbound": [],
+      "lift": {
+        "height": 5,
+        "occupied": true,
+        "working": true,
+        "bridgeProgress": 0.28175000000000033,
+        "outboundCarId": "BIW-000993"
+      },
+      "completed": 0
+    }
+  }
+}

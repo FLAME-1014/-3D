@@ -1,0 +1,7935 @@
+{
+  "status": "complete",
+  "startedAt": "2026-11-13T08:24:00.005Z",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\scripts\\capture.mjs",
+    "--shop",
+    "stamping",
+    "--start",
+    "0",
+    "--duration",
+    "4",
+    "--fps",
+    "60",
+    "--quality",
+    "balanced",
+    "--station",
+    "3",
+    "--video",
+    "--ffmpeg",
+    ".tools/python/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+    "--output",
+    "docs/captures/stage-09-stamping-cycle-v3"
+  ],
+  "mode": "virtual-clock",
+  "shop": "stamping",
+  "url": "http://127.0.0.1:4200/?shop=stamping",
+  "start": 0,
+  "duration": 4,
+  "fps": 60,
+  "speed": 1,
+  "quality": "balanced",
+  "station": 3,
+  "close": false,
+  "viewport": [
+    1600,
+    1000
+  ],
+  "devicePixelRatio": 1,
+  "plannedFrames": 240,
+  "writtenFrames": 240,
+  "virtualEpochMs": 1700000000000,
+  "output": "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\docs\\captures\\stage-09-stamping-cycle-v3",
+  "productionPolicy": "paused; seek(start + frameIndex / fps * speed); confirm React DOM time; advance one virtual RAF; confirm one rendered frame before screenshot",
+  "video": {
+    "requested": true,
+    "status": "complete",
+    "path": "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\docs\\captures\\stage-09-stamping-cycle-v3\\capture.mp4",
+    "binary": ".tools/python/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+    "arguments": [
+      "-n",
+      "-framerate",
+      "60",
+      "-start_number",
+      "0",
+      "-i",
+      "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\docs\\captures\\stage-09-stamping-cycle-v3\\frame-%06d.png",
+      "-frames:v",
+      "240",
+      "-c:v",
+      "libx264",
+      "-pix_fmt",
+      "yuv420p",
+      "-r",
+      "60",
+      "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\docs\\captures\\stage-09-stamping-cycle-v3\\capture.mp4"
+    ],
+    "version": "ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers",
+    "verification": {
+      "path": "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\docs\\captures\\stage-09-stamping-cycle-v3\\capture.mp4",
+      "bytes": 327888,
+      "sha256": "d7f9d2b6ff60b7f79007f30d051d2c880fb1a5354370fc57f9d04acf92138b5e",
+      "decodedFrames": 240,
+      "input": {
+        "codec": "h264",
+        "pixelFormat": "yuv420p",
+        "width": 1600,
+        "height": 1000,
+        "fps": 60,
+        "duration": 4
+      },
+      "command": [
+        ".tools/python/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+        "-hide_banner",
+        "-loglevel",
+        "info",
+        "-nostats",
+        "-progress",
+        "pipe:1",
+        "-i",
+        "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\docs\\captures\\stage-09-stamping-cycle-v3\\capture.mp4",
+        "-map",
+        "0:v:0",
+        "-vf",
+        "blackdetect=d=0.1:pix_th=0.01",
+        "-an",
+        "-f",
+        "null",
+        "-"
+      ]
+    }
+  },
+  "frameChecks": [
+    {
+      "index": 0,
+      "productionTime": 0,
+      "metrics": {
+        "shop": "stamping",
+        "time": 0,
+        "frames": 2,
+        "frameMs": 0,
+        "drawCalls": 527,
+        "triangles": 212349,
+        "geometries": 270,
+        "textures": 36,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 0,
+          "low": 1,
+          "medium": 2,
+          "original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "png": {
+        "width": 1600,
+        "height": 1000,
+        "channels": 3,
+        "meanBrightness": 139.24965531256822,
+        "nonBlackProportion": 1,
+        "stddev": 78.22989667384044
+      }
+    },
+    {
+      "index": 120,
+      "productionTime": 2,
+      "metrics": {
+        "shop": "stamping",
+        "time": 2,
+        "frames": 122,
+        "frameMs": 0,
+        "drawCalls": 542,
+        "triangles": 218621,
+        "geometries": 280,
+        "textures": 36,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 0,
+          "low": 0,
+          "medium": 2,
+          "original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "png": {
+        "width": 1600,
+        "height": 1000,
+        "channels": 3,
+        "meanBrightness": 141.6332031842232,
+        "nonBlackProportion": 1,
+        "stddev": 77.84602741950133
+      }
+    },
+    {
+      "index": 239,
+      "productionTime": 3.9833333333333334,
+      "metrics": {
+        "shop": "stamping",
+        "time": 3.9833333333333334,
+        "frames": 241,
+        "frameMs": 0,
+        "drawCalls": 525,
+        "triangles": 212325,
+        "geometries": 280,
+        "textures": 36,
+        "quality": "balanced",
+        "lod": {
+          "proxy": 0,
+          "low": 0,
+          "medium": 2,
+          "original": 0
+        },
+        "renderSize": [
+          1040,
+          650
+        ]
+      },
+      "png": {
+        "width": 1600,
+        "height": 1000,
+        "channels": 3,
+        "meanBrightness": 139.6273083557126,
+        "nonBlackProportion": 1,
+        "stddev": 78.12848050515662
+      }
+    }
+  ],
+  "errors": [],
+  "ready": {
+    "metrics": {
+      "shop": "stamping",
+      "time": 0,
+      "frames": 1,
+      "frameMs": 0,
+      "drawCalls": 527,
+      "triangles": 212349,
+      "geometries": 270,
+      "textures": 36,
+      "quality": "balanced",
+      "lod": {
+        "proxy": 0,
+        "low": 1,
+        "medium": 2,
+        "original": 0
+      },
+      "renderSize": [
+        1040,
+        650
+      ]
+    },
+    "camera": {
+      "position": [
+        -5.5,
+        11.000000000000002,
+        19
+      ],
+      "target": [
+        -13.5,
+        2.5,
+        0
+      ]
+    },
+    "loading": false,
+    "labels": 0
+  },
+  "browser": "157.0.8103.52",
+  "initialDiagnostic": {
+    "station": 3,
+    "stations": [
+      {
+        "id": "COIL",
+        "name": "钢卷库",
+        "x": -49
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷落料",
+        "x": -36
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中",
+        "x": -25
+      },
+      {
+        "id": "OP10",
+        "name": "拉延",
+        "x": -13.5
+      },
+      {
+        "id": "OP20",
+        "name": "修边冲孔",
+        "x": -4.5
+      },
+      {
+        "id": "OP30",
+        "name": "修边整形",
+        "x": 4.5
+      },
+      {
+        "id": "OP40",
+        "name": "冲孔翻边切断",
+        "x": 13.5
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查 · 装框",
+        "x": 33
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件库 · 发货",
+        "x": 49
+      }
+    ],
+    "selected": null,
+    "exploded": false,
+    "roofVisible": false,
+    "camera": {
+      "position": [
+        -5.5,
+        11.000000000000002,
+        19
+      ],
+      "target": [
+        -13.5,
+        2.5,
+        0
+      ]
+    },
+    "cameraMoving": false,
+    "renderSize": [
+      1040,
+      650
+    ],
+    "componentScreens": [
+      {
+        "id": "COIL",
+        "name": "钢卷鞍座库",
+        "ownerId": "COIL",
+        "x": -315.68055959272687,
+        "y": 338.86638073146037,
+        "visible": false,
+        "world": [
+          -49,
+          1.0499999523162842,
+          -2
+        ]
+      },
+      {
+        "id": "COIL",
+        "name": "钢卷鞍座库",
+        "ownerId": "COIL",
+        "x": -308.0074842534108,
+        "y": 361.70147217638225,
+        "visible": false,
+        "world": [
+          -49,
+          0.3725000023841858,
+          -2
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -26.007191605660296,
+        "y": 148.09937522232946,
+        "visible": false,
+        "world": [
+          -56,
+          4.25,
+          -17
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": 507.15086040759354,
+        "y": 187.26949165570937,
+        "visible": true,
+        "world": [
+          -31,
+          4.25,
+          -17
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": 194.64397464235992,
+        "y": 43.81609592040642,
+        "visible": true,
+        "world": [
+          -43.5,
+          8.4,
+          -17
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -1256.9561345051695,
+        "y": 308.68791220171323,
+        "visible": false,
+        "world": [
+          -56,
+          4.25,
+          11
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -633.2016625556614,
+        "y": 475.9649759309742,
+        "visible": false,
+        "world": [
+          -31,
+          4.25,
+          11
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -1139.0663106683278,
+        "y": 133.80205969598984,
+        "visible": false,
+        "world": [
+          -43.5,
+          8.4,
+          11
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -361.0460467529824,
+        "y": 72.39876091883774,
+        "visible": false,
+        "world": [
+          -49,
+          8.25,
+          -3
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -797.9320263671563,
+        "y": 102.1169775305787,
+        "visible": false,
+        "world": [
+          -49,
+          8.2,
+          5.3
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -802.2411704737933,
+        "y": 92.52476651037728,
+        "visible": false,
+        "world": [
+          -49,
+          8.399999999999999,
+          5.3
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -787.7901143489883,
+        "y": 124.69300604555488,
+        "visible": false,
+        "world": [
+          -49,
+          7.725000000000001,
+          5.3
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -733.8889107108915,
+        "y": 164.57275550416196,
+        "visible": false,
+        "world": [
+          -49,
+          6.8,
+          4.75
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -705.4616206111544,
+        "y": 149.73932014085233,
+        "visible": false,
+        "world": [
+          -49,
+          7.0600000000000005,
+          4.199999999999999
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷 · 矫平 · 落料线",
+        "ownerId": "BLANK",
+        "x": 11.583390769482627,
+        "y": 409.5483501406679,
+        "visible": true,
+        "world": [
+          -32.95000010728836,
+          1.6124999463558196,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷 · 矫平 · 落料线",
+        "ownerId": "BLANK",
+        "x": 15.484035532863949,
+        "y": 372.4324642845033,
+        "visible": true,
+        "world": [
+          -32.522499948740005,
+          2.540000021457672,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷 · 矫平 · 落料线",
+        "ownerId": "BLANK",
+        "x": 37.822687368545886,
+        "y": 412.61150232039995,
+        "visible": true,
+        "world": [
+          -32.09999996423721,
+          1.6500000357627869,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -80.50896655046512,
+        "y": 390.08493290677796,
+        "visible": false,
+        "world": [
+          -36,
+          1.7,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -30.03251418645778,
+        "y": 382.80546526102825,
+        "visible": false,
+        "world": [
+          -35.44,
+          1.7,
+          -0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -51.91669039366449,
+        "y": 357.6824952174786,
+        "visible": false,
+        "world": [
+          -36,
+          2.26,
+          -0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -62.01666651948816,
+        "y": 377.4684092449878,
+        "visible": false,
+        "world": [
+          -36.56,
+          1.7,
+          -0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -40.41524120902604,
+        "y": 402.25432150064813,
+        "visible": false,
+        "world": [
+          -36,
+          1.14,
+          -0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -100.16228066899835,
+        "y": 403.4935679707619,
+        "visible": false,
+        "world": [
+          -35.44,
+          1.7,
+          0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -123.15485300421827,
+        "y": 377.14090339178057,
+        "visible": false,
+        "world": [
+          -36,
+          2.26,
+          0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -132.7666138892182,
+        "y": 397.6212757999387,
+        "visible": false,
+        "world": [
+          -36.56,
+          1.7,
+          0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -110.08596636154255,
+        "y": 423.60331696823397,
+        "visible": false,
+        "world": [
+          -36,
+          1.14,
+          0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "落料压机滑块",
+        "ownerId": "BLANK",
+        "x": 107.71480357653545,
+        "y": 386.7467231019544,
+        "visible": true,
+        "world": [
+          -29.7,
+          2.55,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "落料压机滑块",
+        "ownerId": "BLANK",
+        "x": 110.24183393312006,
+        "y": 398.6918338039298,
+        "visible": true,
+        "world": [
+          -29.7,
+          2.28,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "落料压机滑块",
+        "ownerId": "BLANK",
+        "x": 85.54570978430593,
+        "y": 366.9337373418034,
+        "visible": true,
+        "world": [
+          -30.25,
+          2.9299999999999997,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "落料压机滑块",
+        "ownerId": "BLANK",
+        "x": 122.97195667188774,
+        "y": 372.67890679998015,
+        "visible": true,
+        "world": [
+          -29.15,
+          2.9299999999999997,
+          0
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -80.50896655046512,
+        "y": 390.08493290677796,
+        "visible": false,
+        "world": [
+          -36,
+          1.7,
+          0
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -30.03251418645778,
+        "y": 382.80546526102825,
+        "visible": false,
+        "world": [
+          -35.44,
+          1.7,
+          -0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -51.91669039366449,
+        "y": 357.6824952174786,
+        "visible": false,
+        "world": [
+          -36,
+          2.26,
+          -0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -62.01666651948816,
+        "y": 377.4684092449878,
+        "visible": false,
+        "world": [
+          -36.56,
+          1.7,
+          -0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -40.41524120902604,
+        "y": 402.25432150064813,
+        "visible": false,
+        "world": [
+          -36,
+          1.14,
+          -0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -100.16228066899835,
+        "y": 403.4935679707619,
+        "visible": false,
+        "world": [
+          -35.44,
+          1.7,
+          0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -123.15485300421827,
+        "y": 377.14090339178057,
+        "visible": false,
+        "world": [
+          -36,
+          2.26,
+          0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -132.7666138892182,
+        "y": 397.6212757999387,
+        "visible": false,
+        "world": [
+          -36.56,
+          1.7,
+          0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -110.08596636154255,
+        "y": 423.60331696823397,
+        "visible": false,
+        "world": [
+          -36,
+          1.14,
+          0.86
+        ]
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "ownerId": "BLANKING-SLIDER",
+        "x": 107.71480357653545,
+        "y": 386.7467231019544,
+        "visible": true,
+        "world": [
+          -29.7,
+          2.55,
+          0
+        ]
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "ownerId": "BLANKING-SLIDER",
+        "x": 110.24183393312006,
+        "y": 398.6918338039298,
+        "visible": true,
+        "world": [
+          -29.7,
+          2.28,
+          0
+        ]
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "ownerId": "BLANKING-SLIDER",
+        "x": 85.54570978430593,
+        "y": 366.9337373418034,
+        "visible": true,
+        "world": [
+          -30.25,
+          2.9299999999999997,
+          0
+        ]
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "ownerId": "BLANKING-SLIDER",
+        "x": 122.97195667188774,
+        "y": 372.67890679998015,
+        "visible": true,
+        "world": [
+          -29.15,
+          2.9299999999999997,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 229.2422293258088,
+        "y": 481.6702696101863,
+        "visible": true,
+        "world": [
+          -26.649999976158142,
+          0.8169999718666077,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 311.4118299481239,
+        "y": 464.69414717784116,
+        "visible": true,
+        "world": [
+          -24.299999952316284,
+          1.5499999761581424,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 300.2854807216732,
+        "y": 391.9489163638579,
+        "visible": true,
+        "world": [
+          -24.299999952316284,
+          3.100000023841858,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 336.3764748414471,
+        "y": 479.7332101846016,
+        "visible": true,
+        "world": [
+          -23.69999995827675,
+          1.3124999761581417,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 227.46844429517088,
+        "y": 526.6102515835246,
+        "visible": true,
+        "world": [
+          -23.699999963864684,
+          1.4300000071525574,
+          2.8700000047683716
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 382.99461353388216,
+        "y": 479.549696461573,
+        "visible": true,
+        "world": [
+          -22.499999940395355,
+          1.5,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛真空抓手",
+        "ownerId": "WASH",
+        "x": 282.48590155355123,
+        "y": 446.7334847447659,
+        "visible": true,
+        "world": [
+          -25,
+          1.84,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛真空抓手",
+        "ownerId": "WASH",
+        "x": 286.15277933154556,
+        "y": 439.1348872375807,
+        "visible": true,
+        "world": [
+          -25.48,
+          1.74,
+          -0.6
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛真空抓手",
+        "ownerId": "WASH",
+        "x": 243.23630734463305,
+        "y": 457.59460132377177,
+        "visible": true,
+        "world": [
+          -25.48,
+          1.74,
+          0.6
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛真空抓手",
+        "ownerId": "WASH",
+        "x": 322.2101092902766,
+        "y": 445.197051719634,
+        "visible": true,
+        "world": [
+          -24.52,
+          1.74,
+          -0.6
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛真空抓手",
+        "ownerId": "WASH",
+        "x": 280.1421025439443,
+        "y": 464.1391127908075,
+        "visible": true,
+        "world": [
+          -24.52,
+          1.74,
+          0.6
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 277.4080997456126,
+        "y": 415.2136945625137,
+        "visible": true,
+        "world": [
+          -25,
+          2.52,
+          0
+        ]
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "ownerId": "DESTACK-HEAD",
+        "x": 282.48590155355123,
+        "y": 446.7334847447659,
+        "visible": true,
+        "world": [
+          -25,
+          1.84,
+          0
+        ]
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "ownerId": "DESTACK-HEAD",
+        "x": 286.15277933154556,
+        "y": 439.1348872375807,
+        "visible": true,
+        "world": [
+          -25.48,
+          1.74,
+          -0.6
+        ]
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "ownerId": "DESTACK-HEAD",
+        "x": 243.23630734463305,
+        "y": 457.59460132377177,
+        "visible": true,
+        "world": [
+          -25.48,
+          1.74,
+          0.6
+        ]
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "ownerId": "DESTACK-HEAD",
+        "x": 322.2101092902766,
+        "y": 445.197051719634,
+        "visible": true,
+        "world": [
+          -24.52,
+          1.74,
+          -0.6
+        ]
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "ownerId": "DESTACK-HEAD",
+        "x": 280.1421025439443,
+        "y": 464.1391127908075,
+        "visible": true,
+        "world": [
+          -24.52,
+          1.74,
+          0.6
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "移动工作台",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 564.4332699876662,
+        "visible": true,
+        "world": [
+          -13.5,
+          1.281999945640564,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "移动工作台",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 589.4663948523784,
+        "visible": true,
+        "world": [
+          -13.5,
+          0.7950000193715097,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "移动工作台",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 590.2310084690545,
+        "visible": true,
+        "world": [
+          -13.5,
+          0.7800000160932541,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "移动工作台",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 569.7100894038143,
+        "visible": true,
+        "world": [
+          -13.5,
+          1.1800000071525574,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "四柱机架",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 412.87824577589333,
+        "visible": true,
+        "world": [
+          -13.5,
+          4.07000008225441,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "四柱机架",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 403.7290434277923,
+        "visible": true,
+        "world": [
+          -13.5,
+          4.229999840259552,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "四柱机架",
+        "ownerId": "OP10",
+        "x": 788.5075672901993,
+        "y": 552.7769942704758,
+        "visible": true,
+        "world": [
+          -13.5,
+          1.7200000584125519,
+          0.5040000677108765
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "四柱机架",
+        "ownerId": "OP10",
+        "x": 787.5256735513133,
+        "y": 553.1124877582466,
+        "visible": true,
+        "world": [
+          -13.509999990463257,
+          1.7200000584125519,
+          0.5230000019073486
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "四柱机架",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 398.5598941945154,
+        "visible": true,
+        "world": [
+          -13.5,
+          4.320000112056732,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 107.83994709008726,
+        "visible": true,
+        "world": [
+          -13.5,
+          8.960000038146973,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP10",
+        "x": 799.4151930595756,
+        "y": 40.37597265304693,
+        "visible": true,
+        "world": [
+          -13.5,
+          9.931250095367432,
+          0.022500038146972656
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 21.154820226923444,
+        "visible": true,
+        "world": [
+          -13.5,
+          10.199999809265137,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP10",
+        "x": 739.9632505126144,
+        "y": 123.2549146606341,
+        "visible": true,
+        "world": [
+          -13.5,
+          8.950000286102295,
+          2.1399999856948853
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP10",
+        "x": 738.197544500488,
+        "y": 123.68820953229547,
+        "visible": true,
+        "world": [
+          -13.5,
+          8.950000286102295,
+          2.197000026702881
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "滑块 / 上模",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 338.2114395278205,
+        "visible": true,
+        "world": [
+          -13.5,
+          5.35,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "滑块 / 上模",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 405.0187568399396,
+        "visible": true,
+        "world": [
+          -13.5,
+          4.2075000166893,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "滑块 / 上模",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 322.6230667194004,
+        "visible": true,
+        "world": [
+          -13.5,
+          5.6099999904632565,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP10",
+        "x": 1045.1761639449273,
+        "y": 437.8707196210241,
+        "visible": true,
+        "world": [
+          -9.380000114440918,
+          4.200000137090683,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP10",
+        "x": 1057.644849224001,
+        "y": 414.8987834830533,
+        "visible": true,
+        "world": [
+          -9.460000038146973,
+          4.174999967217445,
+          -1.25
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP10",
+        "x": 1078.867221722545,
+        "y": 162.59241495698112,
+        "visible": true,
+        "world": [
+          -9.198749899864197,
+          8.37624979019165,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP10",
+        "x": 509.3881976129941,
+        "y": 625.2813228159032,
+        "visible": true,
+        "world": [
+          -17.319999933242798,
+          0.899999987334013,
+          3.2799999713897705
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP10",
+        "x": 497.652861323491,
+        "y": 610.5811201915396,
+        "visible": true,
+        "world": [
+          -17.319999933242798,
+          1.300000011920929,
+          3.549999952316284
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP10",
+        "x": 496.92905291600323,
+        "y": 611.1045446101338,
+        "visible": true,
+        "world": [
+          -17.319999933242798,
+          1.2999999523162842,
+          3.5700000524520874
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP10",
+        "x": 489.82957277640935,
+        "y": 625.6397186153,
+        "visible": true,
+        "world": [
+          -17.489999890327454,
+          0.9999999701976776,
+          3.569999933242798
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "OP10 拉延",
+        "ownerId": "OP10",
+        "x": 961.0358759275581,
+        "y": 651.2969415838317,
+        "visible": true,
+        "world": [
+          -9.67,
+          2.05,
+          3.26
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "OP10 拉延",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 622.0043734106196,
+        "visible": true,
+        "world": [
+          -13.5,
+          0.15000000223517418,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "移动工作台",
+        "ownerId": "OP20",
+        "x": 1353.0835719037361,
+        "y": 663.8517816910331,
+        "visible": true,
+        "world": [
+          -4.5,
+          1.281999945640564,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "移动工作台",
+        "ownerId": "OP20",
+        "x": 1347.8771406396938,
+        "y": 692.0477623722535,
+        "visible": true,
+        "world": [
+          -4.5,
+          0.7950000193715097,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "移动工作台",
+        "ownerId": "OP20",
+        "x": 1347.7183338315006,
+        "y": 692.9077974843636,
+        "visible": true,
+        "world": [
+          -4.5,
+          0.7800000160932541,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "移动工作台",
+        "ownerId": "OP20",
+        "x": 1351.9849324377326,
+        "y": 669.8015802359596,
+        "visible": true,
+        "world": [
+          -4.5,
+          1.1800000071525574,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "四柱机架",
+        "ownerId": "OP20",
+        "x": 1384.903955612292,
+        "y": 491.52511898985745,
+        "visible": true,
+        "world": [
+          -4.5,
+          4.07000008225441,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "四柱机架",
+        "ownerId": "OP20",
+        "x": 1386.8415463121669,
+        "y": 481.0318910624885,
+        "visible": true,
+        "world": [
+          -4.5,
+          4.229999840259552,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "四柱机架",
+        "ownerId": "OP20",
+        "x": 1357.0492085868718,
+        "y": 653.3390309244604,
+        "visible": true,
+        "world": [
+          -4.5,
+          1.7200000584125519,
+          0.5040000677108765
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "四柱机架",
+        "ownerId": "OP20",
+        "x": 1356.278353546541,
+        "y": 653.7987198836577,
+        "visible": true,
+        "world": [
+          -4.509999990463257,
+          1.7200000584125519,
+          0.5230000019073486
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "四柱机架",
+        "ownerId": "OP20",
+        "x": 1387.9370979245887,
+        "y": 475.09881511611644,
+        "visible": true,
+        "world": [
+          -4.5,
+          4.320000112056732,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP20",
+        "x": 1450.5504769630036,
+        "y": 136.0094204388123,
+        "visible": true,
+        "world": [
+          -4.5,
+          8.960000038146973,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP20",
+        "x": 1465.4685021539938,
+        "y": 55.79079537702852,
+        "visible": true,
+        "world": [
+          -4.5,
+          9.931250095367432,
+          0.022500038146972656
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP20",
+        "x": 1469.607733023733,
+        "y": 32.802829114641106,
+        "visible": true,
+        "world": [
+          -4.5,
+          10.199999809265137,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP20",
+        "x": 1457.450609735913,
+        "y": 158.25608364920885,
+        "visible": true,
+        "world": [
+          -4.5,
+          8.950000286102295,
+          2.1399999856948853
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP20",
+        "x": 1457.6622208327528,
+        "y": 158.8996228441475,
+        "visible": true,
+        "world": [
+          -4.5,
+          8.950000286102295,
+          2.197000026702881
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "滑块 / 上模",
+        "ownerId": "OP20",
+        "x": 1400.7726785799846,
+        "y": 405.58636679257876,
+        "visible": true,
+        "world": [
+          -4.5,
+          5.35,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "滑块 / 上模",
+        "ownerId": "OP20",
+        "x": 1386.5682990258306,
+        "y": 482.5116907210259,
+        "visible": true,
+        "world": [
+          -4.5,
+          4.2075000166893,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "滑块 / 上模",
+        "ownerId": "OP20",
+        "x": 1404.1018100587198,
+        "y": 387.55710219670124,
+        "visible": true,
+        "world": [
+          -4.5,
+          5.6099999904632565,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP20",
+        "x": 1729.5334246967982,
+        "y": 528.3706624424885,
+        "visible": false,
+        "world": [
+          -0.38000011444091797,
+          4.200000137090683,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP20",
+        "x": 1702.3960675849914,
+        "y": 495.7563443120403,
+        "visible": false,
+        "world": [
+          -0.46000003814697266,
+          4.174999967217445,
+          -1.25
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP20",
+        "x": 1844.5155747068363,
+        "y": 204.75962822901667,
+        "visible": false,
+        "world": [
+          -0.19874989986419678,
+          8.37624979019165,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP20",
+        "x": 1049.8112332865248,
+        "y": 742.4251037718655,
+        "visible": true,
+        "world": [
+          -8.319999933242798,
+          0.899999987334013,
+          3.2799999713897705
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP20",
+        "x": 1047.5220636870806,
+        "y": 727.5764212314783,
+        "visible": true,
+        "world": [
+          -8.319999933242798,
+          1.300000011920929,
+          3.549999952316284
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP20",
+        "x": 1047.1921396022287,
+        "y": 728.3061466598786,
+        "visible": true,
+        "world": [
+          -8.319999933242798,
+          1.2999999523162842,
+          3.5700000524520874
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP20",
+        "x": 1033.4705295700567,
+        "y": 744.3043614171341,
+        "visible": true,
+        "world": [
+          -8.489999890327454,
+          0.9999999701976776,
+          3.569999933242798
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "OP20 修边冲孔",
+        "ownerId": "OP20",
+        "x": 1711.47628810106,
+        "y": 798.5834877565312,
+        "visible": false,
+        "world": [
+          -0.6699999999999999,
+          2.05,
+          3.26
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "OP20 修边冲孔",
+        "ownerId": "OP20",
+        "x": 1341.130582150192,
+        "y": 728.5844653819512,
+        "visible": true,
+        "world": [
+          -4.5,
+          0.15000000223517418,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "移动工作台",
+        "ownerId": "OP30",
+        "x": 2125.208335032321,
+        "y": 802.643636483132,
+        "visible": false,
+        "world": [
+          4.5,
+          1.281999945640564,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "移动工作台",
+        "ownerId": "OP30",
+        "x": 2110.2911060615133,
+        "y": 834.7977721607707,
+        "visible": false,
+        "world": [
+          4.5,
+          0.7950000193715097,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "移动工作台",
+        "ownerId": "OP30",
+        "x": 2109.8369723931078,
+        "y": 835.7766587635225,
+        "visible": false,
+        "world": [
+          4.5,
+          0.7800000160932541,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "移动工作台",
+        "ownerId": "OP30",
+        "x": 2122.055935839584,
+        "y": 809.4386432200879,
+        "visible": false,
+        "world": [
+          4.5,
+          1.1800000071525574,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "四柱机架",
+        "ownerId": "OP30",
+        "x": 2217.60117634695,
+        "y": 603.4905658232327,
+        "visible": false,
+        "world": [
+          4.5,
+          4.07000008225441,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "四柱机架",
+        "ownerId": "OP30",
+        "x": 2223.295942703434,
+        "y": 591.2154783765508,
+        "visible": false,
+        "world": [
+          4.5,
+          4.229999840259552,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "四柱机架",
+        "ownerId": "OP30",
+        "x": 2159.302131408823,
+        "y": 795.2392576986845,
+        "visible": false,
+        "world": [
+          4.5,
+          1.7200000584125519,
+          0.5040000677108765
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "四柱机架",
+        "ownerId": "OP30",
+        "x": 2159.016760370633,
+        "y": 795.9074226789595,
+        "visible": false,
+        "world": [
+          4.490000009536743,
+          1.7200000584125519,
+          0.5230000019073486
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "四柱机架",
+        "ownerId": "OP30",
+        "x": 2226.5194156368375,
+        "y": 584.2672719598847,
+        "visible": false,
+        "world": [
+          4.5,
+          4.320000112056732,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP30",
+        "x": 2415.102659310761,
+        "y": 177.77547542803185,
+        "visible": false,
+        "world": [
+          4.5,
+          8.960000038146973,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP30",
+        "x": 2462.6435117708165,
+        "y": 78.86894210814715,
+        "visible": false,
+        "world": [
+          4.5,
+          9.931250095367432,
+          0.022500038146972656
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP30",
+        "x": 2474.25199492947,
+        "y": 50.27888967151345,
+        "visible": false,
+        "world": [
+          4.5,
+          10.199999809265137,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP30",
+        "x": 2575.7611241352906,
+        "y": 212.81059919992896,
+        "visible": false,
+        "world": [
+          4.5,
+          8.950000286102295,
+          2.1399999856948853
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP30",
+        "x": 2580.7505037217156,
+        "y": 213.86483102656905,
+        "visible": false,
+        "world": [
+          4.5,
+          8.950000286102295,
+          2.197000026702881
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "滑块 / 上模",
+        "ownerId": "OP30",
+        "x": 2264.47755293694,
+        "y": 502.448383263705,
+        "visible": false,
+        "world": [
+          4.5,
+          5.35,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "滑块 / 上模",
+        "ownerId": "OP30",
+        "x": 2222.4923581602793,
+        "y": 592.9476074790547,
+        "visible": false,
+        "world": [
+          4.5,
+          4.2075000166893,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "滑块 / 上模",
+        "ownerId": "OP30",
+        "x": 2274.380694691369,
+        "y": 481.1021289271945,
+        "visible": false,
+        "world": [
+          4.5,
+          5.6099999904632565,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP30",
+        "x": 2736.109641859672,
+        "y": 661.4810936792439,
+        "visible": false,
+        "world": [
+          8.619999885559082,
+          4.200000137090683,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP30",
+        "x": 2628.116517446001,
+        "y": 611.8499560085833,
+        "visible": false,
+        "world": [
+          8.539999961853027,
+          4.174999967217445,
+          -1.25
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP30",
+        "x": 3020.192540221623,
+        "y": 269.5087015479253,
+        "visible": false,
+        "world": [
+          8.801250100135803,
+          8.37624979019165,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP30",
+        "x": 1822.4731215362901,
+        "y": 909.909701976205,
+        "visible": false,
+        "world": [
+          0.6800000667572021,
+          0.899999987334013,
+          3.2799999713897705
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP30",
+        "x": 1839.8617617474579,
+        "y": 896.1620068616625,
+        "visible": false,
+        "world": [
+          0.6800000667572021,
+          1.300000011920929,
+          3.549999952316284
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP30",
+        "x": 1840.3820910753532,
+        "y": 897.2492127889349,
+        "visible": false,
+        "world": [
+          0.6800000667572021,
+          1.2999999523162842,
+          3.5700000524520874
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP30",
+        "x": 1814.2719505567318,
+        "y": 914.7358209359528,
+        "visible": false,
+        "world": [
+          0.5100001096725464,
+          0.9999999701976776,
+          3.569999933242798
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "OP30 修边整形",
+        "ownerId": "OP30",
+        "x": 2870.4817746728836,
+        "y": 1026.057797965862,
+        "visible": false,
+        "world": [
+          8.33,
+          2.05,
+          3.26
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "OP30 修边整形",
+        "ownerId": "OP30",
+        "x": 2091.0435444560385,
+        "y": 876.2859539495801,
+        "visible": false,
+        "world": [
+          4.5,
+          0.15000000223517418,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "移动工作台",
+        "ownerId": "OP40",
+        "x": 3278.6253541196525,
+        "y": 1009.9739735898629,
+        "visible": false,
+        "world": [
+          13.5,
+          1.281999945640564,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "移动工作台",
+        "ownerId": "OP40",
+        "x": 3243.9321054127404,
+        "y": 1047.054198581971,
+        "visible": false,
+        "world": [
+          13.5,
+          0.7950000193715097,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "移动工作台",
+        "ownerId": "OP40",
+        "x": 3242.8789353999477,
+        "y": 1048.179829143674,
+        "visible": false,
+        "world": [
+          13.5,
+          0.7800000160932541,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "移动工作台",
+        "ownerId": "OP40",
+        "x": 3271.2777051761223,
+        "y": 1017.827157887788,
+        "visible": false,
+        "world": [
+          13.5,
+          1.1800000071525574,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "四柱机架",
+        "ownerId": "OP40",
+        "x": 3497.876456836822,
+        "y": 775.6378845368749,
+        "visible": false,
+        "world": [
+          13.5,
+          4.07000008225441,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "四柱机架",
+        "ownerId": "OP40",
+        "x": 3511.641886363519,
+        "y": 760.9253614095368,
+        "visible": false,
+        "world": [
+          13.5,
+          4.229999840259552,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "四柱机架",
+        "ownerId": "OP40",
+        "x": 3376.6566037108114,
+        "y": 1010.5614718909859,
+        "visible": false,
+        "world": [
+          13.5,
+          1.7200000584125519,
+          0.5040000677108765
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "四柱机架",
+        "ownerId": "OP40",
+        "x": 3377.5277141994393,
+        "y": 1011.6202993999846,
+        "visible": false,
+        "world": [
+          13.490000009536743,
+          1.7200000584125519,
+          0.5230000019073486
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "四柱机架",
+        "ownerId": "OP40",
+        "x": 3519.44688416299,
+        "y": 752.5833615895649,
+        "visible": false,
+        "world": [
+          13.5,
+          4.320000112056732,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP40",
+        "x": 3993.3135606523124,
+        "y": 246.11355448309723,
+        "visible": false,
+        "world": [
+          13.5,
+          8.960000038146973,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP40",
+        "x": 4119.541318555298,
+        "y": 117.21540118972207,
+        "visible": false,
+        "world": [
+          13.5,
+          9.931250095367432,
+          0.022500038146972656
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP40",
+        "x": 4149.279818594101,
+        "y": 79.416454868253,
+        "visible": false,
+        "world": [
+          13.5,
+          10.199999809265137,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP40",
+        "x": 4560.955690676044,
+        "y": 309.6542990999689,
+        "visible": false,
+        "world": [
+          13.5,
+          8.950000286102295,
+          2.1399999856948853
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP40",
+        "x": 4579.531682019372,
+        "y": 311.6874378955774,
+        "visible": false,
+        "world": [
+          13.5,
+          8.950000286102295,
+          2.197000026702881
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "滑块 / 上模",
+        "ownerId": "OP40",
+        "x": 3612.0789428367466,
+        "y": 653.5780016095212,
+        "visible": false,
+        "world": [
+          13.5,
+          5.35,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "滑块 / 上模",
+        "ownerId": "OP40",
+        "x": 3509.697653269887,
+        "y": 763.0033622666493,
+        "visible": false,
+        "world": [
+          13.5,
+          4.2075000166893,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "滑块 / 上模",
+        "ownerId": "OP40",
+        "x": 3636.4679867852524,
+        "y": 627.5109346538447,
+        "visible": false,
+        "world": [
+          13.5,
+          5.6099999904632565,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP40",
+        "x": 4362.541210657249,
+        "y": 876.5616845061646,
+        "visible": false,
+        "world": [
+          17.619999885559082,
+          4.200000137090683,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP40",
+        "x": 4069.6334964337943,
+        "y": 792.6290588551383,
+        "visible": false,
+        "world": [
+          17.539999961853027,
+          4.174999967217445,
+          -1.25
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP40",
+        "x": 5055.719523364164,
+        "y": 381.61303780699586,
+        "visible": false,
+        "world": [
+          17.801250100135803,
+          8.37624979019165,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP40",
+        "x": 3018.0447055494906,
+        "y": 1169.0655234527374,
+        "visible": false,
+        "world": [
+          9.680000066757202,
+          0.899999987334013,
+          3.2799999713897705
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP40",
+        "x": 3080.4137335327164,
+        "y": 1160.1134170712778,
+        "visible": false,
+        "world": [
+          9.680000066757202,
+          1.300000011920929,
+          3.549999952316284
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP40",
+        "x": 3082.93608975052,
+        "y": 1161.903198857762,
+        "visible": false,
+        "world": [
+          9.680000066757202,
+          1.2999999523162842,
+          3.5700000524520874
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP40",
+        "x": 3030.717543504289,
+        "y": 1180.258644356666,
+        "visible": false,
+        "world": [
+          9.510000109672546,
+          0.9999999701976776,
+          3.569999933242798
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "OP40 冲孔翻边切断",
+        "ownerId": "OP40",
+        "x": 4896.506093247317,
+        "y": 1423.699128981673,
+        "visible": false,
+        "world": [
+          17.33,
+          2.05,
+          3.26
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "OP40 冲孔翻边切断",
+        "ownerId": "OP40",
+        "x": 3199.4508766808926,
+        "y": 1094.5958394134827,
+        "visible": false,
+        "world": [
+          13.5,
+          0.15000000223517418,
+          0
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 840.2761901285876,
+        "y": 405.74261564102676,
+        "visible": true,
+        "world": [
+          -17,
+          0.4000000029802322,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 840.5188767550129,
+        "y": 386.1377073096144,
+        "visible": true,
+        "world": [
+          -17.000000476837158,
+          0.929999977350235,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 840.6343952099494,
+        "y": 376.80786513155715,
+        "visible": true,
+        "world": [
+          -17,
+          1.1800000071525574,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 810.7071865279098,
+        "y": 378.76623800050976,
+        "visible": true,
+        "world": [
+          -17,
+          1.7000000476837158,
+          -8.980000019073486
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 809.8079866998413,
+        "y": 379.4081107653377,
+        "visible": true,
+        "world": [
+          -17,
+          1.7000000476837158,
+          -8.92300033569336
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1112.7104359567224,
+        "y": 441.3647217283079,
+        "visible": true,
+        "world": [
+          -9.999999761581421,
+          0.4000000029802322,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1114.7473990155795,
+        "y": 420.4044007864797,
+        "visible": true,
+        "world": [
+          -10,
+          0.929999977350235,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1115.7174750199,
+        "y": 410.422382235214,
+        "visible": true,
+        "world": [
+          -10,
+          1.1800000071525574,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1101.4050808884394,
+        "y": 414.77512968811124,
+        "visible": true,
+        "world": [
+          -10,
+          1.7000000476837158,
+          -8.980000019073486
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1100.9155375094626,
+        "y": 415.5330864001271,
+        "visible": true,
+        "world": [
+          -10,
+          1.7000000476837158,
+          -8.92300033569336
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 802.8487595272841,
+        "y": 479.85063880002946,
+        "visible": true,
+        "world": [
+          -16.25,
+          0.015,
+          -6.699999999999999
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1039.1221344198696,
+        "y": 516.3181026348534,
+        "visible": true,
+        "world": [
+          -10.75,
+          0.015,
+          -6.699999999999999
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "左线装框机器人",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 5970.231614391155,
+        "y": 1304.3543175326033,
+        "visible": false,
+        "world": [
+          33,
+          0.19,
+          -5.7
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "A1",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 6101.9505915049895,
+        "y": 1244.3629548408235,
+        "visible": false,
+        "world": [
+          33,
+          0.9300000000000002,
+          -5.7
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "A2",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 6376.1722818990065,
+        "y": 1152.7629352006015,
+        "visible": false,
+        "world": [
+          33,
+          2.1188369809476035,
+          -5.58005287926027
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "A3",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 6878.775888601071,
+        "y": 1124.8509902310975,
+        "visible": false,
+        "world": [
+          33,
+          3.0888369809476033,
+          -4.93005287926027
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "A4",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 7156.725563519623,
+        "y": 1179.550008817604,
+        "visible": false,
+        "world": [
+          33,
+          3.1149999999999998,
+          -4.4
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "真空装框抓手",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 7087.175961422096,
+        "y": 1206.6794034404572,
+        "visible": false,
+        "world": [
+          33,
+          2.8499999999999996,
+          -4.4
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "右线装框机器人",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 33068.19272365551,
+        "y": 9246.100841516143,
+        "visible": false,
+        "world": [
+          33,
+          0.19,
+          5.7
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "A1",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 39767.87690361233,
+        "y": 10406.094838679675,
+        "visible": false,
+        "world": [
+          33,
+          0.9300000000000002,
+          5.7
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "A2",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 53400.91936603791,
+        "y": 12381.223062975976,
+        "visible": false,
+        "world": [
+          33,
+          2.1188369809476035,
+          5.58005287926027
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "A3",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 45551.09102417649,
+        "y": 9316.104803412645,
+        "visible": false,
+        "world": [
+          33,
+          3.0888369809476033,
+          4.93005287926027
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "A4",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 33614.45730048151,
+        "y": 6764.4494845079225,
+        "visible": false,
+        "world": [
+          33,
+          3.1149999999999998,
+          4.4
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "真空装框抓手",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 31703.28561155236,
+        "y": 6583.590481249678,
+        "visible": false,
+        "world": [
+          33,
+          2.8499999999999996,
+          4.4
+        ]
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "ownerId": "PACK",
+        "x": 5345.790361949875,
+        "y": 1169.5763634254024,
+        "visible": false,
+        "world": [
+          26.93999981880188,
+          1.5299999713897705,
+          -3.4000000000000004
+        ]
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "ownerId": "PACK",
+        "x": 9696.555044785697,
+        "y": 2497.7680104311785,
+        "visible": false,
+        "world": [
+          26.93999981880188,
+          1.5299999713897705,
+          3.4000000000000004
+        ]
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "ownerId": "PACK",
+        "x": 6817.89771309693,
+        "y": 1586.9614709971954,
+        "visible": false,
+        "world": [
+          27,
+          1.6874999892711635,
+          0
+        ]
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "ownerId": "PACK",
+        "x": 6461.316870292023,
+        "y": 1502.0769585607018,
+        "visible": false,
+        "world": [
+          26,
+          1.8500000476837162,
+          0
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 7612.0586280211965,
+        "y": 1182.3587075656446,
+        "visible": false,
+        "world": [
+          44.99997937679291,
+          1.3700562119483948,
+          -11.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 7617.90345197973,
+        "y": 1183.83844993275,
+        "visible": false,
+        "world": [
+          45,
+          1.3675000555813313,
+          -11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 12898.31901339109,
+        "y": 2218.9084800089913,
+        "visible": false,
+        "world": [
+          44.99997937679291,
+          1.3700562119483948,
+          -5.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 12918.417652150123,
+        "y": 2223.467292519685,
+        "visible": false,
+        "world": [
+          45,
+          1.3675000555813313,
+          -5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -26214.46732537556,
+        "y": -5450.473431498374,
+        "visible": false,
+        "world": [
+          44.99997937679291,
+          1.3700562119483948,
+          4.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -26098.68204408171,
+        "y": -5429.243494857999,
+        "visible": false,
+        "world": [
+          45,
+          1.3675000555813313,
+          5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -7688.955022781695,
+        "y": -1817.9214643658602,
+        "visible": false,
+        "world": [
+          44.99997937679291,
+          1.3700562119483948,
+          10.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -7676.340800362638,
+        "y": -1815.9341852944974,
+        "visible": false,
+        "world": [
+          45,
+          1.3675000555813313,
+          11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 10573.163073832631,
+        "y": 1537.8145744060575,
+        "visible": false,
+        "world": [
+          51.99997937679291,
+          1.3700562119483948,
+          -11.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 10584.339368881467,
+        "y": 1540.1614134189713,
+        "visible": false,
+        "world": [
+          52,
+          1.3675000555813313,
+          -11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 23970.892735612157,
+        "y": 3836.2675473303934,
+        "visible": false,
+        "world": [
+          51.99997937679291,
+          1.3700562119483948,
+          -5.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 24038.847804632333,
+        "y": 3848.9837986060834,
+        "visible": false,
+        "world": [
+          52,
+          1.3675000555813313,
+          -5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -14368.563142820207,
+        "y": -2741.0734327218725,
+        "visible": false,
+        "world": [
+          51.99997937679291,
+          1.3700562119483948,
+          4.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -14335.427746726813,
+        "y": -2736.123849986505,
+        "visible": false,
+        "world": [
+          52,
+          1.3675000555813313,
+          5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -6414.011515121267,
+        "y": -1376.4270860261208,
+        "visible": false,
+        "world": [
+          51.99997937679291,
+          1.3700562119483948,
+          10.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -6405.8458641518755,
+        "y": -1375.390662067443,
+        "visible": false,
+        "world": [
+          52,
+          1.3675000555813313,
+          11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 15970.832116352736,
+        "y": 2185.759678517669,
+        "visible": false,
+        "world": [
+          58.99997937679291,
+          1.3700562119483948,
+          -11.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 15995.947446835595,
+        "y": 2190.1940726704,
+        "visible": false,
+        "world": [
+          59,
+          1.3675000555813313,
+          -11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 91129.4781265509,
+        "y": 13646.050688582325,
+        "visible": false,
+        "world": [
+          58.99997937679291,
+          1.3700562119483948,
+          -5.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 92092.6282331291,
+        "y": 13796.669443069104,
+        "visible": false,
+        "world": [
+          59,
+          1.3675000555813313,
+          -5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -10425.158476335579,
+        "y": -1839.1363214726791,
+        "visible": false,
+        "world": [
+          58.99997937679291,
+          1.3700562119483948,
+          4.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -10408.570612779899,
+        "y": -1837.0957559994322,
+        "visible": false,
+        "world": [
+          59,
+          1.3675000555813313,
+          5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -5645.6282750370665,
+        "y": -1110.3471547433912,
+        "visible": false,
+        "world": [
+          58.99997937679291,
+          1.3700562119483948,
+          10.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -5639.723326994079,
+        "y": -1109.7380316447147,
+        "visible": false,
+        "world": [
+          59,
+          1.3675000555813313,
+          11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 8278.099674538973,
+        "y": 830.4940731653556,
+        "visible": false,
+        "world": [
+          51,
+          4,
+          -15
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 8307.639347560413,
+        "y": 834.2163000290375,
+        "visible": false,
+        "world": [
+          51,
+          4,
+          -14.943
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 20742.32650295057,
+        "y": 4601.786340946533,
+        "visible": false,
+        "world": [
+          42,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 62925.279248610364,
+        "y": 13004.212079525063,
+        "visible": false,
+        "world": [
+          48,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -83243.55700960678,
+        "y": -16111.170130898345,
+        "visible": false,
+        "world": [
+          54,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -27510.115846401415,
+        "y": -5009.621518290804,
+        "visible": false,
+        "world": [
+          60,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "ownerId": "AGV",
+        "x": -141130.8860522885,
+        "y": -41322.125922710584,
+        "visible": false,
+        "world": [
+          33,
+          0.3099999949336052,
+          8
+        ]
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "ownerId": "AGV",
+        "x": -109900.64617300463,
+        "y": -31424.52299172091,
+        "visible": false,
+        "world": [
+          33,
+          0.5800000131130219,
+          8
+        ]
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "ownerId": "AGV",
+        "x": -155863.1943485745,
+        "y": -45991.143462671505,
+        "visible": false,
+        "world": [
+          33,
+          0.22000000718981028,
+          8
+        ]
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "ownerId": "AGV",
+        "x": -51148.001255704614,
+        "y": -15212.020668660825,
+        "visible": false,
+        "world": [
+          33,
+          0.3400000035762787,
+          8.719999998807907
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-01000",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-01000",
+        "x": 382.13392634324555,
+        "y": 472.9871423652049,
+        "visible": true,
+        "world": [
+          -22.5,
+          1.6400000000000001,
+          0
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-00999",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-00999",
+        "x": 801.562220817132,
+        "y": 539.3481721638385,
+        "visible": true,
+        "world": [
+          -13.500020623207092,
+          1.7332354568690063,
+          -0.0700562596321106
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-00998",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-00998",
+        "x": 1358.0659143399084,
+        "y": 635.3752082428695,
+        "visible": true,
+        "world": [
+          -4.500020623207092,
+          1.7297994279116393,
+          -0.0700562596321106
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-00997",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-00997",
+        "x": 2132.5935182963726,
+        "y": 777.8352532276164,
+        "visible": false,
+        "world": [
+          4.499979376792908,
+          1.6060202670097352,
+          -0.0700562596321106
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-00996",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-00996",
+        "x": 3293.4989052152614,
+        "y": 980.0267630760333,
+        "visible": false,
+        "world": [
+          13.499979376792908,
+          1.6060202670097352,
+          -0.0700562596321106
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-00995",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-00995",
+        "x": 7625.25569446988,
+        "y": 2047.5360687670338,
+        "visible": false,
+        "world": [
+          23.999979376792908,
+          1.6060202670097352,
+          3.3299437403678898
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-01002",
+        "name": "落料料片",
+        "ownerId": "SP-SIDE-L-01002",
+        "x": 139.87820783893295,
+        "y": 430.792156070399,
+        "visible": true,
+        "world": [
+          -29,
+          1.6400000000000001,
+          0
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-01001",
+        "name": "清洗对中料片",
+        "ownerId": "SP-SIDE-L-01001",
+        "x": 283.9606467046827,
+        "y": 455.88777226801744,
+        "visible": true,
+        "world": [
+          -25,
+          1.6400000000000001,
+          0
+        ]
+      },
+      {
+        "id": "LIVE-RACK-0",
+        "name": "左线料架",
+        "ownerId": "LIVE-RACK-0",
+        "x": 5453.39731804155,
+        "y": 1017.8617909634355,
+        "visible": false,
+        "world": [
+          33,
+          1.3675000555813313,
+          -8
+        ]
+      },
+      {
+        "id": "LIVE-RACK-0",
+        "name": "左线料架",
+        "ownerId": "LIVE-RACK-0",
+        "x": 5450.117599209447,
+        "y": 1016.7188657928525,
+        "visible": false,
+        "world": [
+          32.99997937679291,
+          1.3700562119483948,
+          -8.013499957276508
+        ]
+      },
+      {
+        "id": "LIVE-RACK-1",
+        "name": "右线料架",
+        "ownerId": "LIVE-RACK-1",
+        "x": -66627.27031565951,
+        "y": -17710.164940837523,
+        "visible": false,
+        "world": [
+          33,
+          1.3675000555813313,
+          8
+        ]
+      },
+      {
+        "id": "LIVE-RACK-1",
+        "name": "右线料架",
+        "ownerId": "LIVE-RACK-1",
+        "x": -67574.2143113711,
+        "y": -17951.2568847496,
+        "visible": false,
+        "world": [
+          32.99997937679291,
+          1.3700562119483948,
+          7.986500042723492
+        ]
+      }
+    ],
+    "shop": "stamping",
+    "time": 0,
+    "playing": false,
+    "speed": 1,
+    "rendererCount": 1,
+    "loopCount": 1,
+    "clockCount": 1,
+    "worldCount": 1,
+    "viewport": [
+      1600,
+      1000
+    ],
+    "quality": "balanced",
+    "renderScale": 0.65,
+    "drawCalls": 527,
+    "triangles": 212349,
+    "geometries": 270,
+    "textures": 36,
+    "frameMs": 0,
+    "frameIntervals": [],
+    "frames": 1,
+    "robots": 2,
+    "disposedWorlds": 0,
+    "lodCounts": {
+      "proxy": 0,
+      "low": 1,
+      "medium": 2,
+      "original": 0
+    },
+    "details": {
+      "upstreamParts": [
+        {
+          "id": "SP-SIDE-L-01002",
+          "x": -29,
+          "y": 1.62,
+          "stage": "落料 → 拆垛"
+        },
+        {
+          "id": "SP-SIDE-L-01001",
+          "x": -25,
+          "y": 1.62,
+          "stage": "单张清洗 → 对中"
+        }
+      ],
+      "reelAngle": 0,
+      "blankingStroke": 0,
+      "scrapInstances": 48,
+      "lod": {
+        "active": {
+          "proxy": 0,
+          "low": 1,
+          "medium": 2,
+          "original": 0
+        },
+        "residentVariants": 11,
+        "residentRobotOriginals": 0,
+        "residentTriangles": 27716,
+        "residentGeometries": 39,
+        "residentWorldTriangles": 173962,
+        "residentWorldGeometries": 312,
+        "wallSeconds": 0,
+        "models": [
+          {
+            "id": "PACK-ROBOT-1",
+            "kind": "robot",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 72,
+                "geometries": 6
+              }
+            ]
+          },
+          {
+            "id": "PACK-ROBOT-2",
+            "kind": "robot",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 72,
+                "geometries": 6
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-01000",
+            "kind": "panel",
+            "visible": true,
+            "level": "low",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              },
+              {
+                "level": "low",
+                "triangles": 6540,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-00999",
+            "kind": "panel",
+            "visible": true,
+            "level": "medium",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              },
+              {
+                "level": "medium",
+                "triangles": 9868,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-00998",
+            "kind": "panel",
+            "visible": true,
+            "level": "medium",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              },
+              {
+                "level": "medium",
+                "triangles": 9868,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-00997",
+            "kind": "panel",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-00996",
+            "kind": "panel",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-00995",
+            "kind": "panel",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          }
+        ]
+      },
+      "robotTools": [
+        {
+          "id": "PACK-ROBOT-1",
+          "level": "proxy",
+          "tool": [
+            33,
+            3.03,
+            -4.4
+          ],
+          "jointOrigins": [
+            [
+              0,
+              0.38,
+              0
+            ],
+            [
+              0,
+              1.1,
+              0
+            ],
+            [
+              0,
+              1.3,
+              0
+            ],
+            [
+              0,
+              1.25,
+              0
+            ],
+            [
+              0,
+              0.22,
+              0
+            ],
+            [
+              0,
+              0.17,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "PACK-ROBOT-2",
+          "level": "proxy",
+          "tool": [
+            33,
+            3.03,
+            4.4
+          ],
+          "jointOrigins": [
+            [
+              0,
+              0.38,
+              0
+            ],
+            [
+              0,
+              1.1,
+              0
+            ],
+            [
+              0,
+              1.3,
+              0
+            ],
+            [
+              0,
+              1.25,
+              0
+            ],
+            [
+              0,
+              0.22,
+              0
+            ],
+            [
+              0,
+              0.17,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    "pickableScreens": [
+      {
+        "id": "COIL",
+        "name": "钢卷鞍座库",
+        "station": 0,
+        "x": -314.71206111782914,
+        "y": 341.7486346206204,
+        "visible": false
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "station": 0,
+        "x": -187.84104043042458,
+        "y": 232.24510631425855,
+        "visible": false
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷 · 矫平 · 落料线",
+        "station": 1,
+        "x": 10.330820822603304,
+        "y": 399.78331851147396,
+        "visible": true
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "station": 1,
+        "x": -80.50896655046512,
+        "y": 390.08493290677796,
+        "visible": false
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "station": 1,
+        "x": 106.42076082097009,
+        "y": 380.62986584773085,
+        "visible": true
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "station": 2,
+        "x": 305.75518130018355,
+        "y": 461.47071814414153,
+        "visible": true
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "station": 2,
+        "x": 282.9661174271267,
+        "y": 449.7143619333204,
+        "visible": true
+      },
+      {
+        "id": "OP10",
+        "name": "OP10 拉延",
+        "station": 3,
+        "x": 805.7823789549163,
+        "y": 349.2131970645785,
+        "visible": true
+      },
+      {
+        "id": "OP20",
+        "name": "OP20 修边冲孔",
+        "station": 4,
+        "x": 1422.6883118160906,
+        "y": 420.3028741445355,
+        "visible": true
+      },
+      {
+        "id": "OP30",
+        "name": "OP30 修边整形",
+        "station": 5,
+        "x": 2317.8869411060014,
+        "y": 523.4618455350101,
+        "visible": false
+      },
+      {
+        "id": "OP40",
+        "name": "OP40 冲孔翻边切断",
+        "station": 6,
+        "x": 3734.5345342478267,
+        "y": 686.7104294244016,
+        "visible": false
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "station": 3,
+        "x": 918.5164727612271,
+        "y": 455.39264755486624,
+        "visible": true
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "左线装框机器人",
+        "station": 7,
+        "x": 6486.161844950246,
+        "y": 1228.4848645742431,
+        "visible": false
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "右线装框机器人",
+        "station": 7,
+        "x": 35932.04810600395,
+        "y": 8545.462435913512,
+        "visible": false
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "station": 7,
+        "x": 6864.393153963715,
+        "y": 1570.9514614898883,
+        "visible": false
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "station": 8,
+        "x": 1485018.3683340347,
+        "y": 232104.07464815932,
+        "visible": false
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "station": 7,
+        "x": -131911.54395160786,
+        "y": -38538.16220267008,
+        "visible": false
+      },
+      {
+        "id": "SP-SIDE-L-01000",
+        "name": "侧围外板",
+        "station": 3,
+        "x": 382.24563955012957,
+        "y": 473.8389337977332,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-00999",
+        "name": "侧围外板",
+        "station": 4,
+        "x": 800,
+        "y": 541.2321963404067,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-00998",
+        "name": "侧围外板",
+        "station": 5,
+        "x": 1357.9214166533488,
+        "y": 637.6519203693414,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-00997",
+        "name": "侧围外板",
+        "station": 6,
+        "x": 2135.825363846311,
+        "y": 779.7585962624245,
+        "visible": false
+      },
+      {
+        "id": "SP-SIDE-L-00996",
+        "name": "侧围外板",
+        "station": 7,
+        "x": 3303.4352616613887,
+        "y": 983.4570866458714,
+        "visible": false
+      },
+      {
+        "id": "SP-SIDE-L-00995",
+        "name": "侧围外板",
+        "station": 7,
+        "x": 7691.082627094522,
+        "y": 2065.7810389250717,
+        "visible": false
+      },
+      {
+        "id": "SP-SIDE-L-01002",
+        "name": "落料料片",
+        "station": 1,
+        "x": 139.87820783893295,
+        "y": 430.792156070399,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-01001",
+        "name": "清洗对中料片",
+        "station": 2,
+        "x": 283.9606467046827,
+        "y": 455.88777226801744,
+        "visible": true
+      },
+      {
+        "id": "LIVE-RACK-0",
+        "name": "左线料架",
+        "station": 7,
+        "x": 5453.39731804155,
+        "y": 1017.8617909634355,
+        "visible": false
+      },
+      {
+        "id": "LIVE-RACK-1",
+        "name": "右线料架",
+        "station": 7,
+        "x": -66627.27031565951,
+        "y": -17710.164940837523,
+        "visible": false
+      }
+    ],
+    "poses": {
+      "time": 0,
+      "cycle": 0,
+      "cycleTime": 0,
+      "progress": 0,
+      "presses": [
+        {
+          "index": 0,
+          "x": -13.5,
+          "name": "OP10 拉延",
+          "downstroke": 0,
+          "sliderY": 5.35,
+          "phase": "送料",
+          "forming": 0
+        },
+        {
+          "index": 1,
+          "x": -4.5,
+          "name": "OP20 修边冲孔",
+          "downstroke": 0,
+          "sliderY": 5.35,
+          "phase": "送料",
+          "forming": 0
+        },
+        {
+          "index": 2,
+          "x": 4.5,
+          "name": "OP30 修边整形",
+          "downstroke": 0,
+          "sliderY": 5.35,
+          "phase": "送料",
+          "forming": 0
+        },
+        {
+          "index": 3,
+          "x": 13.5,
+          "name": "OP40 冲孔翻边切断",
+          "downstroke": 0,
+          "sliderY": 5.35,
+          "phase": "送料",
+          "forming": 0
+        }
+      ],
+      "parts": [
+        {
+          "id": "SP-SIDE-L-01000",
+          "serial": 1000,
+          "slot": 0,
+          "x": -25,
+          "y": 1.62,
+          "z": 0,
+          "stage": 0,
+          "shape": 0
+        },
+        {
+          "id": "SP-SIDE-L-00999",
+          "serial": 999,
+          "slot": 1,
+          "x": -13.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 1,
+          "shape": 1
+        },
+        {
+          "id": "SP-SIDE-L-00998",
+          "serial": 998,
+          "slot": 2,
+          "x": -4.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 2,
+          "shape": 2
+        },
+        {
+          "id": "SP-SIDE-L-00997",
+          "serial": 997,
+          "slot": 3,
+          "x": 4.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 3,
+          "shape": 3
+        },
+        {
+          "id": "SP-SIDE-L-00996",
+          "serial": 996,
+          "slot": 4,
+          "x": 13.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 4,
+          "shape": 4
+        },
+        {
+          "id": "SP-SIDE-L-00995",
+          "serial": 995,
+          "slot": 5,
+          "x": 24,
+          "y": 1.62,
+          "z": 3.4,
+          "stage": 4,
+          "shape": 4
+        }
+      ],
+      "transfer": {
+        "active": true,
+        "progress": 0,
+        "lift": 0
+      },
+      "coil": {
+        "stage": "卷外侧下降",
+        "hook": [
+          -49,
+          7.7,
+          5.3
+        ],
+        "coil": [
+          -49,
+          0.95,
+          3.7
+        ],
+        "carrying": false,
+        "progress": 0
+      },
+      "rack": {
+        "id": "RACK-0001",
+        "filled": 0,
+        "capacity": 120,
+        "exchanging": false,
+        "exchangeProgress": 0,
+        "agvX": 33,
+        "agvZ": 8,
+        "fullRackX": 33,
+        "bufferCount": 0,
+        "storedParts": [],
+        "bufferParts": [],
+        "lines": [
+          {
+            "id": "RACK-0001-A",
+            "z": -3.4,
+            "capacity": 60,
+            "filled": 0,
+            "storedParts": []
+          },
+          {
+            "id": "RACK-0001-B",
+            "z": 3.4,
+            "capacity": 60,
+            "filled": 0,
+            "storedParts": []
+          }
+        ],
+        "completedRacks": [],
+        "archivedRackCount": 0,
+        "shippedCount": 0
+      },
+      "completed": 0
+    }
+  },
+  "firstFrame": {
+    "name": "frame-000000.png",
+    "productionTime": 0,
+    "sha256": "8678f814b41dc424a8f4dae765ae4c6144b1761022526a6f937395b946cdd244"
+  },
+  "lastFrame": {
+    "name": "frame-000239.png",
+    "productionTime": 3.9833333333333334,
+    "sha256": "b9724dd2059434da010e41b8d0070d5cd8f75cc8f3281e03bc31e8bb54706ab1"
+  },
+  "finalDiagnostic": {
+    "station": 3,
+    "stations": [
+      {
+        "id": "COIL",
+        "name": "钢卷库",
+        "x": -49
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷落料",
+        "x": -36
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中",
+        "x": -25
+      },
+      {
+        "id": "OP10",
+        "name": "拉延",
+        "x": -13.5
+      },
+      {
+        "id": "OP20",
+        "name": "修边冲孔",
+        "x": -4.5
+      },
+      {
+        "id": "OP30",
+        "name": "修边整形",
+        "x": 4.5
+      },
+      {
+        "id": "OP40",
+        "name": "冲孔翻边切断",
+        "x": 13.5
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查 · 装框",
+        "x": 33
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件库 · 发货",
+        "x": 49
+      }
+    ],
+    "selected": null,
+    "exploded": false,
+    "roofVisible": false,
+    "camera": {
+      "position": [
+        -5.5,
+        11.000000000000002,
+        19
+      ],
+      "target": [
+        -13.5,
+        2.5,
+        0
+      ]
+    },
+    "cameraMoving": false,
+    "renderSize": [
+      1040,
+      650
+    ],
+    "componentScreens": [
+      {
+        "id": "COIL",
+        "name": "钢卷鞍座库",
+        "ownerId": "COIL",
+        "x": -315.68055959272687,
+        "y": 338.86638073146037,
+        "visible": false,
+        "world": [
+          -49,
+          1.0499999523162842,
+          -2
+        ]
+      },
+      {
+        "id": "COIL",
+        "name": "钢卷鞍座库",
+        "ownerId": "COIL",
+        "x": -308.0074842534108,
+        "y": 361.70147217638225,
+        "visible": false,
+        "world": [
+          -49,
+          0.3725000023841858,
+          -2
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -26.007191605660296,
+        "y": 148.09937522232946,
+        "visible": false,
+        "world": [
+          -56,
+          4.25,
+          -17
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": 507.15086040759354,
+        "y": 187.26949165570937,
+        "visible": true,
+        "world": [
+          -31,
+          4.25,
+          -17
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": 194.64397464235992,
+        "y": 43.81609592040642,
+        "visible": true,
+        "world": [
+          -43.5,
+          8.4,
+          -17
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -1256.9561345051695,
+        "y": 308.68791220171323,
+        "visible": false,
+        "world": [
+          -56,
+          4.25,
+          11
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -633.2016625556614,
+        "y": 475.9649759309742,
+        "visible": false,
+        "world": [
+          -31,
+          4.25,
+          11
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -1139.0663106683278,
+        "y": 133.80205969598984,
+        "visible": false,
+        "world": [
+          -43.5,
+          8.4,
+          11
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -361.0460467529824,
+        "y": 72.39876091883774,
+        "visible": false,
+        "world": [
+          -49,
+          8.25,
+          -3
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -797.9320263671563,
+        "y": 102.1169775305787,
+        "visible": false,
+        "world": [
+          -49,
+          8.2,
+          5.3
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -786.1386432625649,
+        "y": 128.3692022373537,
+        "visible": false,
+        "world": [
+          -49,
+          7.647077675298997,
+          5.3
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -756.4724379236758,
+        "y": 194.40656249665494,
+        "visible": false,
+        "world": [
+          -49,
+          6.219155350597995,
+          5.3
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -704.4647130246817,
+        "y": 231.60803788519974,
+        "visible": false,
+        "world": [
+          -49,
+          5.294155350597994,
+          4.75
+        ]
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "ownerId": "CRANE",
+        "x": -676.935017085468,
+        "y": 216.2379436816727,
+        "visible": false,
+        "world": [
+          -49,
+          5.554155350597995,
+          4.199999999999999
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷 · 矫平 · 落料线",
+        "ownerId": "BLANK",
+        "x": 11.583390769482627,
+        "y": 409.5483501406679,
+        "visible": true,
+        "world": [
+          -32.95000010728836,
+          1.6124999463558196,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷 · 矫平 · 落料线",
+        "ownerId": "BLANK",
+        "x": 15.484035532863949,
+        "y": 372.4324642845033,
+        "visible": true,
+        "world": [
+          -32.522499948740005,
+          2.540000021457672,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷 · 矫平 · 落料线",
+        "ownerId": "BLANK",
+        "x": 37.822687368545886,
+        "y": 412.61150232039995,
+        "visible": true,
+        "world": [
+          -32.09999996423721,
+          1.6500000357627869,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -80.50896655046512,
+        "y": 390.08493290677796,
+        "visible": false,
+        "world": [
+          -36,
+          1.7000000000000002,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -54.00624119619888,
+        "y": 357.5454290287133,
+        "visible": false,
+        "world": [
+          -36.07472956414369,
+          2.254991434386959,
+          -0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -61.09941238506291,
+        "y": 380.4467673869216,
+        "visible": false,
+        "world": [
+          -36.554991434386956,
+          1.6252704358563104,
+          -0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -38.33967254795354,
+        "y": 402.4303011409477,
+        "visible": false,
+        "world": [
+          -35.92527043585631,
+          1.145008565613041,
+          -0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -30.935782651066646,
+        "y": 379.78819687805316,
+        "visible": false,
+        "world": [
+          -35.445008565613044,
+          1.7747295641436895,
+          -0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -125.27855881648726,
+        "y": 376.9783083997431,
+        "visible": false,
+        "world": [
+          -36.07472956414369,
+          2.254991434386959,
+          0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -131.74222082769694,
+        "y": 400.72647847011626,
+        "visible": false,
+        "world": [
+          -36.554991434386956,
+          1.6252704358563104,
+          0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -107.97584756694363,
+        "y": 423.8082073778757,
+        "visible": false,
+        "world": [
+          -35.92527043585631,
+          1.145008565613041,
+          0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "BLANK",
+        "x": -101.1730824663001,
+        "y": 400.3460737769445,
+        "visible": false,
+        "world": [
+          -35.445008565613044,
+          1.7747295641436895,
+          0.86
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "落料压机滑块",
+        "ownerId": "BLANK",
+        "x": 107.71480357653545,
+        "y": 386.7467231019544,
+        "visible": true,
+        "world": [
+          -29.7,
+          2.55,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "落料压机滑块",
+        "ownerId": "BLANK",
+        "x": 110.24183393312006,
+        "y": 398.6918338039298,
+        "visible": true,
+        "world": [
+          -29.7,
+          2.28,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "落料压机滑块",
+        "ownerId": "BLANK",
+        "x": 85.54570978430593,
+        "y": 366.9337373418034,
+        "visible": true,
+        "world": [
+          -30.25,
+          2.9299999999999997,
+          0
+        ]
+      },
+      {
+        "id": "BLANK",
+        "name": "落料压机滑块",
+        "ownerId": "BLANK",
+        "x": 122.97195667188774,
+        "y": 372.67890679998015,
+        "visible": true,
+        "world": [
+          -29.15,
+          2.9299999999999997,
+          0
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -80.50896655046512,
+        "y": 390.08493290677796,
+        "visible": false,
+        "world": [
+          -36,
+          1.7000000000000002,
+          0
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -54.00624119619888,
+        "y": 357.5454290287133,
+        "visible": false,
+        "world": [
+          -36.07472956414369,
+          2.254991434386959,
+          -0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -61.09941238506291,
+        "y": 380.4467673869216,
+        "visible": false,
+        "world": [
+          -36.554991434386956,
+          1.6252704358563104,
+          -0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -38.33967254795354,
+        "y": 402.4303011409477,
+        "visible": false,
+        "world": [
+          -35.92527043585631,
+          1.145008565613041,
+          -0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -30.935782651066646,
+        "y": 379.78819687805316,
+        "visible": false,
+        "world": [
+          -35.445008565613044,
+          1.7747295641436895,
+          -0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -125.27855881648726,
+        "y": 376.9783083997431,
+        "visible": false,
+        "world": [
+          -36.07472956414369,
+          2.254991434386959,
+          0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -131.74222082769694,
+        "y": 400.72647847011626,
+        "visible": false,
+        "world": [
+          -36.554991434386956,
+          1.6252704358563104,
+          0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -107.97584756694363,
+        "y": 423.8082073778757,
+        "visible": false,
+        "world": [
+          -35.92527043585631,
+          1.145008565613041,
+          0.86
+        ]
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "ownerId": "DECOIL-REEL",
+        "x": -101.1730824663001,
+        "y": 400.3460737769445,
+        "visible": false,
+        "world": [
+          -35.445008565613044,
+          1.7747295641436895,
+          0.86
+        ]
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "ownerId": "BLANKING-SLIDER",
+        "x": 107.71480357653545,
+        "y": 386.7467231019544,
+        "visible": true,
+        "world": [
+          -29.7,
+          2.55,
+          0
+        ]
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "ownerId": "BLANKING-SLIDER",
+        "x": 110.24183393312006,
+        "y": 398.6918338039298,
+        "visible": true,
+        "world": [
+          -29.7,
+          2.28,
+          0
+        ]
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "ownerId": "BLANKING-SLIDER",
+        "x": 85.54570978430593,
+        "y": 366.9337373418034,
+        "visible": true,
+        "world": [
+          -30.25,
+          2.9299999999999997,
+          0
+        ]
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "ownerId": "BLANKING-SLIDER",
+        "x": 122.97195667188774,
+        "y": 372.67890679998015,
+        "visible": true,
+        "world": [
+          -29.15,
+          2.9299999999999997,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 229.2422293258088,
+        "y": 481.6702696101863,
+        "visible": true,
+        "world": [
+          -26.649999976158142,
+          0.8169999718666077,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 311.4118299481239,
+        "y": 464.69414717784116,
+        "visible": true,
+        "world": [
+          -24.299999952316284,
+          1.5499999761581424,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 300.2854807216732,
+        "y": 391.9489163638579,
+        "visible": true,
+        "world": [
+          -24.299999952316284,
+          3.100000023841858,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 336.3764748414471,
+        "y": 479.7332101846016,
+        "visible": true,
+        "world": [
+          -23.69999995827675,
+          1.3124999761581417,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 227.46844429517088,
+        "y": 526.6102515835246,
+        "visible": true,
+        "world": [
+          -23.699999963864684,
+          1.4300000071525574,
+          2.8700000047683716
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 382.99461353388216,
+        "y": 479.549696461573,
+        "visible": true,
+        "world": [
+          -22.499999940395355,
+          1.5,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛真空抓手",
+        "ownerId": "WASH",
+        "x": 380.8981953387986,
+        "y": 463.564934267727,
+        "visible": true,
+        "world": [
+          -22.5,
+          1.84,
+          0
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛真空抓手",
+        "ownerId": "WASH",
+        "x": 382.00966868080883,
+        "y": 455.2508955676013,
+        "visible": true,
+        "world": [
+          -22.98,
+          1.74,
+          -0.6
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛真空抓手",
+        "ownerId": "WASH",
+        "x": 341.4292129526748,
+        "y": 475.007167379126,
+        "visible": true,
+        "world": [
+          -22.98,
+          1.74,
+          0.6
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛真空抓手",
+        "ownerId": "WASH",
+        "x": 420.5655456407175,
+        "y": 461.73313005773934,
+        "visible": true,
+        "world": [
+          -22.02,
+          1.74,
+          -0.6
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛真空抓手",
+        "ownerId": "WASH",
+        "x": 380.99748325155593,
+        "y": 482.02381604645046,
+        "visible": true,
+        "world": [
+          -22.02,
+          1.74,
+          0.6
+        ]
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "ownerId": "WASH",
+        "x": 376.64148550724275,
+        "y": 431.10835132276594,
+        "visible": true,
+        "world": [
+          -22.5,
+          2.52,
+          0
+        ]
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "ownerId": "DESTACK-HEAD",
+        "x": 380.8981953387986,
+        "y": 463.564934267727,
+        "visible": true,
+        "world": [
+          -22.5,
+          1.84,
+          0
+        ]
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "ownerId": "DESTACK-HEAD",
+        "x": 382.00966868080883,
+        "y": 455.2508955676013,
+        "visible": true,
+        "world": [
+          -22.98,
+          1.74,
+          -0.6
+        ]
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "ownerId": "DESTACK-HEAD",
+        "x": 341.4292129526748,
+        "y": 475.007167379126,
+        "visible": true,
+        "world": [
+          -22.98,
+          1.74,
+          0.6
+        ]
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "ownerId": "DESTACK-HEAD",
+        "x": 420.5655456407175,
+        "y": 461.73313005773934,
+        "visible": true,
+        "world": [
+          -22.02,
+          1.74,
+          -0.6
+        ]
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "ownerId": "DESTACK-HEAD",
+        "x": 380.99748325155593,
+        "y": 482.02381604645046,
+        "visible": true,
+        "world": [
+          -22.02,
+          1.74,
+          0.6
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "移动工作台",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 564.4332699876662,
+        "visible": true,
+        "world": [
+          -13.5,
+          1.281999945640564,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "移动工作台",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 589.4663948523784,
+        "visible": true,
+        "world": [
+          -13.5,
+          0.7950000193715097,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "移动工作台",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 590.2310084690545,
+        "visible": true,
+        "world": [
+          -13.5,
+          0.7800000160932541,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "移动工作台",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 569.7100894038143,
+        "visible": true,
+        "world": [
+          -13.5,
+          1.1800000071525574,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "四柱机架",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 412.87824577589333,
+        "visible": true,
+        "world": [
+          -13.5,
+          4.07000008225441,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "四柱机架",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 403.7290434277923,
+        "visible": true,
+        "world": [
+          -13.5,
+          4.229999840259552,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "四柱机架",
+        "ownerId": "OP10",
+        "x": 788.5075672901993,
+        "y": 552.7769942704758,
+        "visible": true,
+        "world": [
+          -13.5,
+          1.7200000584125519,
+          0.5040000677108765
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "四柱机架",
+        "ownerId": "OP10",
+        "x": 787.5256735513133,
+        "y": 553.1124877582466,
+        "visible": true,
+        "world": [
+          -13.509999990463257,
+          1.7200000584125519,
+          0.5230000019073486
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "四柱机架",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 398.5598941945154,
+        "visible": true,
+        "world": [
+          -13.5,
+          4.320000112056732,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 107.83994709008726,
+        "visible": true,
+        "world": [
+          -13.5,
+          8.960000038146973,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP10",
+        "x": 799.4151930595756,
+        "y": 40.37597265304693,
+        "visible": true,
+        "world": [
+          -13.5,
+          9.931250095367432,
+          0.022500038146972656
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 21.154820226923444,
+        "visible": true,
+        "world": [
+          -13.5,
+          10.199999809265137,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP10",
+        "x": 739.9632505126144,
+        "y": 123.2549146606341,
+        "visible": true,
+        "world": [
+          -13.5,
+          8.950000286102295,
+          2.1399999856948853
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP10",
+        "x": 738.197544500488,
+        "y": 123.68820953229547,
+        "visible": true,
+        "world": [
+          -13.5,
+          8.950000286102295,
+          2.197000026702881
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "滑块 / 上模",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 338.2114395278205,
+        "visible": true,
+        "world": [
+          -13.5,
+          5.35,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "滑块 / 上模",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 405.0187568399396,
+        "visible": true,
+        "world": [
+          -13.5,
+          4.2075000166893,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "滑块 / 上模",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 322.6230667194004,
+        "visible": true,
+        "world": [
+          -13.5,
+          5.6099999904632565,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP10",
+        "x": 1045.1761639449273,
+        "y": 437.8707196210241,
+        "visible": true,
+        "world": [
+          -9.380000114440918,
+          4.200000137090683,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP10",
+        "x": 1057.644849224001,
+        "y": 414.8987834830533,
+        "visible": true,
+        "world": [
+          -9.460000038146973,
+          4.174999967217445,
+          -1.25
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP10",
+        "x": 1078.867221722545,
+        "y": 162.59241495698112,
+        "visible": true,
+        "world": [
+          -9.198749899864197,
+          8.37624979019165,
+          0
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP10",
+        "x": 509.3881976129941,
+        "y": 625.2813228159032,
+        "visible": true,
+        "world": [
+          -17.319999933242798,
+          0.899999987334013,
+          3.2799999713897705
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP10",
+        "x": 497.652861323491,
+        "y": 610.5811201915396,
+        "visible": true,
+        "world": [
+          -17.319999933242798,
+          1.300000011920929,
+          3.549999952316284
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP10",
+        "x": 496.92905291600323,
+        "y": 611.1045446101338,
+        "visible": true,
+        "world": [
+          -17.319999933242798,
+          1.2999999523162842,
+          3.5700000524520874
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP10",
+        "x": 489.82957277640935,
+        "y": 625.6397186153,
+        "visible": true,
+        "world": [
+          -17.489999890327454,
+          0.9999999701976776,
+          3.569999933242798
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "OP10 拉延",
+        "ownerId": "OP10",
+        "x": 961.0358759275581,
+        "y": 651.2969415838317,
+        "visible": true,
+        "world": [
+          -9.67,
+          2.05,
+          3.26
+        ]
+      },
+      {
+        "id": "OP10",
+        "name": "OP10 拉延",
+        "ownerId": "OP10",
+        "x": 800,
+        "y": 622.0043734106196,
+        "visible": true,
+        "world": [
+          -13.5,
+          0.15000000223517418,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "移动工作台",
+        "ownerId": "OP20",
+        "x": 1353.0835719037361,
+        "y": 663.8517816910331,
+        "visible": true,
+        "world": [
+          -4.5,
+          1.281999945640564,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "移动工作台",
+        "ownerId": "OP20",
+        "x": 1347.8771406396938,
+        "y": 692.0477623722535,
+        "visible": true,
+        "world": [
+          -4.5,
+          0.7950000193715097,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "移动工作台",
+        "ownerId": "OP20",
+        "x": 1347.7183338315006,
+        "y": 692.9077974843636,
+        "visible": true,
+        "world": [
+          -4.5,
+          0.7800000160932541,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "移动工作台",
+        "ownerId": "OP20",
+        "x": 1351.9849324377326,
+        "y": 669.8015802359596,
+        "visible": true,
+        "world": [
+          -4.5,
+          1.1800000071525574,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "四柱机架",
+        "ownerId": "OP20",
+        "x": 1384.903955612292,
+        "y": 491.52511898985745,
+        "visible": true,
+        "world": [
+          -4.5,
+          4.07000008225441,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "四柱机架",
+        "ownerId": "OP20",
+        "x": 1386.8415463121669,
+        "y": 481.0318910624885,
+        "visible": true,
+        "world": [
+          -4.5,
+          4.229999840259552,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "四柱机架",
+        "ownerId": "OP20",
+        "x": 1357.0492085868718,
+        "y": 653.3390309244604,
+        "visible": true,
+        "world": [
+          -4.5,
+          1.7200000584125519,
+          0.5040000677108765
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "四柱机架",
+        "ownerId": "OP20",
+        "x": 1356.278353546541,
+        "y": 653.7987198836577,
+        "visible": true,
+        "world": [
+          -4.509999990463257,
+          1.7200000584125519,
+          0.5230000019073486
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "四柱机架",
+        "ownerId": "OP20",
+        "x": 1387.9370979245887,
+        "y": 475.09881511611644,
+        "visible": true,
+        "world": [
+          -4.5,
+          4.320000112056732,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP20",
+        "x": 1450.5504769630036,
+        "y": 136.0094204388123,
+        "visible": true,
+        "world": [
+          -4.5,
+          8.960000038146973,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP20",
+        "x": 1465.4685021539938,
+        "y": 55.79079537702852,
+        "visible": true,
+        "world": [
+          -4.5,
+          9.931250095367432,
+          0.022500038146972656
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP20",
+        "x": 1469.607733023733,
+        "y": 32.802829114641106,
+        "visible": true,
+        "world": [
+          -4.5,
+          10.199999809265137,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP20",
+        "x": 1457.450609735913,
+        "y": 158.25608364920885,
+        "visible": true,
+        "world": [
+          -4.5,
+          8.950000286102295,
+          2.1399999856948853
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP20",
+        "x": 1457.6622208327528,
+        "y": 158.8996228441475,
+        "visible": true,
+        "world": [
+          -4.5,
+          8.950000286102295,
+          2.197000026702881
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "滑块 / 上模",
+        "ownerId": "OP20",
+        "x": 1400.7726785799846,
+        "y": 405.58636679257876,
+        "visible": true,
+        "world": [
+          -4.5,
+          5.35,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "滑块 / 上模",
+        "ownerId": "OP20",
+        "x": 1386.5682990258306,
+        "y": 482.5116907210259,
+        "visible": true,
+        "world": [
+          -4.5,
+          4.2075000166893,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "滑块 / 上模",
+        "ownerId": "OP20",
+        "x": 1404.1018100587198,
+        "y": 387.55710219670124,
+        "visible": true,
+        "world": [
+          -4.5,
+          5.6099999904632565,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP20",
+        "x": 1729.5334246967982,
+        "y": 528.3706624424885,
+        "visible": false,
+        "world": [
+          -0.38000011444091797,
+          4.200000137090683,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP20",
+        "x": 1702.3960675849914,
+        "y": 495.7563443120403,
+        "visible": false,
+        "world": [
+          -0.46000003814697266,
+          4.174999967217445,
+          -1.25
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP20",
+        "x": 1844.5155747068363,
+        "y": 204.75962822901667,
+        "visible": false,
+        "world": [
+          -0.19874989986419678,
+          8.37624979019165,
+          0
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP20",
+        "x": 1049.8112332865248,
+        "y": 742.4251037718655,
+        "visible": true,
+        "world": [
+          -8.319999933242798,
+          0.899999987334013,
+          3.2799999713897705
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP20",
+        "x": 1047.5220636870806,
+        "y": 727.5764212314783,
+        "visible": true,
+        "world": [
+          -8.319999933242798,
+          1.300000011920929,
+          3.549999952316284
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP20",
+        "x": 1047.1921396022287,
+        "y": 728.3061466598786,
+        "visible": true,
+        "world": [
+          -8.319999933242798,
+          1.2999999523162842,
+          3.5700000524520874
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP20",
+        "x": 1033.4705295700567,
+        "y": 744.3043614171341,
+        "visible": true,
+        "world": [
+          -8.489999890327454,
+          0.9999999701976776,
+          3.569999933242798
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "OP20 修边冲孔",
+        "ownerId": "OP20",
+        "x": 1711.47628810106,
+        "y": 798.5834877565312,
+        "visible": false,
+        "world": [
+          -0.6699999999999999,
+          2.05,
+          3.26
+        ]
+      },
+      {
+        "id": "OP20",
+        "name": "OP20 修边冲孔",
+        "ownerId": "OP20",
+        "x": 1341.130582150192,
+        "y": 728.5844653819512,
+        "visible": true,
+        "world": [
+          -4.5,
+          0.15000000223517418,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "移动工作台",
+        "ownerId": "OP30",
+        "x": 2125.208335032321,
+        "y": 802.643636483132,
+        "visible": false,
+        "world": [
+          4.5,
+          1.281999945640564,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "移动工作台",
+        "ownerId": "OP30",
+        "x": 2110.2911060615133,
+        "y": 834.7977721607707,
+        "visible": false,
+        "world": [
+          4.5,
+          0.7950000193715097,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "移动工作台",
+        "ownerId": "OP30",
+        "x": 2109.8369723931078,
+        "y": 835.7766587635225,
+        "visible": false,
+        "world": [
+          4.5,
+          0.7800000160932541,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "移动工作台",
+        "ownerId": "OP30",
+        "x": 2122.055935839584,
+        "y": 809.4386432200879,
+        "visible": false,
+        "world": [
+          4.5,
+          1.1800000071525574,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "四柱机架",
+        "ownerId": "OP30",
+        "x": 2217.60117634695,
+        "y": 603.4905658232327,
+        "visible": false,
+        "world": [
+          4.5,
+          4.07000008225441,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "四柱机架",
+        "ownerId": "OP30",
+        "x": 2223.295942703434,
+        "y": 591.2154783765508,
+        "visible": false,
+        "world": [
+          4.5,
+          4.229999840259552,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "四柱机架",
+        "ownerId": "OP30",
+        "x": 2159.302131408823,
+        "y": 795.2392576986845,
+        "visible": false,
+        "world": [
+          4.5,
+          1.7200000584125519,
+          0.5040000677108765
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "四柱机架",
+        "ownerId": "OP30",
+        "x": 2159.016760370633,
+        "y": 795.9074226789595,
+        "visible": false,
+        "world": [
+          4.490000009536743,
+          1.7200000584125519,
+          0.5230000019073486
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "四柱机架",
+        "ownerId": "OP30",
+        "x": 2226.5194156368375,
+        "y": 584.2672719598847,
+        "visible": false,
+        "world": [
+          4.5,
+          4.320000112056732,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP30",
+        "x": 2415.102659310761,
+        "y": 177.77547542803185,
+        "visible": false,
+        "world": [
+          4.5,
+          8.960000038146973,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP30",
+        "x": 2462.6435117708165,
+        "y": 78.86894210814715,
+        "visible": false,
+        "world": [
+          4.5,
+          9.931250095367432,
+          0.022500038146972656
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP30",
+        "x": 2474.25199492947,
+        "y": 50.27888967151345,
+        "visible": false,
+        "world": [
+          4.5,
+          10.199999809265137,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP30",
+        "x": 2575.7611241352906,
+        "y": 212.81059919992896,
+        "visible": false,
+        "world": [
+          4.5,
+          8.950000286102295,
+          2.1399999856948853
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP30",
+        "x": 2580.7505037217156,
+        "y": 213.86483102656905,
+        "visible": false,
+        "world": [
+          4.5,
+          8.950000286102295,
+          2.197000026702881
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "滑块 / 上模",
+        "ownerId": "OP30",
+        "x": 2264.47755293694,
+        "y": 502.448383263705,
+        "visible": false,
+        "world": [
+          4.5,
+          5.35,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "滑块 / 上模",
+        "ownerId": "OP30",
+        "x": 2222.4923581602793,
+        "y": 592.9476074790547,
+        "visible": false,
+        "world": [
+          4.5,
+          4.2075000166893,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "滑块 / 上模",
+        "ownerId": "OP30",
+        "x": 2274.380694691369,
+        "y": 481.1021289271945,
+        "visible": false,
+        "world": [
+          4.5,
+          5.6099999904632565,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP30",
+        "x": 2736.109641859672,
+        "y": 661.4810936792439,
+        "visible": false,
+        "world": [
+          8.619999885559082,
+          4.200000137090683,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP30",
+        "x": 2628.116517446001,
+        "y": 611.8499560085833,
+        "visible": false,
+        "world": [
+          8.539999961853027,
+          4.174999967217445,
+          -1.25
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP30",
+        "x": 3020.192540221623,
+        "y": 269.5087015479253,
+        "visible": false,
+        "world": [
+          8.801250100135803,
+          8.37624979019165,
+          0
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP30",
+        "x": 1822.4731215362901,
+        "y": 909.909701976205,
+        "visible": false,
+        "world": [
+          0.6800000667572021,
+          0.899999987334013,
+          3.2799999713897705
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP30",
+        "x": 1839.8617617474579,
+        "y": 896.1620068616625,
+        "visible": false,
+        "world": [
+          0.6800000667572021,
+          1.300000011920929,
+          3.549999952316284
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP30",
+        "x": 1840.3820910753532,
+        "y": 897.2492127889349,
+        "visible": false,
+        "world": [
+          0.6800000667572021,
+          1.2999999523162842,
+          3.5700000524520874
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP30",
+        "x": 1814.2719505567318,
+        "y": 914.7358209359528,
+        "visible": false,
+        "world": [
+          0.5100001096725464,
+          0.9999999701976776,
+          3.569999933242798
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "OP30 修边整形",
+        "ownerId": "OP30",
+        "x": 2870.4817746728836,
+        "y": 1026.057797965862,
+        "visible": false,
+        "world": [
+          8.33,
+          2.05,
+          3.26
+        ]
+      },
+      {
+        "id": "OP30",
+        "name": "OP30 修边整形",
+        "ownerId": "OP30",
+        "x": 2091.0435444560385,
+        "y": 876.2859539495801,
+        "visible": false,
+        "world": [
+          4.5,
+          0.15000000223517418,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "移动工作台",
+        "ownerId": "OP40",
+        "x": 3278.6253541196525,
+        "y": 1009.9739735898629,
+        "visible": false,
+        "world": [
+          13.5,
+          1.281999945640564,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "移动工作台",
+        "ownerId": "OP40",
+        "x": 3243.9321054127404,
+        "y": 1047.054198581971,
+        "visible": false,
+        "world": [
+          13.5,
+          0.7950000193715097,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "移动工作台",
+        "ownerId": "OP40",
+        "x": 3242.8789353999477,
+        "y": 1048.179829143674,
+        "visible": false,
+        "world": [
+          13.5,
+          0.7800000160932541,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "移动工作台",
+        "ownerId": "OP40",
+        "x": 3271.2777051761223,
+        "y": 1017.827157887788,
+        "visible": false,
+        "world": [
+          13.5,
+          1.1800000071525574,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "四柱机架",
+        "ownerId": "OP40",
+        "x": 3497.876456836822,
+        "y": 775.6378845368749,
+        "visible": false,
+        "world": [
+          13.5,
+          4.07000008225441,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "四柱机架",
+        "ownerId": "OP40",
+        "x": 3511.641886363519,
+        "y": 760.9253614095368,
+        "visible": false,
+        "world": [
+          13.5,
+          4.229999840259552,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "四柱机架",
+        "ownerId": "OP40",
+        "x": 3376.6566037108114,
+        "y": 1010.5614718909859,
+        "visible": false,
+        "world": [
+          13.5,
+          1.7200000584125519,
+          0.5040000677108765
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "四柱机架",
+        "ownerId": "OP40",
+        "x": 3377.5277141994393,
+        "y": 1011.6202993999846,
+        "visible": false,
+        "world": [
+          13.490000009536743,
+          1.7200000584125519,
+          0.5230000019073486
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "四柱机架",
+        "ownerId": "OP40",
+        "x": 3519.44688416299,
+        "y": 752.5833615895649,
+        "visible": false,
+        "world": [
+          13.5,
+          4.320000112056732,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP40",
+        "x": 3993.3135606523124,
+        "y": 246.11355448309723,
+        "visible": false,
+        "world": [
+          13.5,
+          8.960000038146973,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP40",
+        "x": 4119.541318555298,
+        "y": 117.21540118972207,
+        "visible": false,
+        "world": [
+          13.5,
+          9.931250095367432,
+          0.022500038146972656
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP40",
+        "x": 4149.279818594101,
+        "y": 79.416454868253,
+        "visible": false,
+        "world": [
+          13.5,
+          10.199999809265137,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP40",
+        "x": 4560.955690676044,
+        "y": 309.6542990999689,
+        "visible": false,
+        "world": [
+          13.5,
+          8.950000286102295,
+          2.1399999856948853
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "顶部横梁 / 伺服传动",
+        "ownerId": "OP40",
+        "x": 4579.531682019372,
+        "y": 311.6874378955774,
+        "visible": false,
+        "world": [
+          13.5,
+          8.950000286102295,
+          2.197000026702881
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "滑块 / 上模",
+        "ownerId": "OP40",
+        "x": 3612.0789428367466,
+        "y": 653.5780016095212,
+        "visible": false,
+        "world": [
+          13.5,
+          5.35,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "滑块 / 上模",
+        "ownerId": "OP40",
+        "x": 3509.697653269887,
+        "y": 763.0033622666493,
+        "visible": false,
+        "world": [
+          13.5,
+          4.2075000166893,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "滑块 / 上模",
+        "ownerId": "OP40",
+        "x": 3636.4679867852524,
+        "y": 627.5109346538447,
+        "visible": false,
+        "world": [
+          13.5,
+          5.6099999904632565,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP40",
+        "x": 4362.541210657249,
+        "y": 876.5616845061646,
+        "visible": false,
+        "world": [
+          17.619999885559082,
+          4.200000137090683,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP40",
+        "x": 4069.6334964337943,
+        "y": 792.6290588551383,
+        "visible": false,
+        "world": [
+          17.539999961853027,
+          4.174999967217445,
+          -1.25
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "检修平台 / 爬梯",
+        "ownerId": "OP40",
+        "x": 5055.719523364164,
+        "y": 381.61303780699586,
+        "visible": false,
+        "world": [
+          17.801250100135803,
+          8.37624979019165,
+          0
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP40",
+        "x": 3018.0447055494906,
+        "y": 1169.0655234527374,
+        "visible": false,
+        "world": [
+          9.680000066757202,
+          0.899999987334013,
+          3.2799999713897705
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP40",
+        "x": 3080.4137335327164,
+        "y": 1160.1134170712778,
+        "visible": false,
+        "world": [
+          9.680000066757202,
+          1.300000011920929,
+          3.549999952316284
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP40",
+        "x": 3082.93608975052,
+        "y": 1161.903198857762,
+        "visible": false,
+        "world": [
+          9.680000066757202,
+          1.2999999523162842,
+          3.5700000524520874
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "操作台 / 配电柜",
+        "ownerId": "OP40",
+        "x": 3030.717543504289,
+        "y": 1180.258644356666,
+        "visible": false,
+        "world": [
+          9.510000109672546,
+          0.9999999701976776,
+          3.569999933242798
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "OP40 冲孔翻边切断",
+        "ownerId": "OP40",
+        "x": 4896.506093247317,
+        "y": 1423.699128981673,
+        "visible": false,
+        "world": [
+          17.33,
+          2.05,
+          3.26
+        ]
+      },
+      {
+        "id": "OP40",
+        "name": "OP40 冲孔翻边切断",
+        "ownerId": "OP40",
+        "x": 3199.4508766808926,
+        "y": 1094.5958394134827,
+        "visible": false,
+        "world": [
+          13.5,
+          0.15000000223517418,
+          0
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 840.2761901285876,
+        "y": 405.74261564102676,
+        "visible": true,
+        "world": [
+          -17,
+          0.4000000029802322,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 840.5188767550129,
+        "y": 386.1377073096144,
+        "visible": true,
+        "world": [
+          -17.000000476837158,
+          0.929999977350235,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 840.6343952099494,
+        "y": 376.80786513155715,
+        "visible": true,
+        "world": [
+          -17,
+          1.1800000071525574,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 810.7071865279098,
+        "y": 378.76623800050976,
+        "visible": true,
+        "world": [
+          -17,
+          1.7000000476837158,
+          -8.980000019073486
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 809.8079866998413,
+        "y": 379.4081107653377,
+        "visible": true,
+        "world": [
+          -17,
+          1.7000000476837158,
+          -8.92300033569336
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1112.7104359567224,
+        "y": 441.3647217283079,
+        "visible": true,
+        "world": [
+          -9.999999761581421,
+          0.4000000029802322,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1114.7473990155795,
+        "y": 420.4044007864797,
+        "visible": true,
+        "world": [
+          -10,
+          0.929999977350235,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1115.7174750199,
+        "y": 410.422382235214,
+        "visible": true,
+        "world": [
+          -10,
+          1.1800000071525574,
+          -11
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1101.4050808884394,
+        "y": 414.77512968811124,
+        "visible": true,
+        "world": [
+          -10,
+          1.7000000476837158,
+          -8.980000019073486
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1100.9155375094626,
+        "y": 415.5330864001271,
+        "visible": true,
+        "world": [
+          -10,
+          1.7000000476837158,
+          -8.92300033569336
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 802.8487595272841,
+        "y": 479.85063880002946,
+        "visible": true,
+        "world": [
+          -16.25,
+          0.015,
+          -6.699999999999999
+        ]
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "ownerId": "DIE-CHANGE",
+        "x": 1039.1221344198696,
+        "y": 516.3181026348534,
+        "visible": true,
+        "world": [
+          -10.75,
+          0.015,
+          -6.699999999999999
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "左线装框机器人",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 5970.231614391155,
+        "y": 1304.3543175326033,
+        "visible": false,
+        "world": [
+          33,
+          0.19,
+          -5.7
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "A1",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 6101.9505915049895,
+        "y": 1244.3629548408235,
+        "visible": false,
+        "world": [
+          33,
+          0.9300000000000002,
+          -5.7
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "A2",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 6376.1722818990065,
+        "y": 1152.7629352006015,
+        "visible": false,
+        "world": [
+          33,
+          2.1188369809476035,
+          -5.58005287926027
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "A3",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 6878.775888601071,
+        "y": 1124.8509902310975,
+        "visible": false,
+        "world": [
+          33,
+          3.0888369809476033,
+          -4.93005287926027
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "A4",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 7156.725563519623,
+        "y": 1179.550008817604,
+        "visible": false,
+        "world": [
+          33,
+          3.1149999999999998,
+          -4.4
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "真空装框抓手",
+        "ownerId": "PACK-ROBOT-1",
+        "x": 7087.175961422096,
+        "y": 1206.6794034404572,
+        "visible": false,
+        "world": [
+          33,
+          2.8499999999999996,
+          -4.4
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "右线装框机器人",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 33068.19272365551,
+        "y": 9246.100841516143,
+        "visible": false,
+        "world": [
+          33,
+          0.19,
+          5.7
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "A1",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 39767.87690361233,
+        "y": 10406.094838679675,
+        "visible": false,
+        "world": [
+          33,
+          0.9300000000000002,
+          5.7
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "A2",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 53523.86406621053,
+        "y": 12409.761118720658,
+        "visible": false,
+        "world": [
+          33.00055171832917,
+          2.1192720789253228,
+          5.582395133122046
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "A3",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 45748.18828245821,
+        "y": 9356.466194858449,
+        "visible": false,
+        "world": [
+          33.003591443303925,
+          3.089227955035823,
+          4.934444118806285
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "A4",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 33731.351273909924,
+        "y": 6788.089084016617,
+        "visible": false,
+        "world": [
+          33.00607944994951,
+          3.114911752221001,
+          4.404097971368478
+        ]
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "真空装框抓手",
+        "ownerId": "PACK-ROBOT-2",
+        "x": 31807.1150598577,
+        "y": 6605.258819065219,
+        "visible": false,
+        "world": [
+          33.00607944994951,
+          2.8499117522210007,
+          4.404097971368478
+        ]
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "ownerId": "PACK",
+        "x": 5345.790361949875,
+        "y": 1169.5763634254024,
+        "visible": false,
+        "world": [
+          26.93999981880188,
+          1.5299999713897705,
+          -3.4000000000000004
+        ]
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "ownerId": "PACK",
+        "x": 9696.555044785697,
+        "y": 2497.7680104311785,
+        "visible": false,
+        "world": [
+          26.93999981880188,
+          1.5299999713897705,
+          3.4000000000000004
+        ]
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "ownerId": "PACK",
+        "x": 6817.89771309693,
+        "y": 1586.9614709971954,
+        "visible": false,
+        "world": [
+          27,
+          1.6874999892711635,
+          0
+        ]
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "ownerId": "PACK",
+        "x": 6461.316870292023,
+        "y": 1502.0769585607018,
+        "visible": false,
+        "world": [
+          26,
+          1.8500000476837162,
+          0
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 7612.0586280211965,
+        "y": 1182.3587075656446,
+        "visible": false,
+        "world": [
+          44.99997937679291,
+          1.3700562119483948,
+          -11.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 7617.90345197973,
+        "y": 1183.83844993275,
+        "visible": false,
+        "world": [
+          45,
+          1.3675000555813313,
+          -11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 12898.31901339109,
+        "y": 2218.9084800089913,
+        "visible": false,
+        "world": [
+          44.99997937679291,
+          1.3700562119483948,
+          -5.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 12918.417652150123,
+        "y": 2223.467292519685,
+        "visible": false,
+        "world": [
+          45,
+          1.3675000555813313,
+          -5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -26214.46732537556,
+        "y": -5450.473431498374,
+        "visible": false,
+        "world": [
+          44.99997937679291,
+          1.3700562119483948,
+          4.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -26098.68204408171,
+        "y": -5429.243494857999,
+        "visible": false,
+        "world": [
+          45,
+          1.3675000555813313,
+          5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -7688.955022781695,
+        "y": -1817.9214643658602,
+        "visible": false,
+        "world": [
+          44.99997937679291,
+          1.3700562119483948,
+          10.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -7676.340800362638,
+        "y": -1815.9341852944974,
+        "visible": false,
+        "world": [
+          45,
+          1.3675000555813313,
+          11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 10573.163073832631,
+        "y": 1537.8145744060575,
+        "visible": false,
+        "world": [
+          51.99997937679291,
+          1.3700562119483948,
+          -11.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 10584.339368881467,
+        "y": 1540.1614134189713,
+        "visible": false,
+        "world": [
+          52,
+          1.3675000555813313,
+          -11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 23970.892735612157,
+        "y": 3836.2675473303934,
+        "visible": false,
+        "world": [
+          51.99997937679291,
+          1.3700562119483948,
+          -5.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 24038.847804632333,
+        "y": 3848.9837986060834,
+        "visible": false,
+        "world": [
+          52,
+          1.3675000555813313,
+          -5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -14368.563142820207,
+        "y": -2741.0734327218725,
+        "visible": false,
+        "world": [
+          51.99997937679291,
+          1.3700562119483948,
+          4.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -14335.427746726813,
+        "y": -2736.123849986505,
+        "visible": false,
+        "world": [
+          52,
+          1.3675000555813313,
+          5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -6414.011515121267,
+        "y": -1376.4270860261208,
+        "visible": false,
+        "world": [
+          51.99997937679291,
+          1.3700562119483948,
+          10.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -6405.8458641518755,
+        "y": -1375.390662067443,
+        "visible": false,
+        "world": [
+          52,
+          1.3675000555813313,
+          11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 15970.832116352736,
+        "y": 2185.759678517669,
+        "visible": false,
+        "world": [
+          58.99997937679291,
+          1.3700562119483948,
+          -11.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 15995.947446835595,
+        "y": 2190.1940726704,
+        "visible": false,
+        "world": [
+          59,
+          1.3675000555813313,
+          -11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 91129.4781265509,
+        "y": 13646.050688582325,
+        "visible": false,
+        "world": [
+          58.99997937679291,
+          1.3700562119483948,
+          -5.013499957276508
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 92092.6282331291,
+        "y": 13796.669443069104,
+        "visible": false,
+        "world": [
+          59,
+          1.3675000555813313,
+          -5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -10425.158476335579,
+        "y": -1839.1363214726791,
+        "visible": false,
+        "world": [
+          58.99997937679291,
+          1.3700562119483948,
+          4.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -10408.570612779899,
+        "y": -1837.0957559994322,
+        "visible": false,
+        "world": [
+          59,
+          1.3675000555813313,
+          5
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -5645.6282750370665,
+        "y": -1110.3471547433912,
+        "visible": false,
+        "world": [
+          58.99997937679291,
+          1.3700562119483948,
+          10.986500042723492
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -5639.723326994079,
+        "y": -1109.7380316447147,
+        "visible": false,
+        "world": [
+          59,
+          1.3675000555813313,
+          11
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 8278.099674538973,
+        "y": 830.4940731653556,
+        "visible": false,
+        "world": [
+          51,
+          4,
+          -15
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 8307.639347560413,
+        "y": 834.2163000290375,
+        "visible": false,
+        "world": [
+          51,
+          4,
+          -14.943
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 20742.32650295057,
+        "y": 4601.786340946533,
+        "visible": false,
+        "world": [
+          42,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": 62925.279248610364,
+        "y": 13004.212079525063,
+        "visible": false,
+        "world": [
+          48,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -83243.55700960678,
+        "y": -16111.170130898345,
+        "visible": false,
+        "world": [
+          54,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "ownerId": "DISPATCH",
+        "x": -27510.115846401415,
+        "y": -5009.621518290804,
+        "visible": false,
+        "world": [
+          60,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "ownerId": "AGV",
+        "x": -141130.8860522885,
+        "y": -41322.125922710584,
+        "visible": false,
+        "world": [
+          33,
+          0.3099999949336052,
+          8
+        ]
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "ownerId": "AGV",
+        "x": -109900.64617300463,
+        "y": -31424.52299172091,
+        "visible": false,
+        "world": [
+          33,
+          0.5800000131130219,
+          8
+        ]
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "ownerId": "AGV",
+        "x": -155863.1943485745,
+        "y": -45991.143462671505,
+        "visible": false,
+        "world": [
+          33,
+          0.22000000718981028,
+          8
+        ]
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "ownerId": "AGV",
+        "x": -51148.001255704614,
+        "y": -15212.020668660825,
+        "visible": false,
+        "world": [
+          33,
+          0.3400000035762787,
+          8.719999998807907
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-01000",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-01000",
+        "x": 801.562220817132,
+        "y": 539.3481721638385,
+        "visible": true,
+        "world": [
+          -13.500020623207092,
+          1.7332354568690063,
+          -0.0700562596321106
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-00999",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-00999",
+        "x": 1357.974985372545,
+        "y": 635.8678871629996,
+        "visible": true,
+        "world": [
+          -4.500020623207092,
+          1.7214954764395953,
+          -0.0700562596321106
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-00998",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-00998",
+        "x": 2132.5935182963726,
+        "y": 777.8352532276164,
+        "visible": false,
+        "world": [
+          4.499979376792908,
+          1.6060202670097352,
+          -0.0700562596321106
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-00997",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-00997",
+        "x": 3293.4989052152614,
+        "y": 980.0267630760333,
+        "visible": false,
+        "world": [
+          13.499979376792908,
+          1.6060202670097352,
+          -0.0700562596321106
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-00996",
+        "name": "侧围外板",
+        "ownerId": "SP-SIDE-L-00996",
+        "x": 4651.706135205219,
+        "y": 1052.8952923911038,
+        "visible": false,
+        "world": [
+          23.999979376792908,
+          1.6060202670097352,
+          -3.470056259632111
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-01002",
+        "name": "落料料片",
+        "ownerId": "SP-SIDE-L-01002",
+        "x": 283.9606467046827,
+        "y": 455.88777226801744,
+        "visible": true,
+        "world": [
+          -25,
+          1.6400000000000001,
+          0
+        ]
+      },
+      {
+        "id": "SP-SIDE-L-01001",
+        "name": "清洗对中料片",
+        "ownerId": "SP-SIDE-L-01001",
+        "x": 382.13392634324555,
+        "y": 472.9871423652049,
+        "visible": true,
+        "world": [
+          -22.5,
+          1.6400000000000001,
+          0
+        ]
+      },
+      {
+        "id": "LIVE-RACK-0",
+        "name": "左线料架",
+        "ownerId": "LIVE-RACK-0",
+        "x": 5453.39731804155,
+        "y": 1017.8617909634355,
+        "visible": false,
+        "world": [
+          33,
+          1.3675000555813313,
+          -8
+        ]
+      },
+      {
+        "id": "LIVE-RACK-0",
+        "name": "左线料架",
+        "ownerId": "LIVE-RACK-0",
+        "x": 5450.117599209447,
+        "y": 1016.7188657928525,
+        "visible": false,
+        "world": [
+          32.99997937679291,
+          1.3700562119483948,
+          -8.013499957276508
+        ]
+      },
+      {
+        "id": "LIVE-RACK-1",
+        "name": "右线料架",
+        "ownerId": "LIVE-RACK-1",
+        "x": -66627.27031565951,
+        "y": -17710.164940837523,
+        "visible": false,
+        "world": [
+          33,
+          1.3675000555813313,
+          8
+        ]
+      },
+      {
+        "id": "LIVE-RACK-1",
+        "name": "右线料架",
+        "ownerId": "LIVE-RACK-1",
+        "x": -67574.2143113711,
+        "y": -17951.2568847496,
+        "visible": false,
+        "world": [
+          32.99997937679291,
+          1.3700562119483948,
+          7.986500042723492
+        ]
+      }
+    ],
+    "shop": "stamping",
+    "time": 3.9833333333333334,
+    "playing": false,
+    "speed": 1,
+    "rendererCount": 1,
+    "loopCount": 1,
+    "clockCount": 1,
+    "worldCount": 1,
+    "viewport": [
+      1600,
+      1000
+    ],
+    "quality": "balanced",
+    "renderScale": 0.65,
+    "drawCalls": 525,
+    "triangles": 212325,
+    "geometries": 280,
+    "textures": 36,
+    "frameMs": 0,
+    "frameIntervals": [
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515,
+      16.666666666666515
+    ],
+    "frames": 241,
+    "robots": 2,
+    "disposedWorlds": 0,
+    "lodCounts": {
+      "proxy": 0,
+      "low": 0,
+      "medium": 2,
+      "original": 0
+    },
+    "details": {
+      "upstreamParts": [
+        {
+          "id": "SP-SIDE-L-01002",
+          "x": -25,
+          "y": 1.62,
+          "stage": "落料 → 拆垛"
+        },
+        {
+          "id": "SP-SIDE-L-01001",
+          "x": -22.5,
+          "y": 1.62,
+          "stage": "单张清洗 → 对中"
+        }
+      ],
+      "reelAngle": -4.578544061302682,
+      "blankingStroke": 0,
+      "scrapInstances": 48,
+      "lod": {
+        "active": {
+          "proxy": 0,
+          "low": 0,
+          "medium": 2,
+          "original": 0
+        },
+        "residentVariants": 12,
+        "residentRobotOriginals": 0,
+        "residentTriangles": 37584,
+        "residentGeometries": 42,
+        "residentWorldTriangles": 183830,
+        "residentWorldGeometries": 315,
+        "wallSeconds": 3.999999999999986,
+        "models": [
+          {
+            "id": "PACK-ROBOT-1",
+            "kind": "robot",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 72,
+                "geometries": 6
+              }
+            ]
+          },
+          {
+            "id": "PACK-ROBOT-2",
+            "kind": "robot",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 72,
+                "geometries": 6
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-01000",
+            "kind": "panel",
+            "visible": true,
+            "level": "medium",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              },
+              {
+                "level": "low",
+                "triangles": 6540,
+                "geometries": 3
+              },
+              {
+                "level": "medium",
+                "triangles": 9868,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-00999",
+            "kind": "panel",
+            "visible": true,
+            "level": "medium",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              },
+              {
+                "level": "medium",
+                "triangles": 9868,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-00998",
+            "kind": "panel",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              },
+              {
+                "level": "medium",
+                "triangles": 9868,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-00997",
+            "kind": "panel",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-00996",
+            "kind": "panel",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          },
+          {
+            "id": "SP-SIDE-L-00995",
+            "kind": "panel",
+            "visible": false,
+            "level": "proxy",
+            "resident": [
+              {
+                "level": "proxy",
+                "triangles": 216,
+                "geometries": 3
+              }
+            ]
+          }
+        ]
+      },
+      "robotTools": [
+        {
+          "id": "PACK-ROBOT-1",
+          "level": "proxy",
+          "tool": [
+            33,
+            3.03,
+            -4.4
+          ],
+          "jointOrigins": [
+            [
+              0,
+              0.38,
+              0
+            ],
+            [
+              0,
+              1.1,
+              0
+            ],
+            [
+              0,
+              1.3,
+              0
+            ],
+            [
+              0,
+              1.25,
+              0
+            ],
+            [
+              0,
+              0.22,
+              0
+            ],
+            [
+              0,
+              0.17,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "PACK-ROBOT-2",
+          "level": "proxy",
+          "tool": [
+            33.00607944994951,
+            3.029911752221001,
+            4.404097971368478
+          ],
+          "jointOrigins": [
+            [
+              0,
+              0.38,
+              0
+            ],
+            [
+              0,
+              1.1,
+              0
+            ],
+            [
+              0,
+              1.3,
+              0
+            ],
+            [
+              0,
+              1.25,
+              0
+            ],
+            [
+              0,
+              0.22,
+              0
+            ],
+            [
+              0,
+              0.17,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    "pickableScreens": [
+      {
+        "id": "COIL",
+        "name": "钢卷鞍座库",
+        "station": 0,
+        "x": -314.71206111782914,
+        "y": 341.7486346206204,
+        "visible": false
+      },
+      {
+        "id": "CRANE",
+        "name": "C 形钩行车",
+        "station": 0,
+        "x": -187.8410403661565,
+        "y": 232.24510653720887,
+        "visible": false
+      },
+      {
+        "id": "BLANK",
+        "name": "开卷 · 矫平 · 落料线",
+        "station": 1,
+        "x": 10.330820822603304,
+        "y": 399.78331851147396,
+        "visible": true
+      },
+      {
+        "id": "DECOIL-REEL",
+        "name": "开卷机主轴与钢卷",
+        "station": 1,
+        "x": -80.50896655046512,
+        "y": 390.08493290677796,
+        "visible": false
+      },
+      {
+        "id": "BLANKING-SLIDER",
+        "name": "落料压机滑块",
+        "station": 1,
+        "x": 106.42076082097009,
+        "y": 380.62986584773085,
+        "visible": true
+      },
+      {
+        "id": "WASH",
+        "name": "拆垛 · 清洗 · 对中设备",
+        "station": 2,
+        "x": 305.75518130018355,
+        "y": 461.47071814414153,
+        "visible": true
+      },
+      {
+        "id": "DESTACK-HEAD",
+        "name": "拆垛真空抓手",
+        "station": 2,
+        "x": 381.3006088118592,
+        "y": 466.6332585800261,
+        "visible": true
+      },
+      {
+        "id": "OP10",
+        "name": "OP10 拉延",
+        "station": 3,
+        "x": 805.7823789549163,
+        "y": 349.2131970645785,
+        "visible": true
+      },
+      {
+        "id": "OP20",
+        "name": "OP20 修边冲孔",
+        "station": 4,
+        "x": 1422.6883118160906,
+        "y": 420.3028741445355,
+        "visible": true
+      },
+      {
+        "id": "OP30",
+        "name": "OP30 修边整形",
+        "station": 5,
+        "x": 2317.8869411060014,
+        "y": 523.4618455350101,
+        "visible": false
+      },
+      {
+        "id": "OP40",
+        "name": "OP40 冲孔翻边切断",
+        "station": 6,
+        "x": 3734.5345342478267,
+        "y": 686.7104294244016,
+        "visible": false
+      },
+      {
+        "id": "DIE-CHANGE",
+        "name": "快速换模区",
+        "station": 3,
+        "x": 918.5164727612271,
+        "y": 455.39264755486624,
+        "visible": true
+      },
+      {
+        "id": "PACK-ROBOT-1",
+        "name": "左线装框机器人",
+        "station": 7,
+        "x": 6486.161844950246,
+        "y": 1228.4848645742431,
+        "visible": false
+      },
+      {
+        "id": "PACK-ROBOT-2",
+        "name": "右线装框机器人",
+        "station": 7,
+        "x": 35962.724266368,
+        "y": 8553.094248653062,
+        "visible": false
+      },
+      {
+        "id": "PACK",
+        "name": "线尾检查与出料输送线",
+        "station": 7,
+        "x": 6864.393153963715,
+        "y": 1570.9514614898883,
+        "visible": false
+      },
+      {
+        "id": "DISPATCH",
+        "name": "冲压件物流缓存",
+        "station": 8,
+        "x": 1485018.3683340347,
+        "y": 232104.07464815932,
+        "visible": false
+      },
+      {
+        "id": "AGV",
+        "name": "料架交换 AGV",
+        "station": 7,
+        "x": -131911.54395160786,
+        "y": -38538.16220267008,
+        "visible": false
+      },
+      {
+        "id": "SP-SIDE-L-01000",
+        "name": "侧围外板",
+        "station": 3,
+        "x": 800,
+        "y": 541.2321963404067,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-00999",
+        "name": "侧围外板",
+        "station": 4,
+        "x": 1357.9214166533488,
+        "y": 637.6519203693414,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-00998",
+        "name": "侧围外板",
+        "station": 5,
+        "x": 2135.825363846311,
+        "y": 779.7585962624245,
+        "visible": false
+      },
+      {
+        "id": "SP-SIDE-L-00997",
+        "name": "侧围外板",
+        "station": 6,
+        "x": 3303.4352616613887,
+        "y": 983.4570866458714,
+        "visible": false
+      },
+      {
+        "id": "SP-SIDE-L-00996",
+        "name": "侧围外板",
+        "station": 7,
+        "x": 4669.7564081308865,
+        "y": 1056.9696343187654,
+        "visible": false
+      },
+      {
+        "id": "SP-SIDE-L-00995",
+        "name": "侧围外板",
+        "station": 7,
+        "x": -59064.913210428174,
+        "y": -15313.47480527509,
+        "visible": false
+      },
+      {
+        "id": "SP-SIDE-L-01002",
+        "name": "落料料片",
+        "station": 1,
+        "x": 283.9606467046827,
+        "y": 455.88777226801744,
+        "visible": true
+      },
+      {
+        "id": "SP-SIDE-L-01001",
+        "name": "清洗对中料片",
+        "station": 2,
+        "x": 382.13392634324555,
+        "y": 472.9871423652049,
+        "visible": true
+      },
+      {
+        "id": "LIVE-RACK-0",
+        "name": "左线料架",
+        "station": 7,
+        "x": 5453.39731804155,
+        "y": 1017.8617909634355,
+        "visible": false
+      },
+      {
+        "id": "LIVE-RACK-1",
+        "name": "右线料架",
+        "station": 7,
+        "x": -66627.27031565951,
+        "y": -17710.164940837523,
+        "visible": false
+      }
+    ],
+    "poses": {
+      "time": 3.9833333333333334,
+      "cycle": 0,
+      "cycleTime": 3.9833333333333334,
+      "progress": 0.9958333333333333,
+      "presses": [
+        {
+          "index": 0,
+          "x": -13.5,
+          "name": "OP10 拉延",
+          "downstroke": 0,
+          "sliderY": 5.35,
+          "phase": "待机",
+          "forming": 1
+        },
+        {
+          "index": 1,
+          "x": -4.5,
+          "name": "OP20 修边冲孔",
+          "downstroke": 0,
+          "sliderY": 5.35,
+          "phase": "待机",
+          "forming": 1
+        },
+        {
+          "index": 2,
+          "x": 4.5,
+          "name": "OP30 修边整形",
+          "downstroke": 0,
+          "sliderY": 5.35,
+          "phase": "待机",
+          "forming": 1
+        },
+        {
+          "index": 3,
+          "x": 13.5,
+          "name": "OP40 冲孔翻边切断",
+          "downstroke": 0,
+          "sliderY": 5.35,
+          "phase": "待机",
+          "forming": 1
+        }
+      ],
+      "parts": [
+        {
+          "id": "SP-SIDE-L-01000",
+          "serial": 1000,
+          "slot": 0,
+          "x": -13.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 0,
+          "shape": 1
+        },
+        {
+          "id": "SP-SIDE-L-00999",
+          "serial": 999,
+          "slot": 1,
+          "x": -4.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 1,
+          "shape": 2
+        },
+        {
+          "id": "SP-SIDE-L-00998",
+          "serial": 998,
+          "slot": 2,
+          "x": 4.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 2,
+          "shape": 3
+        },
+        {
+          "id": "SP-SIDE-L-00997",
+          "serial": 997,
+          "slot": 3,
+          "x": 13.5,
+          "y": 1.62,
+          "z": 0,
+          "stage": 3,
+          "shape": 4
+        },
+        {
+          "id": "SP-SIDE-L-00996",
+          "serial": 996,
+          "slot": 4,
+          "x": 24,
+          "y": 1.62,
+          "z": -3.4,
+          "stage": 4,
+          "shape": 4
+        },
+        {
+          "id": "SP-SIDE-L-00995",
+          "serial": 995,
+          "slot": 5,
+          "x": 33,
+          "y": 1.62,
+          "z": 3.4,
+          "stage": 4,
+          "shape": 4
+        }
+      ],
+      "transfer": {
+        "active": false,
+        "progress": 1,
+        "lift": 4.286263797015736e-17
+      },
+      "coil": {
+        "stage": "卷外侧下降",
+        "hook": [
+          -49,
+          6.1941553505979945,
+          5.3
+        ],
+        "coil": [
+          -49,
+          0.95,
+          3.7
+        ],
+        "carrying": false,
+        "progress": 0.041493055555555554
+      },
+      "rack": {
+        "id": "RACK-0001",
+        "filled": 0,
+        "capacity": 120,
+        "exchanging": false,
+        "exchangeProgress": 0,
+        "agvX": 33,
+        "agvZ": 8,
+        "fullRackX": 33,
+        "bufferCount": 0,
+        "storedParts": [],
+        "bufferParts": [],
+        "lines": [
+          {
+            "id": "RACK-0001-A",
+            "z": -3.4,
+            "capacity": 60,
+            "filled": 0,
+            "storedParts": []
+          },
+          {
+            "id": "RACK-0001-B",
+            "z": 3.4,
+            "capacity": 60,
+            "filled": 0,
+            "storedParts": []
+          }
+        ],
+        "completedRacks": [],
+        "archivedRackCount": 0,
+        "shippedCount": 0
+      },
+      "completed": 0
+    }
+  },
+  "virtualClock": {
+    "now": 3999.999999999986,
+    "queued": 1,
+    "maxQueued": 1,
+    "steppedFrames": 241
+  },
+  "finishedAt": "2026-11-13T08:24:55.558Z"
+}

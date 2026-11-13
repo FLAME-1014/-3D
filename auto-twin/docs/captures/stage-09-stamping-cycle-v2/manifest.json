@@ -1,0 +1,53 @@
+{
+  "status": "failed",
+  "startedAt": "2026-11-13T08:18:23.554Z",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\scripts\\capture.mjs",
+    "--shop",
+    "stamping",
+    "--start",
+    "0",
+    "--duration",
+    "4",
+    "--fps",
+    "60",
+    "--quality",
+    "balanced",
+    "--station",
+    "3",
+    "--video",
+    "--ffmpeg",
+    ".tools/python/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe",
+    "--output",
+    "docs/captures/stage-09-stamping-cycle-v2"
+  ],
+  "mode": "virtual-clock",
+  "shop": "stamping",
+  "url": "http://127.0.0.1:4200/?shop=stamping",
+  "start": 0,
+  "duration": 4,
+  "fps": 60,
+  "speed": 1,
+  "quality": "balanced",
+  "station": 3,
+  "close": false,
+  "viewport": [
+    1600,
+    1000
+  ],
+  "devicePixelRatio": 1,
+  "plannedFrames": 240,
+  "writtenFrames": 0,
+  "virtualEpochMs": 1700000000000,
+  "output": "C:\\Users\\Administrator\\Desktop\\ycjd\\auto-twin\\docs\\captures\\stage-09-stamping-cycle-v2",
+  "productionPolicy": "paused; seek(start + frameIndex / fps * speed); confirm React DOM time; advance one virtual RAF; confirm one rendered frame before screenshot",
+  "video": {
+    "requested": true,
+    "status": "not-requested"
+  },
+  "frameChecks": [],
+  "errors": [],
+  "failure": "page.evaluate: TypeError: Cannot read properties of undefined (reading '3')\n    at eval (eval at evaluate (:370:30), <anonymous>:9:57)\n    at async <anonymous>:381:23",
+  "finishedAt": "2026-11-13T08:18:25.687Z"
+}

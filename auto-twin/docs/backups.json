@@ -1,0 +1,82 @@
+{
+  "status": "verified",
+  "verifiedAt": "2026-11-13T08:58:56.784Z",
+  "backups": [
+    {
+      "stage": 7,
+      "directory": "C:\\Users\\Administrator\\Desktop\\ycjd\\工厂备份\\工厂_第7步完成",
+      "manifest": "C:\\Users\\Administrator\\Desktop\\ycjd\\工厂备份\\工厂_第7步完成\\backup-manifest.json",
+      "status": "complete",
+      "createdAt": "2026-11-13T07:27:10.046Z",
+      "sourceFileCount": 152,
+      "sourceBytes": 41369871,
+      "exclusions": [
+        "node_modules",
+        ".npm-cache",
+        ".tools"
+      ],
+      "manifestSha256": "6fc345ff24b7468f8b4f068a5ea16c532f3e4dbb5ad0b43904be14be78d8a166",
+      "verifiedKeyFiles": 91
+    },
+    {
+      "stage": 8,
+      "directory": "C:\\Users\\Administrator\\Desktop\\ycjd\\工厂备份\\工厂_第8步完成",
+      "manifest": "C:\\Users\\Administrator\\Desktop\\ycjd\\工厂备份\\工厂_第8步完成\\backup-manifest.json",
+      "status": "complete",
+      "createdAt": "2026-11-13T08:56:03.316Z",
+      "sourceFileCount": 1152,
+      "sourceBytes": 577290729,
+      "exclusions": [
+        "node_modules",
+        ".npm-cache",
+        ".tools"
+      ],
+      "manifestSha256": "20e26d31c810c0844a490525cec3a6b915f9cbf6f79831b21ff986271d9f541f",
+      "verifiedKeyFiles": 109
+    },
+    {
+      "stage": 9,
+      "directory": "C:\\Users\\Administrator\\Desktop\\ycjd\\工厂备份\\工厂_第9步完成",
+      "manifest": "C:\\Users\\Administrator\\Desktop\\ycjd\\工厂备份\\工厂_第9步完成\\backup-manifest.json",
+      "status": "complete",
+      "createdAt": "2026-11-13T08:57:28.959Z",
+      "sourceFileCount": 1152,
+      "sourceBytes": 577290729,
+      "exclusions": [
+        "node_modules",
+        ".npm-cache",
+        ".tools"
+      ],
+      "manifestSha256": "2f8ba514fda503051934731ac1d452062d32be486013872b5095f485ba1e9c5f",
+      "verifiedKeyFiles": 109
+    },
+    {
+      "stage": 10,
+      "directory": "C:\\Users\\Administrator\\Desktop\\ycjd\\工厂备份\\工厂_第10步完成",
+      "manifest": "C:\\Users\\Administrator\\Desktop\\ycjd\\工厂备份\\工厂_第10步完成\\backup-manifest.json",
+      "status": "complete",
+      "createdAt": "2026-11-13T08:57:30.789Z",
+      "sourceFileCount": 1152,
+      "sourceBytes": 577290729,
+      "exclusions": [
+        "node_modules",
+        ".npm-cache",
+        ".tools"
+      ],
+      "manifestSha256": "7f7ef4ef1403300daba1035f1e265bf7d01fe6861960105baa881358c3ef95a7",
+      "verifiedKeyFiles": 109
+    }
+  ],
+  "historicalStages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "incompleteAuditDirectories": [
+    ".工厂_第7步完成.incomplete-c1ee991e-b25b-40b4-9503-f0e73e46a6cd"
+  ],
+  "note": "Stages 8-10 were archived after integrated final acceptance. This inventory was written after snapshot creation; the source snapshots retain their own immutable backup manifests."
+}

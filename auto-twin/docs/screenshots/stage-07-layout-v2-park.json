@@ -1,0 +1,685 @@
+{
+  "stage": "07-layout-v2",
+  "shop": "park",
+  "errors": [],
+  "diagnostic": {
+    "station": -1,
+    "selected": null,
+    "exploded": false,
+    "roofVisible": false,
+    "camera": {
+      "position": [
+        -25,
+        315,
+        150.00000000000006
+      ],
+      "target": [
+        -25,
+        0,
+        0
+      ]
+    },
+    "cameraMoving": false,
+    "renderSize": [
+      1040,
+      650
+    ],
+    "componentScreens": [
+      {
+        "id": "stamping",
+        "name": "冲压车间",
+        "ownerId": "stamping",
+        "x": 781.953874466509,
+        "y": 408.69637905167934,
+        "visible": true,
+        "world": [
+          -30,
+          0.03999999910593033,
+          -28
+        ]
+      },
+      {
+        "id": "stamping",
+        "name": "冲压车间",
+        "ownerId": "stamping",
+        "x": 781.7530180313938,
+        "y": 400.7765631543017,
+        "visible": true,
+        "world": [
+          -30,
+          4.4399997889995575,
+          -28
+        ]
+      },
+      {
+        "id": "stamping",
+        "name": "冲压车间",
+        "ownerId": "stamping",
+        "x": 781.4602413966306,
+        "y": 399.9033826858347,
+        "visible": true,
+        "world": [
+          -30.072500228881836,
+          5.01500016450882,
+          -27.945000648498535
+        ]
+      },
+      {
+        "id": "stamping",
+        "name": "冲压车间",
+        "ownerId": "stamping",
+        "x": 781.5922444438569,
+        "y": 394.43722324854207,
+        "visible": true,
+        "world": [
+          -30,
+          7.892746686935425,
+          -28
+        ]
+      },
+      {
+        "id": "stamping",
+        "name": "冲压车间",
+        "ownerId": "stamping",
+        "x": 781.7331831670156,
+        "y": 399.9944698440435,
+        "visible": true,
+        "world": [
+          -30,
+          4.869256645441055,
+          -28
+        ]
+      },
+      {
+        "id": "stamping",
+        "name": "冲压车间",
+        "ownerId": "stamping",
+        "x": 781.6625762490849,
+        "y": 408.12724211029706,
+        "visible": true,
+        "world": [
+          -30,
+          5.110000193119049,
+          -25.3125
+        ]
+      },
+      {
+        "id": "stamping",
+        "name": "冲压车间",
+        "ownerId": "stamping",
+        "x": 769.5917305075455,
+        "y": 414.4935978304704,
+        "visible": true,
+        "world": [
+          -33.35000038146973,
+          2.1649999171495438,
+          -24.97499990463257
+        ]
+      },
+      {
+        "id": "stamping",
+        "name": "冲压车间",
+        "ownerId": "stamping",
+        "x": 781.527140622719,
+        "y": 387.77809065539657,
+        "visible": true,
+        "world": [
+          -30,
+          9.75,
+          -29
+        ]
+      },
+      {
+        "id": "stamping",
+        "name": "冲压车间",
+        "ownerId": "stamping",
+        "x": 781.5244437243485,
+        "y": 387.67115391417497,
+        "visible": true,
+        "world": [
+          -30,
+          9.807,
+          -29
+        ]
+      },
+      {
+        "id": "welding",
+        "name": "焊装车间",
+        "ownerId": "welding",
+        "x": 1059.864207682272,
+        "y": 408.69637905167934,
+        "visible": true,
+        "world": [
+          47,
+          0.03999999910593033,
+          -28
+        ]
+      },
+      {
+        "id": "welding",
+        "name": "焊装车间",
+        "ownerId": "welding",
+        "x": 1062.6236748349445,
+        "y": 401.14037690727764,
+        "visible": true,
+        "world": [
+          47,
+          4.240000121295452,
+          -28
+        ]
+      },
+      {
+        "id": "welding",
+        "name": "焊装车间",
+        "ownerId": "welding",
+        "x": 1063.0367892646818,
+        "y": 400.23172917611987,
+        "visible": true,
+        "world": [
+          47,
+          4.834999889135361,
+          -27.945000648498535
+        ]
+      },
+      {
+        "id": "welding",
+        "name": "焊装车间",
+        "ownerId": "welding",
+        "x": 1064.8013840695432,
+        "y": 395.17735044741386,
+        "visible": true,
+        "world": [
+          47,
+          7.492746353149414,
+          -28
+        ]
+      },
+      {
+        "id": "welding",
+        "name": "焊装车间",
+        "ownerId": "welding",
+        "x": 1062.9090078585252,
+        "y": 400.3590750041345,
+        "visible": true,
+        "world": [
+          47,
+          4.66925685107708,
+          -28
+        ]
+      },
+      {
+        "id": "welding",
+        "name": "焊装车间",
+        "ownerId": "welding",
+        "x": 1063.9247160528744,
+        "y": 408.48912396117316,
+        "visible": true,
+        "world": [
+          47,
+          4.909999907016754,
+          -25.3125
+        ]
+      },
+      {
+        "id": "welding",
+        "name": "焊装车间",
+        "ownerId": "welding",
+        "x": 1067.510778112562,
+        "y": 468.00433779044283,
+        "visible": true,
+        "world": [
+          47,
+          2.17999991774559,
+          -8.5
+        ]
+      },
+      {
+        "id": "welding",
+        "name": "焊装车间",
+        "ownerId": "welding",
+        "x": 1065.7369649775665,
+        "y": 388.52764657115404,
+        "visible": true,
+        "world": [
+          47,
+          9.35,
+          -29
+        ]
+      },
+      {
+        "id": "welding",
+        "name": "焊装车间",
+        "ownerId": "welding",
+        "x": 1065.7757208677403,
+        "y": 388.4209285929345,
+        "visible": true,
+        "world": [
+          47,
+          9.407,
+          -29
+        ]
+      },
+      {
+        "id": "paint",
+        "name": "涂装车间",
+        "ownerId": "paint",
+        "x": 1079.1524280994831,
+        "y": 604.9482014157996,
+        "visible": true,
+        "world": [
+          47,
+          0.03999999910593033,
+          30
+        ]
+      },
+      {
+        "id": "paint",
+        "name": "涂装车间",
+        "ownerId": "paint",
+        "x": 1082.4068114653628,
+        "y": 598.9406596489595,
+        "visible": true,
+        "world": [
+          47,
+          4.328017495572567,
+          30
+        ]
+      },
+      {
+        "id": "paint",
+        "name": "涂装车间",
+        "ownerId": "paint",
+        "x": 1082.6628521415241,
+        "y": 598.7071640095511,
+        "visible": true,
+        "world": [
+          47,
+          4.635000079870224,
+          30.054999351501465
+        ]
+      },
+      {
+        "id": "paint",
+        "name": "涂装车间",
+        "ownerId": "paint",
+        "x": 1084.545636647722,
+        "y": 594.9924211747497,
+        "visible": true,
+        "world": [
+          47,
+          7.092746734619141,
+          30
+        ]
+      },
+      {
+        "id": "paint",
+        "name": "涂装车间",
+        "ownerId": "paint",
+        "x": 1082.0785633010325,
+        "y": 599.5466007245491,
+        "visible": true,
+        "world": [
+          47,
+          3.900000050663948,
+          30
+        ]
+      },
+      {
+        "id": "paint",
+        "name": "涂装车间",
+        "ownerId": "paint",
+        "x": 1083.688482913464,
+        "y": 608.3030665547005,
+        "visible": true,
+        "world": [
+          47,
+          4.710000097751617,
+          32.6875
+        ]
+      },
+      {
+        "id": "paint",
+        "name": "涂装车间",
+        "ownerId": "paint",
+        "x": 1087.4263411874495,
+        "y": 669.2623772376529,
+        "visible": true,
+        "world": [
+          47,
+          2.17999991774559,
+          48
+        ]
+      },
+      {
+        "id": "paint",
+        "name": "涂装车间",
+        "ownerId": "paint",
+        "x": 1085.626221847847,
+        "y": 588.6038306092294,
+        "visible": true,
+        "world": [
+          47,
+          8.95,
+          29
+        ]
+      },
+      {
+        "id": "paint",
+        "name": "涂装车间",
+        "ownerId": "paint",
+        "x": 1085.6709967521767,
+        "y": 588.5204880411891,
+        "visible": true,
+        "world": [
+          47,
+          9.007,
+          29
+        ]
+      },
+      {
+        "id": "assembly",
+        "name": "总装车间",
+        "ownerId": "assembly",
+        "x": 780.6144147153136,
+        "y": 604.9482014157996,
+        "visible": true,
+        "world": [
+          -30,
+          0.03999999910593033,
+          30
+        ]
+      },
+      {
+        "id": "assembly",
+        "name": "总装车间",
+        "ownerId": "assembly",
+        "x": 780.3884158704609,
+        "y": 598.9406596489595,
+        "visible": true,
+        "world": [
+          -30,
+          4.328017495572567,
+          30
+        ]
+      },
+      {
+        "id": "assembly",
+        "name": "总装车间",
+        "ownerId": "assembly",
+        "x": 780.3706352679498,
+        "y": 598.7071640095511,
+        "visible": true,
+        "world": [
+          -30,
+          4.635000079870224,
+          30.054999351501465
+        ]
+      },
+      {
+        "id": "assembly",
+        "name": "总装车间",
+        "ownerId": "assembly",
+        "x": 780.2398863439082,
+        "y": 594.9924211747497,
+        "visible": true,
+        "world": [
+          -30,
+          7.092746734619141,
+          30
+        ]
+      },
+      {
+        "id": "assembly",
+        "name": "总装车间",
+        "ownerId": "assembly",
+        "x": 780.4112108818728,
+        "y": 599.5466007245491,
+        "visible": true,
+        "world": [
+          -30,
+          3.900000050663948,
+          30
+        ]
+      },
+      {
+        "id": "assembly",
+        "name": "总装车间",
+        "ownerId": "assembly",
+        "x": 780.2994109087872,
+        "y": 608.3030665547005,
+        "visible": true,
+        "world": [
+          -30,
+          4.710000097751617,
+          32.6875
+        ]
+      },
+      {
+        "id": "assembly",
+        "name": "总装车间",
+        "ownerId": "assembly",
+        "x": 780.0398374175383,
+        "y": 669.2623772376529,
+        "visible": true,
+        "world": [
+          -30,
+          2.17999991774559,
+          48
+        ]
+      },
+      {
+        "id": "assembly",
+        "name": "总装车间",
+        "ownerId": "assembly",
+        "x": 780.1648457050106,
+        "y": 588.6038306092294,
+        "visible": true,
+        "world": [
+          -30,
+          8.95,
+          29
+        ]
+      },
+      {
+        "id": "assembly",
+        "name": "总装车间",
+        "ownerId": "assembly",
+        "x": 780.1617363366544,
+        "y": 588.5204880411891,
+        "visible": true,
+        "world": [
+          -30,
+          9.007,
+          29
+        ]
+      }
+    ],
+    "shop": "park",
+    "time": 34.2,
+    "playing": false,
+    "speed": 1,
+    "rendererCount": 1,
+    "loopCount": 1,
+    "clockCount": 1,
+    "worldCount": 1,
+    "viewport": [
+      1600,
+      1000
+    ],
+    "quality": "balanced",
+    "renderScale": 0.65,
+    "drawCalls": 209,
+    "triangles": 69225,
+    "geometries": 109,
+    "textures": 32,
+    "frameMs": 3.399999998509884,
+    "frameIntervals": [
+      16.700000000000045,
+      33.399999999999864
+    ],
+    "frames": 4,
+    "robots": 0,
+    "disposedWorlds": 0,
+    "lodCounts": {},
+    "details": {
+      "siteSize": [
+        260,
+        180
+      ],
+      "destinations": [
+        {
+          "id": "stamping",
+          "name": "冲压车间",
+          "en": "STAMPING SHOP",
+          "center": [
+            -30,
+            0,
+            -28
+          ],
+          "size": [
+            62,
+            8.6,
+            37
+          ],
+          "planned": false,
+          "entryCamera": [
+            -18,
+            20,
+            -5
+          ],
+          "entryTarget": [
+            -30,
+            3,
+            -28
+          ]
+        },
+        {
+          "id": "welding",
+          "name": "焊装车间",
+          "en": "BODY SHOP",
+          "center": [
+            47,
+            0,
+            -28
+          ],
+          "size": [
+            62,
+            8.2,
+            37
+          ],
+          "planned": false,
+          "entryCamera": [
+            59,
+            20,
+            -5
+          ],
+          "entryTarget": [
+            47,
+            3,
+            -28
+          ]
+        },
+        {
+          "id": "paint",
+          "name": "涂装车间",
+          "en": "PAINT SHOP",
+          "center": [
+            47,
+            0,
+            30
+          ],
+          "size": [
+            64,
+            7.8,
+            34
+          ],
+          "planned": true,
+          "entryCamera": [
+            59,
+            20,
+            53
+          ],
+          "entryTarget": [
+            47,
+            3,
+            30
+          ]
+        },
+        {
+          "id": "assembly",
+          "name": "总装车间",
+          "en": "FINAL ASSEMBLY",
+          "center": [
+            -30,
+            0,
+            30
+          ],
+          "size": [
+            64,
+            7.8,
+            34
+          ],
+          "planned": true,
+          "entryCamera": [
+            -18,
+            20,
+            53
+          ],
+          "entryTarget": [
+            -30,
+            3,
+            30
+          ]
+        }
+      ],
+      "treeInstances": 141,
+      "visitorCars": 14,
+      "finishedCars": 48,
+      "freightTrucks": 6,
+      "hallCount": 4,
+      "plannedShops": [
+        "paint",
+        "assembly"
+      ],
+      "navigationShops": [
+        "stamping",
+        "welding"
+      ]
+    },
+    "pickableScreens": [
+      {
+        "id": "stamping",
+        "name": "冲压车间",
+        "station": -1,
+        "x": 781.7295630868934,
+        "y": 399.8517292438529,
+        "visible": true
+      },
+      {
+        "id": "welding",
+        "name": "焊装车间",
+        "station": -1,
+        "x": 1062.961083916483,
+        "y": 400.2164797914246,
+        "visible": true
+      },
+      {
+        "id": "paint",
+        "name": "涂装车间",
+        "station": -1,
+        "x": 1082.5754299439834,
+        "y": 598.6293925242574,
+        "visible": true
+      },
+      {
+        "id": "assembly",
+        "name": "总装车间",
+        "station": -1,
+        "x": 780.3767062538901,
+        "y": 598.6293925242574,
+        "visible": true
+      }
+    ],
+    "poses": null
+  }
+}
