@@ -22,6 +22,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: auto-twin/package-lock.json
+
+      - name: Install workshop dependencies
+        run: npm ci --prefix auto-twin
+
+      - name: Build workshop into the portfolio site
+        run: node scripts/build-workshop-site.mjs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

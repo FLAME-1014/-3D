@@ -30,6 +30,8 @@ npm run capture
 
 ## 验收与录像
 
+项目已接入Blender角色作品集，统一静态入口为 `../portrait-portfolio/`，作品卡链接至 `/auto-twin/`。仓库根目录运行 `node scripts/build-workshop-site.mjs` 生成站点产物；Pages工作流会自动完成该步骤。在整合站点中车间顶部提供返回作品集入口。
+
 本次完成情况见 [开发记录](docs/progress.md)、[前台性能记录](docs/performance-verification.md) 和 [交付说明](docs/delivery.md)。园区专项和两个车间的完整浏览器回归均有实际报告；录像见 [焊接近景](docs/captures/stage-09-welding-contact/capture.mp4)、[冲压4秒节拍](docs/captures/stage-09-stamping-cycle-v3/capture.mp4) 和 [焊装完整节拍流程](docs/captures/stage-09-welding-process-v2/capture.mp4)。最后一段为16倍生产时间的5秒录像，不能作为实时帧率证据。
 
 已启动开发服务时可运行 `npm run verify:park`、`npm run verify`、`npm run verify:performance`。也可使用 `node scripts/with-server.mjs scripts/verify.mjs --strict-images`，自动启动服务、验收后关闭本次启动的服务。录像采集命令与FFmpeg准备方法见 [录制说明](docs/recording.md)。`npm run backup -- 8 --check` 只检查备份路径；去掉 `--check` 会创建不覆盖旧目录、附SHA-256清单的阶段快照。

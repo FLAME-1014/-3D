@@ -49,6 +49,23 @@
       ]
     },
     {
+      "id": "iwc-watch-cover",
+      "path": "assets/projects/iwc-watch.jpg",
+      "source": "canton-atlas/web/iwc-watch/",
+      "purpose": "时间的构造项目卡封面",
+      "mimeType": "image/jpeg",
+      "width": 1400,
+      "height": 986,
+      "bytes": 90784,
+      "processing": "使用 Playwright 在 1400 × 986 视口捕获现有 IWC 腕表作品的实时首屏，等待 WebGL 渲染后以 JPEG 质量 86 编码。保留页面原有表款、导航与交互控件，未生成或补绘页面内容。",
+      "rightsStatus": "工作区已有资产，权属未新增核实；IWC 商号与腕表设计归相关权利人，原项目明确标注为独立交互研究而非官方产品展示。",
+      "projectUrl": "../iwc-watch/",
+      "relatedWorkspaceAssets": [
+        "canton-atlas/web/iwc-watch/watch-model.js",
+        "canton-atlas/web/iwc-watch/movement.js"
+      ]
+    },
+    {
       "id": "globe-land",
       "path": "assets/globe-land.geojson",
       "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson",
@@ -103,6 +120,19 @@
       "reference": "none",
       "likenessClaim": false,
       "rightsStatus": "本次生成的原创示例模型元数据"
+    },
+    {
+      "id": "automotive-twin-cover",
+      "path": "assets/projects/automotive-twin.jpg",
+      "source": "auto-twin/docs/verification/stage-10/park/park.png",
+      "purpose": "汽车工厂数字孪生项目卡封面",
+      "mimeType": "image/jpeg",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 168185,
+      "processing": "使用通过验收的园区固定机位截图，保留完整构图并以JPEG质量88编码。",
+      "rightsStatus": "本项目程序化工厂场景及界面截图",
+      "projectUrl": "../auto-twin/"
     }
   ],
   "content": {
@@ -110,7 +140,14 @@
     "demo": true,
     "identityStatus": "示例人物资料，未与用户肖像建立身份对应",
     "eventStatus": "六个虚构活动示例，每个活动的 venue 均明确标注「演示活动」",
-    "eventCities": ["广州", "上海", "东京", "新加坡", "阿姆斯特丹", "伦敦"],
+    "eventCities": [
+      "广州",
+      "上海",
+      "东京",
+      "新加坡",
+      "阿姆斯特丹",
+      "伦敦"
+    ],
     "coordinates": "城市中心的近似坐标，仅用于地球仪展示",
     "email": "留空，待用户提供真实联系方式"
   }

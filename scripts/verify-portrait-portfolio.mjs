@@ -115,7 +115,7 @@ async function load(page, url) {
   await page.waitForFunction(() => window.portfolioDiagnostics?.().ready === true);
   await page.evaluate(() => document.fonts.ready);
   await page.waitForFunction(() => [...document.images]
-    .filter(image => !image.hidden && image.getAttribute('src'))
+    .filter(image => !image.hidden && image.getAttribute('src') && image.loading !== 'lazy')
     .every(image => image.complete && image.naturalWidth > 0));
 }
 

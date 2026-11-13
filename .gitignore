@@ -3,6 +3,7 @@ node_modules/
 .preview/
 *.log
 canton-atlas/dist/
+canton-atlas/web/auto-twin/
 .env
 .env.*
 

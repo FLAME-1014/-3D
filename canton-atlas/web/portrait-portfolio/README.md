@@ -56,14 +56,16 @@ npm test
 
 ## 内容与网站资产
 
-- `data.js`：默认资料、演讲和三个项目卡片，修改后重新加载未保存过的浏览器即可看到；已有浏览器保存值优先。
+- `data.js`：默认资料、演讲和五个项目卡片。保存过的姓名、活动与外观仍优先使用本机资料，项目列表每次采用最新内置列表，因此已有浏览器也会看到汽车工厂入口。
 - `app.js`：编辑器、验证、持久化、活动联动与资产导入。
 - `character-viewer.js`：GLB 加载、交互、材质与海报降级。
 - `globe.js`：地球、活动坐标、弧线和 SVG 降级。
 - `assets/asset-manifest.json`：封面来源、裁切记录、角色来源和地理数据许可。
 
-三个项目分别链接工作区已有的广州立体志、AERIS 航空发动机、微缩东方页面；没有新增或改写它们的实现。封面总计约 276 KB。地球使用 Natural Earth 1:110m 公有领域数据，来源记录见 `assets/globe-land-source.txt`。已有项目素材的权属状态沿用工作区记录，未新增核实。
+五个项目分别链接广州立体志、AERIS 航空发动机、微缩东方、IWC 时间的构造，以及汽车工厂数字孪生。汽车工厂封面来自通过验收的园区截图，进入后可访问冲压/焊装及返回作品集。地球使用 Natural Earth 1:110m 公有领域数据，来源记录见 `assets/globe-land-source.txt`。已有项目素材的权属状态沿用工作区记录，未新增核实。
+
+汽车工厂源码保存在仓库根目录 `auto-twin/`。开发或部署前运行 `npm ci --prefix auto-twin`，再运行 `node scripts/build-workshop-site.mjs`，把生产包生成至 `canton-atlas/web/auto-twin/`。随后启动作品集预览即可从卡片进入。生成目录由Git忽略，GitHub Pages工作流使用Node.js 24按锁文件安装并自动构建，再统一上传静态站点。车间包使用相对路径，兼容GitHub仓库子路径。整合验证命令为 `node scripts/verify-workshop-portfolio.mjs`，覆盖作品集→园区→两个车间→作品集、直达链接和手机项目卡。
 
 运行时不请求 CDN、外部字体或外部地理数据。Three.js 与加载器复用 `../blender-workflow/vendor/`，保留该目录的 MIT 许可证。将页面复制到其他站点时，需要一并保留该依赖目录、`assets/` 和相应项目页面，或修改引用路径。
 
-页面和数据均未发布至公网。编辑器更改只保存在浏览器；正式更新静态站点时，应将核实后的资料写入 `data.js`，替换示例角色和海报，并更新 `demo` 字段。
+页面由仓库GitHub Pages工作流发布，具体发布状态以Actions结果为准。编辑器更改只保存在浏览器；正式更新静态站点时，应将核实后的资料写入 `data.js`，替换示例角色和海报，并更新 `demo` 字段。
