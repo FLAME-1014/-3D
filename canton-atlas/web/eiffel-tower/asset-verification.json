@@ -1,0 +1,105 @@
+{
+  "passed": true,
+  "verifiedAt": "2026-11-16T02:46:16.314Z",
+  "checks": [
+    "GLB version 2 header",
+    "GLB length matches file",
+    "Embedded JSON and BIN chunks",
+    "Self-contained glTF 2.0 buffer",
+    "Embedded buffer bounds",
+    "No external textures",
+    "Portable tower excludes studio cameras and lights",
+    "Substantial tower geometry is present",
+    "All vertex normals are normalized",
+    "Tower has a complete square base footprint",
+    "Meter scale and Y-up 330 m summit",
+    "Full height lattice silhouette tapers from feet to antenna",
+    "Export triangle count matches procedural source",
+    "Six editable construction stages preserved",
+    "Native Blender file or Blender compressed file header",
+    "Blender reopened saved file and verified editable meshes and six stages",
+    "Exports match current procedural model source"
+  ],
+  "glbBytes": 3373008,
+  "blendBytes": 1375616,
+  "glbSha256": "a7da34a2bac04d8e6b8d5054072076ebad4f13ed378d1b33a5dd3edda6bc49b9",
+  "blendSha256": "e0fc3932b4c911b8ff48b66a64156d432705728c7766ea10e588e4bf6c493b8b",
+  "sourceSha256": "9b4ebd4c1d78ffc0da993537dbee4f9ece081eaea759eb86d644901ab8b3d382",
+  "primitives": 27,
+  "vertices": 123156,
+  "triangles": 66024,
+  "materials": 7,
+  "boundsYUp": {
+    "min": [
+      -64.5,
+      -2.3,
+      -64.5
+    ],
+    "max": [
+      64.5,
+      330.02435,
+      64.5
+    ]
+  },
+  "dimensionsMeters": [
+    129,
+    332.32435,
+    129
+  ],
+  "silhouette": [
+    {
+      "heightRangeMeters": [
+        0,
+        15
+      ],
+      "vertices": 9456,
+      "widthMeters": 129,
+      "depthMeters": 129
+    },
+    {
+      "heightRangeMeters": [
+        52,
+        60
+      ],
+      "vertices": 16140,
+      "widthMeters": 77.54165,
+      "depthMeters": 77.54165
+    },
+    {
+      "heightRangeMeters": [
+        110,
+        120
+      ],
+      "vertices": 12588,
+      "widthMeters": 55.14275,
+      "depthMeters": 55.14275
+    },
+    {
+      "heightRangeMeters": [
+        190,
+        220
+      ],
+      "vertices": 2112,
+      "widthMeters": 18.88,
+      "depthMeters": 18.88
+    },
+    {
+      "heightRangeMeters": [
+        275,
+        289
+      ],
+      "vertices": 6240,
+      "widthMeters": 23.71422,
+      "depthMeters": 23.71422
+    },
+    {
+      "heightRangeMeters": [
+        315,
+        331
+      ],
+      "vertices": 552,
+      "widthMeters": 3.01,
+      "depthMeters": 3.01
+    }
+  ]
+}

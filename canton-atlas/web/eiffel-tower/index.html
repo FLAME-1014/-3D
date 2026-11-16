@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1eee6">
+  <meta name="description" content="An interactive architectural study of the Eiffel Tower. Explore its iron lattice, watch it take shape, and download the complete 3D model.">
+  <title>Eiffel Tower — Landmark Atelier</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">
+    {"imports":{"three":"../blender-workflow/vendor/build/three.module.js","three/addons/":"../blender-workflow/vendor/examples/jsm/"}}
+  </script>
+</head>
+<body>
+  <svg class="icon-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="i-tower" viewBox="0 0 24 32"><path d="M12 1v3m-2 6h4M8 17h8M5 23h14M12 4c-1 13-3 20-9 27h5l4-7 4 7h5C15 24 13 17 12 4Zm-8 26c2-8 14-8 16 0"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 8a8 8 0 1 0 .5 7M20 3v5h-5"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24"><path d="m12 3 9 5v9l-9 5-9-5V8l9-5Zm0 10 9-5m-9 5L3 8m9 5v9M3 17l9-14 9 14M3 8l9 14 9-14"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3Z"/><circle cx="12" cy="13" r="4"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 3 9 5v9l-9 5-9-5V8l9-5Zm0 10 9-5m-9 5L3 8m9 5v9"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5Zm-9 9 9 5 9-5m-18 5 9 5 9-5"/></symbol>
+      <symbol id="i-mouse" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M12 2v7"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Landmark Atelier home"><span class="brand-mark"><svg><use href="#i-tower"/></svg></span><span>LANDMARK<span class="brand-sub">ATELIER</span></span></a>
+    <span class="header-caption">EXTRAORDINARY PLACES. IN EVERY DIMENSION.</span>
+    <nav class="header-links" aria-label="Project navigation"><a class="collection-link" data-testid="portfolio-return" href="../portrait-portfolio/#work">作品集 ↗</a><a class="collection-link" href="#model-files">Get the model <svg><use href="#i-arrow"/></svg></a></nav>
+  </header>
+
+  <main class="experience" id="experience">
+    <aside class="story-panel" aria-label="About the Eiffel Tower">
+      <div class="collection-index"><span><i></i> THE LANDMARK COLLECTION</span><span>NO. 001</span></div>
+      <div class="story-heading">
+        <p class="location"><svg><use href="#i-pin"/></svg> PARIS, FRANCE <span>48°51′ N · 2°17′ E</span></p>
+        <h1>Eiffel<br><em>Tower.</em></h1>
+        <p class="subtitle">A little closer to the extraordinary.</p>
+        <p class="description">An iron lattice that became an icon. Explore the curves, connections, and quiet ingenuity of the world's most recognizable tower.</p>
+      </div>
+
+      <div class="facts" aria-label="Tower facts">
+        <div><strong>330<span>m</span></strong><span class="fact-label">ABOVE THE CITY</span></div>
+        <div><strong>1889</strong><span class="fact-label">A NEW PERSPECTIVE</span></div>
+      </div>
+
+      <div class="explore-options">
+        <p class="section-caption">CHOOSE YOUR PERSPECTIVE <span>01 / 02</span></p>
+        <div class="mode-switch" aria-label="Experience mode">
+          <button type="button" data-mode="explore" aria-pressed="true"><svg><use href="#i-cube"/></svg>Explore the tower</button>
+          <button type="button" data-mode="build" aria-pressed="false"><svg><use href="#i-layers"/></svg>Watch it take shape</button>
+        </div>
+      </div>
+
+      <div class="floor-list" id="floor-list" aria-label="Explore the observation floors">
+        <button type="button" data-floor="first" aria-pressed="false"><span class="floor-number">01</span><span>First floor<small>Above the great arches</small></span><span class="floor-height">57 m</span><svg><use href="#i-arrow"/></svg></button>
+        <button type="button" data-floor="second" aria-pressed="false"><span class="floor-number">02</span><span>Second floor<small>Where the four legs meet</small></span><span class="floor-height">115 m</span><svg><use href="#i-arrow"/></svg></button>
+        <button type="button" data-floor="summit" aria-pressed="false"><span class="floor-number">03</span><span>The summit<small>The city at your feet</small></span><span class="floor-height">276 m</span><svg><use href="#i-arrow"/></svg></button>
+      </div>
+
+      <div class="build-story" id="build-story" hidden>
+        <p class="build-kicker">FROM THE GROUND UP</p>
+        <h2>Six chapters.<br>One remarkable silhouette.</h2>
+        <p>Follow the foundations, arches, galleries, and rising lattice as the tower takes its familiar shape.</p>
+        <span class="build-note">An architectural assembly study</span>
+      </div>
+
+      <div class="model-files" id="model-files">
+        <a class="download-primary" href="./eiffel-tower.glb" download><svg><use href="#i-down"/></svg><span>Take a little Paris with you<small>DOWNLOAD 3D MODEL · GLB · 3.2 MB</small></span><svg><use href="#i-arrow"/></svg></a>
+        <div class="file-links"><a href="./eiffel-tower.blend" download>Blender source <span>↗</span></a><span>Built to be explored.</span></div>
+      </div>
+    </aside>
+
+    <section class="scene-panel" aria-label="Interactive Eiffel Tower model">
+      <div class="stage" id="stage" aria-busy="true">
+        <canvas id="scene" tabindex="0" aria-label="Interactive 3D Eiffel Tower. Drag to rotate; scroll or pinch to zoom. Arrow keys rotate, plus and minus zoom, R resets the view."></canvas>
+        <div class="scene-heading"><span><i></i> INTERACTIVE 3D STUDY</span><span id="scene-caption">THE COMPLETE TOWER</span></div>
+        <div class="view-tabs" role="group" aria-label="Camera presets">
+          <button type="button" data-view="overview" aria-pressed="true">Perspective</button>
+          <button type="button" data-view="front" aria-pressed="false">Elevation</button>
+          <button type="button" data-view="top" aria-pressed="false">From above</button>
+          <button type="button" data-view="detail" aria-pressed="false">The lattice</button>
+        </div>
+        <span class="scene-cross cross-top" aria-hidden="true">+</span><span class="scene-cross cross-bottom" aria-hidden="true">+</span>
+        <div class="floor-markers" id="floor-markers" aria-label="Observation floor markers">
+          <button type="button" data-floor="summit" class="floor-marker" aria-label="Explore the summit at 276 metres"><span class="marker-dot"></span><span class="marker-line"></span><span class="marker-label">SUMMIT <strong>276 m</strong></span></button>
+          <button type="button" data-floor="second" class="floor-marker" aria-label="Explore the second floor at 115 metres"><span class="marker-dot"></span><span class="marker-line"></span><span class="marker-label">SECOND FLOOR <strong>115 m</strong></span></button>
+          <button type="button" data-floor="first" class="floor-marker" aria-label="Explore the first floor at 57 metres"><span class="marker-dot"></span><span class="marker-line"></span><span class="marker-label">FIRST FLOOR <strong>57 m</strong></span></button>
+        </div>
+
+        <div class="loading" id="loading" role="status"><span class="loading-ring"></span><span>Assembling a little Paris…</span></div>
+        <div class="error" id="error" role="alert" hidden><svg><use href="#i-tower"/></svg><h2>The view needs WebGL.</h2><p id="error-detail">Try a browser with hardware acceleration enabled. You can still download the complete model.</p><button type="button" id="retry">Try again <span>↗</span></button></div>
+
+        <article class="detail-card" id="detail-card" aria-label="Observation floor detail" hidden>
+          <div class="detail-heading"><span id="detail-kicker">THE FIRST FLOOR</span><button type="button" id="close-detail" aria-label="Close floor detail"><svg><use href="#i-close"/></svg></button></div>
+          <h2 id="detail-title">A new view of Paris.</h2>
+          <p id="detail-text"></p>
+          <div class="detail-footer"><span id="detail-height">57 m above the ground</span><button type="button" id="detail-overview">Full tower <svg><use href="#i-arrow"/></svg></button></div>
+        </article>
+
+        <div class="build-controls" id="build-controls" hidden>
+          <div class="build-status"><span class="build-step" id="build-step">01</span><span id="build-title">The foundations</span><span class="build-percent" id="build-percent">0%</span></div>
+          <div class="build-slider-row"><button type="button" id="build-play" aria-pressed="false" aria-label="Play construction animation"><svg><use href="#i-play"/></svg></button><input type="range" id="build-progress" min="0" max="100" step="1" value="0" aria-label="Construction progress"><button type="button" id="build-reset" aria-label="Restart construction"><svg><use href="#i-rotate"/></svg></button></div>
+          <div class="build-chapters" aria-label="Construction stages"><span>FOUNDATIONS</span><span>ARCHES</span><span>GALLERIES</span><span>SUMMIT</span></div>
+        </div>
+
+        <div class="scene-tools" role="group" aria-label="Model controls">
+          <div class="zoom-tools"><button type="button" id="zoom-in" aria-label="Zoom in" title="Zoom in (+)"><svg><use href="#i-plus"/></svg></button><span></span><button type="button" id="zoom-out" aria-label="Zoom out" title="Zoom out (−)"><svg><use href="#i-minus"/></svg></button></div>
+          <button type="button" id="auto-rotate" aria-label="Automatic rotation" aria-pressed="false" title="Automatic rotation"><svg><use href="#i-rotate"/></svg></button>
+          <button type="button" id="night-mode" aria-label="Night lighting" aria-pressed="false" title="Paris after dark"><svg><use href="#i-moon"/></svg></button>
+          <button type="button" id="wireframe" aria-label="Wireframe view" aria-pressed="false" title="Wireframe view"><svg><use href="#i-grid"/></svg></button>
+          <button type="button" id="snapshot" aria-label="Save a picture" title="Save a 1600 × 1600 picture"><svg><use href="#i-camera"/></svg></button>
+        </div>
+        <div class="scene-bottom"><span class="gesture-hint"><svg><use href="#i-mouse"/></svg> DRAG TO ROTATE <span>·</span> SCROLL TO ZOOM</span><span class="scene-scale"><i></i> APPROX. 1 : 1 PROPORTIONS</span></div>
+        <span class="scene-wordmark" aria-hidden="true">LA TOUR EIFFEL</span>
+        <div class="toast" id="toast" role="status" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>A LOVE LETTER TO HUMAN INGENUITY.</span><span>DESIGNED BY GUSTAVE EIFFEL'S COMPANY <i>·</i> PARIS, 1889</span><span>EXPLORE. WONDER. REPEAT. <svg><use href="#i-arrow"/></svg></span></footer>
+  <p class="sr-only" id="announcement" aria-live="polite"></p>
+  <script type="module" src="./viewer.js"></script>
+</body>
+</html>

@@ -127,6 +127,15 @@ export const DEFAULT_CONTENT = {
       url: '../auto-twin/',
       description: '从园区走进冲压与焊装车间，观察四序成形、22台机器人协同作业，探索设备拆解与连续工艺。',
     },
+    {
+      id: 'eiffel-tower',
+      title: '埃菲尔铁塔',
+      category: 'Blender / 建筑交互可视化',
+      year: '2026',
+      image: '../eiffel-tower/eiffel-tower-preview.png',
+      url: '../eiffel-tower/',
+      description: '走近巴黎铁塔的钢铁桁架，探索观景楼层、昼夜光影与六章搭建过程，并下载可编辑的三维模型。',
+    },
   ],
   demo: true,
 };

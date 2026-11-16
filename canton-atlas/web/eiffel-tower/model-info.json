@@ -1,0 +1,70 @@
+{
+  "title": "Eiffel Tower \u2014 procedural architectural study",
+  "description": "Procedural architectural interpretation; approximate Eiffel Tower dimensions and detailing.",
+  "source": "canton-atlas/web/eiffel-tower/model.js",
+  "sourceSha256": "9b4ebd4c1d78ffc0da993537dbee4f9ece081eaea759eb86d644901ab8b3d382",
+  "units": "meters",
+  "nominalHeightMeters": 330,
+  "nominalBaseWidthMeters": 125,
+  "glbUpAxis": "Y",
+  "blenderUpAxis": "Z",
+  "boundsYUp": {
+    "min": [
+      -64.5,
+      -2.300000011920929,
+      -64.5
+    ],
+    "max": [
+      64.5,
+      330.0243382155895,
+      64.5
+    ]
+  },
+  "constructionStages": [
+    {
+      "index": 0,
+      "name": "foundations",
+      "title": "Four foundations"
+    },
+    {
+      "index": 1,
+      "name": "lower-structure",
+      "title": "The great arches"
+    },
+    {
+      "index": 2,
+      "name": "first-floor",
+      "title": "First floor \u00b7 57 m"
+    },
+    {
+      "index": 3,
+      "name": "second-floor",
+      "title": "Second floor \u00b7 115 m"
+    },
+    {
+      "index": 4,
+      "name": "upper-structure",
+      "title": "The rising lattice"
+    },
+    {
+      "index": 5,
+      "name": "summit",
+      "title": "Summit & antenna \u00b7 330 m"
+    }
+  ],
+  "materialCount": 7,
+  "meshBatches": 27,
+  "sourceInstances": 5046,
+  "verticesBeforeExport": 123612,
+  "triangles": 66024,
+  "glbBytes": 3373008,
+  "blendBytes": 1375616,
+  "blenderVersion": "5.2.1 LTS",
+  "blendReadback": {
+    "passed": true,
+    "meshes": 27,
+    "stages": 6,
+    "camera": true
+  },
+  "exportIncludes": "Tower geometry, six stage groups, PBR materials; studio camera and lights are saved only in the .blend."
+}

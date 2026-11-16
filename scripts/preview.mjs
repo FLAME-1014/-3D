@@ -21,13 +21,17 @@ const types = {
   '.bin': 'application/octet-stream',
   '.ktx2': 'image/ktx2'
 };
-export function createPreview({ configPath = path.join(workspace, '.local/amap.development.json'), engineLanding = false, portfolioLanding = false } = {}) {
+export function createPreview({ configPath = path.join(workspace, '.local/amap.development.json'), engineLanding = false, portfolioLanding = false, eiffelLanding = false } = {}) {
   return http.createServer(async (req, res) => {
     res.setHeader('Cache-Control', 'no-store');
     res.setHeader('X-Content-Type-Options', 'nosniff');
     if (!['GET', 'HEAD'].includes(req.method)) { res.writeHead(405); return res.end(); }
     try {
       const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+      if (eiffelLanding && pathname === '/') {
+        res.writeHead(302, { Location: '/eiffel-tower/' });
+        return res.end();
+      }
       if (portfolioLanding && pathname === '/') {
         res.writeHead(302, { Location: '/portrait-portfolio/' });
         return res.end();
@@ -134,9 +138,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   } else {
   const engineLanding = process.argv.includes('--engine');
   const portfolioLanding = process.argv.includes('--portfolio');
-  const port = Number(process.env.PORT || (portfolioLanding ? 4192 : engineLanding ? 4190 : 4188));
+  const eiffelLanding = process.argv.includes('--eiffel');
+  const port = Number(process.env.PORT || (eiffelLanding ? 4194 : portfolioLanding ? 4192 : engineLanding ? 4190 : 4188));
   if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid PORT');
-  const server = createPreview({ engineLanding, portfolioLanding });
+  const server = createPreview({ engineLanding, portfolioLanding, eiffelLanding });
   server.on('error', error => { console.error(error.code === 'EADDRINUSE' ? `Port ${port} is occupied; choose another PORT or stop the previous preview.` : 'Preview failed to start'); process.exitCode = 1; });
   server.listen(port, '127.0.0.1', () => console.log(`Development preview: http://127.0.0.1:${port} (loopback only)`));
 }

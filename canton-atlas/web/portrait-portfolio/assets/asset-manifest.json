@@ -133,6 +133,19 @@
       "processing": "使用通过验收的园区固定机位截图，保留完整构图并以JPEG质量88编码。",
       "rightsStatus": "本项目程序化工厂场景及界面截图",
       "projectUrl": "../auto-twin/"
+    },
+    {
+      "id": "eiffel-tower-cover",
+      "path": "../eiffel-tower/eiffel-tower-preview.png",
+      "source": "canton-atlas/web/eiffel-tower/eiffel-tower-preview.png",
+      "purpose": "埃菲尔铁塔项目卡封面",
+      "mimeType": "image/png",
+      "width": 1600,
+      "height": 1600,
+      "bytes": 504794,
+      "processing": "直接复用项目实际三维场景导出的预览图；封面以CSS适配卡片，未重新生成图像。",
+      "rightsStatus": "本项目程序化建筑模型的预览图",
+      "projectUrl": "../eiffel-tower/"
     }
   ],
   "content": {

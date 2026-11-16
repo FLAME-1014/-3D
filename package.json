@@ -5,10 +5,13 @@
     "dev": "node scripts/preview.mjs",
     "dev:engine": "node scripts/preview.mjs --engine",
     "dev:portfolio": "node scripts/preview.mjs --portfolio",
+    "dev:eiffel": "node scripts/preview.mjs --eiffel",
+    "build:eiffel": "node scripts/build-eiffel-assets.mjs",
     "check": "node scripts/check.mjs",
     "test": "node --test scripts/*.test.mjs",
     "test:engine": "node scripts/verify-aero-engine.mjs",
-    "test:portfolio": "node scripts/verify-portrait-portfolio.mjs"
+    "test:portfolio": "node scripts/verify-portrait-portfolio.mjs",
+    "test:eiffel": "node scripts/verify-eiffel-assets.mjs && node scripts/verify-eiffel-viewer.mjs"
   },
   "engines": {
     "node": ">=18"
