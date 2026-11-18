@@ -35,13 +35,20 @@ jobs:
       - name: Build workshop into the portfolio site
         run: node scripts/build-workshop-site.mjs
 
+      - name: Assemble static site with model content
+        run: |
+          mkdir -p _site
+          cp -R canton-atlas/web/. _site/
+          cp -R canton-atlas/content _site/content
+          cp -R canton-atlas/refs _site/refs
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: canton-atlas/web
+          path: _site
 
   deploy:
     runs-on: ubuntu-latest

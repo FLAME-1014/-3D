@@ -69,7 +69,7 @@ function resize() {
 async function loadSpot(id) {
   const start = performance.now();
   try {
-    const mod = await import(`../content/spots/${encodeURIComponent(id)}/model.js`);
+    const mod = await import(`./content/spots/${encodeURIComponent(id)}/model.js`);
     if (!mod || typeof mod.create !== 'function') throw new Error('模型缺少 create()');
     const model = mod.create();
     const ms = Math.round(performance.now() - start);

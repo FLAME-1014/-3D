@@ -40,7 +40,7 @@
   var orthoCam = null;
 
   function loadSpotJson() {
-    return fetch('../content/spots/' + encodeURIComponent(id) + '/spot.json', { cache: 'no-store' })
+    return fetch('./content/spots/' + encodeURIComponent(id) + '/spot.json', { cache: 'no-store' })
       .then(function (res) { if (!res.ok) throw new Error('spot.json ' + res.status); return res.json(); });
   }
 
@@ -92,7 +92,7 @@
     try {
       var spot = await loadSpotJson();
       window.SPOT_DATA = spot;
-      var mod = await import('../content/spots/' + encodeURIComponent(id) + '/model.js');
+      var mod = await import('./content/spots/' + encodeURIComponent(id) + '/model.js');
       if (typeof mod.create !== 'function') throw new Error('模型缺少 create()');
       modelResult = mod.create();
 

@@ -75,8 +75,8 @@
   var params = new URLSearchParams(location.search);
   if (params.get("canvasOnly") === "1") document.body.classList.add("canvas-only");
   var silPath = params.get("silhouette") === "hall"
-    ? "../content/spots/chenjiaci/refs/overlay/front-hall-silhouette.png"
-    : "../content/spots/chenjiaci/refs/overlay/model-front-silhouette.png";
+    ? "./content/spots/chenjiaci/refs/overlay/front-hall-silhouette.png"
+    : "./content/spots/chenjiaci/refs/overlay/model-front-silhouette.png";
   var refPath = params.get("ref") || "";
   var refImage = null;
   var silhouette = null;

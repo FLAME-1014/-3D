@@ -142,7 +142,7 @@
     q("backAtlas").onclick=backAtlas;
 
     try {
-      spot = await fetch("../content/spots/" + encodeURIComponent(spotId) + "/spot.json", { cache: "no-store", signal:loadAbort.signal }).then(function (res) {
+      spot = await fetch("./content/spots/" + encodeURIComponent(spotId) + "/spot.json", { cache: "no-store", signal:loadAbort.signal }).then(function (res) {
         if (!res.ok) throw new Error("spot.json HTTP " + res.status);
         return res.json();
       });

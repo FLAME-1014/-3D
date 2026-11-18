@@ -8,7 +8,7 @@
     "dev:eiffel": "node scripts/preview.mjs --eiffel",
     "build:eiffel": "node scripts/build-eiffel-assets.mjs",
     "check": "node scripts/check.mjs",
-    "test": "node --test scripts/*.test.mjs",
+    "test": "cd scripts && node --test",
     "test:engine": "node scripts/verify-aero-engine.mjs",
     "test:portfolio": "node scripts/verify-portrait-portfolio.mjs",
     "test:eiffel": "node scripts/verify-eiffel-assets.mjs && node scripts/verify-eiffel-viewer.mjs"

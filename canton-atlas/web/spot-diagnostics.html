@@ -8,9 +8,9 @@ run.onclick=async()=>{
  scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(45,360/260,.1,1000);camera.position.set(130,110,140);camera.lookAt(0,5,0);scene.add(new THREE.HemisphereLight(0xffffff,0x777777,1.5));
  renderer.render(scene,camera);const baseline={...renderer.info.memory};const samples=[];
  const ids=['chenjiaci','yongqingfang','shamian','beijinglu'];
- const modules=await Promise.all(ids.map(id=>import('../content/spots/'+id+'/model.js')));
+ const modules=await Promise.all(ids.map(id=>import('./content/spots/'+id+'/model.js')));
  for(let i=0;i<24;i++){
-  const id=ids[i%4],card=await fetch('../content/spots/'+id+'/spot.json').then(r=>r.json()),model=modules[i%4].create();
+  const id=ids[i%4],card=await fetch('./content/spots/'+id+'/spot.json').then(r=>r.json()),model=modules[i%4].create();
   const errors=SpotContract.validateModel(model,card);if(errors.length)throw Error(errors.join(';'));
   scene.add(model.group);for(let j=0;j<3;j++){await frame();renderer.render(scene,camera);}
   const loaded={...renderer.info.memory};scene.remove(model.group);model.dispose();renderer.renderLists.dispose();await frame();renderer.render(scene,camera);

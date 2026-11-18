@@ -139,7 +139,7 @@
     showHint(true, '正在搭建…');
     var spot;
     try {
-      var res = await fetch('../content/spots/' + encodeURIComponent(id) + '/spot.json', { cache: 'no-store' });
+      var res = await fetch('./content/spots/' + encodeURIComponent(id) + '/spot.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('spot.json HTTP ' + res.status);
       spot = await res.json();
       window.SPOT_DATA = spot;      // stage.buildPresets 读 zoom / presetOverrides
@@ -617,7 +617,7 @@
       did = true;
       // 封面用一个轻量独立渲染器（不打扰主 stage），直接 import model.js
       Promise.all([
-        fetch('../content/spots/' + encodeURIComponent(coverId) + '/spot.json', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error('spot.json ' + r.status); return r.json(); }),
+        fetch('./content/spots/' + encodeURIComponent(coverId) + '/spot.json', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error('spot.json ' + r.status); return r.json(); }),
         import('../content/spots/' + encodeURIComponent(coverId) + '/model.js')
       ]).then(function (res) {
         var model = res[1].create();
