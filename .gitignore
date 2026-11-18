@@ -18,3 +18,10 @@ canton-atlas/web/auto-twin/
 canton-atlas/content/spots/*/refs/overlay/reference-*
 canton-atlas/content/spots/*/refs/overlay/rough-*
 canton-atlas/content/spots/*/refs/overlay/overlay-*
+
+# 本地备份、验证产物与临时文件
+/工厂备份/
+/output/
+/tmp/
+/.workbuddy/
+.vectoree/
