@@ -98,3 +98,18 @@ DevEco Code 的 Harness 有三层递进验证：
 
 DevEco Code 把"决策（模型）"和"执行（工具）"捆在一个产品里；DevEco CLI 把执行层抽成独立可调用接口。
 自建方案更合理的组合是：**自选模型编排 + devecocli 工具面 + 官方 Skills + 更硬的验证手段**，而不是复刻 DevEco Code。
+
+## 8. HarmonyOS 第一课：日常开发怎么选工具（2026-11-19）
+
+**先决定要不要换助手，而不是先决定装哪条命令。** DevEco Code 是华为面向鸿蒙开发的编码 Agent；DevEco CLI (`devecocli`) 则把鸿蒙工具、知识库和 Skill 提供给已有的 Agent。两个工具可以并存。
+
+| 你想做什么 | 推荐用法 |
+|---|---|
+| 继续用 Qoder / Codex 改 jkmall、moyeAPP 或元服务 | 保留现有 Agent，用鸿蒙 Skill 核对 ArkTS / ArkUI 规则、Kit 接口和元服务约束；需要设备状态、日志等工程反馈时，再按需调用 `devecocli`。 |
+| 体验华为自己的鸿蒙研发流程 | 用 `deveco` 做对照：先在 Plan 模式看它如何理解项目和拆任务，再按需要使用 Build 或 Goal。官方描述的验证能力不等于业务已验收。 |
+
+**实际例子**：改一个 ArkUI 页面时，先核对当前 SDK 是否支持这个写法，再按项目现有方式构建并验证入口、点击和返回行为。Skill 帮忙查规则，CLI 帮忙拿工程反馈；构建通过不等于交互正确。对当前几个业务项目，构建与真机验收仍沿用既有流程，不因为装了工具就默认改成自动执行。
+
+- [第一讲：AI Coding 产品介绍](https://developer.huawei.com/consumer/cn/training/slightMooc/C201789472527308273?choosedChapterIds=2d527b5fae8d4d5988a36c3ec06cd68b,90a73227944647a180abe12565145aa0)：已核对课程概览及章节。`0:27` 新范式、`4:18` 背景与挑战、`7:06` 产品简介、`10:12` 总结。只想看两款产品的定位，从 `7:06` 开始。未核对视频全文，不把“两代编码范式”的具体划分当成已证实的课程结论。
+- [第二讲：DevEco Code 产品介绍](https://developer.huawei.com/consumer/cn/training/slightMooc/C201789472527308273?choosedChapterIds=673210204a07423ca1960216f1ce77d8,fa871214957b49d2a28b40f9385da6ef)：分享简介指向主要能力、安装配置和基本使用；未完整读取视频。操作以[安装文档](https://developer.huawei.com/consumer/cn/doc/doccenter-deveco-studio/ide-deveco-code-install)、[Agent 模式文档](https://developer.huawei.com/consumer/cn/doc/doccenter-deveco-studio/ide-deveco-code-agent)和[CLI 文档](https://developer.huawei.com/consumer/cn/doc/doccenter-deveco-studio/ide-deveco-cli-install)为准。
+- [腾讯文档：AI Coding 开发者学习路径及资料](https://docs.qq.com/doc/DRUZQUEtaY3ZhSEVJ?dver=)：只确认标题，正文未纳入本节。
