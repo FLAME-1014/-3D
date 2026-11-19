@@ -1,0 +1,30 @@
+:root {
+  font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+  color: #e8e4d8;
+  background: #101518;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  --ink: #e8e4d8;
+  --sub: #aaa99c;
+  --dim: #787d75;
+  --accent: #d8ad76;
+  --accent-dark: #876444;
+  --sea: #72ceca;
+  --panel: rgba(17, 23, 25, .94);
+  --line: rgba(227, 219, 196, .105);
+  --line-light: rgba(227, 219, 196, .16);
+  --ease: cubic-bezier(.2, .8, .24, 1);
+}
+
+* { box-sizing: border-box; }
+html, body, #app { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+button, input { font: inherit; }
+button { color: inherit; }
+button:focus-visible, input:focus-visible { outline: 2px solid #dec395; outline-offset: 3px; }
+button:disabled { cursor: not-allowed !important; opacity: .45; }
+::selection { background: rgba(212, 173, 119, .32); color: #fff; }
+.icon { display: inline-block; width: 16px; height: 16px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
+.accessibility { position: absolute; width: 1px; height: 1px; clip: rect(0, 0, 0, 0); overflow: hidden; white-space: nowrap; }

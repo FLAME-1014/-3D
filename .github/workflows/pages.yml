@@ -27,13 +27,23 @@ jobs:
         with:
           node-version: '24'
           cache: npm
-          cache-dependency-path: auto-twin/package-lock.json
+          cache-dependency-path: |
+            auto-twin/package-lock.json
+            apocalypse-engine/package-lock.json
 
       - name: Install workshop dependencies
         run: npm ci --prefix auto-twin
 
       - name: Build workshop into the portfolio site
         run: node scripts/build-workshop-site.mjs
+
+      - name: Build disaster lab into its own Pages directory
+        working-directory: apocalypse-engine
+        run: |
+          npm ci
+          npm run build
+          mkdir -p ../canton-atlas/web/apocalypse-engine
+          cp -R dist/. ../canton-atlas/web/apocalypse-engine/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
