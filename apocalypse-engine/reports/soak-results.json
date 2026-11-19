@@ -1,0 +1,150 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\Administrator\\Desktop\\ycjd\\apocalypse-engine\\playwright.config.ts",
+    "rootDir": "C:/Users/Administrator/Desktop/ycjd/apocalypse-engine/tests/browser",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/soak-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/Administrator/Desktop/ycjd/apocalypse-engine/test-results/soak",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "browser",
+        "name": "browser",
+        "testDir": "C:/Users/Administrator/Desktop/ycjd/apocalypse-engine/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "/app\\.spec\\.ts/"
+        ],
+        "timeout": 375000
+      },
+      {
+        "outputDir": "C:/Users/Administrator/Desktop/ycjd/apocalypse-engine/test-results/soak",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "soak",
+        "name": "soak",
+        "testDir": "C:/Users/Administrator/Desktop/ycjd/apocalypse-engine/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "/soak\\.spec\\.ts/"
+        ],
+        "timeout": 375000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://127.0.0.1:5180",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "soak.spec.ts",
+      "file": "soak.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "runs a continuous five-minute simulation and records resource stability",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 370000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "soak",
+              "projectName": "soak",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 324971,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "soak 60s {\"status\":\"CRITICAL\",\"phase\":\"CRITICAL\",\"hazard\":\"quake\",\"time\":30.099999999999998,\"water\":0.65,\"damage\":12,\"affected\":12,\"destroyed\":11,\"physics\":130,\"colliders\":133,\"geometries\":30,\"textures\":18,\"drawCalls\":269,\"testPixel\":[0,0,0,0],\"fps\":59.937664828578136,\"p95\":16.80000000000291,\"heap\":25517641,\"frames\":300,\"checkpoints\":[]}\n"
+                    },
+                    {
+                      "text": "soak 120s {\"status\":\"DISASTER_ACTIVE\",\"phase\":\"DISASTER_ACTIVE\",\"hazard\":\"flood\",\"time\":30.099999999999998,\"water\":4.192916666666667,\"damage\":0,\"affected\":4,\"destroyed\":0,\"physics\":41,\"colliders\":44,\"geometries\":30,\"textures\":18,\"drawCalls\":288,\"testPixel\":[0,0,0,0],\"fps\":59.93886236039233,\"p95\":16.80000000000291,\"heap\":20708633,\"frames\":300,\"checkpoints\":[]}\n"
+                    },
+                    {
+                      "text": "soak 181s {\"status\":\"CRITICAL\",\"phase\":\"CRITICAL\",\"hazard\":\"wind\",\"time\":30.116666666666667,\"water\":0.65,\"damage\":3,\"affected\":3,\"destroyed\":3,\"physics\":60,\"colliders\":63,\"geometries\":30,\"textures\":18,\"drawCalls\":295,\"testPixel\":[0,0,0,0],\"fps\":59.93886236039233,\"p95\":16.79999999998836,\"heap\":20788384,\"frames\":300,\"checkpoints\":[]}\n"
+                    },
+                    {
+                      "text": "soak 241s {\"status\":\"CRITICAL\",\"phase\":\"CRITICAL\",\"hazard\":\"quake\",\"time\":30.116666666666667,\"water\":0.65,\"damage\":12,\"affected\":12,\"destroyed\":11,\"physics\":130,\"colliders\":133,\"geometries\":30,\"textures\":18,\"drawCalls\":269,\"testPixel\":[0,0,0,0],\"fps\":59.93766482857849,\"p95\":16.800000000017462,\"heap\":28135550,\"frames\":300,\"checkpoints\":[]}\n"
+                    },
+                    {
+                      "text": "soak 301s {\"status\":\"DISASTER_ACTIVE\",\"phase\":\"DISASTER_ACTIVE\",\"hazard\":\"flood\",\"time\":30.083333333333332,\"water\":4.192916666666667,\"damage\":0,\"affected\":4,\"destroyed\":0,\"physics\":41,\"colliders\":44,\"geometries\":30,\"textures\":18,\"drawCalls\":288,\"testPixel\":[0,0,0,0],\"fps\":59.93886236039198,\"p95\":16.79999999998836,\"heap\":19165332,\"frames\":300,\"checkpoints\":[]}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T11:05:44.874Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c6beb51bfea44d74f96f-053c21d07fcea720b31e",
+          "file": "soak.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-18T11:05:42.143Z",
+    "duration": 328741.366,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "timestamp": "2026-11-19T01:59:25.682Z",
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "resource-release",
+      "name": "物理对象释放不完整",
+      "reproduction": "受控坍塌建筑，再重置物理世界",
+      "rootCause": "移除刚体后未同步清理 Collider 与动态对象索引",
+      "passed": true,
+      "evidence": "崩塌后 48 个刚体 / 24 个动态物体；重建后 41 个刚体 / 44 个碰撞体",
+      "injected": {
+        "id": "resource-release",
+        "name": "物理对象释放不完整",
+        "reproduction": "受控坍塌建筑，再重置物理世界",
+        "rootCause": "移除刚体后未同步清理 Collider 与动态对象索引",
+        "passed": false,
+        "evidence": "崩塌后 48 个刚体 / 24 个动态物体；重建后 48 个刚体 / 51 个碰撞体"
+      },
+      "repaired": {
+        "id": "resource-release",
+        "name": "物理对象释放不完整",
+        "reproduction": "受控坍塌建筑，再重置物理世界",
+        "rootCause": "移除刚体后未同步清理 Collider 与动态对象索引",
+        "passed": true,
+        "evidence": "崩塌后 48 个刚体 / 24 个动态物体；重建后 41 个刚体 / 44 个碰撞体"
+      }
+    },
+    {
+      "id": "paused-tick",
+      "name": "暂停后物理仍在运行",
+      "reproduction": "预警后暂停，再推进一秒墙钟时间",
+      "rootCause": "物理更新错误地依赖渲染帧，而未受暂停态约束",
+      "passed": true,
+      "evidence": "暂停前 14 步；输入墙钟一秒并执行一次单步后 15 步",
+      "injected": {
+        "id": "paused-tick",
+        "name": "暂停后物理仍在运行",
+        "reproduction": "预警后暂停，再推进一秒墙钟时间",
+        "rootCause": "物理更新错误地依赖渲染帧，而未受暂停态约束",
+        "passed": false,
+        "evidence": "暂停前 14 步；输入墙钟一秒并执行一次单步后 29 步"
+      },
+      "repaired": {
+        "id": "paused-tick",
+        "name": "暂停后物理仍在运行",
+        "reproduction": "预警后暂停，再推进一秒墙钟时间",
+        "rootCause": "物理更新错误地依赖渲染帧，而未受暂停态约束",
+        "passed": true,
+        "evidence": "暂停前 14 步；输入墙钟一秒并执行一次单步后 15 步"
+      }
+    },
+    {
+      "id": "reset-water",
+      "name": "洪水重置后水位未恢复",
+      "reproduction": "设定 5 m 后重置场景并检查存储数据",
+      "rootCause": "显示值和洪水边界状态使用了独立数据源",
+      "passed": true,
+      "evidence": "重置后模型 2.40 m，监测订阅源 2.40 m",
+      "injected": {
+        "id": "reset-water",
+        "name": "洪水重置后水位未恢复",
+        "reproduction": "设定 5 m 后重置场景并检查存储数据",
+        "rootCause": "显示值和洪水边界状态使用了独立数据源",
+        "passed": false,
+        "evidence": "重置后模型 2.40 m，监测订阅源 5.00 m"
+      },
+      "repaired": {
+        "id": "reset-water",
+        "name": "洪水重置后水位未恢复",
+        "reproduction": "设定 5 m 后重置场景并检查存储数据",
+        "rootCause": "显示值和洪水边界状态使用了独立数据源",
+        "passed": true,
+        "evidence": "重置后模型 2.40 m，监测订阅源 2.40 m"
+      }
+    },
+    {
+      "id": "switch-events",
+      "name": "切换情景残留旧强迫量",
+      "reproduction": "运行台风后立即切换为地震",
+      "rootCause": "灾害切换未清除上一情景的风速和降雨量",
+      "passed": true,
+      "evidence": "台风影响后切换为地震；风速 0.00 m/s，残留降雨 0 mm/h",
+      "injected": {
+        "id": "switch-events",
+        "name": "切换情景残留旧强迫量",
+        "reproduction": "运行台风后立即切换为地震",
+        "rootCause": "灾害切换未清除上一情景的风速和降雨量",
+        "passed": false,
+        "evidence": "台风影响后切换为地震；风速 5.89 m/s，残留降雨 0 mm/h"
+      },
+      "repaired": {
+        "id": "switch-events",
+        "name": "切换情景残留旧强迫量",
+        "reproduction": "运行台风后立即切换为地震",
+        "rootCause": "灾害切换未清除上一情景的风速和降雨量",
+        "passed": true,
+        "evidence": "台风影响后切换为地震；风速 0.00 m/s，残留降雨 0 mm/h"
+      }
+    },
+    {
+      "id": "duplicate-loop",
+      "name": "重复启动动画循环",
+      "reproduction": "同一帧连续启动 FrameLoop 两次",
+      "rootCause": "动画调度没有幂等启动保护",
+      "passed": true,
+      "evidence": "重复开始后的待处理 RAF 数：1；总调度次数：2",
+      "injected": {
+        "id": "duplicate-loop",
+        "name": "重复启动动画循环",
+        "reproduction": "同一帧连续启动 FrameLoop 两次",
+        "rootCause": "动画调度没有幂等启动保护",
+        "passed": false,
+        "evidence": "重复开始后的待处理 RAF 数：2；总调度次数：3"
+      },
+      "repaired": {
+        "id": "duplicate-loop",
+        "name": "重复启动动画循环",
+        "reproduction": "同一帧连续启动 FrameLoop 两次",
+        "rootCause": "动画调度没有幂等启动保护",
+        "passed": true,
+        "evidence": "重复开始后的待处理 RAF 数：1；总调度次数：2"
+      }
+    },
+    {
+      "id": "damage-display",
+      "name": "建筑损伤统计与结构分离",
+      "reproduction": "修改结构状态后比对指标与楼体状态",
+      "rootCause": "统计和视图没有读取同一份结构状态",
+      "passed": true,
+      "evidence": "建筑 B-01 状态 damaged / 47%；同源统计受损 1 栋",
+      "injected": {
+        "id": "damage-display",
+        "name": "建筑损伤统计与结构分离",
+        "reproduction": "修改结构状态后比对指标与楼体状态",
+        "rootCause": "统计和视图没有读取同一份结构状态",
+        "passed": false,
+        "evidence": "建筑 B-01 状态 damaged / 47%；同源统计受损 0 栋"
+      },
+      "repaired": {
+        "id": "damage-display",
+        "name": "建筑损伤统计与结构分离",
+        "reproduction": "修改结构状态后比对指标与楼体状态",
+        "rootCause": "统计和视图没有读取同一份结构状态",
+        "passed": true,
+        "evidence": "建筑 B-01 状态 damaged / 47%；同源统计受损 1 栋"
+      }
+    },
+    {
+      "id": "checkpoint-drift",
+      "name": "反复恢复检查点发生漂移",
+      "reproduction": "保存活动模拟后重复恢复同一检查点",
+      "rootCause": "快照缺少 Rapier、水深场或结构状态",
+      "passed": true,
+      "evidence": "两次恢复后：41 刚体、3355 水深单元；最大刚体高度偏差 0.000000 m",
+      "injected": {
+        "id": "checkpoint-drift",
+        "name": "反复恢复检查点发生漂移",
+        "reproduction": "保存活动模拟后重复恢复同一检查点",
+        "rootCause": "快照缺少 Rapier、水深场或结构状态",
+        "passed": false,
+        "evidence": "两次恢复后：41 刚体、3355 水深单元；最大刚体高度偏差 0.149694 m"
+      },
+      "repaired": {
+        "id": "checkpoint-drift",
+        "name": "反复恢复检查点发生漂移",
+        "reproduction": "保存活动模拟后重复恢复同一检查点",
+        "rootCause": "快照缺少 Rapier、水深场或结构状态",
+        "passed": true,
+        "evidence": "两次恢复后：41 刚体、3355 水深单元；最大刚体高度偏差 0.000000 m"
+      }
+    },
+    {
+      "id": "listener-leak",
+      "name": "销毁场景后监听器残留",
+      "reproduction": "绑定事件、销毁绑定器并再次派发事件",
+      "rootCause": "销毁阶段没有解除已经注册的回调",
+      "passed": true,
+      "evidence": "dispose 前后总回调次数为 1",
+      "injected": {
+        "id": "listener-leak",
+        "name": "销毁场景后监听器残留",
+        "reproduction": "绑定事件、销毁绑定器并再次派发事件",
+        "rootCause": "销毁阶段没有解除已经注册的回调",
+        "passed": false,
+        "evidence": "dispose 前后总回调次数为 2"
+      },
+      "repaired": {
+        "id": "listener-leak",
+        "name": "销毁场景后监听器残留",
+        "reproduction": "绑定事件、销毁绑定器并再次派发事件",
+        "rootCause": "销毁阶段没有解除已经注册的回调",
+        "passed": true,
+        "evidence": "dispose 前后总回调次数为 1"
+      }
+    }
+  ]
+}
