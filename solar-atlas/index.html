@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050708">
+  <meta name="description" content="探索太阳系、航天任务与深空，再回到地球的海洋与生命。交互式三维科学图谱。">
+  <title>太阳系图谱 · Solar Atlas</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./config.js"></script>
+  <script type="importmap">{"imports":{"three":"./assets/vendor/three.module.js","three/addons/controls/OrbitControls.js":"./assets/vendor/OrbitControls.js"}}</script>
+</head>
+<body data-mode="atlas" class="is-landing">
+  <svg class="icon-defs" aria-hidden="true"><defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10H3Z"/><path d="M9 20v-7h6v7"/></symbol>
+    <symbol id="i-atlas" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="4.5"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7Zm0 10v10M3 7l9 5 9-5M12 2v10"/></symbol>
+    <symbol id="i-live" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M7.5 7.5a6.4 6.4 0 0 0 0 9m9-9a6.4 6.4 0 0 1 0 9M4 4a11 11 0 0 0 0 16M20 4a11 11 0 0 1 0 16"/></symbol>
+    <symbol id="i-deep" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5Z"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 2c4 3 5 7 4 13H8C7 9 8 5 12 2Zm-4 9-4 6 4-1m8-5 4 6-4-1m-6 2v4m4-4v4"/><circle cx="12" cy="8" r="1.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8Zm-10 9 10 5 10-5M2 16l10 5 10-5"/></symbol>
+    <symbol id="i-science" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-aperture" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m7 3 4 7h10M21 7l-8 1-5 12M16 21l-4-8H2M3 16l8-1 5-12"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5C8 2 4 3 2 4v15c3-1 6-1 10 2 4-3 7-3 10-2V4c-2-1-6-2-10 1Zm0 0v16"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20M4 6h16M4 18h16"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14M5 19 19 5"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5Zm4 4a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+  </defs></svg>
+
+  <main id="universe" aria-label="天体探索场景"><div id="scene"></div><div id="scene-labels"></div></main>
+  <div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+
+  <section id="boot" aria-label="正在加载图谱">
+    <div class="boot-orbits"><i></i><i></i><i></i><div class="boot-center"><span class="eyebrow">ESTABLISHING ORBIT</span><strong id="boot-percent">000<span>%</span></strong><p id="boot-stage">正在展开太阳系</p></div></div>
+    <div class="boot-footer"><span>01 <b>星历与轨道</b><br>02 <b>天体贴图</b><br>03 <b>星图与界面</b></span><span>SOLAR ATLAS<br>HELIOCENTRIC · J2000</span></div>
+  </section>
+
+  <section id="landing" aria-labelledby="landing-title" hidden>
+    <header class="landing-header"><a class="wordmark" href="./"><i class="sun-dot"></i>SOLAR ATLAS<span class="wordmark-rule"></span><small>一份可探索的宇宙</small></a><div class="landing-actions"><button id="landing-lang" class="quiet-button" aria-label="切换语言">中 <span>/ EN</span></button><button id="landing-audio" class="quiet-button">音乐 · 关</button></div></header>
+    <div class="landing-copy"><p class="landing-kicker"><span></span><span data-i18n="subtitle">一份四维的太阳系 · 空间 · 时间 · 观测</span></p><h1 id="landing-title" data-i18n="title">太阳系图谱</h1><p class="landing-description" data-i18n="intro">从太阳的米粒组织到遥远的柯伊伯带。沿着行星轨道，重访人类的探测旅程；再回到这颗蓝色星球，走进洋流、深海与生命。</p>
+      <div class="landing-stats"><div><strong id="stat-missions">38</strong><span data-i18n="missions">探测任务</span></div><div><strong>11</strong><span data-i18n="planets">太阳与行星卫星</span></div><div><strong>6,000</strong><span data-i18n="particles">轨道粒子 · 示意</span></div><div><strong id="stat-years">69</strong><span data-i18n="timespan">航天时代 · 年</span></div></div>
+      <div class="landing-cta"><button class="primary-button" id="enter-atlas"><span data-i18n="enter">进入图谱</span><svg><use href="#i-arrow"/></svg></button><button class="secondary-button" id="enter-deep"><svg><use href="#i-deep"/></svg><span data-i18n="enterDeep">直接看深空</span></button></div><p class="entry-hint"><kbd>Enter</kbd> 或向下滚动，开始探索</p>
+    </div>
+    <footer class="landing-footer"><div><span>SOLAR ATLAS · 自建复刻</span><button class="text-button" data-action="about">项目与数据来源 ↗</button></div><p>万物的中央，坐着太阳。<small>— 哥白尼 · 1543</small></p></footer>
+  </section>
+
+  <div id="explorer-ui" hidden>
+    <header class="explorer-header">
+      <div class="breadcrumbs"><button class="icon-button" id="home" aria-label="回到主页" title="回到主页 · H"><svg><use href="#i-home"/></svg></button><button id="root-crumb" class="crumb"><i class="sun-dot"></i><span>太阳系</span></button><button id="selected-crumb" class="crumb selected-crumb" hidden></button><button id="open-detail" class="detail-button" hidden><span data-i18n="details">详情</span><kbd>D</kbd></button></div>
+      <nav id="mode-nav" class="mode-nav" role="tablist" aria-label="探索模式">
+        <button role="tab" aria-selected="true" data-mode="atlas" title="图谱 · 1"><svg><use href="#i-atlas"/></svg><span data-i18n="atlas">图谱</span></button>
+        <button role="tab" aria-selected="false" data-mode="three" title="三维 · 2"><svg><use href="#i-cube"/></svg><span data-i18n="three">三维</span></button>
+        <button role="tab" aria-selected="false" data-mode="live" title="实时 · 3"><svg><use href="#i-live"/></svg><span data-i18n="live">实时</span></button><i class="nav-divider"></i>
+        <button role="tab" aria-selected="false" data-mode="deep" title="深空 · 4"><svg><use href="#i-deep"/></svg><span data-i18n="deep">深空</span></button>
+        <button role="tab" aria-selected="false" data-mode="flight" title="模拟 · 5"><svg><use href="#i-rocket"/></svg><span data-i18n="flight">模拟</span></button>
+      </nav>
+      <div class="tools"><button id="open-search" class="search-trigger" aria-label="搜索天体与任务"><svg><use href="#i-search"/></svg><span data-i18n="search">搜索天体、任务…</span><kbd>Ctrl K</kbd></button><button class="icon-button" data-panel="science" aria-label="科学图层" title="科学图层 · S"><svg><use href="#i-science"/></svg><b id="science-badge" hidden>0</b></button><button class="icon-button" data-panel="layers" aria-label="图层" title="图层 · L"><svg><use href="#i-layers"/></svg></button><button class="icon-button" data-panel="quality" aria-label="画质" title="画质 · G"><svg><use href="#i-aperture"/></svg></button><button class="icon-button" data-panel="more" aria-label="更多"><svg><use href="#i-more"/></svg></button></div>
+    </header>
+    <aside id="quote" class="quote"><span class="eyebrow">ASTRONOMICAL VOICES · 天文学思想长廊</span><p id="quote-text">万物的中央，坐着太阳。</p><small id="quote-author">— 哥白尼 · 1543</small></aside>
+    <aside id="planet-rail" class="planet-rail" aria-label="天体快速导航"></aside>
+    <div class="zoom-controls"><button class="icon-button" id="zoom-in" aria-label="放大">＋</button><button class="icon-button" id="zoom-out" aria-label="缩小">−</button><button class="icon-button" id="reset-view" aria-label="重置视角">◎</button></div>
+    <div id="view-caption" class="view-caption"><span class="status-dot"></span><span id="view-caption-text">距离与天体尺寸经压缩 · 轨道方向为示意排布</span></div>
+    <section id="timeline" class="timeline" aria-label="航天任务时间线"><button id="timeline-toggle" class="timeline-handle" aria-label="展开时间线" aria-expanded="false"></button><div class="timeline-top"><div class="timeline-summary"><strong id="timeline-year">2026</strong><span id="timeline-count">38 收录任务</span><span class="timeline-extra">人类的探索足迹</span></div><button id="timeline-play" class="pill-button"><span>▶</span><span data-i18n="replay">回放这段时期</span></button><small>拖动时间线 · 圆点是发射事件 · 横条是任务跨度</small></div><div class="timeline-events" id="timeline-events"></div><input id="year-range" type="range" min="1957" max="2026" step="0.02" value="2026" aria-label="年份"><div id="timeline-ticks" class="timeline-ticks"></div><div id="timeline-list" class="timeline-list"></div></section>
+    <div id="deep-status" class="deep-status" hidden><p>拖动环顾全天 · 滚轮缩放 · 单击标记查看档案</p><div><span>RA <b id="sky-ra">268.0°</b></span><span>DEC <b id="sky-dec">−27.0°</b></span><span>FOV <b id="sky-fov">72.0°</b></span><span>星 <b id="sky-stars">—</b></span></div><small>观测影像 · 非实时天空 · ESO / S. Brunier · Stellarium</small></div>
+    <button id="deep-directory" class="icon-button deep-directory" aria-label="深空目录" hidden><svg><use href="#i-book"/></svg></button>
+
+    <section id="flight-ui" class="flight-ui" hidden aria-label="飞行仪表">
+      <div class="flight-crosshair" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <aside class="flight-left"><div class="hud-card"><span class="eyebrow">真实比例飞行 · 任务时间</span><strong class="flight-timer" id="flight-timer">T+ 00:00:00</strong><small id="flight-date"></small><div class="hud-row"><button class="pill-button" id="flight-reset">重置航程</button><button class="pill-button" id="flight-exit">退出模拟</button></div></div><div class="hud-card"><p class="hud-heading">导航</p><dl><dt>日心距离</dt><dd id="flight-sun">1.000 AU</dd><dt>最近天体</dt><dd id="flight-closest">地球</dd><dt>本次航程</dt><dd id="flight-travel">0 km</dd></dl><p class="hud-heading">环境与引力</p><dl><dt>太阳辐照</dt><dd id="flight-irradiance">1,361 W/m²</dd><dt>光行时 · 太阳</dt><dd id="flight-light">8:19</dd><dt>当地引力</dt><dd id="flight-gravity">— m/s²</dd><dt>逃逸速度</dt><dd id="flight-escape">— km/s</dd><dt>洛伦兹因子 Γ</dt><dd id="flight-gamma">1.000000</dd></dl></div></aside>
+      <aside class="flight-right"><div class="hud-card target-card"><span class="eyebrow">目标 · 行星</span><h2 id="flight-target-name">地球</h2><dl><dt>距离</dt><dd id="flight-target-distance">— km</dd><dt>预计到达</dt><dd id="flight-eta">—</dd></dl><div class="hud-row"><button id="flight-align" class="pill-button">对准 · Z</button><button id="flight-auto" class="pill-button" aria-pressed="false">自动驾驶 · G</button></div></div><div class="hud-card flight-targets"><p class="hud-heading">导航目标</p><div id="flight-targets"></div></div><div class="hud-card flight-help"><p class="hud-heading">操作 <button class="text-button" id="flight-help-toggle">收起</button></p><div id="flight-help-content"><p><kbd>W A S D</kbd> 推进 / 平移</p><p><kbd>R / F</kbd> 上升 / 下降 <kbd>Shift</kbd> 加速</p><p><kbd>拖动</kbd> 转动视线 <kbd>滚轮</kbd> 巡航档位</p><p><kbd>X</kbd> 急停 <kbd>Z</kbd> 对准 <kbd>G</kbd> 自动驾驶</p><p><kbd>T</kbd> 下个目标 <kbd>Esc</kbd> 退出模拟</p></div></div></aside>
+      <div class="flight-bottom"><div class="dial"><strong id="flight-speed">0.0</strong><span>km/s · 速度</span></div><div class="dial"><strong id="flight-altitude">—</strong><span>km · 高度</span></div><div class="flight-caption"><b id="flight-bottom-target">地球</b><small id="flight-cruise">巡航 1,142 km/s</small><p>行星采用 J2000 轨道根数近似 · 尺寸与距离为真实比例 · 飞行时间独立于历法时间</p></div><div class="dial"><strong id="flight-distance">—</strong><span>km · 距目标</span></div><div class="dial"><strong id="flight-gforce">0.00</strong><span>G · 引力</span></div></div>
+    </section>
+
+    <section id="globe-ui" class="globe-ui" hidden aria-label="地球与海洋">
+      <nav class="globe-toolbar" aria-label="地球探索"><button id="back-solar" class="pill-button">← 太阳系</button><button data-ocean-panel="views" class="pill-button">地球 <span id="globe-layer-name">自然视图</span>⌄</button><button data-ocean-panel="library" class="pill-button">资料库</button><button data-ocean-panel="lesson" class="pill-button">探索路径</button><button data-ocean-panel="deep" class="pill-button">深海剖面</button><button data-ocean-panel="dive" class="pill-button">潜水</button><button data-ocean-panel="weather" class="pill-button">位置气象</button></nav>
+      <div class="globe-search"><form id="geo-search"><svg><use href="#i-search"/></svg><input id="geo-query" aria-label="搜索地点或经纬度" placeholder="北京、太平洋，或 经度,纬度"><button type="submit" aria-label="前往地点">↵</button></form></div>
+      <aside class="globe-legend" id="globe-legend"><b>摄影云层</b><p>保存的卫星摄影合成 · 非实时影像</p><small>Solar System Scope · CC BY 4.0</small></aside>
+      <footer class="globe-footer"><span>地球与海洋 · 空间、环境与生命</span><span id="globe-coordinate">单击地球查询位置</span><button class="text-button" data-action="about">数据来源 ↗</button></footer>
+    </section>
+    <div id="fps" class="fps" hidden></div>
+  </div>
+
+  <aside id="panel" class="side-panel" hidden aria-label="设置面板"><div class="panel-head"><div><span class="eyebrow" id="panel-kicker"></span><h2 id="panel-title"></h2></div><button class="icon-button" id="close-panel" aria-label="关闭面板"><svg><use href="#i-close"/></svg></button></div><div id="panel-content" class="panel-content"></div></aside>
+  <aside id="archive" class="archive" hidden aria-label="天体与任务档案"><header class="archive-header"><span class="eyebrow" id="archive-kicker">WORLD ARCHIVE</span><button id="close-archive" class="icon-button" aria-label="关闭档案"><svg><use href="#i-close"/></svg></button></header><div id="archive-content" class="archive-content"></div></aside>
+  <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-heading"><h2 id="search-heading" class="sr-only">搜索图谱</h2><div class="search-input-row"><svg><use href="#i-search"/></svg><input id="search-input" placeholder="搜索天体、卫星、任务，或输入一个操作…" autocomplete="off" aria-label="搜索图谱" role="combobox" aria-controls="search-results" aria-expanded="true" aria-autocomplete="list"><button class="key-button" id="close-search">Esc</button></div><div id="search-results" class="search-results" role="listbox" aria-label="搜索结果"></div><footer><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 前往</span><span id="search-count"></span></footer></dialog>
+  <dialog id="info-dialog" class="info-dialog" aria-labelledby="info-title"><header><div><span class="eyebrow" id="info-kicker">SOLAR ATLAS</span><h2 id="info-title"></h2></div><button id="close-info" class="icon-button" aria-label="关闭对话框"><svg><use href="#i-close"/></svg></button></header><div id="info-content"></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

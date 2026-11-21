@@ -48,6 +48,9 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Build solar atlas into its own Pages directory
+        run: node scripts/build-solar-atlas-site.mjs
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:

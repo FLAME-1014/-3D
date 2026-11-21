@@ -1,0 +1,118 @@
+{
+  "downloadedAt": "2026-11-21T03:21:25.134Z",
+  "assets": [
+    {
+      "local": "textures/sun.jpg",
+      "bytes": 3696361,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/sun_sss-4k.jpg"
+    },
+    {
+      "local": "textures/mercury.jpg",
+      "bytes": 872555,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/mercury-2k.jpg"
+    },
+    {
+      "local": "textures/venus.jpg",
+      "bytes": 229696,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/venus_atmosphere-2k.jpg"
+    },
+    {
+      "local": "textures/earth.jpg",
+      "bytes": 463087,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/earth_daymap-2k.jpg"
+    },
+    {
+      "local": "textures/earth-night.jpg",
+      "bytes": 255287,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/earth_nightmap-2k.jpg"
+    },
+    {
+      "local": "textures/earth-clouds.jpg",
+      "bytes": 829367,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/earth_clouds_nasa-2k.jpg"
+    },
+    {
+      "local": "textures/moon.jpg",
+      "bytes": 1053869,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/moon-2k.jpg"
+    },
+    {
+      "local": "textures/mars.jpg",
+      "bytes": 750547,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/mars-2k.jpg"
+    },
+    {
+      "local": "textures/jupiter.jpg",
+      "bytes": 498976,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/jupiter-2k.jpg"
+    },
+    {
+      "local": "textures/saturn.jpg",
+      "bytes": 199916,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/saturn-2k.jpg"
+    },
+    {
+      "local": "textures/saturn-ring.png",
+      "bytes": 12119,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/saturn-ring-2k.png"
+    },
+    {
+      "local": "textures/uranus.jpg",
+      "bytes": 77751,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/uranus-2k.jpg"
+    },
+    {
+      "local": "textures/neptune.jpg",
+      "bytes": 241580,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/neptune-2k.jpg"
+    },
+    {
+      "local": "textures/pluto.jpg",
+      "bytes": 354072,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/planets/pluto_nh-2k.jpg"
+    },
+    {
+      "local": "textures/milky-way.jpg",
+      "bytes": 18387768,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/sky/milky-way-8k.jpg"
+    },
+    {
+      "local": "catalog/constellations.json",
+      "bytes": 198253,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/sky/catalog.json"
+    },
+    {
+      "local": "catalog/dso.json",
+      "bytes": 1007122,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/sky/dso.json"
+    },
+    {
+      "local": "catalog/bright-stars.json",
+      "bytes": 125857,
+      "cached": true,
+      "url": "https://solar-system-atlas.pages.dev/sky/stars/bright-names.json"
+    },
+    {
+      "local": "catalog/STELLARIUM-CREDITS.md",
+      "bytes": 9727,
+      "url": "https://solar-system-atlas.pages.dev/sky/STELLARIUM-CREDITS.md"
+    }
+  ]
+}

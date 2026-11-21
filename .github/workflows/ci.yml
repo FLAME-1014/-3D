@@ -40,6 +40,11 @@ jobs:
         with:
           node-version: 20
 
+      - name: Validate and prepare solar atlas site
+        run: |
+          npm run check --prefix solar-atlas
+          node scripts/build-solar-atlas-site.mjs
+
       - name: Syntax and local reference checks
         run: npm run check
 
